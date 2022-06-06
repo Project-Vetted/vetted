@@ -17,16 +17,16 @@ public class User {
     private String email;
     private String password;
 
-//    @Enumerated(EnumType.STRING)
-//    private Role role = Role.USER;
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.USER;
 
 //    @OneToMany(mappedBy = "user")
 //    @JsonIgnoreProperties("user")
 //    private List<Post> posts = new ArrayList<>();
 
-//    public enum Role {USER, ADMIN}
-//
-//    ;
+    public enum Role {USER, ADMIN}
+
+    ;
 
     public User(Long id, String username, String email, String password) {
         this.id = id;

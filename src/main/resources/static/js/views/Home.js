@@ -1,5 +1,6 @@
 export default function Home(props) {
-    console.log("The frontend did it. HER FAULT");
+
+    //language=HTML
     return `
         <header>
             <h1>Home Page</h1>
@@ -8,7 +9,7 @@ export default function Home(props) {
             <div>
                 <p>
                     This is the home page text.
-                </p>    
+                </p>
             </div>
         </main>
     `;
