@@ -1,6 +1,4 @@
 import Home from "./views/Home.js";
-import PostIndex, {PostsEvent} from "./views/PostIndex.js";
-import About from "./views/About.js";
 import Error404 from "./views/Error404.js";
 import Loading from "./views/Loading.js";
 import Login from "./views/Login.js";
@@ -43,6 +41,12 @@ export default function router(URI) {
             uri: '/user',
             title: 'User',
             viewEvent: UserEvent
+        },
+        '/error': {
+            returnView: Error404,
+            state: {},
+            uri: location.pathname,
+            title: ' ERROR',
         },
         '/loading': {
             returnView: Loading,
