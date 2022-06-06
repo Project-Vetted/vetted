@@ -1,9 +1,7 @@
 package com.example.vetted.web;
 
-import com.example.vetted.data.Post;
 import com.example.vetted.data.User;
 import com.example.vetted.service.UserService;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -46,18 +44,15 @@ public class UsersController {
         return null;
     }
 
+    //TODO: Get user passwords working on end to end testing
     @PostMapping("create")
     public void create(@RequestBody User newUser) {
-        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        newUser.setPassword(newUser.getPassword());
         userService.createUser(newUser);
     }
 
-    @PostMapping("{username}")
-    public void addUserPost(@PathVariable String username, @RequestBody Post newPost) {
-        User user = userService.getUserByUsername(username);
-        user.getPosts().add(newPost);
-    }
 
+    //TODO: Test update password
     @PutMapping("{id}/updatePassword")
     public void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
 
