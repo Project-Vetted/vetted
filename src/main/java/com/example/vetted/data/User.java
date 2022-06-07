@@ -3,7 +3,6 @@ package com.example.vetted.data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +17,12 @@ public class User {
     private String email;
     private String password;
 
-//    @Enumerated(EnumType.STRING)
-//    private Role role = Role.USER;
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.USER;
 
 //    @OneToMany(mappedBy = "user")
 //    @JsonIgnoreProperties("user")
-    private List<Post> posts = new ArrayList<>();
+//    private List<Post> posts = new ArrayList<>();
 
     public enum Role {USER, ADMIN}
 
@@ -77,13 +76,13 @@ public class User {
         this.password = password;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+//    public LocalDateTime getCreatedAt() {
+//        return createdAt;
+//    }
+//
+//    public void setCreatedAt(LocalDateTime createdAt) {
+//        this.createdAt = createdAt;
+//    }
 
     public Role getRole() {
         return role;
@@ -93,14 +92,6 @@ public class User {
         this.role = role;
     }
 
-    public List<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -108,8 +99,20 @@ public class User {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", createdAt=" + createdAt +
                 ", role=" + role +
                 '}';
     }
+
+
+    //    @Override
+//    public String toString() {
+//        return "User{" +
+//                "id=" + id +
+//                ", username='" + username + '\'' +
+//                ", email='" + email + '\'' +
+//                ", password='" + password + '\'' +
+//                ", createdAt=" + createdAt +
+//                ", role=" + role +
+//                '}';
+//    }
 }

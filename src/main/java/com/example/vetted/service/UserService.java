@@ -1,9 +1,11 @@
 package com.example.vetted.service;
 
-import com.example.restblog.data.*;
+import com.example.vetted.data.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+//TODO:  (UserService) Review Template and Refactor as necessary
 
 @Service
 public class UserService {
