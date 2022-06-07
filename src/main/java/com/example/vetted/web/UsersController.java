@@ -9,6 +9,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+//TODO: (UsersController) Review Template and Refactor as necessary
+
 @RestController
 @RequestMapping(value = "api/users", headers = "Accept=application/json")
 public class UsersController {
