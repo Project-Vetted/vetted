@@ -43,9 +43,8 @@ export function RegisterEvent() {
             method: 'POST',
             body: JSON.stringify(reqBody)
         }
-//TODO: Line 48 is receiving an empty string and causing an error in console (theory)
+
         fetch("http://localhost:8080/api/users/create", options)
-            .then(res => res.json())
             .then(data => console.log(data))
             .catch(err => console.log(err))
     })
