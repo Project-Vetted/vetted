@@ -83,14 +83,14 @@ public class User {
 //    public void setCreatedAt(LocalDateTime createdAt) {
 //        this.createdAt = createdAt;
 //    }
-//
-//    public Role getRole() {
-//        return role;
-//    }
-//
-//    public void setRole(Role role) {
-//        this.role = role;
-//    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     @Override
     public String toString() {
@@ -99,6 +99,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", role=" + role +
                 '}';
     }
 
