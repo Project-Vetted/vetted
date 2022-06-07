@@ -2,6 +2,7 @@ package com.example.vetted.web;
 
 import com.example.vetted.data.User;
 import com.example.vetted.service.UserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -13,11 +14,11 @@ import java.util.List;
 public class UsersController {
 
     private final UserService userService;
-//    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
-    public UsersController(UserService userService/*, PasswordEncoder passwordEncoder*/) {
+    public UsersController(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
-//        this.passwordEncoder = passwordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -47,7 +48,7 @@ public class UsersController {
     //TODO: Get user passwords working on end to end testing
     @PostMapping("create")
     public void create(@RequestBody User newUser) {
-        newUser.setPassword(newUser.getPassword());
+        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         userService.createUser(newUser);
     }
 
