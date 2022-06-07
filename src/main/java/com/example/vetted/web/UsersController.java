@@ -25,18 +25,18 @@ public class UsersController {
         return userService.getUsersList();
     }
 
-    @GetMapping("{id}")
-    public User getById(@PathVariable Long id) {
+//    @GetMapping("{id}")
+//    public User getById(@PathVariable Long id) {
+//
+//        return userService.getUserById(id);
+//    }
 
-        return userService.getUserById(id);
-    }
-
-    @GetMapping("username")
-    public User getByUsername(@RequestParam String username) {
-
-        System.out.println("Getting user with username: " + username);
-        return userService.getUserByUsername(username);
-    }
+//    @GetMapping("username")
+//    public User getByUsername(@RequestParam String username) {
+//
+//        System.out.println("Getting user with username: " + username);
+//        return userService.getUserByUsername(username);
+//    }
 
     @GetMapping("email")
     public User getByEmail(@RequestParam String email) {
@@ -53,16 +53,16 @@ public class UsersController {
 
 
     //TODO: Test update password
-    @PutMapping("{id}/updatePassword")
-    public void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
+//    @PutMapping("{id}/updatePassword")
+//    public void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
+//
+//        User userToUpdate = getById(id);
+//        userToUpdate.setPassword(newPassword);
+//        System.out.println(userToUpdate.getPassword());
+//    }
 
-        User userToUpdate = getById(id);
-        userToUpdate.setPassword(newPassword);
-        System.out.println(userToUpdate.getPassword());
-    }
-
-    @PatchMapping("{userId}")
-    public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail) {
-        userService.updateEmail(userId, newEmail);
-    }
+//    @PatchMapping("{userId}")
+//    public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail) {
+//        userService.updateEmail(userId, newEmail);
+//    }
 }
