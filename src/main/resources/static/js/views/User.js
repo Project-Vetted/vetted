@@ -10,11 +10,13 @@ export default function UserIndex(props) {
         </header>
         <main>
             <form id="user-info-form">
-            <label for="email">Email</label>
-            <input disabled id="email" name="email" type="email" value="${props.user.email}">
-            <label for="new-password">New Password</label>
-            <input id="new-password" name="new-password" type="password" value="this is not your real password"/>
-            <button id="change-password-button" data-id="${props.user.id}" type="submit">Change Password</button>
+                <label for="email">Email</label>
+                <input disabled id="email" name="email" type="email" value="${props.user.email}">
+                <!--                <label for="old-password">Old Password</label>-->
+                <!--                <input disabled id="old-password" name="old-password" type="password" value="this is not your real password"/>-->
+                <label for="new-password">New Password</label>
+                <input id="new-password" name="new-password" type="password" value="this is not your real password"/>
+                <button id="change-password-button" data-id="${props.user.id}" type="submit">Change Password</button>
             </form>
         </main>
     `
@@ -25,7 +27,7 @@ export function UserEvent() {
 }
 
 function addUpdatePasswordListener() {
-    $(document).on('click', '#change-password-button', function(e) {
+    $(document).on('click', '#change-password-button', function (e) {
         e.preventDefault();
         const id = $(this).data("id");
         const newPassword = $("#new-password").val();
@@ -33,7 +35,7 @@ function addUpdatePasswordListener() {
         const request = {
             method: "PUT",
             headers: {
-                'Content-Type': 'application.json'
+                'Content-Type': 'application/json'
             }
         }
 
@@ -41,9 +43,9 @@ function addUpdatePasswordListener() {
             .then(res => {
                 console.log(res.status);
             }).catch(error => {
-            console.log(error);
-        }).finally(() => {
-            createView("/user")
-        })
+                console.log(error);
+            }).finally(() => {
+                createView("/user")
+            })
     })
 }
