@@ -46,6 +46,7 @@ CREATE TABLE users
     username VARCHAR(60)  NOT NULL,
     password VARCHAR(60)  NOT NULL,
     email    VARCHAR(200) NOT NULL,
+    photoUrl VARCHAR(200) NOT NULL,
     role     VARCHAR(32)  NOT NULL,
     PRIMARY KEY (id)
 );
