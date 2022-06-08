@@ -1,10 +1,6 @@
 package com.example.vetted.data;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -19,10 +15,6 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
-
-//    @OneToMany(mappedBy = "user")
-//    @JsonIgnoreProperties("user")
-//    private List<Post> posts = new ArrayList<>();
 
     public enum Role {USER, ADMIN}
 
@@ -76,14 +68,6 @@ public class User {
         this.password = password;
     }
 
-//    public LocalDateTime getCreatedAt() {
-//        return createdAt;
-//    }
-//
-//    public void setCreatedAt(LocalDateTime createdAt) {
-//        this.createdAt = createdAt;
-//    }
-
     public Role getRole() {
         return role;
     }
@@ -102,17 +86,4 @@ public class User {
                 ", role=" + role +
                 '}';
     }
-
-
-    //    @Override
-//    public String toString() {
-//        return "User{" +
-//                "id=" + id +
-//                ", username='" + username + '\'' +
-//                ", email='" + email + '\'' +
-//                ", password='" + password + '\'' +
-//                ", createdAt=" + createdAt +
-//                ", role=" + role +
-//                '}';
-//    }
 }

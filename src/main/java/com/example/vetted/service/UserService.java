@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//TODO:  (UserService) Review Template and Refactor as necessary
-
 @Service
 public class UserService {
 
@@ -16,26 +14,58 @@ public class UserService {
         this.usersRepository = usersRepository;
     }
 
-    public List<User> getUsersList() {
-        return usersRepository.findAll();
-    }
+//    public List<User> getUsersList() { // TODO: rename this 'getAllUsers'
+//        return usersRepository.findAll();
+//    }
 
     public User getUserById(Long id) {
-
-        return usersRepository.findById(id).orElseThrow();
+        return usersRepository.findById(id).orElseThrow(); //throws an exception if the user cannot be found by id
     }
 
-    public User getUserByUsername(String username) {
-        return usersRepository.findByUsername(username);
+//    public User getUserByUsername(String username) {
+//        return usersRepository.findByUsername(username);
+//    }
+
+    public User getByEmail(String email) {
+        return usersRepository.findByEmail(email).orElseThrow();
     }
 
-    public void updateEmail(Long userId, String newEmail) {
-        User user = getUserById(userId);
-        user.setEmail(newEmail);
+//    public void updateEmail(Long userId, String newEmail){
+//        User user = getUserById(userId);
+//        user.setEmail(newEmail);
+//        usersRepository.save(user);
+//    }
+
+    public void createUser(User user) {
         usersRepository.save(user);
     }
 
-    public void createUser (User user) {
-        usersRepository.save(user);
-    }
+//    public void updatePassword(Long userId, String newPassword){
+//
+//    }
+
+//  TODO: Test & Implement User Role Methods Below
+
+//    public void checkRole(Long id){
+//        User userCheck = getUserById(id);
+//        if(userCheck.getRole() == VERIFIED){
+//            System.out.println("IS VERIFIED");
+//        }else if (userCheck.getRole() == USER){
+//            System.out.println("IS USER");
+//        }else if (userCheck.getRole() == VISITOR){
+//            System.out.println("IS VISITOR");
+//        }
+//    }
+
+//        public void updateRole(Long id){
+//        User userUpdateRole = getUserById(id);
+//        userUpdateRole.setRole();
+//        }
+
+//    public void updateRole(Long id, User.Role newRole) {
+//        User user = getUserById(id);
+//        user.setRole(newRole);
+//        usersRepository.save(user);
+//    }
+
 }
