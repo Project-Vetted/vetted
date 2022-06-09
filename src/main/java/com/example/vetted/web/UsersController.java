@@ -84,4 +84,16 @@ public class UsersController {
 //        userService.updateRole(id, updateRole);
 //    }
 
+
+// TODO: Refactor & Implement Category Methods Below
+
+//    @PostMapping("{username}")
+//    public void createByUsername(@PathVariable String username, @RequestBody CreatePostDto dto){
+//        // Nice and clean, huh?
+//        Post newPost = new Post();
+//        postService.addPost(dto, newPost,username);
+////        emailService.prepareAndSend(newPost, "New Post Created", "You've created a new post.");
+//    }
+
+
 }

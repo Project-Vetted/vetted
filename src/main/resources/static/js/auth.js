@@ -15,7 +15,7 @@ export default function addLoginEvent() {
         }
         console.log("got to login event")
 
-        //TODO: Should we refactor rest-blog-client to vetted-client on lines 24 &26? Creates weird login event.
+        //TODO: Should we refactor rest-blog-client to vetted-client on lines 24 & 26? Creates weird login event.
 
         let request = {
             method: "POST",

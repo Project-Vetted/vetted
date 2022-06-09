@@ -1,6 +1,8 @@
 package com.example.vetted.data;
 
 import javax.persistence.*;
+import java.util.Collection;
+
 
 @Entity
 @Table(name = "users")
@@ -16,9 +18,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
-    public enum Role {USER, ADMIN}
+    @OneToMany(mappedBy = "user")
+    private Collection<Category> categories;
 
-    ;
+    public enum Role {USER, ADMIN};
 
     public User(Long id, String username, String email, String password) {
         this.id = id;
@@ -74,6 +77,14 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Collection<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Collection<Category> categories) {
+        this.categories = categories;
     }
 
     @Override
