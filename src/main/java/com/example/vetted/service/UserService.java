@@ -68,4 +68,31 @@ public class UserService {
 //        usersRepository.save(user);
 //    }
 
+// TODO: Refactor & Implement Category Methods Below
+
+//    // We need to associate posts and users here
+//    public void addPost(CreatePostDto dto, Post newPost, String username) {
+//
+//        // get the User object who made the post
+//        User user = userService.getUserByUsername(username);
+//
+//        newPost.setTitle(dto.getTitle());
+//        newPost.setContent(dto.getContent());
+//
+//        // associate the post with the user object
+//        user.getPosts().add(newPost);
+//        // associate the *user* with the post object
+//        newPost.setUser(user);
+//
+//        List<Category> categoriesToAdd = new ArrayList<>();
+//
+//        for (String categoryName : dto.getCategories()) {
+//            categoriesToAdd.add(categoriesRepository.findCategoryByName(categoryName));
+//        }
+//
+//        newPost.setCategories(categoriesToAdd);
+//
+//        postsRepository.save(newPost);
+//    }
+
 }

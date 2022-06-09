@@ -1,4 +1,3 @@
-
 DROP DATABASE if exists vetted_db;
 
 CREATE DATABASE if not exists vetted_db;
@@ -14,3 +13,12 @@ CREATE TABLE users
     role     VARCHAR(32)  NOT NULL,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE categories
+(
+    id   INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    name VARCHAR(60),
+    PRIMARY KEY (id),
+    FOREIGN KEY(user_id) REFERENCES users (id)
+)
