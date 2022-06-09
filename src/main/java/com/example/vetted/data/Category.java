@@ -16,7 +16,6 @@ public class Category {
     @ManyToOne
     private User user; //each selected category is unique to 1 user
 
-
     public Long getId() {
         return id;
     }
