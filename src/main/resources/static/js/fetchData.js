@@ -15,7 +15,7 @@ export default function fetchData(state, request) {
     for (let pieceOfState of Object.keys(state)) {
         console.log(baseUri + state[pieceOfState]);
         promises.push(
-            fetch(baseUri + state[pieceOfState], request) //TODO: Getting a 404 Error and link to this line (login)
+            fetch(baseUri + state[pieceOfState], request)
                 .then(function (res) {
                     return res.json();
                 }));

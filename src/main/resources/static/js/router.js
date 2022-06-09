@@ -65,4 +65,3 @@ export default function router(URI) {
 
     return routes[URI];
 }
-
