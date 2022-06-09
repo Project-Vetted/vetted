@@ -3,6 +3,7 @@ package com.example.vetted.service;
 import com.example.vetted.data.*;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -93,6 +94,15 @@ public class UserService {
 //        newPost.setCategories(categoriesToAdd);
 //
 //        postsRepository.save(newPost);
+//    }
+
+    public Collection<Category> getUserCategories(long id){
+        User user = getUserById(id);
+        return user.getCategories();
+    }
+
+//    public List<Category> getCategoryByKeyword(String keyword) {
+//        return categoriesRepository.searchCategoriesBy(keyword);
 //    }
 
 }

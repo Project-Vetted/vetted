@@ -1,5 +1,6 @@
 package com.example.vetted.web;
 
+import com.example.vetted.data.Category;
 import com.example.vetted.data.User;
 import com.example.vetted.service.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -30,17 +32,17 @@ public class UsersController {
 //    }
 
     @GetMapping("{id}")
-    public User getById(@PathVariable long id){
+    public User getById(@PathVariable long id) {
         return userService.getUserById(id);
     }
 
     @GetMapping("me")
-    public User getCurrentUser(OAuth2Authentication auth){
+    public User getCurrentUser(OAuth2Authentication auth) {
         return userService.getByEmail(auth.getName());
     }
 
     @PostMapping("create")
-    public void create(@RequestBody User newUser){
+    public void create(@RequestBody User newUser) {
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         userService.createUser(newUser);
     }
@@ -56,7 +58,6 @@ public class UsersController {
         System.out.println("Getting user with email: " + email);
         return null;
     }
-
 
 
 //    @PreAuthorize("hasAuthority('ADMIN') || @userService.getUserById(#id).email == authentication.name")
@@ -95,5 +96,16 @@ public class UsersController {
 ////        emailService.prepareAndSend(newPost, "New Post Created", "You've created a new post.");
 //    }
 
+
+    @GetMapping("user-cat")
+    public Collection<Category> viewUserCategories(@RequestParam long id) {
+        return userService.getUserCategories(id);
+    }
+
+
+//    @GetMapping("search-categories")
+//    public List<Category> searchCategories(@RequestParam String keyword) {
+//        return userService.getCategoryByKeyword(keyword);
+//    }
 
 }

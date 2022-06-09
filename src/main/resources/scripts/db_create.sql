@@ -16,8 +16,8 @@ CREATE TABLE users
 
 CREATE TABLE categories
 (
-    id   INT NOT NULL AUTO_INCREMENT,
-    user_id INT NOT NULL,
+    id   BIGINT NOT NULL AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
     name VARCHAR(60),
     PRIMARY KEY (id),
     FOREIGN KEY(user_id) REFERENCES users (id)
