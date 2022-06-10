@@ -71,7 +71,7 @@ public class UsersController {
 //        userService.updateEmail(userId, newEmail);
 //    }
 
-//TODO: Test and Implement User Role Methods Below
+//TODO: Refactor, Test and Implement User Role Methods Below
 
     //checking the role of a user
 //    @GetMapping("role-check")
@@ -86,7 +86,7 @@ public class UsersController {
 //    }
 
 
-// TODO: Refactor & Implement Category Methods Below
+// TODO: Refactor, Test & Implement Category Methods Below
 
 //    @PostMapping("{username}")
 //    public void createByUsername(@PathVariable String username, @RequestBody CreatePostDto dto){
@@ -103,9 +103,9 @@ public class UsersController {
     }
 
 
-//    @GetMapping("search-categories")
-//    public List<Category> searchCategories(@RequestParam String keyword) {
-//        return userService.getCategoryByKeyword(keyword);
-//    }
+    @GetMapping("search-categories")
+    public List<Category> searchCategories(@RequestParam String keyword) {
+        return userService.getCategoryByKeyword(keyword);
+    }
 
 }
