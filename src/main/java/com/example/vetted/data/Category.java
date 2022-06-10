@@ -27,6 +27,15 @@ public class Category {
     )
     private Collection<User> user;
 
+    public Category(Long id, String name, Collection<User> user) {
+        this.id = id;
+        this.name = name;
+        this.user = user;
+    }
+
+    public Category() {
+    }
+
     public Long getId() {
         return id;
     }
