@@ -18,11 +18,23 @@ public class User {
     private String email;
     private String password;
 
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.REFRESH},
+            targetEntity = User.class)
+    @JoinTable(
+            name="user_point_interactions",
+            joinColumns = {@JoinColumn(name = "user_upvoted", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="user_that_upvoted", nullable = false, updatable = false)},
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
+    @JsonIgnoreProperties({"points", "categories"})
+    private Collection<User> points;
+
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
-//    @OneToMany(mappedBy = "user")
-//    private Collection<Category> categories;
 
     @ManyToMany(
             fetch = FetchType.LAZY,
@@ -104,6 +116,13 @@ public class User {
         this.categories = categories;
     }
 
+    public Collection<User> getPoints() {
+        return points;
+    }
+
+    public void setPoints(Collection<User> points) {
+        this.points = points;
+    }
 
     @Override
     public String toString() {

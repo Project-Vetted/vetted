@@ -17,9 +17,9 @@ public class UserService {
         this.categoriesRepository = categoriesRepository;
     }
 
-//    public List<User> getUsersList() { // TODO: rename this 'getAllUsers'
-//        return usersRepository.findAll();
-//    }
+    public List<User> getAllUsers() {
+        return usersRepository.findAll();
+    }
 
     public User getUserById(Long id) {
         return usersRepository.findById(id).orElseThrow(); //throws an exception if the user cannot be found by id
@@ -105,6 +105,13 @@ public class UserService {
 
     public List<Category> getCategoryByKeyword(String keyword) {
         return categoriesRepository.searchCategoriesBy(keyword);
+    }
+//TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
+
+
+    public int getUserPoints(long id){
+        User user = getUserById(id);
+        return user.getPoints().size();
     }
 
 }
