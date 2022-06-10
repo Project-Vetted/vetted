@@ -1,7 +1,10 @@
 package com.example.vetted.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -18,10 +21,24 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
-    @OneToMany(mappedBy = "user")
+//    @OneToMany(mappedBy = "user")
+//    private Collection<Category> categories;
+
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.REFRESH},
+            targetEntity = Category.class)
+    @JoinTable(
+            name="user_category",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="category_id", nullable = false, updatable = false)},
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
+    @JsonIgnoreProperties("user")
     private Collection<Category> categories;
 
-    public enum Role {USER, ADMIN};
+    public enum Role {VISITOR, USER, VET};
 
     public User(Long id, String username, String email, String password) {
         this.id = id;
@@ -87,6 +104,7 @@ public class User {
         this.categories = categories;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
@@ -95,6 +113,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
+                ", categories=" + categories +
                 '}';
     }
 }

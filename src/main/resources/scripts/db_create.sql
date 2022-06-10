@@ -17,8 +17,16 @@ CREATE TABLE users
 CREATE TABLE categories
 (
     id   BIGINT NOT NULL AUTO_INCREMENT,
-    user_id BIGINT NOT NULL,
     name VARCHAR(60),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE user_category
+(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    category_id BIGINT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY(user_id) REFERENCES users (id)
-)
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (category_id) REFERENCES categories (id)
+);

@@ -10,9 +10,11 @@ import java.util.List;
 public class UserService {
 
     private final UsersRepository usersRepository;
+    private final CategoriesRepository categoriesRepository;
 
-    public UserService(UsersRepository usersRepository) {
+    public UserService(UsersRepository usersRepository, CategoriesRepository categoriesRepository) {
         this.usersRepository = usersRepository;
+        this.categoriesRepository = categoriesRepository;
     }
 
 //    public List<User> getUsersList() { // TODO: rename this 'getAllUsers'
@@ -101,8 +103,8 @@ public class UserService {
         return user.getCategories();
     }
 
-//    public List<Category> getCategoryByKeyword(String keyword) {
-//        return categoriesRepository.searchCategoriesBy(keyword);
-//    }
+    public List<Category> getCategoryByKeyword(String keyword) {
+        return categoriesRepository.searchCategoriesBy(keyword);
+    }
 
 }
