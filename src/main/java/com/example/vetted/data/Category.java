@@ -1,5 +1,7 @@
 package com.example.vetted.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -25,6 +27,7 @@ public class Category {
             foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
             inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
     )
+    @JsonIgnoreProperties("categories")
     private Collection<User> user;
 
     public Category(Long id, String name, Collection<User> user) {

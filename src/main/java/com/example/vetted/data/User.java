@@ -1,5 +1,7 @@
 package com.example.vetted.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
@@ -33,9 +35,10 @@ public class User {
             foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
             inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
     )
+    @JsonIgnoreProperties("user")
     private Collection<Category> categories;
 
-    public enum Role {USER, ADMIN};
+    public enum Role {VISITOR, USER, VET};
 
     public User(Long id, String username, String email, String password) {
         this.id = id;
