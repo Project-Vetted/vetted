@@ -8,8 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,11 +23,11 @@ public class UsersController {
         this.userService = userService; // injection point of UserService
         this.passwordEncoder = passwordEncoder;
     }
-
-//    @GetMapping
-//    public List<User> getAll(){
-//        return userService.getUsersList();
-//    }
+@PreAuthorize("permitAll()")
+    @GetMapping("all")
+    public List<User> getAll() {
+        return  userService.getAllUsers();
+    }
 
     @GetMapping("{id}")
     public User getById(@PathVariable long id) {
@@ -106,6 +104,13 @@ public class UsersController {
     @GetMapping("search-categories")
     public List<Category> searchCategories(@RequestParam String keyword) {
         return userService.getCategoryByKeyword(keyword);
+    }
+
+    //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
+
+    @GetMapping("user-points")
+    public int viewUserPoints(@RequestParam long id){
+        return userService.getUserPoints(id);
     }
 
 }

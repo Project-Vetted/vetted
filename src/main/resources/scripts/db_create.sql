@@ -30,3 +30,13 @@ CREATE TABLE user_category
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (category_id) REFERENCES categories (id)
 );
+
+CREATE TABLE user_point_interactions
+(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    user_that_upvoted BIGINT NOT NULL,
+    user_upvoted BIGINT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_that_upvoted) REFERENCES users (id),
+    FOREIGN KEY (user_upvoted) REFERENCES users (id)
+);
