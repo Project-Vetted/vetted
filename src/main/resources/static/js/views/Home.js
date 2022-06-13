@@ -11,12 +11,6 @@ export default function Home(props) {
 
 <!--        </head>-->
         <body>
-        <!--preloader for landing page-->
-        <div class="loader">
-            <img src="../../assets/imgs/load-gif.gif" alt="">
-        </div>
-
-        <!--end of preloader for landing page-->
 
         <!--social media header starts-->
         <!--<section class="social-header">-->
