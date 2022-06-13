@@ -2,14 +2,6 @@ export default function Home(props) {
 
     //language=HTML
     return `
-<!--        <head>-->
-<!--            <meta charset="UTF-8"/>-->
-
-<!--            <link rel="stylesheet" href="../../assets/css/style.css">-->
-<!--            <link rel="stylesheet" href="../../assets/css/pre.css">-->
-
-
-<!--        </head>-->
         <body>
 
         <!--social media header starts-->
@@ -259,20 +251,7 @@ export default function Home(props) {
 
         </section>
         <!-- footer section ends -->
-
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-        <!-- Initialize Swiper -->
-        <script>
-            const swiper = new Swiper(".home-slider", {
-                loop: true,
-                grabCursor: true,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-            });
-        </script>
+        
 
         <!-- custom js file link  -->
         <script src="src/main/resources/static/js/main.js"></script>
@@ -285,9 +264,9 @@ export default function Home(props) {
 export function HomeEvent() {
     let navbar = document.querySelector('.header .navbar');
 
-    document.querySelector('#menu-btn').onclick = () =>{
+    document.querySelector('#menu-btn').addEventListener("click",() =>{
         navbar.classList.add('active');
-    }
+    })
 
     document.querySelector('#nav-close').onclick = () =>{
         navbar.classList.remove('active');
