@@ -14,9 +14,9 @@ export default function addLoginEvent() {
             grant_type: 'password'
         }
         console.log("got to login event")
-        // TODO: these are the only request params /oauth/token accepts in Spring Security
-        // TODO: need to possibly implement a random bit handshake w/ SHA256 on the password before sending
-        //      -> Alternatively, encrypt the entire request body
+
+        //TODO: Should we refactor rest-blog-client to vetted-client on lines 24 & 26? Creates weird login event.
+
         let request = {
             method: "POST",
             headers: {
