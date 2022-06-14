@@ -264,6 +264,8 @@ export default function Home(props) {
 export function HomeEvent() {
     let navbar = document.querySelector('.header .navbar');
 
+    //TODO: Refactor to  $(document).on('click', '#register-btn', function (e) {
+
     document.querySelector('#menu-btn').addEventListener("click",() =>{
         navbar.classList.add('active');
     })
