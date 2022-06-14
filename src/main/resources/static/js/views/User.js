@@ -43,9 +43,9 @@ function addUpdatePasswordListener() {
             .then(res => {
                 console.log(res.status);
             }).catch(error => {
-                console.log(error);
-            }).finally(() => {
-                createView("/user")
-            })
+            console.log(error);
+        }).finally(() => {
+            createView("/user")
+        })
     })
 }
