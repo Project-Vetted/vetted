@@ -8,6 +8,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.List;
 
@@ -45,29 +47,34 @@ public class UsersController {
         userService.createUser(newUser);
     }
 
-//    @GetMapping("username")
-//    public User getByUsername(@RequestParam String username) {
-//        System.out.println("Getting user with username: " + username);
-//        return userService.getUserByUsername(username);
-//    }
+    @GetMapping("username")
+    public User getByUsername(@RequestParam String username) {
+        System.out.println("Getting user with username: " + username);
+        return userService.getUserByUsername(username);
+    }
 
     @GetMapping("email")
     public User getByEmail(@RequestParam String email) {
         System.out.println("Getting user with email: " + email);
-        return null;
+        return userService.getByEmail(email);
     }
 
 
-//    @PreAuthorize("hasAuthority('ADMIN') || @userService.getUserById(#id).email == authentication.name")
-//    @PutMapping("{id}/updatePassword")
-//    public void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
-//        userService.updatePassword(id, newPassword);
-//    }
+    @PreAuthorize("permitAll()")
+    @PutMapping("{id}/updatePassword")
+    public void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
+        userService.updatePassword(id, newPassword);
+    }
 
-//    @PatchMapping("{userId}")
-//    public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail){
-//        userService.updateEmail(userId, newEmail);
-//    }
+    @PutMapping("{userId}/updateEmail")
+    public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail){
+        userService.updateEmail(userId, newEmail);
+    }
+
+    @PutMapping("{userId}/updateUsername")
+    public void updateUsername(@PathVariable Long userId, @RequestParam String newUserName){
+        userService.updateuserName(userId, newUserName);
+    }
 
 //TODO: Refactor, Test and Implement User Role Methods Below
 
@@ -106,11 +113,39 @@ public class UsersController {
         return userService.getCategoryByKeyword(keyword);
     }
 
+    @PatchMapping("edit-categories")
+    public User editCategories(@RequestParam long id, String newCategory){
+        return userService.updateUserCategories(id, newCategory);
+    }
+
+    @DeleteMapping("delete-category")
+    public User deleteCategory(@RequestParam long id, String category_name){
+        return userService.deleteUserCategories(id, category_name);
+    }
+
+
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
 
     @GetMapping("user-points")
     public int viewUserPoints(@RequestParam long id){
         return userService.getUserPoints(id);
+    }
+
+    //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER FRIENDS LIST
+
+    @GetMapping("user-friends")
+    public Collection<User> getFriendsList(@RequestParam long id){
+        return userService.getUsersFriends(id);
+    }
+
+    @PatchMapping("add-friends")
+    public User setUserFriends(@RequestParam long id, String newFriendsUsername){
+        return userService.updateUserFriends(id, newFriendsUsername);
+    }
+
+    @DeleteMapping("delete-friends")
+    public User deleteUserFriends(@RequestParam long id, String friends_username){
+        return userService.deleteUserFriend(id, friends_username);
     }
 
 }

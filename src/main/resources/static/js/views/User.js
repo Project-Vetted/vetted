@@ -2,10 +2,13 @@ import createView from "../createView.js";
 
 const BASE_URL = "http://localhost:8080/api/users"
 
+
 export default function UserIndex(props) {
     //language=HTML
     return `
         <header>
+            <h1>.</h1>
+            <h1>.</h1>
             <h1>Welcome, ${props.user.username}</h1>
         </header>
         <main>

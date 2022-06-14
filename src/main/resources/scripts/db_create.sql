@@ -40,3 +40,13 @@ CREATE TABLE user_point_interactions
     FOREIGN KEY (user_that_upvoted) REFERENCES users (id),
     FOREIGN KEY (user_upvoted) REFERENCES users (id)
 );
+
+CREATE TABLE user_friends
+(
+    id BIGINT NOT NULL auto_increment,
+    user_id BIGINT NOT NULL,
+    friend_id BIGINT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (friend_id) REFERENCES users (id)
+);

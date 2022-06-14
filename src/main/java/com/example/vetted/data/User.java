@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
 
 
 @Entity
@@ -32,6 +31,20 @@ public class User {
     @JsonIgnoreProperties({"points", "categories"})
     private Collection<User> points;
 
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.REFRESH},
+            targetEntity = User.class)
+    @JoinTable(
+            name="user_friends",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="friend_id", nullable = false, updatable = false)},
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
+    @JsonIgnoreProperties({"friends", "categories", "points", "user"})
+    private Collection<User> friends;
+
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
@@ -49,6 +62,10 @@ public class User {
     )
     @JsonIgnoreProperties("user")
     private Collection<Category> categories;
+
+    public User(Collection<Category> categories) {
+        this.categories = categories;
+    }
 
     public enum Role {VISITOR, USER, VET};
 
@@ -124,6 +141,14 @@ public class User {
         this.points = points;
     }
 
+    public Collection<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Collection<User> friends) {
+        this.friends = friends;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -131,6 +156,8 @@ public class User {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", points=" + points +
+                ", friends=" + friends +
                 ", role=" + role +
                 ", categories=" + categories +
                 '}';

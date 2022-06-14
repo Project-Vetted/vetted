@@ -11,6 +11,8 @@ export default function Register() {
             <title>Register</title>
         </head>
         <body>
+        <h1>.</h1>
+        <h1>.</h1>
         <h1>Register here!</h1>
 
         <form id="register-form">

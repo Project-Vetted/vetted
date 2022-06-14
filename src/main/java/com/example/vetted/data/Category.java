@@ -36,6 +36,10 @@ public class Category {
         this.user = user;
     }
 
+    public Category (String name){
+        this.name = name;
+    }
+
     public Category() {
     }
 
@@ -55,13 +59,13 @@ public class Category {
         this.name = name;
     }
 
-    public Collection<User> getUser() {
-        return user;
-    }
-
-    public void setUser(Collection<User> user) {
-        this.user = user;
-    }
+//    public Collection<User> getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(Collection<User> user) {
+//        this.user = user;
+//    }
 
     @Override
     public String toString() {
