@@ -1,11 +1,11 @@
-import Home, {HomeEvent} from "./views/Home.js";
-import About from "./views/About.js";
+import Home from "./views/Home.js";
 import Error404 from "./views/Error404.js";
 import Loading from "./views/Loading.js";
 import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
 import Register, {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvent} from "./views/User.js";
+import About from "./views/About.js";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -19,7 +19,6 @@ export default function router(URI) {
             state: {},
             uri: '/',
             title: 'Home',
-            viewEvent: HomeEvent
         },
         '/login': {
             returnView: Login,
@@ -38,7 +37,7 @@ export default function router(URI) {
         '/user': {
             returnView: UserIndex,
             state: {
-                user: '/api/users/me'
+                user: '/api/users'
             },
             uri: '/user',
             title: 'User',
@@ -66,3 +65,4 @@ export default function router(URI) {
 
     return routes[URI];
 }
+
