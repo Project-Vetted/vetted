@@ -37,7 +37,7 @@ export default function router(URI) {
         '/user': {
             returnView: UserIndex,
             state: {
-                user: '/api/users/me'
+                user: '/api/users'
             },
             uri: '/user',
             title: 'User',
@@ -65,3 +65,4 @@ export default function router(URI) {
 
     return routes[URI];
 }
+
