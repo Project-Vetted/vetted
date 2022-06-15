@@ -114,11 +114,11 @@ export default function Dash() {
                 <div class="activity">
                     <h3>Category Selection</h3>
                     <div>
-                        <button type="button">PTSD</button>
-                        <button type="button">Depression</button>
-                        <button type="button">Anxiety</button>
-                        <button type="button">Alcohol Abuse</button>
-                        <button type="button">Sex Addiction</button>
+                        <button type="button" id="ptsd-btn">PTSD</button>
+                        <button type="button" id="depression-btn">Depression</button>
+                        <button type="button" id="anxiety-btn">Anxiety</button>
+                        <button type="button" id="alcohol-btn">Alcohol Abuse</button>
+                        <button type="button" id="sex-btn">Sex Addiction</button>
                     </div>
                 </div>
                 <!--end of dashboard features-->
@@ -131,3 +131,25 @@ export default function Dash() {
         </body>
     `
 }
+
+
+export function DashEvent() {
+
+    $(document).on('click', '#ptsd-btn', function (e) {
+        const reqBody = {
+            user: $('#username').val()
+        }
+
+        const options = {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: 'PATCH',
+            body: JSON.stringify(reqBody)
+        }
+
+        //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 ()
+        fetch("http://localhost:8080/api/users/edit-categories", options)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+    })
