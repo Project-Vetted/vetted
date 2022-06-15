@@ -7,19 +7,23 @@ export default function UserIndex(props) {
     //language=HTML
     return `
         <header>
-            <h1>.</h1>
-            <h1>.</h1>
-            <h1>Welcome, ${props.user.username}</h1>
+            <div style="margin-top: 80px">
+                <h1>Welcome, ${props.user.username}</h1>
+            </div>
         </header>
         <main>
             <form id="user-info-form">
-                <label for="email">Email</label>
-                <input disabled id="email" name="email" type="email" value="${props.user.email}">
-                <!--                <label for="old-password">Old Password</label>-->
-                <!--                <input disabled id="old-password" name="old-password" type="password" value="this is not your real password"/>-->
-                <label for="new-password">New Password</label>
-                <input id="new-password" name="new-password" type="password" value="this is not your real password"/>
-                <button id="change-password-button" data-id="${props.user.id}" type="submit">Change Password</button>
+                <div style="margin-top: 80px">
+                    <label for="email">Email</label>
+                    <input disabled id="email" name="email" type="email" value="${props.user.email}">
+                    <!--                <label for="old-password">Old Password</label>-->
+                    <!--                <input disabled id="old-password" name="old-password" type="password" value="this is not your real password"/>-->
+                    <label for="new-password">New Password</label>
+                    <input id="new-password" name="new-password" type="password"
+                           value="this is not your real password"/>
+                    <button id="change-password-button" data-id="${props.user.id}" type="submit">Change Password
+                    </button>
+                </div>
             </form>
         </main>
     `
