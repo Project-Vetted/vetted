@@ -2,7 +2,18 @@ export default function Home(props) {
 
     //language=HTML
     return `
+        <!--        <head>-->
+        <!--            <meta charset="UTF-8"/>-->
+
+        <!--            <link rel="stylesheet" href="../../assets/css/style.css">-->
+        <!--            <link rel="stylesheet" href="../../assets/css/pre.css">-->
+
+
+        <!--        </head>-->
         <body>
+        <!--preloader for landing page-->
+
+        <!--end of preloader for landing page-->
 
         <!--social media header starts-->
         <!--<section class="social-header">-->
@@ -13,7 +24,7 @@ export default function Home(props) {
         <!--    </nav>-->
         <!--</section>-->
         <!--social media header ends-->
-        
+
 
         <!-- home section starts  -->
 
@@ -25,7 +36,8 @@ export default function Home(props) {
                             <div class="content">
                                 <span>you are not</span>
                                 <h3>alone</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias
+                                    soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
@@ -35,7 +47,8 @@ export default function Home(props) {
                             <div class="content">
                                 <span>this is your</span>
                                 <h3>safe space</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias
+                                    soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
@@ -45,7 +58,8 @@ export default function Home(props) {
                             <div class="content">
                                 <span>own your mental</span>
                                 <h3>health</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias
+                                    soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
@@ -67,8 +81,11 @@ export default function Home(props) {
 
             <div class="content">
                 <h3>vetted</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque voluptates corrupti natus necessitatibus beatae voluptatibus, deserunt quo soluta minima libero laborum, corporis error esse vitae placeat blanditiis reiciendis vel? Minima.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta doloremque placeat porro, ipsam quia at beatae atque odit iste?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque voluptates corrupti natus
+                    necessitatibus beatae voluptatibus, deserunt quo soluta minima libero laborum, corporis error esse
+                    vitae placeat blanditiis reiciendis vel? Minima.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta doloremque placeat porro,
+                    ipsam quia at beatae atque odit iste?</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
@@ -82,7 +99,9 @@ export default function Home(props) {
             <h1 class="heading">sign-in/register</h1>
             <div class="swiper register">
                 <div class="register-action">
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum
+                        pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati,
+                        adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
                     <a href="#" class="btn">Register</a>
                 </div>
             </div>
@@ -251,7 +270,20 @@ export default function Home(props) {
 
         </section>
         <!-- footer section ends -->
-        
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            const swiper = new Swiper(".home-slider", {
+                loop: true,
+                grabCursor: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
 
         <!-- custom js file link  -->
         <script src="src/main/resources/static/js/main.js"></script>
@@ -262,39 +294,51 @@ export default function Home(props) {
 }
 
 export function HomeEvent() {
-    let navbar = document.querySelector('.header .navbar');
+    homeBtnEvent();
+    navCloseEvent();
+    searchForm();
 
-    //TODO: Refactor to  $(document).on('click', '#register-btn', function (e) {
+}
 
-    document.querySelector('#menu-btn').addEventListener("click",() =>{
+let navbar = document.querySelector('.header .navbar');
+
+
+function homeBtnEvent() {
+    $(document).on('click', '#menu-btn', function () {
         navbar.classList.add('active');
     })
+}
 
-    document.querySelector('#nav-close').onclick = () =>{
+function navCloseEvent() {
+    $(document).on('click', '#nav-close', function () {
         navbar.classList.remove('active');
-    }
+    })
+}
 
+function searchForm() {
     let searchForm = document.querySelector('.search-form');
 
-    document.querySelector('#search-btn').onclick = () =>{
+    $(document).on('click', '#search-btn', function (){
         searchForm.classList.add('active');
+    })
+}
+
+window.onscroll = () => {
+    navbar.classList.remove('active');
+
+    if (window.scrollY > 0) {
+        document.querySelector('.header').classList.add('active');
+    } else {
+        document.querySelector('.header').classList.remove('active');
+    }
+};
+
+window.onload = () => {
+    if (window.scrollY > 0) {
+        document.querySelector('.header').classList.add('active');
+    } else {
+        document.querySelector('.header').classList.remove('active');
     }
 
-    window.onscroll = () =>{
-        navbar.classList.remove('active');
 
-        if(window.scrollY > 0){
-            document.querySelector('.header').classList.add('active');
-        }else{
-            document.querySelector('.header').classList.remove('active');
-        }
-    };
-
-    window.onload = () =>{
-        if(window.scrollY > 0){
-            document.querySelector('.header').classList.add('active');
-        }else{
-            document.querySelector('.header').classList.remove('active');
-        }
-    };
 }

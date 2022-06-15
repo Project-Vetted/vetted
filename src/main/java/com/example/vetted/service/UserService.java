@@ -3,6 +3,7 @@ package com.example.vetted.service;
 import com.example.vetted.data.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,8 +16,9 @@ public class UserService {
     public UserService(UsersRepository usersRepository, CategoriesRepository categoriesRepository) {
         this.usersRepository = usersRepository;
         this.categoriesRepository = categoriesRepository;
-    }
 
+    }
+//TODO: CREATE AND IMPLEMENT METHODS FOR THE USER
     public List<User> getAllUsers() {
         return usersRepository.findAll();
     }
@@ -25,27 +27,35 @@ public class UserService {
         return usersRepository.findById(id).orElseThrow(); //throws an exception if the user cannot be found by id
     }
 
-//    public User getUserByUsername(String username) {
-//        return usersRepository.findByUsername(username);
-//    }
+    public User getUserByUsername(String username) {
+        return usersRepository.findByUsername(username);
+    }
 
     public User getByEmail(String email) {
         return usersRepository.findByEmail(email).orElseThrow();
     }
 
-//    public void updateEmail(Long userId, String newEmail){
-//        User user = getUserById(userId);
-//        user.setEmail(newEmail);
-//        usersRepository.save(user);
-//    }
+    public void updateEmail(Long userId, String newEmail){
+        User user = getUserById(userId);
+        user.setEmail(newEmail);
+        usersRepository.save(user);
+    }
 
     public void createUser(User user) {
         usersRepository.save(user);
     }
 
-//    public void updatePassword(Long userId, String newPassword){
-//
-//    }
+    public void updatePassword(Long id, String newPassword){
+     User user = getUserById(id);
+     user.setPassword(newPassword);
+     usersRepository.save(user);
+    }
+
+    public void updateuserName(Long id, String newUserName){
+        User user = getUserById(id);
+        user.setUsername(newUserName);
+        usersRepository.save(user);
+    }
 
 //  TODO: Test & Implement User Role Methods Below
 
@@ -106,12 +116,57 @@ public class UserService {
     public List<Category> getCategoryByKeyword(String keyword) {
         return categoriesRepository.searchCategoriesBy(keyword);
     }
+
+    public User updateUserCategories(long id, String newCategory) {
+        User user = getUserById(id);
+        Collection<Category> category = user.getCategories();
+        category.add(categoriesRepository.findCategoryByName(newCategory));
+        user.setCategories(category);
+        usersRepository.save(user);
+        return usersRepository.findById(id);
+    }
+
+    public User deleteUserCategories(long id, String category_name){
+        User user = getUserById(id);
+        Collection<Category> category = user.getCategories();
+        category.remove(categoriesRepository.findCategoryByName(category_name));
+        user.setCategories(category);
+        usersRepository.save(user);
+        return usersRepository.findById(id);
+    }
+
+
 //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
 
 
     public int getUserPoints(long id){
         User user = getUserById(id);
         return user.getPoints().size();
+    }
+
+    //TODO: CREATE AND IMPLEMENT METHODS FOR THE FRIENDS LIST
+
+    public Collection<User> getUsersFriends(long id){
+        User user = getUserById(id);
+        return user.getFriends();
+    }
+
+    public User updateUserFriends(long id, String newFriend) {
+        User user = getUserById(id);
+        Collection<User> userFriendList = user.getFriends();
+        userFriendList.add(usersRepository.findByUsername(newFriend));
+        user.setFriends(userFriendList);
+        usersRepository.save(user);
+        return usersRepository.findById(id);
+    }
+
+    public User deleteUserFriend(long id, String friend_username){
+        User user = getUserById(id);
+        Collection<User> userFriendList = user.getFriends();
+        userFriendList.remove(usersRepository.findByUsername(friend_username));
+        user.setFriends(userFriendList);
+        usersRepository.save(user);
+        return usersRepository.findById(id);
     }
 
 }

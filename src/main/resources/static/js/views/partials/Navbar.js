@@ -4,7 +4,7 @@ export default function Navbar(props) {
     return `
         <header class="header">
 
-            <a href="#home" class="logo"> <img src="assets/imgs/official_vetted_logo.png" width="100px"
+            <a href="#home" class="logo"> <img src="../../../assets/imgs/official_vetted_logo.png" width="100px"
                                                height="100px"></i></a>
 
             <nav class="navbar navbar-scrolled">
