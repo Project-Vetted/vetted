@@ -49,7 +49,6 @@ export function RegisterEvent() {
             body: JSON.stringify(reqBody)
         }
 
-        //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 ()
         fetch("http://localhost:8080/api/users/create", options)
             .then(data => console.log(data))
             .catch(err => console.log(err))

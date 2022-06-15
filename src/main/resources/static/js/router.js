@@ -6,7 +6,7 @@ import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
 import Register, {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvent} from "./views/User.js";
-import Dash from "./views/Dash.js";
+import Dash, {DashEvent} from "./views/Dash.js";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -40,7 +40,8 @@ export default function router(URI) {
             returnView: Dash,
             state: {},
             uri: '/dashboard',
-            title: "Dashboard"
+            title: "Dashboard",
+            viewEvent: DashEvent
         },
         '/user': {
             returnView: UserIndex,

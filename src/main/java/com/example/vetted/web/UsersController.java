@@ -113,9 +113,22 @@ public class UsersController {
         return userService.getCategoryByKeyword(keyword);
     }
 
-    @PatchMapping("edit-categories")
-    public User editCategories(@RequestParam long id, String newCategory){
-        return userService.updateUserCategories(id, newCategory);
+    //TODO: writing update categories
+//    @PatchMapping("edit-categories")
+//    public User editCategories(@RequestParam long id, String newCategory){
+//        return userService.updateUserCategories(id, newCategory);
+//    }
+
+
+//    @PatchMapping("update-categories")
+//    public void updateCategories(@RequestParam long id, String newCategory){
+//        userService.updateCategories(id, newCategory);
+//    }
+
+//    @PreAuthorize("permitAll()")
+    @PatchMapping("{id}/updateCategories")
+    public void updateCategories(@PathVariable Long id, @RequestParam(required = false) String oldCategories, @RequestParam String newCategory) {
+        userService.updateCategories(id, newCategory);
     }
 
     @DeleteMapping("delete-category")

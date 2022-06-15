@@ -1,3 +1,7 @@
+import createView from "../createView";
+
+const BASE_URL = "http://localhost:8080/api/users"
+
 export default function Dash() {
 
     //language=HTML
@@ -114,11 +118,11 @@ export default function Dash() {
                 <div class="activity">
                     <h3>Category Selection</h3>
                     <div>
-                        <button type="button">PTSD</button>
-                        <button type="button">Depression</button>
-                        <button type="button">Anxiety</button>
-                        <button type="button">Alcohol Abuse</button>
-                        <button type="button">Sex Addiction</button>
+                        <button type="button" id="ptsd-button">PTSD</button>
+                        <button type="button" id="depression-button">Depression</button>
+                        <button type="button" id="anxiety-button">Anxiety</button>
+                        <button type="button" id="alcohol-button">Alcohol Abuse</button>
+                        <button type="button" id="sex-button">Sex Addiction</button>
                     </div>
                 </div>
                 <!--end of dashboard features-->
@@ -130,4 +134,55 @@ export default function Dash() {
         <script src="../../js/dashboard.js"></script>
         </body>
     `
+}
+
+// export function DashEvent() {
+//
+//     $(document).on('click', '#register-btn', function (e) {
+//         const reqBody = {
+//             categories: [
+//                 {
+//                     $('#username').val()
+//                 }
+//                     ]
+//
+//         }
+//
+//         const options = {
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             method: 'POST',
+//             body: JSON.stringify(reqBody)
+//         }
+//
+//         fetch("http://localhost:8080/api/users/edit-categories", options)
+//             .then(data => console.log(data))
+//             .catch(err => console.log(err))
+//     })
+// }
+
+export function DashEvent() {
+    $(document).on('click', '#change-password-button', function (e) {
+        e.preventDefault();
+        const id = $(this).data("id");
+        const newCategories = $("#ptsd-button").val();
+
+        const request = {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        //TODO: Fix entire fetch
+        fetch(`${BASE_URL}/${id}/updateCategories?newCategories=${newCategories}`, request)
+            .then(res => {
+                console.log(res.status);
+            }).catch(error => {
+            console.log(error);
+        }).finally(() => {
+            createView("/user")
+        })
+    })
 }
