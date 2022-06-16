@@ -119,7 +119,7 @@ public class UsersController {
     }
 
     @DeleteMapping("delete-category")
-    public User deleteCategory(@RequestParam long id, String category_name){
+    public User deleteCategory(@RequestParam long id,@RequestParam String category_name){
         return userService.deleteUserCategories(id, category_name);
     }
 

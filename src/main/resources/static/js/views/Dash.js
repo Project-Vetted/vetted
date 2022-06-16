@@ -1,4 +1,4 @@
-export default function Dash() {
+export default function Dash(props) {
 
     //language=HTML
     return `
@@ -114,7 +114,7 @@ export default function Dash() {
                 <div class="activity">
                     <h3>Category Selection</h3>
                     <div>
-                        <button type="button" id="ptsd-btn">PTSD</button>
+                        <button type="button" id="ptsd-btn" data-id="${props.user.id}">PTSD</button>
                         <button type="button" id="depression-btn">Depression</button>
                         <button type="button" id="anxiety-btn">Anxiety</button>
                         <button type="button" id="alcohol-btn">Alcohol Abuse</button>
@@ -136,20 +136,37 @@ export default function Dash() {
 export function DashEvent() {
 
     $(document).on('click', '#ptsd-btn', function (e) {
-        const reqBody = {
-            user: $('#username').val()
-        }
+        console.log("user with id:" + $(this).data("id") + " has attempted to add a category to their profile.")
+            const reqBody = {
+                // id: $(this).data("id"),
+                category: $("#ptsd-btn").val()
+            }
+        //
+        //
+        //     const options = {
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         method: 'PATCH',
+        //         body: JSON.stringify(reqBody)
+        //     }
+        //
+        //     //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 ()
+        //     fetch("http://localhost:8080/api/users/edit-categories", options)
+        //         .then(data => console.log(data))
+        //         .catch(err => console.log(err))
 
-        const options = {
-            headers: {
-                "Content-Type": "application/json"
-            },
+        return fetch('http://localhost:8080/api/users/edit-categories', {
             method: 'PATCH',
-            body: JSON.stringify(reqBody)
+            body: JSON.stringify({
+                reqBody
+            }),
+            headers: {
+                'Content-type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
         }
-
-        //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 ()
-        fetch("http://localhost:8080/api/users/edit-categories", options)
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
-    })
+    )
+}
