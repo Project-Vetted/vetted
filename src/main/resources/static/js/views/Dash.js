@@ -1,5 +1,7 @@
-export default function Dash(props) {
+import {getHeaders} from "../auth.js";
 
+export default function Dash(props) {
+localStorage.setItem("user_id", props.user.id.toString())
     //language=HTML
     return `
         <body>
@@ -114,11 +116,11 @@ export default function Dash(props) {
                 <div class="activity">
                     <h3>Category Selection</h3>
                     <div>
-                        <button type="button" id="ptsd-btn" data-id="${props.user.id}">PTSD</button>
-                        <button type="button" id="depression-btn">Depression</button>
-                        <button type="button" id="anxiety-btn">Anxiety</button>
-                        <button type="button" id="alcohol-btn">Alcohol Abuse</button>
-                        <button type="button" id="sex-btn">Sex Addiction</button>
+                        <button type="button" id="ptsd-btn" value="PTSD">PTSD</button>
+                        <button type="button" id="depression-btn" value="Depression">Depression</button>
+                        <button type="button" id="anxiety-btn" value="Anxiety">Anxiety</button>
+                        <button type="button" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse</button>
+                        <button type="button" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
                     </div>
                 </div>
                 <!--end of dashboard features-->
@@ -135,38 +137,39 @@ export default function Dash(props) {
 
 export function DashEvent() {
 
-    $(document).on('click', '#ptsd-btn', function (e) {
-        console.log("user with id:" + $(this).data("id") + " has attempted to add a category to their profile.")
-            const reqBody = {
-                // id: $(this).data("id"),
-                category: $("#ptsd-btn").val()
-            }
-        //
-        //
-        //     const options = {
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         method: 'PATCH',
-        //         body: JSON.stringify(reqBody)
-        //     }
-        //
-        //     //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 ()
-        //     fetch("http://localhost:8080/api/users/edit-categories", options)
-        //         .then(data => console.log(data))
-        //         .catch(err => console.log(err))
+    const element1 = document.querySelector('#ptsd-btn');
+    const element2 = document.querySelector('#depression-btn');
+    const element3 = document.querySelector('#anxiety-btn');
+    const element4 = document.querySelector('#alcohol-btn');
+    const element5 = document.querySelector('#sex-btn');
 
-        return fetch('http://localhost:8080/api/users/edit-categories', {
-            method: 'PATCH',
-            body: JSON.stringify({
-                reqBody
-            }),
-            headers: {
-                'Content-type': 'application/json',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+
+
+    [element1, element2, element3, element4, element5].forEach((element)=>
+    $(document).on('click', '', function (e) {
+        console.log(e)
+            const userId = localStorage.getItem("user_id")
+        if (!userId){
+            return
         }
-    )
+            const reqBody = [
+                 $(this).val()
+            ]
+
+        //     //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 (
+
+        return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
+            method: 'PATCH',
+            body: JSON.stringify(
+                reqBody
+            ),
+            headers: getHeaders(),
+        })
+            .catch(err => console.log(err))
+        }
+    ))
+
+
+
 }
+

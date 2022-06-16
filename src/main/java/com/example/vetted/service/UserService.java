@@ -117,13 +117,19 @@ public class UserService {
         return categoriesRepository.searchCategoriesBy(keyword);
     }
 
-    public User updateUserCategories(long id, String newCategory) {
+//    public User updateUserCategories(long id, String newCategory) {
+//        User user = getUserById(id);
+//        Collection<Category> category = user.getCategories();
+//        category.add(categoriesRepository.findCategoryByName(newCategory));
+//        user.setCategories(category);
+//        usersRepository.save(user);
+//        return usersRepository.findById(id);
+//    }
+
+    public void updateCategories(Long id, String[] newCategories){
         User user = getUserById(id);
-        Collection<Category> category = user.getCategories();
-        category.add(categoriesRepository.findCategoryByName(newCategory));
-        user.setCategories(category);
+        user.setCategories(categoriesRepository.findAllByNameIn(newCategories)); //TODO: setCategories requires a collection, and newCategories is a String
         usersRepository.save(user);
-        return usersRepository.findById(id);
     }
 
     public User deleteUserCategories(long id, String category_name){
