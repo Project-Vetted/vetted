@@ -129,7 +129,7 @@ public class UserService {
     public void updateCategories(Long id, String[] newCategories){
         User user = getUserById(id);
 if(user.getCategories().containsAll(categoriesRepository.findAllByNameIn(newCategories))){
-    return;
+    user.getCategories().removeAll(categoriesRepository.findAllByNameIn(newCategories));
 }else
         user.getCategories().addAll(categoriesRepository.findAllByNameIn(newCategories));
         usersRepository.save(user);
