@@ -128,13 +128,11 @@ public class UserService {
 
     public void updateCategories(Long id, String[] newCategories){
         User user = getUserById(id);
-//if(user.getCategories().contains(categoriesRepository.findAllByNameIn(newCategories))){
-//    return;
-//}else
+if(user.getCategories().containsAll(categoriesRepository.findAllByNameIn(newCategories))){
+    return;
+}else
         user.getCategories().addAll(categoriesRepository.findAllByNameIn(newCategories));
-//        user.setCategories(categoriesRepository.findAllByNameIn(newCategories));//
         usersRepository.save(user);
-
     }
 
     public User deleteUserCategories(long id, String category_name){
