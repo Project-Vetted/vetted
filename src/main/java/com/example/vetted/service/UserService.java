@@ -128,8 +128,11 @@ public class UserService {
 
     public void updateCategories(Long id, String[] newCategories){
         User user = getUserById(id);
-        user.getCategories().add(new Category(newCategories));
-//        user.setCategories(categoriesRepository.findAllByNameIn(newCategories));//TODO: setCategories requires a collection, and newCategories is a String
+//if(user.getCategories().contains(categoriesRepository.findAllByNameIn(newCategories))){
+//    return;
+//}else
+        user.getCategories().addAll(categoriesRepository.findAllByNameIn(newCategories));
+//        user.setCategories(categoriesRepository.findAllByNameIn(newCategories));//
         usersRepository.save(user);
 
     }
