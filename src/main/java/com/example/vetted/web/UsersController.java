@@ -127,8 +127,8 @@ public class UsersController {
 
 //    @PreAuthorize("permitAll()")
     @PatchMapping("{id}/updateCategories")
-    public void updateCategories(@PathVariable Long id, @RequestParam(required = false) String oldCategories, @RequestParam String newCategory) {
-        userService.updateCategories(id, newCategory);
+    public void updateCategories(@PathVariable Long id, @RequestParam(required = false) String oldCategories, @RequestParam String newCategories) {
+        userService.updateCategories(id, newCategories);
     }
 
     @DeleteMapping("delete-category")

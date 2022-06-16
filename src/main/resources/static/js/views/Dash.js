@@ -175,14 +175,9 @@ export function DashEvent() {
             }
         }
 
-        //TODO: Fix entire fetch
+        //TODO: Refactor fetch
         fetch(`${BASE_URL}/${id}/updateCategories?newCategories=${newCategories}`, request)
-            .then(res => {
-                console.log(res.status);
-            }).catch(error => {
-            console.log(error);
-        }).finally(() => {
-            createView("/user")
-        })
+            .then(data => console.log(data.status))
+            .catch(err => console.log(err))
     })
 }
