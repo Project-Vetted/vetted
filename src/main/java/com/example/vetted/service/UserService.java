@@ -126,7 +126,7 @@ public class UserService {
 //        return usersRepository.findById(id);
 //    }
 
-    public void updateCategories(Long id, String newCategories){
+    public void updateCategories(Long id, Collection<Category> newCategories){
         User user = getUserById(id);
         user.setCategories(newCategories); //TODO: setCategories requires a collection, and newCategories is a String
         usersRepository.save(user);

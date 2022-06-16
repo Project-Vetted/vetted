@@ -127,7 +127,8 @@ public class UsersController {
 
 //    @PreAuthorize("permitAll()")
     @PatchMapping("{id}/updateCategories")
-    public void updateCategories(@PathVariable Long id, @RequestParam(required = false) String oldCategories, @RequestParam String newCategories) {
+    public void updateCategories(@PathVariable Long id, @RequestParam(required = false) Collection<Category> oldCategories, @RequestParam Collection<Category> newCategories) {
+        System.out.println("Things are happening!");
         userService.updateCategories(id, newCategories);
     }
 
