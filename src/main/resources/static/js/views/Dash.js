@@ -136,14 +136,6 @@ export default function Dash(props) {
 
 
 export function DashEvent() {
-
-    // const element1 = document.querySelector('#ptsd-btn');
-    // const element2 = document.querySelector('#depression-btn');
-    // const element3 = document.querySelector('#anxiety-btn');
-    // const element4 = document.querySelector('#alcohol-btn');
-    // const element5 = document.querySelector('#sex-btn');
-
-    // [element1, element2, element3, element4, element5].forEach((element) => {
     $(document).on('click', 'button', function (e) {
             console.log(e)
             const userId = localStorage.getItem("user_id")
@@ -154,7 +146,6 @@ export function DashEvent() {
                 $(this).val()
             ]
 
-            //     //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 (
 
             return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
                 method: 'PATCH',
