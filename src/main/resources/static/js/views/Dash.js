@@ -1,7 +1,7 @@
 import {getHeaders} from "../auth.js";
 
 export default function Dash(props) {
-localStorage.setItem("user_id", props.user.id.toString())
+    localStorage.setItem("user_id", props.user.id.toString())
     //language=HTML
     return `
         <body>
@@ -137,38 +137,35 @@ localStorage.setItem("user_id", props.user.id.toString())
 
 export function DashEvent() {
 
-    const element1 = document.querySelector('#ptsd-btn');
-    const element2 = document.querySelector('#depression-btn');
-    const element3 = document.querySelector('#anxiety-btn');
-    const element4 = document.querySelector('#alcohol-btn');
-    const element5 = document.querySelector('#sex-btn');
+    // const element1 = document.querySelector('#ptsd-btn');
+    // const element2 = document.querySelector('#depression-btn');
+    // const element3 = document.querySelector('#anxiety-btn');
+    // const element4 = document.querySelector('#alcohol-btn');
+    // const element5 = document.querySelector('#sex-btn');
 
-
-
-    [element1, element2, element3, element4, element5].forEach((element)=>
-    $(document).on('click', '', function (e) {
-        console.log(e)
+    // [element1, element2, element3, element4, element5].forEach((element) => {
+    $(document).on('click', 'button', function (e) {
+            console.log(e)
             const userId = localStorage.getItem("user_id")
-        if (!userId){
-            return
-        }
+            if (!userId) {
+                return
+            }
             const reqBody = [
-                 $(this).val()
+                $(this).val()
             ]
 
-        //     //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 (
+            //     //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 (
 
-        return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
-            method: 'PATCH',
-            body: JSON.stringify(
-                reqBody
-            ),
-            headers: getHeaders(),
-        })
-            .catch(err => console.log(err))
+            return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
+                method: 'PATCH',
+                body: JSON.stringify(
+                    reqBody
+                ),
+                headers: getHeaders(),
+            })
+                .catch(err => console.log(err))
         }
-    ))
-
+    )
 
 
 }

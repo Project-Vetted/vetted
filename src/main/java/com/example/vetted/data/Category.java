@@ -43,6 +43,9 @@ public class Category {
     public Category() {
     }
 
+    public Category(String[] newCategories) {
+    }
+
     public Long getId() {
         return id;
     }
