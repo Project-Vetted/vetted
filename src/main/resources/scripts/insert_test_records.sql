@@ -12,7 +12,7 @@ INSERT INTO categories (name)
 VALUES ('PTSD'),
        ('Depression'),
        ('Anxiety'),
-       ('Alcohol Addiction'),
+       ('Alcohol Abuse'),
        ('Sex Addiction');
 
 INSERT INTO user_category (user_id, category_id)

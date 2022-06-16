@@ -18,7 +18,8 @@ public class UserService {
         this.categoriesRepository = categoriesRepository;
 
     }
-//TODO: CREATE AND IMPLEMENT METHODS FOR THE USER
+
+    //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER
     public List<User> getAllUsers() {
         return usersRepository.findAll();
     }
@@ -35,7 +36,7 @@ public class UserService {
         return usersRepository.findByEmail(email).orElseThrow();
     }
 
-    public void updateEmail(Long userId, String newEmail){
+    public void updateEmail(Long userId, String newEmail) {
         User user = getUserById(userId);
         user.setEmail(newEmail);
         usersRepository.save(user);
@@ -45,13 +46,13 @@ public class UserService {
         usersRepository.save(user);
     }
 
-    public void updatePassword(Long id, String newPassword){
-     User user = getUserById(id);
-     user.setPassword(newPassword);
-     usersRepository.save(user);
+    public void updatePassword(Long id, String newPassword) {
+        User user = getUserById(id);
+        user.setPassword(newPassword);
+        usersRepository.save(user);
     }
 
-    public void updateuserName(Long id, String newUserName){
+    public void updateuserName(Long id, String newUserName) {
         User user = getUserById(id);
         user.setUsername(newUserName);
         usersRepository.save(user);
@@ -108,7 +109,7 @@ public class UserService {
 //        postsRepository.save(newPost);
 //    }
 
-    public Collection<Category> getUserCategories(long id){
+    public Collection<Category> getUserCategories(long id) {
         User user = getUserById(id);
         return user.getCategories();
     }
@@ -117,16 +118,16 @@ public class UserService {
         return categoriesRepository.searchCategoriesBy(keyword);
     }
 
-    public User updateUserCategories(long id, String newCategory) {
+    public void updateCategories(Long id, String[] newCategories) {
         User user = getUserById(id);
-        Collection<Category> category = user.getCategories();
-        category.add(categoriesRepository.findCategoryByName(newCategory));
-        user.setCategories(category);
+        if (user.getCategories().containsAll(categoriesRepository.findAllByNameIn(newCategories))) {
+            user.getCategories().removeAll(categoriesRepository.findAllByNameIn(newCategories));
+        } else
+            user.getCategories().addAll(categoriesRepository.findAllByNameIn(newCategories));
         usersRepository.save(user);
-        return usersRepository.findById(id);
     }
 
-    public User deleteUserCategories(long id, String category_name){
+    public User deleteUserCategories(long id, String category_name) {
         User user = getUserById(id);
         Collection<Category> category = user.getCategories();
         category.remove(categoriesRepository.findCategoryByName(category_name));
@@ -139,14 +140,14 @@ public class UserService {
 //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
 
 
-    public int getUserPoints(long id){
+    public int getUserPoints(long id) {
         User user = getUserById(id);
         return user.getPoints().size();
     }
 
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE FRIENDS LIST
 
-    public Collection<User> getUsersFriends(long id){
+    public Collection<User> getUsersFriends(long id) {
         User user = getUserById(id);
         return user.getFriends();
     }
@@ -160,7 +161,7 @@ public class UserService {
         return usersRepository.findById(id);
     }
 
-    public User deleteUserFriend(long id, String friend_username){
+    public User deleteUserFriend(long id, String friend_username) {
         User user = getUserById(id);
         Collection<User> userFriendList = user.getFriends();
         userFriendList.remove(usersRepository.findByUsername(friend_username));

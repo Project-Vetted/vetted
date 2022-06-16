@@ -9,7 +9,9 @@ import java.util.List;
 public interface CategoriesRepository extends JpaRepository<Category, Long> {
 
     Category findCategoryByName(String category);
+    List<Category> findAllByNameIn(String[] categories);
     Category findById(long id);
+
 
     @Query("from Category a where a.name like %:term%")
     List<Category> searchCategoriesBy(@Param("term") String term);

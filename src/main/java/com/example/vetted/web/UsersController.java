@@ -113,13 +113,16 @@ public class UsersController {
         return userService.getCategoryByKeyword(keyword);
     }
 
-    @PatchMapping("edit-categories")
-    public User editCategories(@RequestParam long id, String newCategory){
-        return userService.updateUserCategories(id, newCategory);
-    }
+
+@PatchMapping("{id}/updateCategories")
+public void updateCategories(@PathVariable Long id, @RequestBody String[] newCategories) {
+    System.out.println("Things are happening!");
+    userService.updateCategories(id, newCategories);
+}
+
 
     @DeleteMapping("delete-category")
-    public User deleteCategory(@RequestParam long id, String category_name){
+    public User deleteCategory(@RequestParam long id,@RequestParam String category_name){
         return userService.deleteUserCategories(id, category_name);
     }
 

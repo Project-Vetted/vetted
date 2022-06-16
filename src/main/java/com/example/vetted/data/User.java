@@ -51,7 +51,7 @@ public class User {
 
     @ManyToMany(
             fetch = FetchType.LAZY,
-            cascade = {CascadeType.DETACH, CascadeType.REFRESH},
+            cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.ALL},
             targetEntity = Category.class)
     @JoinTable(
             name="user_category",
