@@ -134,9 +134,8 @@ export default function Dash(props) {
     `
 }
 
-
 export function DashEvent() {
-    $(document).on('click', 'button', function (e) {
+    $(document).on('click', function (e) {
             console.log(e)
             const userId = localStorage.getItem("user_id")
             if (!userId) {
@@ -161,3 +160,28 @@ export function DashEvent() {
 
 }
 
+//TODO: User Points Section
+
+
+export function PointEvent() {
+    $(window).on( "load", 'button', function (e) {
+            console.log(e)
+            const userId = localStorage.getItem("user_id")
+            if (!userId) {
+                return
+            }
+
+
+            return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
+                method: 'GET',
+                body: JSON.stringify(
+                    reqBody
+                ),
+                headers: getHeaders(),
+            })
+                .catch(err => console.log(err))
+        }
+    )
+
+
+}
