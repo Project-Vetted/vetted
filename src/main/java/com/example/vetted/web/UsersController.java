@@ -2,6 +2,7 @@ package com.example.vetted.web;
 
 import com.example.vetted.data.Category;
 import com.example.vetted.data.User;
+import com.example.vetted.dto.UserPointsDto;
 import com.example.vetted.service.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -135,8 +136,13 @@ public void updateCategories(@PathVariable Long id, @RequestBody String[] newCat
 //    }
 
     @GetMapping("user-points")
-    public int viewUserPoints(@RequestParam long id){
-        return userService.getUserPoints(id);
+    public int viewUserPoints(@RequestParam long id, @RequestBody UserPointsDto dto){
+        return userService.getUserPoints(id, dto);
+    }
+
+    @GetMapping("upvotes")
+    public int getAUsersPoints(@RequestParam long upVotee) {
+        return userService.viewMyPoints(upVotee);
     }
 
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER FRIENDS LIST

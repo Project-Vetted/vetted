@@ -178,7 +178,6 @@ function DashEvent() {
 
 function PointEvent() {
     $(window).on("load", function (e) {
-            console.log(e)
         console.log("we got here to PointEvent")
             const userId = localStorage.getItem("user_id")
             if (!userId) {
