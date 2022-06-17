@@ -137,8 +137,8 @@ public class User {
         return points;
     }
 
-    public void setPoints(Collection<User> points) {
-        this.points = points;
+    public void setPoints(User upvoter) {
+        points.add(upvoter);
     }
 
     public Collection<User> getFriends() {

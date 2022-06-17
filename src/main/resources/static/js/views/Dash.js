@@ -116,14 +116,15 @@ export default function Dash(props) {
                 <div class="activity">
                     <h3>Category Selection</h3>
                     <div>
-                        <button type="button" id="ptsd-btn" value="PTSD">PTSD</button>
-                        <button type="button" id="depression-btn" value="Depression">Depression</button>
-                        <button type="button" id="anxiety-btn" value="Anxiety">Anxiety</button>
-                        <button type="button" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse</button>
-                        <button type="button" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
+                        <button type="button" class="cat-btn" id="ptsd-btn" value="PTSD">PTSD</button>
+                        <button type="button" class="cat-btn" id="depression-btn" value="Depression">Depression</button>
+                        <button type="button" class="cat-btn" id="anxiety-btn" value="Anxiety">Anxiety</button>
+                        <button type="button" class="cat-btn" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse
+                        </button>
+                        <button type="button" class="cat-btn" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
                     </div>
                 </div>
-<hr>
+                <hr>
                 <div class="likes">
                     <h3>Give this person a like</h3>
                     <div>
@@ -143,7 +144,7 @@ export default function Dash(props) {
 
 
 export function DashEvent() {
-    $(document).on('click', 'button', function (e) {
+    $(document).on('click', '.cat-btn', function (e) {
             console.log(e)
             const userId = localStorage.getItem("user_id")
             if (!userId) {
@@ -168,5 +169,30 @@ export function DashEvent() {
 
 }
 
+export function LikesEvent() {
+    $(document).on('click', '#give-like', function (e) {
+            imTheUpVotee();
+            console.log(e)
+            const upVotee = 1;
+            const upVoter = localStorage.getItem("user_id")
+            if (!upVoter) {
+                return
+            }
+            return fetch(`http://localhost:8080/api/users/${upVotee}/${upVoter}/upvote`, {
+                method: 'Get',
+                headers: getHeaders(),
+            })
+                .catch(err => console.log(err))
+        }
+    )
+
+
+}
+
+function imTheUpVotee() {
+    $(document).on('click', '#give-like', function () {
+        $('#give-like').addClass('1');
+    })
+}
 
 
