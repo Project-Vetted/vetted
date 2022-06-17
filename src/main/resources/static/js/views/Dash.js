@@ -198,7 +198,7 @@ function PointEvent() {
 
 }
 
-// /* PING GLITCH SERVER */
+// /* PING VETTED SERVER */
 // function dbFetch(userObject) {
 //     fetch(userObject)
 //         .then(response => response.json())
@@ -207,7 +207,7 @@ function PointEvent() {
 //         .catch(error => console.error(error)); /* handle errors */
 // }
 
-// /* SELECT DIV FOR IMDB & GLITCH CARD POPULATION */
+// /* SELECT DIV FOR POINT POPULATION */
 // function populatePoints(dataIn) {
 //
 //     $('#pop-user-points').append(populateUserPoints(dataIn));
