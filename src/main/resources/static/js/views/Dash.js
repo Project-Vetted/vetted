@@ -4,7 +4,7 @@ export default function Dash(props) {
     localStorage.setItem("user_id", props.user.id.toString())
     //language=HTML
     return `
-        <body>
+        
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
@@ -138,7 +138,7 @@ export default function Dash(props) {
 
         <!--program scripts-->
         <script src="../../js/dashboard.js"></script>
-        </body>
+       
     `
 }
 

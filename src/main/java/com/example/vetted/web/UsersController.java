@@ -131,8 +131,13 @@ public class UsersController {
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
 
     @GetMapping("{upVotee}/{upVoter}/upvote")
-    public void viewUserPoints( @PathVariable long upVotee, @PathVariable long upVoter) {
+    public void viewUserPoints(@PathVariable long upVotee, @PathVariable long upVoter) {
         userService.getUserPoints(upVotee, upVoter);
+    }
+
+    @GetMapping("upvotes")
+    public int getAUsersPoints(@RequestParam long upVotee) {
+        return userService.viewMyPoints(upVotee);
     }
 
 

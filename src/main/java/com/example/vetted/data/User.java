@@ -22,9 +22,9 @@ public class User {
             cascade = {CascadeType.DETACH, CascadeType.REFRESH},
             targetEntity = User.class)
     @JoinTable(
-            name="user_point_interactions",
+            name = "user_point_interactions",
             joinColumns = {@JoinColumn(name = "user_upvoted", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name="user_that_upvoted", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "user_that_upvoted", nullable = false, updatable = false)},
             foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
             inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
     )
@@ -36,9 +36,9 @@ public class User {
             cascade = {CascadeType.DETACH, CascadeType.REFRESH},
             targetEntity = User.class)
     @JoinTable(
-            name="user_friends",
+            name = "user_friends",
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name="friend_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "friend_id", nullable = false, updatable = false)},
             foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
             inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
     )
@@ -54,20 +54,20 @@ public class User {
             cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.ALL},
             targetEntity = Category.class)
     @JoinTable(
-            name="user_category",
+            name = "user_category",
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name="category_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "category_id", nullable = false, updatable = false)},
             foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
             inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
     )
     @JsonIgnoreProperties("user")
     private Collection<Category> categories;
 
-    public User(Collection<Category> categories) {
-        this.categories = categories;
-    }
 
-    public enum Role {VISITOR, USER, VET};
+
+    public enum Role {VISITOR, USER, VET}
+
+    ;
 
     public User(Long id, String username, String email, String password) {
         this.id = id;
@@ -80,6 +80,10 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public User(Collection<User> points) {
+        this.points = points;
     }
 
     public User() {
@@ -133,8 +137,12 @@ public class User {
         this.categories = categories;
     }
 
-    public Collection<User> getPoints() {
-        return points;
+    public int getPoints() {
+        return points.size();
+    }
+
+    public void getPoints(User upvotee) {
+        points.add(upvotee);
     }
 
     public void setPoints(User upvoter) {
@@ -157,7 +165,6 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", points=" + points +
-                ", friends=" + friends +
                 ", role=" + role +
                 ", categories=" + categories +
                 '}';
