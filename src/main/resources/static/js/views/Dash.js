@@ -1,4 +1,4 @@
-import {getHeaders} from "../auth.js";
+import addLoginEvent, {getHeaders} from "../auth.js";
 
 export default function Dash(props) {
     localStorage.setItem("user_id", props.user.id.toString())
@@ -112,7 +112,7 @@ export default function Dash(props) {
                     </div>
                 </div>
 
-                <!--user activity options-->
+                <!--user category options-->
                 <div class="activity">
                     <h3>Category Selection</h3>
                     <div>
@@ -121,6 +121,14 @@ export default function Dash(props) {
                         <button type="button" id="anxiety-btn" value="Anxiety">Anxiety</button>
                         <button type="button" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse</button>
                         <button type="button" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
+                    </div>
+                </div>
+
+                <!--user points section-->
+                <div class="activity">
+                    <h3>Category Selection</h3>
+                    <div>
+                        <div id="pop-user-points"></div>
                     </div>
                 </div>
                 <!--end of dashboard features-->
@@ -133,6 +141,9 @@ export default function Dash(props) {
         </body>
     `
 }
+
+const BASE_URL = "http://localhost:8080/"; // URL for database integration.
+
 
 export function DashEvent() {
     $(document).on('click', function (e) {
@@ -164,24 +175,44 @@ export function DashEvent() {
 
 
 export function PointEvent() {
-    $(window).on( "load", 'button', function (e) {
+    $(window).on("load", function (e) {
             console.log(e)
             const userId = localStorage.getItem("user_id")
             if (!userId) {
                 return
             }
 
+            // dbFetch(BASE_URL + `api/users/${userId}/user-points`);
 
-            return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
-                method: 'GET',
-                body: JSON.stringify(
-                    reqBody
-                ),
-                headers: getHeaders(),
-            })
-                .catch(err => console.log(err))
+            fetch(BASE_URL + `api/users/${userId}/{id}`)
+                .then(response => response.json())
+                .then(response => console.log(response))
+                // .then(response => populatePoints(response)) /* review was created successfully */
+                .catch(error => console.error(error)); /* handle errors */
         }
     )
 
 
 }
+
+// /* PING GLITCH SERVER */
+// function dbFetch(userObject) {
+//     fetch(userObject)
+//         .then(response => response.json())
+//         .then(response => console.log(response))
+//         // .then(response => populatePoints(response)) /* review was created successfully */
+//         .catch(error => console.error(error)); /* handle errors */
+// }
+
+// /* SELECT DIV FOR IMDB & GLITCH CARD POPULATION */
+// function populatePoints(dataIn) {
+//
+//     $('#pop-user-points').append(populateUserPoints(dataIn));
+//
+// }
+//
+// function populateUserPoints(dataIn) {
+//     return `
+//     <h5>${dataIn.title}</h5>
+//     `
+// }

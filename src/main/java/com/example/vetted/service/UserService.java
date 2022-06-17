@@ -140,6 +140,11 @@ public class UserService {
 //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
 
 
+//    public int getUserPoints(long id) {
+//        User user = getUserById(id);
+//        return user.getPoints().size();
+//    }
+
     public int getUserPoints(long id) {
         User user = getUserById(id);
         return user.getPoints().size();

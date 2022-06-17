@@ -129,6 +129,11 @@ public void updateCategories(@PathVariable Long id, @RequestBody String[] newCat
 
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
 
+//    @GetMapping("user-points")
+//    public int viewUserPoints(@RequestParam long id){
+//        return userService.getUserPoints(id);
+//    }
+
     @GetMapping("user-points")
     public int viewUserPoints(@RequestParam long id){
         return userService.getUserPoints(id);
