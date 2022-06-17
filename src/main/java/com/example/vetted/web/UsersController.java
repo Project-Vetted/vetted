@@ -92,70 +92,10 @@ public class UsersController {
 //    }
 
 
-// TODO: Refactor, Test & Implement Category Methods Below
-
-//    @PostMapping("{username}")
-//    public void createByUsername(@PathVariable String username, @RequestBody CreatePostDto dto){
-//        // Nice and clean, huh?
-//        Post newPost = new Post();
-//        postService.addPost(dto, newPost,username);
-////        emailService.prepareAndSend(newPost, "New Post Created", "You've created a new post.");
-//    }
 
 
-    @GetMapping("user-cat")
-    public Collection<Category> viewUserCategories(@RequestParam long id) {
-        return userService.getUserCategories(id);
-    }
 
 
-    @GetMapping("search-categories")
-    public List<Category> searchCategories(@RequestParam String keyword) {
-        return userService.getCategoryByKeyword(keyword);
-    }
 
-
-    @PatchMapping("{id}/updateCategories")
-    public void updateCategories(@PathVariable Long id, @RequestBody String[] newCategories) {
-        System.out.println("Things are happening!");
-        userService.updateCategories(id, newCategories);
-    }
-
-
-    @DeleteMapping("delete-category")
-    public User deleteCategory(@RequestParam long id, @RequestParam String category_name) {
-        return userService.deleteUserCategories(id, category_name);
-    }
-
-
-    //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
-
-    @GetMapping("{upVotee}/{upVoter}/upvote")
-    public void viewUserPoints(@PathVariable long upVotee, @PathVariable long upVoter) {
-        userService.getUserPoints(upVotee, upVoter);
-    }
-
-    @GetMapping("upvotes")
-    public int getAUsersPoints(@RequestParam long upVotee) {
-        return userService.viewMyPoints(upVotee);
-    }
-
-
-    //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER FRIENDS LIST
-
-    @GetMapping("user-friends")
-    public Collection<User> getFriendsList(@RequestParam long id) {
-        return userService.getUsersFriends(id);
-    }
-
-    @PatchMapping("add-friends")
-    public User setUserFriends(@RequestParam long id, String newFriendsUsername) {
-        return userService.updateUserFriends(id, newFriendsUsername);
-    }
-
-    @DeleteMapping("delete-friends")
-    public User deleteUserFriends(@RequestParam long id, String friends_username) {
-        return userService.deleteUserFriend(id, friends_username);
-    }
 
 }
