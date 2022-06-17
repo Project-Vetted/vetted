@@ -133,8 +133,8 @@ public class User {
         this.categories = categories;
     }
 
-    public int getPoints() {
-        return points.size();
+    public Collection<User> getPoints() {
+        return points;
     }
 
     public void setPoints(Collection<User> points) {

@@ -136,7 +136,7 @@ public void updateCategories(@PathVariable Long id, @RequestBody String[] newCat
 //    }
 
     @GetMapping("user-points")
-    public int viewUserPoints(@RequestParam long id, @RequestBody UserPointsDto dto){
+    public Collection<User> viewUserPoints(@RequestParam long id, @RequestBody UserPointsDto dto){
         return userService.getUserPoints(id, dto);
     }
 

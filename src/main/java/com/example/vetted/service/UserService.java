@@ -4,7 +4,6 @@ import com.example.vetted.data.*;
 import com.example.vetted.dto.UserPointsDto;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -146,14 +145,14 @@ public class UserService {
 //        return user.getPoints().size();
 //    }
 
-    public int getUserPoints(long id, UserPointsDto dto) {
+    public Collection<User> getUserPoints(long id, UserPointsDto dto) {
         User user = getUserById(id);
         return user.getPoints(dto.getPoints()).size();
     }
 
     public int viewMyPoints(long id){
         User user = getUserById(id);
-        return user.getPoints();
+        return user.getPoints(dto.getPoints());
     }
 
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE FRIENDS LIST
