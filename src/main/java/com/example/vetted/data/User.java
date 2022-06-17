@@ -3,8 +3,8 @@ package com.example.vetted.data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+
 
 @Entity
 @Table(name = "users")
@@ -17,16 +17,57 @@ public class User {
     private String email;
     private String password;
 
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.REFRESH},
+            targetEntity = User.class)
+    @JoinTable(
+            name="user_point_interactions",
+            joinColumns = {@JoinColumn(name = "user_upvoted", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="user_that_upvoted", nullable = false, updatable = false)},
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
+    @JsonIgnoreProperties({"points", "categories"})
+    private Collection<User> points;
+
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.REFRESH},
+            targetEntity = User.class)
+    @JoinTable(
+            name="user_friends",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="friend_id", nullable = false, updatable = false)},
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
+    @JsonIgnoreProperties({"friends", "categories", "points", "user"})
+    private Collection<User> friends;
+
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
-//    @OneToMany(mappedBy = "user")
-//    @JsonIgnoreProperties("user")
-//    private List<Post> posts = new ArrayList<>();
 
-    public enum Role {USER, ADMIN}
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.ALL},
+            targetEntity = Category.class)
+    @JoinTable(
+            name="user_category",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="category_id", nullable = false, updatable = false)},
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
+    @JsonIgnoreProperties("user")
+    private Collection<Category> categories;
 
-    ;
+    public User(Collection<Category> categories) {
+        this.categories = categories;
+    }
+
+    public enum Role {VISITOR, USER, VET};
 
     public User(Long id, String username, String email, String password) {
         this.id = id;
@@ -76,20 +117,36 @@ public class User {
         this.password = password;
     }
 
-//    public LocalDateTime getCreatedAt() {
-//        return createdAt;
-//    }
-//
-//    public void setCreatedAt(LocalDateTime createdAt) {
-//        this.createdAt = createdAt;
-//    }
-
     public Role getRole() {
         return role;
     }
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Collection<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Collection<Category> categories) {
+        this.categories = categories;
+    }
+
+    public Collection<User> getPoints() {
+        return points;
+    }
+
+    public void setPoints(Collection<User> points) {
+        this.points = points;
+    }
+
+    public Collection<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Collection<User> friends) {
+        this.friends = friends;
     }
 
     @Override
@@ -99,20 +156,10 @@ public class User {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", points=" + points +
+                ", friends=" + friends +
                 ", role=" + role +
+                ", categories=" + categories +
                 '}';
     }
-
-
-    //    @Override
-//    public String toString() {
-//        return "User{" +
-//                "id=" + id +
-//                ", username='" + username + '\'' +
-//                ", email='" + email + '\'' +
-//                ", password='" + password + '\'' +
-//                ", createdAt=" + createdAt +
-//                ", role=" + role +
-//                '}';
-//    }
 }

@@ -1,12 +1,15 @@
-import Home from "./views/Home.js";
+import Home, {HomeEvent} from "./views/Home.js";
+import About from "./views/About.js";
 import Error404 from "./views/Error404.js";
 import Loading from "./views/Loading.js";
 import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
 import Register, {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvent} from "./views/User.js";
-import About from "./views/About.js";
+import Dash, {DashEvent} from "./views/Dash.js";
+import Rating from "./views/Rating.js";
 import Chat from "./views/Chat.js";
+
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -20,6 +23,7 @@ export default function router(URI) {
             state: {},
             uri: '/',
             title: 'Home',
+            viewEvent: HomeEvent
         },
         '/login': {
             returnView: Login,
@@ -35,10 +39,26 @@ export default function router(URI) {
             title: "Register",
             viewEvent: RegisterEvent
         },
+        '/rating': {
+            returnView: Rating,
+            state: {user: '/api/users/me'},
+            uri: '/rating',
+            title: "Rating",
+
+        },
+        '/dashboard': {
+            returnView: Dash,
+            state: {
+                user: '/api/users/me'
+            },
+            uri: '/dashboard',
+            title: "Dashboard",
+            viewEvent: DashEvent
+        },
         '/user': {
             returnView: UserIndex,
             state: {
-                user: '/api/users'
+                user: '/api/users/me'
             },
             uri: '/user',
             title: 'User',
@@ -64,7 +84,7 @@ export default function router(URI) {
         },
         '/chat': {
             returnView: Chat,
-            state: {user: '/api/users/me'},
+            state: {user: "/api/users/me"},
             uri: '/chat',
             title: 'Chat',
         }
@@ -72,4 +92,3 @@ export default function router(URI) {
 
     return routes[URI];
 }
-

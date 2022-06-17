@@ -4,11 +4,13 @@ import {getConnectingUser} from "../chatFunctions/getConnectingUser.js";
 import {getHostUser} from "../chatFunctions/getHostUser.js";
 import {getRoomAddress} from "../chatFunctions/getRoomAddress.js";
 import {loadChat} from "../chatFunctions/loadChat.js";
-import {getUserDetails} from "../chatFunctions/getUserDetails.js";
 
 
 export default function Chat(props) {
     console.log(props)
+    console.log(props.user.id)
+    console.log(props.user.username)
+    console.log(props.user.email)
     return `
         <header>
             <h1>Chat Page</h1>
@@ -57,7 +59,7 @@ export default function Chat(props) {
 
 $(document).on('click', '#launch-chat-btn', function (e) {
     e.preventDefault();
-    loadChat(getHostUser(), getConnectingUser(getHostUser), getRoomAddress(), getUserDetails());
+    loadChat(getHostUser(), getConnectingUser(getHostUser), getRoomAddress());
     // console.log('I got clicked');
     // console.log(getHostUser());
     // console.log(getConnectingUser(getHostUser()));

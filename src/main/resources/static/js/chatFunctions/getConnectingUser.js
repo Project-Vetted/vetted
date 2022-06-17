@@ -1,4 +1,3 @@
-import {getHostUser} from "./getHostUser.js";
 
 export function getConnectingUser (hostUser) {
 

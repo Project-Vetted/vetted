@@ -1,4 +1,3 @@
-import {getUserDetails} from "./getUserDetails.js";
 
 export function getHostUser () {
 

@@ -11,16 +11,21 @@ export default function Register() {
             <title>Register</title>
         </head>
         <body>
-        <h1>Register here!</h1>
+
+        <div style="margin-top: 80px">
+            <h1>Register here!</h1>
+        </div>
 
         <form id="register-form">
-            <label for="username">Username</label>
-            <input id="username" name="username" type="text"/>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password"/>
-            <input id="register-btn" type="button" value="Register"/>
+            <div style="margin-top: 80px">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text"/>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password"/>
+                <input id="register-btn" type="button" value="Register"/>
+            </div>
         </form>
         </body>
         </html>
@@ -44,6 +49,7 @@ export function RegisterEvent() {
             body: JSON.stringify(reqBody)
         }
 
+        //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 ()
         fetch("http://localhost:8080/api/users/create", options)
             .then(data => console.log(data))
             .catch(err => console.log(err))

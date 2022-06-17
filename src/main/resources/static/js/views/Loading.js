@@ -1,3 +1,5 @@
 export default function Loading(props) {
-    return `<h1>Loading...</h1>`;
+    return `<div class="loader">
+            <img src="../../assets/imgs/load-gif.gif" alt="">
+        </div>`;
 }
