@@ -6,7 +6,7 @@ import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
 import Register, {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvent} from "./views/User.js";
-import Dash, {DashEvent, PointEvent} from "./views/Dash.js";
+import Dash, {DashEvents} from "./views/Dash.js";
 import Rating from "./views/Rating.js";
 import Chat from "./views/Chat.js";
 
@@ -52,7 +52,7 @@ export default function router(URI) {
             },
             uri: '/dashboard',
             title: "Dashboard",
-            viewEvent: DashEvent, PointEvent
+            viewEvent: DashEvents
         },
         '/user': {
             returnView: UserIndex,

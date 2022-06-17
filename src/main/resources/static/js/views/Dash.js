@@ -145,10 +145,12 @@ export default function Dash(props) {
 const BASE_URL = "http://localhost:8080/"; // URL for database integration.
 
 
-export function DashEvent() {
+function DashEvent() {
     $(document).on('click', function (e) {
             console.log(e)
-            const userId = localStorage.getItem("user_id")
+        console.log("we got here to DashEvent")
+
+        const userId = localStorage.getItem("user_id")
             if (!userId) {
                 return
             }
@@ -174,9 +176,10 @@ export function DashEvent() {
 //TODO: User Points Section
 
 
-export function PointEvent() {
+function PointEvent() {
     $(window).on("load", function (e) {
             console.log(e)
+        console.log("we got here to PointEvent")
             const userId = localStorage.getItem("user_id")
             if (!userId) {
                 return
@@ -216,3 +219,8 @@ export function PointEvent() {
 //     <h5>${dataIn.title}</h5>
 //     `
 // }
+
+export function DashEvents () {
+    DashEvent();
+    PointEvent();
+}
