@@ -123,6 +123,13 @@ export default function Dash(props) {
                         <button type="button" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
                     </div>
                 </div>
+<hr>
+                <div class="likes">
+                    <h3>Give this person a like</h3>
+                    <div>
+                        <button type="button" id="give-like" value="like">Give Like</button>
+                    </div>
+                </div>
                 <!--end of dashboard features-->
             </div>
             </div>
@@ -160,4 +167,6 @@ export function DashEvent() {
 
 
 }
+
+
 
