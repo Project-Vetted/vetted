@@ -6,7 +6,7 @@ import LoginEvent from "./auth.js";
 import Register, {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvent} from "./views/User.js";
 import About from "./views/About.js";
-import Chat from "./views/Chat";
+import Chat from "./views/Chat.js";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -64,7 +64,7 @@ export default function router(URI) {
         },
         '/chat': {
             returnView: Chat,
-            state: {},
+            state: {user: '/api/users/me'},
             uri: '/chat',
             title: 'Chat',
         }
