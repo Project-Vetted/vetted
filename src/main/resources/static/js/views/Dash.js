@@ -187,7 +187,7 @@ function PointEvent() {
 
             // dbFetch(BASE_URL + `api/users/${userId}/user-points`);
 
-            fetch(BASE_URL + `api/users/${userId}/{id}`)
+            fetch(BASE_URL + `api/users/${userId}`)
                 .then(response => response.json())
                 .then(response => console.log(response))
                 // .then(response => populatePoints(response)) /* review was created successfully */
