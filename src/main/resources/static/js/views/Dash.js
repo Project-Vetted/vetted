@@ -125,12 +125,12 @@ export default function Dash(props) {
                     </div>
                 </div>
                 <hr>
-                <div class="likes">
-                    <h3>Give this person a like</h3>
-                    <div>
-                        <button type="button" id="give-like" value="like">Give Like</button>
-                    </div>
-                </div>
+<!--                <div class="likes">-->
+<!--                    <h3>Give this person a like</h3>-->
+<!--                    <div>-->
+<!--                        <button type="button" id="give-like" value="like">Give Like</button>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!--end of dashboard features-->
             </div>
             </div>
@@ -169,30 +169,30 @@ export function DashEvent() {
 
 }
 
-export function LikesEvent() {
-    $(document).on('click', '#give-like', function (e) {
-            imTheUpVotee();
-            console.log(e)
-            const upVotee = 1;
-            const upVoter = localStorage.getItem("user_id")
-            if (!upVoter) {
-                return
-            }
-            return fetch(`http://localhost:8080/api/users/${upVotee}/${upVoter}/upvote`, {
-                method: 'Get',
-                headers: getHeaders(),
-            })
-                .catch(err => console.log(err))
-        }
-    )
+// export function LikesEvent() {
+//     $(document).on('click', '#give-like', function (e) {
+//             imTheUpVotee();
+//             console.log(e)
+//             const upVotee = 1;
+//             const upVoter = localStorage.getItem("user_id")
+//             if (!upVoter) {
+//                 return
+//             }
+//             return fetch(`http://localhost:8080/api/users/${upVotee}/${upVoter}/upvote`, {
+//                 method: 'Get',
+//                 headers: getHeaders(),
+//             })
+//                 .catch(err => console.log(err))
+//         }
+//     )
+//
+//
+// }
 
-
-}
-
-function imTheUpVotee() {
-    $(document).on('click', '#give-like', function () {
-        $('#give-like').addClass('1');
-    })
-}
+// function imTheUpVotee() {
+//     $(document).on('click', '#give-like', function () {
+//         $('#give-like').addClass('1');
+//     })
+// }
 
 
