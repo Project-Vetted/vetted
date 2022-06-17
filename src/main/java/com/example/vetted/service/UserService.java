@@ -3,7 +3,6 @@ package com.example.vetted.service;
 import com.example.vetted.data.*;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,7 +32,8 @@ public class UserService {
     }
 
     public User getByEmail(String email) {
-        return usersRepository.findByEmail(email).orElseThrow();
+        User user = usersRepository.findByEmail(email).orElseThrow();
+        return user;
     }
 
     public void updateEmail(Long userId, String newEmail) {
@@ -140,10 +140,18 @@ public class UserService {
 //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
 
 
-    public int getUserPoints(long id) {
-        User user = getUserById(id);
-        return user.getPoints().size();
+    public void getUserPoints(long upvoterUserId, long upVoteeUserId) {
+        User upvotee = getUserById(upVoteeUserId);
+        User upvoter = getUserById(upvoterUserId);
+        upvoter.getPoints(upvoter);
+        upvotee.setPoints(upvotee);
+        usersRepository.save(upvotee);
     }
+
+public int viewMyPoints(long id){
+    User user = getUserById(id);
+   return user.getPoints();
+}
 
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE FRIENDS LIST
 

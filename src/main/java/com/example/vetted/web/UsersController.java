@@ -25,10 +25,11 @@ public class UsersController {
         this.userService = userService; // injection point of UserService
         this.passwordEncoder = passwordEncoder;
     }
-@PreAuthorize("permitAll()")
+
+    @PreAuthorize("permitAll()")
     @GetMapping("all")
     public List<User> getAll() {
-        return  userService.getAllUsers();
+        return userService.getAllUsers();
     }
 
     @GetMapping("{id}")
@@ -67,12 +68,12 @@ public class UsersController {
     }
 
     @PutMapping("{userId}/updateEmail")
-    public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail){
+    public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail) {
         userService.updateEmail(userId, newEmail);
     }
 
     @PutMapping("{userId}/updateUsername")
-    public void updateUsername(@PathVariable Long userId, @RequestParam String newUserName){
+    public void updateUsername(@PathVariable Long userId, @RequestParam String newUserName) {
         userService.updateuserName(userId, newUserName);
     }
 
@@ -114,40 +115,46 @@ public class UsersController {
     }
 
 
-@PatchMapping("{id}/updateCategories")
-public void updateCategories(@PathVariable Long id, @RequestBody String[] newCategories) {
-    System.out.println("Things are happening!");
-    userService.updateCategories(id, newCategories);
-}
+    @PatchMapping("{id}/updateCategories")
+    public void updateCategories(@PathVariable Long id, @RequestBody String[] newCategories) {
+        System.out.println("Things are happening!");
+        userService.updateCategories(id, newCategories);
+    }
 
 
     @DeleteMapping("delete-category")
-    public User deleteCategory(@RequestParam long id,@RequestParam String category_name){
+    public User deleteCategory(@RequestParam long id, @RequestParam String category_name) {
         return userService.deleteUserCategories(id, category_name);
     }
 
 
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER POINT SYSTEM "KARMA"
 
-    @GetMapping("user-points")
-    public int viewUserPoints(@RequestParam long id){
-        return userService.getUserPoints(id);
+    @GetMapping("{upVotee}/{upVoter}/upvote")
+    public void viewUserPoints(@PathVariable long upVotee, @PathVariable long upVoter) {
+        userService.getUserPoints(upVotee, upVoter);
     }
+
+    @GetMapping("upvotes")
+    public int getAUsersPoints(@RequestParam long upVotee) {
+        return userService.viewMyPoints(upVotee);
+    }
+
 
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER FRIENDS LIST
 
     @GetMapping("user-friends")
-    public Collection<User> getFriendsList(@RequestParam long id){
+    public Collection<User> getFriendsList(@RequestParam long id) {
         return userService.getUsersFriends(id);
     }
 
     @PatchMapping("add-friends")
-    public User setUserFriends(@RequestParam long id, String newFriendsUsername){
+    public User setUserFriends(@RequestParam long id, String newFriendsUsername) {
         return userService.updateUserFriends(id, newFriendsUsername);
     }
 
     @DeleteMapping("delete-friends")
-    public User deleteUserFriends(@RequestParam long id, String friends_username){
+    public User deleteUserFriends(@RequestParam long id, String friends_username) {
         return userService.deleteUserFriend(id, friends_username);
     }
 
