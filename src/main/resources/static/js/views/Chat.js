@@ -27,12 +27,32 @@ export default function Chat(props) {
                 <button id="launch-chat-btn">Chat</button>
             </div>
 
-            <!-- container element in which TalkJS will display a chat UI -->
-            <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">
-              <i>Loading chat...</i>
+<!-- Container element for all TalkJS UI elements -->
+   <div class="chatbox-container">
+
+    <!-- Custom TalkJS chat header -->
+    <div id="chatbox-header">
+
+        <div id="header-bg"></div>
+         <div id="user-avatar"></div>
+         <p id="header-subject"><span id="header-username"> Username</span></p>
+
+
+        <div class="button-container">
+            <div class="call-button">
+                <!--input type="checkbox" name="notificationToggle" class="toggle-checkbox" id="toggle"-->
+                <input type="image" name="videoCallButton" id="videocall" src="https://img.icons8.com/material-sharp/24/ffffff/video-call--v1.png"/> 
             </div>
+        </div>
+    </div>
+
+    <!-- container element in which TalkJS will display a chat UI -->
+    <div id="talkjs-container" style="width: 100%;  height: 500px"><i>Loading chat...</i></div>
+
+</div>
 
 </div>    
+
         </main>
     `;
 }

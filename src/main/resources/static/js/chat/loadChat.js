@@ -3,12 +3,6 @@ import fetchData from "../fetchData.js";
 
 export function loadChat (userId, username, userEmail) {
 
-    (function(t,a,l,k,j,s){
-        s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
-        ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
-                    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
-
-
     Talk.ready.then(function () {
         const me = new Talk.User({
             id: userId,
@@ -31,8 +25,27 @@ export function loadChat (userId, username, userEmail) {
         conversation.setParticipant(me);
         conversation.setParticipant(other);
 
-        const inbox = talkSession.createInbox({ selected: conversation });
+        const inbox = talkSession.createInbox({ selected: conversation }, { showChatHeader: false });
         inbox.mount(document.getElementById('talkjs-container'));
+
+        // Add the participant user's name and photo to the custom header
+        const headerUsername = document.getElementById('header-username');
+        headerUsername.textContent = other.name;
+        document.getElementById('user-avatar').style.backgroundImage = "url(" + other.photoUrl + ")";
+
+        var callButton = document.getElementById('videocall');
+
+        callButton.addEventListener('click', function() {
+            var callFrame = window.DailyIframe.createFrame({
+                showLeaveButton: true,
+                showFullscreenButton: true,
+            });
+            callFrame.join({ url: 'https://vetted.daily.co/tPZkcdIH0sHOgKa2ye84' })
+        });
+
     });
+
+
+
 }
 
