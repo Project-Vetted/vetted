@@ -86,6 +86,10 @@ public class User {
         this.points = points;
     }
 
+    public User(String[] newFriend) {
+
+    }
+
     public User() {
     }
 

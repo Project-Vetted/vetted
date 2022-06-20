@@ -25,12 +25,13 @@ public class FriendsController {
     }
 
     @PatchMapping("{userId}/updateFriends")
-    public User setUserFriends(@PathVariable long userId,@RequestBody String newFriendsUsername) {
-        return friendsService.updateUserFriends(userId, newFriendsUsername);
+    public void setUserFriends(@PathVariable Long userId,@RequestParam("friend") String newFriendsUsername) {
+        System.out.println(newFriendsUsername);
+        friendsService.updateUserFriends(userId,newFriendsUsername);
     }
 
-    @DeleteMapping("delete-friends")
-    public User deleteUserFriends(@RequestParam long id, String friends_username) {
-        return friendsService.deleteUserFriend(id, friends_username);
-    }
+//    @DeleteMapping("delete-friends")
+//    public User deleteUserFriends(@RequestParam long id, String friends_username) {
+//        return friendsService.deleteUserFriend(id, friends_username);
+//    }
 }

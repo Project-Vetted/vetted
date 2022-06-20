@@ -3,7 +3,6 @@ package com.example.vetted.service;
 import com.example.vetted.data.*;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -28,7 +27,12 @@ public class UserService {
     }
 
     public User getUserByUsername(String username) {
-        return usersRepository.findByUsername(username);
+        return usersRepository.findByUsername(username).orElseThrow();
+    }
+
+    public String getUsernameById(Long id){
+        User user = getUserById(id);
+        return user.getUsername();
     }
 
     public User getByEmail(String email) {

@@ -135,8 +135,8 @@ export default function Dash(props) {
                 <div class="add friend">
                     <h3>Send this user a friend request</h3>
                     <div>
-                        <button type="button" id="add-friend" class="add-friend-btn" data-username="testing"
-                                value="testing">Send Friend
+                        <button type="button" id="add-friend" class="add-friend-btn"
+                                value="user">Send Friend
                             Request
                         </button>
                     </div>
@@ -180,21 +180,18 @@ export default function Dash(props) {
 // }
 
 export function FriendEvent() {
-    $(document).on('click', '.add-friend-btn', function () {
+    $(document).on('click', '.add-friend-btn', function (e) {
             console.log($(this).val());
             const userId = localStorage.getItem("user_id")
             if (!userId) {
                 return
             }
-            const reqBody = $(this).val();
+            const newFriendsUsername = $(this).val();
 
-            return fetch(`http://localhost:8080/api/users/${userId}/updateFriends`, {
+            return fetch(`http://localhost:8080/api/users/${userId}/updateFriends?friend=${newFriendsUsername}`, {
                 method: 'PATCH',
-                body: JSON.stringify(reqBody),
                 headers: getHeaders(),
             })
-                .then(response => response.json())
-                .then(data => console.log(data))
                 .catch(err => console.log(err))
         }
     )
