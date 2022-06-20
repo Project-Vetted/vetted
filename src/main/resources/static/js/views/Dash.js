@@ -4,7 +4,7 @@ export default function Dash(props) {
     localStorage.setItem("user_id", props.user.id.toString())
     //language=HTML
     return `
-        
+
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
@@ -113,60 +113,91 @@ export default function Dash(props) {
                 </div>
 
                 <!--user activity options-->
-                <div class="activity">
-                    <h3>Category Selection</h3>
+                <!--                <div class="activity">-->
+                <!--                    <h3>Category Selection</h3>-->
+                <!--                    <div>-->
+                <!--                        <button type="button" class="cat-btn" id="ptsd-btn" value="PTSD">PTSD</button>-->
+                <!--                        <button type="button" class="cat-btn" id="depression-btn" value="Depression">Depression</button>-->
+                <!--                        <button type="button" class="cat-btn" id="anxiety-btn" value="Anxiety">Anxiety</button>-->
+                <!--                        <button type="button" class="cat-btn" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse-->
+                <!--                        </button>-->
+                <!--                        <button type="button" class="cat-btn" id="sex-btn" value="Sex Addiction">Sex Addiction</button>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <hr>-->
+                <!--                <div class="likes">-->
+                <!--                    <h3>Give this person a like</h3>-->
+                <!--                    <div>-->
+                <!--                        <button type="button" id="give-like" value="like">Give Like</button>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <hr>
+                <div class="add friend">
+                    <h3>Send this user a friend request</h3>
                     <div>
-                        <button type="button" class="cat-btn" id="ptsd-btn" value="PTSD">PTSD</button>
-                        <button type="button" class="cat-btn" id="depression-btn" value="Depression">Depression</button>
-                        <button type="button" class="cat-btn" id="anxiety-btn" value="Anxiety">Anxiety</button>
-                        <button type="button" class="cat-btn" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse
+                        <button type="button" id="add-friend" class="add-friend-btn" data-username="testing"
+                                value="testing">Send Friend
+                            Request
                         </button>
-                        <button type="button" class="cat-btn" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
                     </div>
                 </div>
-                <hr>
-<!--                <div class="likes">-->
-<!--                    <h3>Give this person a like</h3>-->
-<!--                    <div>-->
-<!--                        <button type="button" id="give-like" value="like">Give Like</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-                <!--end of dashboard features-->
+                <!--                end of dashboard features-->
             </div>
             </div>
         </section>
 
         <!--program scripts-->
         <script src="../../js/dashboard.js"></script>
-       
+
     `
 }
 
 
-export function DashEvent() {
-    $(document).on('click', '.cat-btn', function (e) {
-            console.log(e)
+// export function DashEvent() {
+//     $(document).on('click', '.cat-btn', function (e) {
+//             console.log(e)
+//             const userId = localStorage.getItem("user_id")
+//             if (!userId) {
+//                 return
+//             }
+//             const reqBody = [
+//                 $(this).val()
+//             ]
+//
+//
+//             return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
+//                 method: 'PATCH',
+//                 body: JSON.stringify(
+//                     reqBody
+//                 ),
+//                 headers: getHeaders(),
+//             })
+//                 .catch(err => console.log(err))
+//         }
+//     )
+//
+//
+// }
+
+export function FriendEvent() {
+    $(document).on('click', '.add-friend-btn', function () {
+            console.log($(this).val());
             const userId = localStorage.getItem("user_id")
             if (!userId) {
                 return
             }
-            const reqBody = [
-                $(this).val()
-            ]
+            const reqBody = $(this).val();
 
-
-            return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
+            return fetch(`http://localhost:8080/api/users/${userId}/updateFriends`, {
                 method: 'PATCH',
-                body: JSON.stringify(
-                    reqBody
-                ),
+                body: JSON.stringify(reqBody),
                 headers: getHeaders(),
             })
+                .then(response => response.json())
+                .then(data => console.log(data))
                 .catch(err => console.log(err))
         }
     )
-
-
 }
 
 // export function LikesEvent() {

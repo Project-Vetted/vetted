@@ -24,9 +24,9 @@ public class FriendsController {
         return friendsService.getUsersFriends(id);
     }
 
-    @PatchMapping("add-friends")
-    public User setUserFriends(@RequestParam long id, String newFriendsUsername) {
-        return friendsService.updateUserFriends(id, newFriendsUsername);
+    @PatchMapping("{userId}/updateFriends")
+    public User setUserFriends(@PathVariable long userId,@RequestBody String newFriendsUsername) {
+        return friendsService.updateUserFriends(userId, newFriendsUsername);
     }
 
     @DeleteMapping("delete-friends")
