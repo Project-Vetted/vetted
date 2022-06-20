@@ -1,6 +1,8 @@
 import {getHeaders} from "../auth.js";
 
+
 export default function Dash(props) {
+
     localStorage.setItem("user_id", props.user.id.toString())
     //language=HTML
     return `
@@ -142,8 +144,12 @@ export default function Dash(props) {
     `
 }
 
+export function DashEvents() {
+    CategoryButtonEvent();
+    OtherDashEvent();
+}
 
-export function DashEvent() {
+function CategoryButtonEvent() {
     $(document).on('click', '.cat-btn', function (e) {
             console.log(e)
             const userId = localStorage.getItem("user_id")
@@ -165,6 +171,43 @@ export function DashEvent() {
                 .catch(err => console.log(err))
         }
     )
+}
+
+function OtherDashEvent() {
+
+    const body = document.querySelector("body"),
+        modeToggle = body.querySelector(".mode-toggle");
+    var sidebar = body.querySelector("nav");
+    var sidebarToggle = body.querySelector(".sidebar-toggle");
+
+    let getMode = localStorage.getItem("mode");
+    if(getMode && getMode ==="dark"){
+        body.classList.toggle("dark");
+    }
+
+    let getStatus = localStorage.getItem("status");
+    if(getStatus && getStatus ==="close"){
+        sidebar.classList.toggle("close");
+    }
+
+    modeToggle.addEventListener("click", () =>{
+        body.classList.toggle("dark");
+        if(body.classList.contains("dark")){
+            localStorage.setItem("mode", "dark");
+        }else{
+            localStorage.setItem("mode", "light");
+        }
+    });
+
+    sidebarToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+        if(sidebar.classList.contains("close")){
+            localStorage.setItem("status", "close");
+        }else{
+            localStorage.setItem("status", "open");
+        }
+    })
+
 
 
 }

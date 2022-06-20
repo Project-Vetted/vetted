@@ -41,17 +41,17 @@ export default function Login(props) {
 <div class="container">
     <div class="login-screen">
         <div class="screen-content">
-            <form class="login">
+            <form class="login" id="login-form">
                 <div class="login-field">
                     <i class="login-icon fas fa-user"></i>
-                    <input type="text" class="login-input" placeholder="Enter your e-mail">
+                    <input type="text" class="login-input" id="email" placeholder="Enter your e-mail">
                 </div>
                 <div class="login-field">
                     <i class="login-icon fas fa-lock"></i>
-                    <input type="password" class="login-input" placeholder="Enter password">
+                    <input type="password" class="login-input" id="password" placeholder="Enter password">
                 </div>
                 <br>
-                <button class="login-submit">
+                <button class="login-submit" id="login-btn">
                     <span class="button-text">Access Vetted    </span>
                     <i class="button__icon fas fa-chevron-right"></i>
                     <i class="button__icon fas fa-chevron-right"></i>

@@ -9,7 +9,7 @@ export default function addLoginEvent() {
     console.log("entered addLoginEvent")
     document.querySelector("#login-btn").addEventListener("click", function () {
         let obj = {
-            username: document.querySelector("#username").value,
+            username: document.querySelector("#email").value,
             password: document.querySelector("#password").value,
             grant_type: 'password'
         }
