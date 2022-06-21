@@ -18,10 +18,10 @@ export default function Navbar(props) {
                     <a href="/user" data-link>User</a>
                     <a href="/dashboard" data-link>Dashboard</a>
                     <a href="/rating" data-link>Rating</a>
-                    <a href="https://www.linkedin.com/in/mersedyes-livingston/"> <i class="fab fa-linkedin"></i>
-                        linkedin
-                    </a>
-                    <a href="https://github.com/Project-Vetted"> <i class="fab fa-github"></i> github </a>
+<!--                    <a href="https://www.linkedin.com/in/mersedyes-livingston/"> <i class="fab fa-linkedin"></i>-->
+<!--                        linkedin-->
+<!--                    </a>-->
+<!--                    <a href="https://github.com/Project-Vetted"> <i class="fab fa-github"></i> github </a>-->
                 </nav>
             </header>
         `;

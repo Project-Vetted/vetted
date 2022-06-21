@@ -280,12 +280,13 @@ export default function Register() {
 <div class="container">
     <form action="">
         <h3>Create Account</h3>
-        <input type="text" placeholder="Email" required>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="text" id="email" placeholder="Email" required>
         <input type="password" placeholder="Password" required>
-        <input type="password" placeholder="Type your password again" required>
+        <input type="password" id="password-confirm" placeholder="Type your password again" required>
 
         <div class="btn-box">
-            <button type="button" class="submit btn-primary">Next>>></button>
+            <button type="button" class="submit btn-primary" id="register-btn">Next>>></button>
         </div>
     </form>
 </div>
@@ -298,7 +299,7 @@ export function RegisterEvent() {
         const reqBody = {
             username: $('#username').val(),
             email: $('#email').val(),
-            password: $('#password').val()
+            password: $('#password-confirm').val()
         }
 
         const options = {
