@@ -9,7 +9,7 @@ import UserIndex, {UserEvent} from "./views/User.js";
 import Dash, {DashEvents} from "./views/Dash.js";
 import Rating from "./views/Rating.js";
 import Chat from "./views/Chat.js";
-import Registration, {RegistrationEvent} from "./views/Registration.js"
+import Veteran, {VeteranRegistrationEvent} from "./views/Veteran.js"
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -42,13 +42,13 @@ export default function router(URI) {
             title: "Register",
             viewEvent: RegisterEvent
         },
-        '/registration': {
+        '/veteran': {
             noNav: true,
-            returnView: Registration,
+            returnView: Veteran,
             state: {},
-            uri: '/registration',
+            uri: '/veteran',
             title: "Registration",
-            viewEvent: RegistrationEvent
+            viewEvent: VeteranRegistrationEvent
         },
         '/rating': {
             returnView: Rating,

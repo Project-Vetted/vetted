@@ -1,5 +1,3 @@
-import createView from "../createView.js";
-
 export default function Register() {
 
     //language=HTML

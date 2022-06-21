@@ -1,8 +1,4 @@
-// import {isDash} from "./Dash.js";
-
 export default function Home(props) {
-
-    // isDash = true;
 
     //language=HTML
     return `

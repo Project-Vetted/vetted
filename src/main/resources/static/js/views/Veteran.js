@@ -1,4 +1,5 @@
-export default function VeteranRegistration() {
+export default function Veteran() {
+
     //language=HTML
     return `
         <!DOCTYPE html>
@@ -6,7 +7,7 @@ export default function VeteranRegistration() {
         <head>
             <meta charset="UTF-8">
             <title>Vetted - Registration</title>
-            <link rel="stylesheet" href="./assets/css/veteran-registration.css">
+            <link rel="stylesheet" href="./assets/css/veteran.css">
         </head>
         <body>
         <div class="container">

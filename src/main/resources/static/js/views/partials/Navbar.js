@@ -1,10 +1,4 @@
-// import {isDash} from "../Dash.js";
-
 export default function Navbar(props) {
-
-    // if (isDash === true) {
-    //     return null;
-    // } else if (isDash !== true) {
 
         //language=HTML
         return `
@@ -31,5 +25,4 @@ export default function Navbar(props) {
                 </nav>
             </header>
         `;
-    // }
 }
