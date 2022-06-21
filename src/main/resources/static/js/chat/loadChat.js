@@ -1,37 +1,53 @@
 
-import fetchData from "../fetchData.js";
-
 export function loadChat (userId, username, userEmail) {
 
+    var userPhotoUrl = '';
+
+    if (username != 'Alice') {
+        userPhotoUrl = 'https://svgsilh.com/svg/303792.svg';
+    } else {
+        userPhotoUrl = 'https://svgsilh.com/svg/295387.svg'
+    }
+
     Talk.ready.then(function () {
-        const me = new Talk.User({
+        var me = new Talk.User({
             id: userId,
             name: username,
-            email: userEmail
+            email: userEmail,
+            photoUrl: userPhotoUrl,
         });
         window.talkSession = new Talk.Session({
-            appId: 'tYHo9w1I',
+            // appId: 'tYHo9w1I',
+            // appId: 'tWKk7wVj',
+            appId: 'tZou7ipA',
             me: me,
         });
-        const other = new Talk.User({
-            id: '8',
-            name: 'Testyboi',
-            email: 'Testyboi2@gmail.com'
+        var other = new Talk.User({
+            id: '6',
+            name: 'Alice',
+            email: 'Alice@gmail.com',
+            photoUrl: 'https://svgsilh.com/svg/295387.svg',
         });
 
-        const conversation = talkSession.getOrCreateConversation(
+        if (me.name == 'Alice') {
+            other.name = 'Sebastian';
+        }
+
+        var conversation = talkSession.getOrCreateConversation(
             Talk.oneOnOneId(me, other)
         );
+
         conversation.setParticipant(me);
         conversation.setParticipant(other);
 
-        const inbox = talkSession.createInbox({ selected: conversation }, { showChatHeader: false });
+
+        var inbox = talkSession.createInbox({ selected: conversation }, { showChatHeader: false });
         inbox.mount(document.getElementById('talkjs-container'));
 
         // Add the participant user's name and photo to the custom header
-        const headerUsername = document.getElementById('header-username');
+        var headerUsername = document.getElementById('header-username');
         headerUsername.textContent = other.name;
-        document.getElementById('user-avatar').style.backgroundImage = "url(" + other.photoUrl + ")";
+        document.getElementById('user-avatar').style.backgroundImage = me.photoUrl;
 
         var callButton = document.getElementById('videocall');
 
@@ -48,4 +64,3 @@ export function loadChat (userId, username, userEmail) {
 
 
 }
-
