@@ -29,6 +29,7 @@ export default function router(URI) {
             viewEvent: HomeEvent
         },
         '/login': {
+            noNav: true,
             returnView: Login,
             state: {},
             uri: '/login',
@@ -36,6 +37,7 @@ export default function router(URI) {
             viewEvent: LoginEvent
         },
         '/register': {
+            noNav: true,
             returnView: Register,
             state: {},
             uri: '/register',
@@ -51,6 +53,7 @@ export default function router(URI) {
             viewEvent: VeteranRegistrationEvent
         },
         '/rating': {
+            noNav: true,
             returnView: Rating,
             state: {user: '/api/users/me'},
             uri: '/rating',
@@ -68,6 +71,7 @@ export default function router(URI) {
             viewEvent: DashEvents
         },
         '/user': {
+            noNav: true,
             returnView: UserIndex,
             state: {
                 user: '/api/users/me'
@@ -95,6 +99,7 @@ export default function router(URI) {
             title: 'Loading...',
         },
         '/chat': {
+            noNav: true,
             returnView: Chat,
             state: {user: "/api/users/me"},
             uri: '/chat',
