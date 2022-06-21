@@ -602,6 +602,20 @@ export default function Dash(props) {
                         <a href="#" class="card-body-link">
                             <i class="ri-user-voice-fill">Manage Chat</i>
                         </a>
+
+                        <!--user activity options-->
+                        <div class="activity">
+                            <h2 class="card-header">Category Selection</h2>
+                            <div>
+                                <button type="button" class="card-body-link" id="ptsd-btn" value="PTSD">PTSD</button>
+                                <button type="button" class="card-body-link" id="depression-btn" value="Depression">Depression</button>
+                                <button type="button" class="card-body-link" id="anxiety-btn" value="Anxiety">Anxiety</button>
+                                <button type="button" class="card-body-link" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse
+                                </button>
+                                <button type="button" class="card-body-link" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="card-group d-grid">
