@@ -1,34 +1,56 @@
-import createView from "../createView.js";
-
 export default function Register() {
 
     //language=HTML
     return `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8"/>
-            <title>Register</title>
-        </head>
-        <body>
+<!--        <!DOCTYPE html>-->
+<!--        <html lang="en">-->
+<!--        <head>-->
+<!--            <meta charset="UTF-8"/>-->
+<!--            <title>Register</title>-->
+<!--        </head>-->
+<!--        <body>-->
 
-        <div style="margin-top: 80px">
-            <h1>Register here!</h1>
+<!--        <div style="margin-top: 80px">-->
+<!--            <h1>Register here!</h1>-->
+<!--        </div>-->
+
+<!--        <form id="register-form">-->
+<!--            <div style="margin-top: 80px">-->
+<!--                <label for="username">Username</label>-->
+<!--                <input id="username" name="username" type="text"/>-->
+<!--                <label for="email">Email</label>-->
+<!--                <input id="email" name="email" type="email">-->
+<!--                <label for="password">Password</label>-->
+<!--                <input id="password" name="password" type="password"/>-->
+<!--                <input id="register-btn" type="button" value="Register"/>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--        </body>-->
+<!--        </html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vetted - Register</title>
+    <link rel="stylesheet" href="./assets/css/register.css">
+</head>
+<body>
+<div class="container">
+    <form action="">
+        <h3>Create Account</h3>
+        <input type="text" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Type your password again" required>
+
+        <div class="btn-box">
+            <button type="submit" class="submit btn-primary">Next>>></button>
         </div>
-
-        <form id="register-form">
-            <div style="margin-top: 80px">
-                <label for="username">Username</label>
-                <input id="username" name="username" type="text"/>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email">
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password"/>
-                <input id="register-btn" type="button" value="Register"/>
-            </div>
-        </form>
-        </body>
-        </html>
+    </form>
+</div>
+</body>
+</html>
     `;
 }
 
@@ -49,7 +71,6 @@ export function RegisterEvent() {
             body: JSON.stringify(reqBody)
         }
 
-        //TODO: Receiving this error when registering a new user: Failed to load resource: the server responded with a status of 500 ()
         fetch("http://localhost:8080/api/users/create", options)
             .then(data => console.log(data))
             .catch(err => console.log(err))

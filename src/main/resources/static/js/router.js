@@ -6,9 +6,10 @@ import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
 import Register, {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvent} from "./views/User.js";
-import Dash, {DashEvent} from "./views/Dash.js";
+import Dash, {DashEvents} from "./views/Dash.js";
 import Rating from "./views/Rating.js";
 import Chat from "./views/Chat.js";
+import Veteran, {VeteranRegistrationEvent} from "./views/Veteran.js"
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -16,6 +17,9 @@ import Chat from "./views/Chat.js";
  * @returns {*}
  */
 export default function router(URI) {
+
+
+
     const routes = {
         '/': {
             returnView: Home,
@@ -38,6 +42,14 @@ export default function router(URI) {
             title: "Register",
             viewEvent: RegisterEvent
         },
+        '/veteran': {
+            noNav: true,
+            returnView: Veteran,
+            state: {},
+            uri: '/veteran',
+            title: "Registration",
+            viewEvent: VeteranRegistrationEvent
+        },
         '/rating': {
             returnView: Rating,
             state: {user: '/api/users/me'},
@@ -46,13 +58,14 @@ export default function router(URI) {
 
         },
         '/dashboard': {
+            noNav: true,
             returnView: Dash,
             state: {
                 user: '/api/users/me'
             },
             uri: '/dashboard',
             title: "Dashboard",
-            viewEvent: DashEvent
+            viewEvent: DashEvents
         },
         '/user': {
             returnView: UserIndex,
