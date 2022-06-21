@@ -285,7 +285,7 @@ export default function Register() {
         <input type="password" placeholder="Type your password again" required>
 
         <div class="btn-box">
-            <button type="submit" class="submit btn-primary">Next>>></button>
+            <button type="button" class="submit btn-primary">Next>>></button>
         </div>
     </form>
 </div>

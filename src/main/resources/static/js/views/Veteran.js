@@ -35,7 +35,7 @@ export default function Veteran() {
 
         .container-test {
             width: 400px;
-            height: 650px;
+            height: 600px;
             margin: 8% auto;
             background: #FFFFFF;
             border-radius: 5px;
@@ -61,6 +61,15 @@ export default function Veteran() {
             cursor: crosshair;
             transition: 0.5s;
         }
+
+            /*.container-test form {*/
+            /*    width: 280px;*/
+            /*    position: absolute;*/
+            /*    top: 100px;*/
+            /*    left: 40px;*/
+            /*    cursor: crosshair;*/
+            /*    transition: 0.5s;*/
+            /*}*/
 
         form input {
             width: 100%;
@@ -289,6 +298,14 @@ export default function Veteran() {
         </style>
         
         <div class="container-test">
+
+            <div class="step-row">
+                <div id="progress"></div>
+                <div class="step-col"><small>Step 1</small></div>
+                <div class="step-col"><small>Step 2</small></div>
+                <div class="step-col"><small>Step 3</small></div>
+            </div>
+            
             <form id="form1">
                 <h3>Create Account</h3>
                 <input type="fname" placeholder="First Name" required>
@@ -349,13 +366,6 @@ export default function Veteran() {
                     <button type="button" class="submit btn-primary">Submit>>></button>
                 </div>
             </form>
-
-            <div class="step-row">
-                <div id="progress"></div>
-                <div class="step-col"><small>Step 1</small></div>
-                <div class="step-col"><small>Step 2</small></div>
-                <div class="step-col"><small>Step 3</small></div>
-            </div>
         </div>
     `;
 }
