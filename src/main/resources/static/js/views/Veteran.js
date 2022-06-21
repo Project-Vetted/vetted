@@ -2,7 +2,8 @@ export default function Veteran() {
 
     //language=HTML
     return `
-        <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
 
         * {
             margin: 0;
@@ -32,6 +33,20 @@ export default function Veteran() {
             -5px -5px 15px rgba(255, 255, 255, 0.15);
         }
 
+        .container-test {
+            width: 400px;
+            height: 600px;
+            margin: 8% auto;
+            background: #FFFFFF;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15),
+            inset -5px -5px 15px rgba(255, 255, 255, 0.15),
+            5px 5px 15px rgba(0, 0, 0, 0.15),
+            -5px -5px 15px rgba(255, 255, 255, 0.15);
+        }
+
         h3 {
             text-align: center;
             margin-bottom: 40px;
@@ -46,6 +61,15 @@ export default function Veteran() {
             cursor: crosshair;
             transition: 0.5s;
         }
+
+            /*.container-test form {*/
+            /*    width: 280px;*/
+            /*    position: absolute;*/
+            /*    top: 100px;*/
+            /*    left: 40px;*/
+            /*    cursor: crosshair;*/
+            /*    transition: 0.5s;*/
+            /*}*/
 
         form input {
             width: 100%;
@@ -273,7 +297,15 @@ export default function Veteran() {
         }
         </style>
         
-        <div class="container">
+        <div class="container-test">
+
+            <div class="step-row">
+                <div id="progress"></div>
+                <div class="step-col"><small>Step 1</small></div>
+                <div class="step-col"><small>Step 2</small></div>
+                <div class="step-col"><small>Step 3</small></div>
+            </div>
+            
             <form id="form1">
                 <h3>Create Account</h3>
                 <input type="fname" placeholder="First Name" required>
@@ -334,13 +366,6 @@ export default function Veteran() {
                     <button type="button" class="submit btn-primary">Submit>>></button>
                 </div>
             </form>
-
-            <div class="step-row">
-                <div id="progress"></div>
-                <div class="step-col"><small>Step 1</small></div>
-                <div class="step-col"><small>Step 2</small></div>
-                <div class="step-col"><small>Step 3</small></div>
-            </div>
         </div>
     `;
 }
@@ -359,8 +384,8 @@ export function VeteranRegistrationEvent() {
     })
 
     $(document).on('click', '#back1', function () {
-        form1.style.display = "none";
-        form2.style.display = "block";
+        form1.style.display = "block";
+        form2.style.display = "none";
         progress.style.width = "120px";
     })
 

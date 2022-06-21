@@ -7,668 +7,637 @@ export default function Dash(props) {
     //language=HTML
     return `
         <style>
-            git@github.com:Project-Vetted/frontend.git@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-            *{
+            /* Fonts */
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Rock+Salt&display=swap');
+            /**********************/
+            /* Custom properties */
+            /**********************/
+
+            :root{
+                --light-color: #fff;
+                --dark-color: #171721;
+                --dark-color-lighter: #7E8299;
+                --accent-color: #AFAAFE;
+                --body-background-color: #202028;
+                --border-bottom-color: rgba(255,255,255,.05);
+                --transparent-button-color: rgba(255,255,255,.1);
+                --font-size-small: 1.4rem;
+                --font-size-normal: 1.6rem;
+                --font-size-medium: 2rem;
+                --font-size-large: 2.4rem;
+                --font-family: 'Poppins', sans-serif;
+                --margin-small: 1rem;
+                --margin-medium: 1.5rem;
+                --gap-small: 1rem;
+                --gap-medium: 2.5rem;
+            }
+
+            .theme-light{
+                --light-color: #171721;
+                --dark-color: #fff;
+                --dark-color-lighter: #7E8299;
+                --body-background-color: #eef0f8;
+                --border-bottom-color: rgba(23,23,23,.05);
+                --transparent-button-color: var(--accent-color);
+            }
+
+            /**********************/
+            /* Base styles */
+            /**********************/
+
+            *,
+            *::before,
+            *::after{
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
-                font-family: 'Poppins', sans-serif;
             }
 
-            :root{
-                /* ===== Colors ===== */
-                --primary-color: #C0B2FF;
-                --panel-color: #9F9BE7;
-                --text-color: #350259;
-                --black-light-color: #fff;
-                --border-color: #D1BAFF;
-                --toggle-color: #350259;
-                --box1-color: #918DD2;
-                --box2-color: #918DD2;
-                --box3-color: #918DD2;
-                --title-icon-color: #350259;
-
-                /* ====== Transitions ====== */
-                --tran-05: all 0.5s ease;
-                --tran-03: all 0.3s ease;
-                --tran-03: all 0.2s ease;
+            html{
+                font-size: 62.5%;
             }
 
             body{
-                min-height: 100vh;
-                background-color: var(--primary-color);
-            }
-            body.dark{
-                --primary-color: #42026F;
-                --panel-color: #53197C;
-                --text-color: #C0B2FF;
-                --black-light-color: #C0B2FF;
-                --border-color: #C0B2FF;
-                --toggle-color: #C0B2FF;
-                --box1-color: #350259;
-                --box2-color: #3C0265;
-                --box3-color: #42026F;
-                --title-icon-color: #C0B2FF;
-            }
-            /* === Custom Scroll Bar CSS === */
-            ::-webkit-scrollbar {
-                width: 8px;
-            }
-            ::-webkit-scrollbar-track {
-                background: #f1f1f1;
-            }
-            ::-webkit-scrollbar-thumb {
-                background: var(--primary-color);
-                border-radius: 12px;
-                transition: all 0.3s ease;
+                font-family: var(--font-family);
+                font-size: var(--font-size-normal);
+                color: var(--light-color);
+                line-height: 1.5;
+                background-color: var(--body-background-color);
             }
 
-            ::-webkit-scrollbar-thumb:hover {
-                background: #350259;
-            }
-
-            nav{
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 250px;
-                padding: 10px 14px;
-                background-color: var(--panel-color);
-                border-right: 1px solid var(--border-color);
-                transition: var(--tran-05);
-            }
-            nav.close{
-                width: 73px;
-            }
-            nav .logo-name{
-                display: flex;
-                align-items: center;
-            }
-            nav .logo-image{
-                display: flex;
-                justify-content: center;
-                min-width: 45px;
-            }
-            nav .logo-image img{
-                width: 40px;
-                object-fit: cover;
-                border-radius: 50%;
-            }
-
-            nav .logo-name .logo_name{
-                font-size: 22px;
-                font-weight: 600;
-                color: var(--text-color);
-                margin-left: 14px;
-                transition: var(--tran-05);
-            }
-            nav.close .logo_name{
-                opacity: 0;
-                pointer-events: none;
-            }
-            nav .menu-items{
-                margin-top: 40px;
-                height: calc(100% - 90px);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-            .menu-items li{
+            ul{
                 list-style: none;
-            }
-            .menu-items li a{
-                display: flex;
-                align-items: center;
-                height: 50px;
-                text-decoration: none;
-                position: relative;
-            }
-            .nav-links li a:hover:before{
-                content: "";
-                position: absolute;
-                left: -7px;
-                height: 5px;
-                width: 5px;
-                border-radius: 50%;
-                background-color: var(--primary-color);
-            }
-            body.dark li a:hover:before{
-                background-color: var(--text-color);
-            }
-            .menu-items li a i{
-                font-size: 24px;
-                min-width: 45px;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--black-light-color);
-            }
-            .menu-items li a .link-name{
-                font-size: 18px;
-                font-weight: 400;
-                color: var(--black-light-color);
-                transition: var(--tran-05);
-            }
-            nav.close li a .link-name{
-                opacity: 0;
-                pointer-events: none;
-            }
-            .nav-links li a:hover i,
-            .nav-links li a:hover .link-name{
-                color: var(--primary-color);
-            }
-            body.dark .nav-links li a:hover i,
-            body.dark .nav-links li a:hover .link-name{
-                color: var(--text-color);
-            }
-            .menu-items .logout-mode{
-                padding-top: 10px;
-                border-top: 1px solid var(--border-color);
-            }
-            .menu-items .mode{
-                display: flex;
-                align-items: center;
-                white-space: nowrap;
-            }
-            .menu-items .mode-toggle{
-                position: absolute;
-                right: 14px;
-                height: 50px;
-                min-width: 45px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-            }
-            .mode-toggle .switch{
-                position: relative;
-                display: inline-block;
-                height: 22px;
-                width: 40px;
-                border-radius: 25px;
-                background-color: var(--toggle-color);
-            }
-            .switch:before{
-                content: "";
-                position: absolute;
-                left: 5px;
-                top: 50%;
-                transform: translateY(-50%);
-                height: 15px;
-                width: 15px;
-                background-color: var(--panel-color);
-                border-radius: 50%;
-                transition: var(--tran-03);
-            }
-            body.dark .switch:before{
-                left: 20px;
+                color: inherit;
             }
 
-            .dashboard{
-                position: relative;
-                left: 250px;
-                background-color: var(--panel-color);
-                min-height: 100vh;
-                width: calc(100% - 250px);
-                padding: 10px 14px;
-                transition: var(--tran-05);
+            img{
+                max-width: 100%;
+                display: block;
             }
-            nav.close ~ .dashboard{
-                left: 73px;
-                width: calc(100% - 73px);
+
+            button{
+                font: inherit;
+                color: inherit;
+                background: transparent;
+                border: none;
+                border-radius: 0.4rem;
+                cursor: pointer;
             }
-            .dashboard .top-nav{
+
+            i{
+                font-size: var(--font-size-large);
+                line-height: 0;
+            }
+            /**********************/
+            /* Reusable classes */
+            /**********************/
+
+            .container{
+                max-width: 134rem;
+                margin: 0 auto;
+                padding: 0 1.5rem;
+            }
+
+            .place-items-center{
+                display: inline-flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .d-grid{
+                display: grid;
+            }
+            /**********************/
+            /* Floating background image */
+            /**********************/
+
+            .floating-background-image{
+                width: 100%;
+                height: 45rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+
+            .floating-background-image img{
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+            }
+            /**********************/
+            /* Header */
+            /**********************/
+
+            .header{
+                background-color: var(--dark-color);
+            }
+
+            .nav{
+                height: 6rem;
+                display: flex;
+                align-items: center;
+            }
+
+            .logo{
+                font-family: 'Poppins', sans-serif;
+                font-weight: bold;
+                font-size: var(--font-size-medium);
+            }
+
+            .align-right{
+                margin-left: auto;
+                background-color: var(--accent-color);
+                border-radius: 0.4rem;
+            }
+
+            .icon-btn{
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+
+            .theme-dark-icon{
+                display: none;
+            }
+
+            .nav-mobile{
+                width: 100%;
+                height: 100vh;
+                background-color: var(--light-color);
                 position: fixed;
                 top: 0;
-                left: 250px;
-                display: flex;
-                width: calc(100% - 250px);
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 14px;
-                background-color: var(--panel-color);
-                transition: var(--tran-05);
-                z-index: 10;
+                left: 0;
+                padding: 2.5rem;
+                transform: translateX(-105%);
+                z-index: 999;
+                transition: transform 0.5s;
             }
-            nav.close ~ .dashboard .top-nav{
-                left: 73px;
-                width: calc(100% - 73px);
-            }
-            .dashboard .top-nav .sidebar-toggle{
-                font-size: 26px;
-                color: var(--text-color);
-                cursor: pointer;
-            }
-            .dashboard .top-nav .search-box{
-                position: relative;
-                align-items: flex-end;
-                height: 40px;
-                max-width: 600px;
-                width: 100%;
-                margin: 0 30px;
-            }
-            .top-nav .search-box input{
-                position: absolute;
-                border: 1px solid var(--border-color);
-                background-color: var(--panel-color);
-                padding: 0 25px 0 50px;
-                border-radius: 5px;
-                height: 100%;
-                width: 100%;
-                color: var(--text-color);
-                font-size: 15px;
-                font-weight: 400;
-                outline: none;
-            }
-            .top-nav .search-box i{
-                position: absolute;
-                left: 15px;
-                font-size: 22px;
-                z-index: 10;
-                top: 50%;
-                transform: translateY(-50%);
-                color: var(--black-light-color);
-            }
-            .top-nav img{
-                width: 40px;
-                border-radius: 50%;
-            }
-            .dashboard .dash-content{
-                padding-top: 50px;
-            }
-            .dash-content .title{
-                display: flex;
-                align-items: center;
-                margin: 60px 0 30px 0;
-            }
-            .dash-content .title i{
-                position: relative;
-                height: 35px;
-                width: 35px;
-                background-color: var(--primary-color);
-                border-radius: 6px;
-                color: var(--title-icon-color);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 24px;
-            }
-            .dash-content .title .text{
-                font-size: 24px;
-                font-weight: 500;
-                color: var(--text-color);
-                margin-left: 10px;
-            }
-            .dash-content .boxes{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-            }
-            .dash-content .boxes .box{
+
+            .list{
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                border-radius: 12px;
-                width: calc(100% / 3 - 15px);
-                padding: 15px 20px;
-                background-color: var(--box1-color);
-                transition: var(--tran-05);
-            }
-            .boxes .box i{
-                font-size: 35px;
-                color: var(--text-color);
-            }
-            .boxes .box .text{
-                white-space: nowrap;
-                font-size: 18px;
-                font-weight: 500;
-                color: var(--text-color);
-            }
-            .boxes .box .number{
-                font-size: 40px;
-                font-weight: 500;
-                color: var(--text-color);
-            }
-            .boxes .box.box2{
-                background-color: var(--box2-color);
-            }
-            .boxes .box.box3{
-                background-color: var(--box3-color);
+                gap: var(--gap-small);
             }
 
-            @media (max-width: 1000px) {
-                nav{
-                    width: 73px;
-                }
-                nav.close{
-                    width: 250px;
-                }
-                nav .logo_name{
-                    opacity: 0;
-                    pointer-events: none;
-                }
-                nav.close .logo_name{
-                    opacity: 1;
-                    pointer-events: auto;
-                }
-                nav li a .link-name{
-                    opacity: 0;
-                    pointer-events: none;
-                }
-                nav.close li a .link-name{
-                    opacity: 1;
-                    pointer-events: auto;
-                }
-                nav ~ .dashboard{
-                    left: 73px;
-                    width: calc(100% - 73px);
-                }
-                nav.close ~ .dashboard{
-                    left: 250px;
-                    width: calc(100% - 250px);
-                }
-                nav ~ .dashboard .top-nav{
-                    left: 73px;
-                    width: calc(100% - 73px);
-                }
-                nav.close ~ .dashboard .top-nav{
-                    left: 250px;
-                    width: calc(100% - 250px);
-                }
+            .list-link{
+                display: inline-block;
+                padding: 1rem 1.5rem;
+                font-size: var(--font-size-small);
+                color: var(--dark-color-lighter);
             }
 
-            @media (max-width: 780px) {
-                .dash-content .boxes .box{
-                    width: calc(100% / 2 - 15px);
-                    margin-top: 15px;
-                }
-            }
-            @media (max-width: 560px) {
-                .dash-content .boxes .box{
-                    width: 100% ;
-                }
-            }
-            @media (max-width: 400px) {
-                nav{
-                    width: 0px;
-                }
-                nav.close{
-                    width: 73px;
-                }
-                nav .logo_name{
-                    opacity: 0;
-                    pointer-events: none;
-                }
-                nav.close .logo_name{
-                    opacity: 0;
-                    pointer-events: none;
-                }
-                nav li a .link-name{
-                    opacity: 0;
-                    pointer-events: none;
-                }
-                nav.close li a .link-name{
-                    opacity: 0;
-                    pointer-events: none;
-                }
-                nav ~ .dashboard{
-                    left: 0;
-                    width: 100%;
-                }
-                nav.close ~ .dashboard{
-                    left: 73px;
-                    width: calc(100% - 73px);
-                }
-                nav ~ .dashboard .top-nav{
-                    left: 0;
-                    width: 100%;
-                }
-                nav.close ~ .dashboard .top-nav{
-                    left: 0;
-                    width: 100%;
-                }
+            .current{
+                color: var(--dark-color);
             }
 
-            .blog-pic{
-                height: 150px;
-                width: 150px;
+            .menu-toggle-close{
+                background-color: var(--body-background-color);
+                position: absolute;
+                top: 2.5rem;
+                right: 2.5rem;
             }
-            /*user options button*/
-            .user-btn{
+
+            .dropdown-menu{
+                background-color: #D1BAFF;
+                gap: 0;
+                margin-left: 1.5rem;
+                transform: translateY(-3px);
+                height: 0;
+                opacity: 0;
+                transition: transform 0.5s;
+                pointer-events: none;
+            }
+
+            .dropdown > .list-link i{
+                transition: transform 0.25s;
+            }
+            /**********************/
+            /* JavaScript styles */
+            /**********************/
+
+            .nav-mobile.active{
+                transform: translateX(0);
+            }
+
+            .theme-light .theme-dark-icon{
+                display: block;
+            }
+
+            .theme-light .theme-light-icon{
+                display: none;
+            }
+
+            .dropdown.active > .list-link i{
+                transform: rotate(90deg);
+            }
+
+            .dropdown.active .dropdown-menu{
+                height: initial;
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            /**********************/
+            /* Welcome message */
+            /**********************/
+
+            .card{
+                background-color: var(--dark-color);
+                padding: 2.5rem;
+                border-radius: 0.4rem;
+                box-shadow: 0.5rem 0.5rem 1rem rgba(82, 63, 105, 0.05);
+            }
+
+            .title{
+                font-size: var(--font-size-normal);
+                margin-bottom: var(--margin-small);
+            }
+
+            .independent-title{
+                font-size: var(--font-size-medium);
+                color: var(--light-color);
+                padding: 2.5rem 0 1.25rem;
+            }
+
+            .main-title{
+                font-size: var(--font-size-large);
+            }
+
+            .card-header{
+                padding-block: 1rem;
+                margin-bottom: var(--margin-medium);
+                border-bottom: 1px solid var(--border-bottom-color);
+            }
+
+            .card-header small{
+                font-size: 1.2rem;
+                color: #350259;
+            }
+
+            .card-header .title{
+                margin-bottom: 0;
+            }
+
+            .card-image{
+                padding: 2.5rem;
+            }
+
+            .card-description{
+                font-size: var(--font-size-small);
+                margin-bottom: var(--margin-small);
+            }
+            /**********************/
+            /* Management area */
+            /**********************/
+            .management-area{
+                padding-block: 2.5rem;
+            }
+
+            .management-area-container, .card-group{
+                gap: var(--gap-medium);
+            }
+
+            .management-area .card-header{
+                border-bottom: none;
+            }
+
+            .card-body-link{
+                font-size: var(--font-size-small);
+                background-color: var(--accent-color);
+                margin-bottom: var(--margin-medium);
+                padding: 1.5rem;
+                border-radius: 0.4rem;
                 display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                text-decoration: #fff;
-                padding: 20px 50px;
-                font-size: 1.25rem;
+                align-items: center;
+                gap: var(--gap-small);
+            }
+
+            .card-group .card{
                 position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                min-height: 17.5rem;
+                border-radius: 0.4rem;
             }
 
-            .chat-btn{
-                background-color: #D1BAFF;
-                border-radius: 50px;
-                transition: transform 0.3s ease;
-            }
-            .chat-btn::after, chat-btn::before{
-                content: "";
+            .card-group .card::after{
+                content: '';
                 position: absolute;
-                opacity: 0.3;
-                background: #D1BAFF;
-                border-radius: inherit;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
+                width: 10rem;
+                height: 10rem;
+                top: -2px;
+                right: -2px;
                 z-index: -1;
-                transition: transform 0.3s ease;
+                border-radius: inherit;
             }
 
-            .chat-btn:hover{
-                transform: translate(-12px, -12px);
+            .border-green::after{
+                background-image: linear-gradient(235deg, #D1BAFF, transparent, var(--dark-color));;
+            }
+            .border-yellow::after{
+                background-image: linear-gradient(235deg, var(--accent-color), transparent, var(--dark-color));;
+            }
+            .border-orange::after{
+                background-image: linear-gradient(235deg, #5C5696, transparent, var(--dark-color));;
+            }
+            .border-pink::after{
+                background-image: linear-gradient(235deg, #4C489D, transparent, var(--dark-color));;
             }
 
-            .chat-btn:hover::after{
-                transform: translate(6px, 6px);
+            .card-group .card-description{
+                margin-bottom: var(--margin-medium);
             }
 
-            .chat-btn:hover::before{
-                transform: translate(6px, 6px);
+            .card-group .list-link{
+                background-color: var(--transparent-button-color);
+                color: var(--light-color);
             }
-            /*resources btn*/
-            .resources-btn{
+
+            /**********************/
+            /* Scrollbar */
+            /**********************/
+            ::-webkit-scrollbar{
+                width: 1rem;
+            }
+
+            ::-webkit-scrollbar-track{
+                background-color: #320259;
+            }
+
+            ::-webkit-scrollbar-thumb{
                 background-color: #D1BAFF;
-                border-radius: 50px;
-                transition: transform 0.3s ease;
-            }
-            .resources-btn::after, resources-btn::before{
-                content: "";
-                position: absolute;
-                opacity: 0.3;
-                background: #D1BAFF;
-                border-radius: inherit;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                transition: transform 0.3s ease;
             }
 
-            .resources-btn:hover{
-                transform: translate(-12px, -12px);
+            ::-webkit-scrollbar-thumb:hover{
+                background-color: #5C5696;
             }
 
-            .resources-btn:hover::after{
-                transform: translate(6px, 6px);
+            /**********************/
+            /* Media queries */
+            /**********************/
+
+            @media screen and (min-width: 768px) {
+                .nav{
+                    height: 7rem;
+                }
+
+                .independent-title{
+                    font-size: var(--font-size-large);
+                    padding: 4rem 0 2rem;
+                }
+
+                .card-body{
+                    grid-template-columns: repeat(2,1fr);
+                    align-items: center;
+                    gap: var(--gap-medium);
+                    padding-block: 2.5rem;
+                }
+                .card-image{
+                    padding: 0;
+                }
+                .card-image img{
+                    max-width: 80%;
+                    margin: auto;
+                }
+                .management-area-container{
+                    grid-template-columns: 35rem 1fr;
+                }
             }
 
-            .resources-btn:hover::before{
-                transform: translate(6px, 6px);
-            }
-            /*protocol btn*/
-            .protocol-btn{
-                background-color: #D1BAFF;
-                border-radius: 50px;
-                transition: transform 0.3s ease;
-            }
-            .protocol-btn::after, protocol-btn::before{
-                content: "";
-                position: absolute;
-                opacity: 0.3;
-                background: #D1BAFF;
-                border-radius: inherit;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                transition: transform 0.3s ease;
-            }
+            @media screen and (min-width: 1024px) {
+                .menu-toggle-btn{
+                    display: none !important;
+                }
+                .nav-mobile{
+                    width: initial;
+                    height: initial;
+                    background-color: initial;
+                    position: initial;
+                    padding: initial;
+                    transform: initial;
+                    transition: initial;
+                }
 
-            .protocol-btn:hover{
-                transform: translate(-12px, -12px);
-            }
+                .nav-mobile > .list{
+                    flex-direction: row;
+                    margin-left: 4rem;
+                }
 
-            .protocol-btn:hover::after{
-                transform: translate(6px, 6px);
-            }
+                .list-link, .card-body-link{
+                    transition: color 0.25s, background-color 0.25s;
+                }
 
-            .protocol-btn:hover::before{
-                transform: translate(6px, 6px);
+                .nav-mobile .list-link{
+                    border-radius: 0.4rem;
+                }
+
+                .current .nav-mobile .list-link:hover,
+                .nav-mobile .list-link:focus{
+                    background-color: var(--accent-color);
+                    color: var(--light-color);
+                }
+
+                .dropdown{
+                    position: relative;
+                }
+
+                .dropdown-menu{
+                    width: 25rem;
+                    height: initial;
+                    background-color: var(--light-color);
+                    padding: 1.5rem;
+                    margin-left: 0;
+                    border-radius: 0.4rem;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    transform: translateY(0.8rem);
+                    box-shadow: 0 0 3rem rgba(23,23,23,0.2);
+                    transition: transform 0.25s, opacity 0.25s;
+                }
+
+                .dropdown.active .dropdown-menu{
+                    transform: translateY(1.5rem);
+                }
+
+                .dropdown-menu .list-link{
+                    display: block;
+                }
+
+                .card-body-link:hover{
+                    background-color: #D1BAFF;
+                }
+
+                .card-group{
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .border-green{
+                    grid-column: 1/-1;
+                }
+                .border-yellow, .border-orange{
+                    grid-column: 1/2;
+                }
+
+                .border-pink{
+                    grid-column:2/-1;
+                    grid-row: 2/4;
+                }
+
+                .card-group .list-link:hover{
+                    background-color: var(--light-color);
+                    color: var(--dark-color);
+                }
+
             }
 
         </style>
-        <nav>
-            <div class="logo-name">
-                <div class="logo-image">
-                    <img src="../../assets/imgs/official_vetted_logo.png" alt="vetted logo">
+        <!-- Floating-background-image -->
+        <div class="floating-background-image">
+            <img src="./assets/imgs/pexels-veeterzy-114979.jpeg">
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <nav class="nav container">
+                <a href="dashboard2.html" class="logo">Vetted</a>
+                <div class="nav-mobile">
+                    <ul class="list">
+                        <li class="list-item">
+                            <a href="#" class="list-link current">Home</a>
+                        </li>
+                        <li class="list-item">
+                            <a href="#" class="list-link">Chat</a>
+                        </li>
+                        <li class="list-item">
+                            <a href="#" class="list-link">Rating</a>
+                        </li>
+                        <li class="list-item dropdown">
+                            <button class="list-link dropdown-btn place-items-center">User Settings <i class="ri-arrow-drop-right-line"></i></button>
+                            <ul class="list dropdown-menu">
+                                <li class="list-item">
+                                    <a href="#" class="list-link">Profile Settings</a>
+                                </li>
+                                <li class="list-item">
+                                    <a href="#" class="list-link">Friends List</a>
+                                </li>
+                                <li class="list-item">
+                                    <a href="https://benice.com/" class="list-link">Community Guidelines</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <button class="icon-btn menu-toggle-btn menu-toggle-close place-items-center">
+                        <i class="ri-close-line"></i>
+                    </button>
                 </div>
 
-                <span class="logo_name">Vetted</span>
+                <div class="align-right">
+                    <button class="icon-btn menu-toggle-btn menu-toggle-open place-items-center">
+                        <i class="ri-function-line"></i>
+                    </button>
+                    <button class="icon-btn theme-toggle-btn place-items-center">
+                        <i class="ri-sun-line theme-light-icon"></i>
+                        <i class="ri-moon-line theme-dark-icon"></i>
+
+                    </button>
+                    <button class="icon-btn place-items-center">
+                        <i class="ri-user-3-line"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <!-- Welcome-message -->
+        <section class="welcome-message">
+            <div class="container">
+                <h2 class="title independent-title">User Dashboard</h2>
+                <div class="card">
+                    <header class="card-header">
+                        <small>Getting started</small>
+                        <h2 class="title">Welcome Back, Vetted User</h2>
+                    </header>
+                    <div class="card-body d-grid">
+                        <div class="card-image">
+                            <img src="./assets/imgs/vetted_banner.png" alt="">
+                        </div>
+                        <div class="card-information">
+                            <h1 class="title main-title">
+                                Accessible, Empathetic, and Vetted Community
+                            </h1>
+                            <p class="card-description">
+                                Vetted is an application for veterans who struggle with various mental health issues and are
+                                seeking connection, compassion, and relational consistency. Vetted is a secured platform that
+                                verifies veteran user credentials to allow for privacy and randomizes usernames to maintain privacy.
+                                Users are able to access mental health information, develop personal goals, and communicate with
+                                other veterans via chat or video. In a modern climate where veterans are seeking support and lack
+                                proper resources, Vetted is an application that empowers veterans to join arms with each other
+                                bridging the mental health gap.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+        <!-- Management-area -->
+        <section class="management-area">
+            <div class="management-area-container container d-grid">
+                <div class="card">
+                    <header class="card-header">
+                        <h2 class="title">Quick Actions</h2>
+                        <small>Access frequently visited places quicker</small>
+                    </header>
+                    <div class="card-body">
 
-            <div class="menu-items">
-                <ul class="nav-links">
-                    <li><a href="#">
-                        <i class="uil uil-estate"></i>
-                        <span class="link-name">Home</span>
-                    </a></li>
-                    <li><a href="#">
-                        <i class="uil uil-comments"></i>
-                        <span class="link-name">Chat</span>
-                    </a></li>
-                    <li><a href="#">
-                        <i class="uil uil-files-landscapes"></i>
-                        <span class="link-name">Vetted Blog</span>
-                    </a></li>
-                    <li><a href="#">
-                        <i class="uil uil-thumbs-up"></i>
-                        <span class="link-name">Rating</span>
-                    </a></li>
-                </ul>
-                <!--lower side navbar-->
-                <ul class="logout-mode">
-                    <li><a href="#">
-                        <i class="uil uil-signout"></i>
-                        <span class="link-name">Sign Out</span>
-                    </a></li>
-
-                    <li class="mode">
-                        <a href="#">
-                            <i class="uil uil-moon"></i>
-                            <span class="link-name">Switch Mode</span>
+                        <a href="#" class="card-body-link">
+                            <i class="ri-shield-line">Account Settings</i>
                         </a>
-
-                        <div class="mode-toggle">
-                            <span class="switch"></span>
-                        </div>
-                    </li>
-                </ul>
-                <!--end of lower side navbar-->
-            </div>
-        </nav>
-
-        <!--dashboard features-->
-        <section class="dashboard">
-            <div class="top-nav">
-                <i class="uil uil-bars sidebar-toggle"></i>
-
-                <div class="search-box">
-                    <i class="uil uil-search"></i>
-                    <input type="text" placeholder="Type your search here">
-                </div>
-
-                <img src="../../assets/imgs/vetted_profile.png" alt="profile picture for user">
-            </div>
-            <!--vetted dashboard-->
-            <div class="dash-content">
-                <div class="overview">
-                    <div class="title">
-                        <i class="uil uil-tachometer-fast-alt"></i>
-                        <span class="text">Vetted Dashboard</span>
-                    </div>
-
-                    <!--user info blog posts-->
-                    <div class="boxes">
-                        <div class="box box1">
-                            <i class="blog-pic" id="blog-pic1"></i>
-                            <span class="text">Mental Health & COVID-19</span>
-                            <span class="text">Information and mental health resources.</span>
-                            <a href="https://mhanational.org/covid19" class="btn">More...</a>
-                        </div>
-                        <div class="box box2">
-                            <i class="blog-pic" id="blog-pic2"></i>
-                            <span class="text">State of Mental Health in America</span>
-                            <span class="text">Check out our 2022 mental health ranking.</span>
-                            <a href="https://mhanational.org/issues/state-mental-health-america" class="btn">More...</a>
-
-                        </div>
-                        <div class="box box3">
-                            <i class="blog-pic" id="blog-pic3"></i>
-                            <span class="text">Action Alerts</span>
-                            <span class="text">Take action on key mental health issues.</span>
-                            <a href="https://mhanational.org/issues/action-alerts" class="btn">More...</a>
-                        </div>
+                        <a href="#" class="card-body-link">
+                            <i class="ri-team-line">Manage Friends List</i>
+                        </a>
+                        <a href="#" class="card-body-link">
+                            <i class="ri-user-star-fill">User Rating</i>
+                        </a>
+                        <a href="#" class="card-body-link">
+                            <i class="ri-user-voice-fill">Manage Chat</i>
+                        </a>
                     </div>
                 </div>
-
-                <!--user activity options-->
-                <div class="activity">
-                    <div class="title">
-                        <i class="uil uil-clock-three"></i>
-                        <span class="text">User Options</span>
+                <div class="card-group d-grid">
+                    <div class="card border-green">
+                        <div>
+                            <h1 class="title">Own Your Mental Health</h1>
+                            <p class="card-description">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam rem?
+                                Ab amet dolore illum modi natus possimus rerum sunt tempore voluptatem!
+                            </p>
+                        </div>
+                        <button class="list-link">Learn More</button>
                     </div>
-                    <div class="user-btn" id="user-btn">
-                        <a href="#" class="chat-btn">Chat</a>
-                        <a href="#" class="resources-btn">Resources</a>
-                        <a href="#" class="protocol-btn">Protocol</a>
+                    <div class="card border-yellow">
+                        <div>
+                            <h1 class="title">Leverage Community</h1>
+                            <p class="card-description">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam rem?
+                                Ab amet dolore illum modi natus possimus rerum sunt tempore voluptatem!
+                            </p>
+                        </div>
+                        <button class="list-link">Learn More</button>
+                    </div>
+                    <div class="card border-orange">
+                        <div>
+                            <h1 class="title">Mental Health & Covid-19</h1>
+                        </div>
+                        <button class="list-link">Learn More</button>
+                    </div>
+                    <div class="card border-pink">
+                        <div>
+                            <h1 class="title">State of Mental Health</h1>
+                        </div>
+                        <button class="list-link">Learn More</button>
                     </div>
                 </div>
-
-                <!--user activity options-->
-                <div class="activity">
-                    <h3>Category Selection</h3>
-                    <div>
-                        <button type="button" class="cat-btn" id="ptsd-btn" value="PTSD">PTSD</button>
-                        <button type="button" class="cat-btn" id="depression-btn" value="Depression">Depression</button>
-                        <button type="button" class="cat-btn" id="anxiety-btn" value="Anxiety">Anxiety</button>
-                        <button type="button" class="cat-btn" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse
-                        </button>
-                        <button type="button" class="cat-btn" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
-                    </div>
-                </div>
-                <hr>
-<!--                <div class="likes">-->
-<!--                    <h3>Give this person a like</h3>-->
-<!--                    <div>-->
-<!--                        <button type="button" id="give-like" value="like">Give Like</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-                <!--end of dashboard features-->
-            </div>
             </div>
         </section>
 
@@ -709,41 +678,44 @@ function CategoryButtonEvent() {
 
 function OtherDashEvent() {
 
-    const body = document.querySelector("body"),
-        modeToggle = body.querySelector(".mode-toggle");
-    var sidebar = body.querySelector("nav");
-    var sidebarToggle = body.querySelector(".sidebar-toggle");
+//Toggle mobile menu
+    const menuToggleOpen = document.querySelector('.menu-toggle-open');
+    const menuToggleClose = document.querySelector('.menu-toggle-close');
+    const navMobileEl = document.querySelector('.nav-mobile');
 
-    let getMode = localStorage.getItem("mode");
-    if(getMode && getMode ==="dark"){
-        body.classList.toggle("dark");
+
+    menuToggleOpen.addEventListener('click', () => navMobileEl.classList.add('active'));
+    menuToggleClose.addEventListener('click', () => navMobileEl.classList.remove('active'));
+
+//Toggle theme
+    const bodyEl = document.body;
+    const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+    const currentTheme = localStorage.getItem('currentTheme');
+
+
+    if(currentTheme){
+        bodyEl.classList.add('theme-light');
     }
 
-    let getStatus = localStorage.getItem("status");
-    if(getStatus && getStatus ==="close"){
-        sidebar.classList.toggle("close");
-    }
-
-    modeToggle.addEventListener("click", () =>{
-        body.classList.toggle("dark");
-        if(body.classList.contains("dark")){
-            localStorage.setItem("mode", "dark");
-        }else{
-            localStorage.setItem("mode", "light");
+    themeToggleBtn.addEventListener('click', () => {
+        bodyEl.classList.toggle('theme-light');
+        if (bodyEl.classList.contains('theme-light')){
+            localStorage.setItem('currentTheme', 'themeActive');
+        } else{
+            localStorage.removeItem('currentTheme', 'themeActive');
         }
     });
 
-    sidebarToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-        if(sidebar.classList.contains("close")){
-            localStorage.setItem("status", "close");
-        }else{
-            localStorage.setItem("status", "open");
+//Show dropdown menu
+    document.addEventListener('click', element => {
+        const dropdown = document.querySelector('.dropdown');
+
+        if(element.target.classList.contains('dropdown-btn')){
+            dropdown.classList.add('active');
+        } else{
+            dropdown.classList.remove('active');
         }
-    })
-
-
-
+    });
 }
 
 // export function LikesEvent() {
