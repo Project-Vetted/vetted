@@ -13,14 +13,14 @@ export default function Dash(props) {
             /* Custom properties */
             /**********************/
 
-            :root{
+            :root {
                 --light-color: #fff;
                 --dark-color: #171721;
                 --dark-color-lighter: #7E8299;
                 --accent-color: #AFAAFE;
                 --body-background-color: #202028;
-                --border-bottom-color: rgba(255,255,255,.05);
-                --transparent-button-color: rgba(255,255,255,.1);
+                --border-bottom-color: rgba(255, 255, 255, .05);
+                --transparent-button-color: rgba(255, 255, 255, .1);
                 --font-size-small: 1.4rem;
                 --font-size-normal: 1.6rem;
                 --font-size-medium: 2rem;
@@ -32,12 +32,12 @@ export default function Dash(props) {
                 --gap-medium: 2.5rem;
             }
 
-            .theme-light{
+            .theme-light {
                 --light-color: #171721;
                 --dark-color: #fff;
                 --dark-color-lighter: #7E8299;
                 --body-background-color: #eef0f8;
-                --border-bottom-color: rgba(23,23,23,.05);
+                --border-bottom-color: rgba(23, 23, 23, .05);
                 --transparent-button-color: var(--accent-color);
             }
 
@@ -47,17 +47,17 @@ export default function Dash(props) {
 
             *,
             *::before,
-            *::after{
+            *::after {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
             }
 
-            html{
+            html {
                 font-size: 62.5%;
             }
 
-            body{
+            body {
                 font-family: var(--font-family);
                 font-size: var(--font-size-normal);
                 color: var(--light-color);
@@ -65,17 +65,17 @@ export default function Dash(props) {
                 background-color: var(--body-background-color);
             }
 
-            ul{
+            ul {
                 list-style: none;
                 color: inherit;
             }
 
-            img{
+            img {
                 max-width: 100%;
                 display: block;
             }
 
-            button{
+            button {
                 font: inherit;
                 color: inherit;
                 background: transparent;
@@ -84,34 +84,36 @@ export default function Dash(props) {
                 cursor: pointer;
             }
 
-            i{
+            i {
                 font-size: var(--font-size-large);
                 line-height: 0;
             }
+
             /**********************/
             /* Reusable classes */
             /**********************/
 
-            .container{
+            .container {
                 max-width: 134rem;
                 margin: 0 auto;
                 padding: 0 1.5rem;
             }
 
-            .place-items-center{
+            .place-items-center {
                 display: inline-flex !important;
                 align-items: center;
                 justify-content: center;
             }
 
-            .d-grid{
+            .d-grid {
                 display: grid;
             }
+
             /**********************/
             /* Floating background image */
             /**********************/
 
-            .floating-background-image{
+            .floating-background-image {
                 width: 100%;
                 height: 45rem;
                 position: absolute;
@@ -120,47 +122,48 @@ export default function Dash(props) {
                 z-index: -1;
             }
 
-            .floating-background-image img{
+            .floating-background-image img {
                 width: 100%;
                 object-fit: cover;
                 height: 100%;
             }
+
             /**********************/
             /* Header */
             /**********************/
 
-            .header{
+            .header {
                 background-color: var(--dark-color);
             }
 
-            .nav{
+            .nav {
                 height: 6rem;
                 display: flex;
                 align-items: center;
             }
 
-            .logo{
+            .logo {
                 font-family: 'Poppins', sans-serif;
                 font-weight: bold;
                 font-size: var(--font-size-medium);
             }
 
-            .align-right{
+            .align-right {
                 margin-left: auto;
                 background-color: var(--accent-color);
                 border-radius: 0.4rem;
             }
 
-            .icon-btn{
+            .icon-btn {
                 width: 3.5rem;
                 height: 3.5rem;
             }
 
-            .theme-dark-icon{
+            .theme-dark-icon {
                 display: none;
             }
 
-            .nav-mobile{
+            .nav-mobile {
                 width: 100%;
                 height: 100vh;
                 background-color: var(--light-color);
@@ -173,31 +176,31 @@ export default function Dash(props) {
                 transition: transform 0.5s;
             }
 
-            .list{
+            .list {
                 display: flex;
                 flex-direction: column;
                 gap: var(--gap-small);
             }
 
-            .list-link{
+            .list-link {
                 display: inline-block;
                 padding: 1rem 1.5rem;
                 font-size: var(--font-size-small);
                 color: var(--dark-color-lighter);
             }
 
-            .current{
+            .current {
                 color: var(--dark-color);
             }
 
-            .menu-toggle-close{
+            .menu-toggle-close {
                 background-color: var(--body-background-color);
                 position: absolute;
                 top: 2.5rem;
                 right: 2.5rem;
             }
 
-            .dropdown-menu{
+            .dropdown-menu {
                 background-color: #D1BAFF;
                 gap: 0;
                 margin-left: 1.5rem;
@@ -208,30 +211,31 @@ export default function Dash(props) {
                 pointer-events: none;
             }
 
-            .dropdown > .list-link i{
+            .dropdown > .list-link i {
                 transition: transform 0.25s;
             }
+
             /**********************/
             /* JavaScript styles */
             /**********************/
 
-            .nav-mobile.active{
+            .nav-mobile.active {
                 transform: translateX(0);
             }
 
-            .theme-light .theme-dark-icon{
+            .theme-light .theme-dark-icon {
                 display: block;
             }
 
-            .theme-light .theme-light-icon{
+            .theme-light .theme-light-icon {
                 display: none;
             }
 
-            .dropdown.active > .list-link i{
+            .dropdown.active > .list-link i {
                 transform: rotate(90deg);
             }
 
-            .dropdown.active .dropdown-menu{
+            .dropdown.active .dropdown-menu {
                 height: initial;
                 transform: translateY(0);
                 opacity: 1;
@@ -242,67 +246,68 @@ export default function Dash(props) {
             /* Welcome message */
             /**********************/
 
-            .card{
+            .card {
                 background-color: var(--dark-color);
                 padding: 2.5rem;
                 border-radius: 0.4rem;
                 box-shadow: 0.5rem 0.5rem 1rem rgba(82, 63, 105, 0.05);
             }
 
-            .title{
+            .title {
                 font-size: var(--font-size-normal);
                 margin-bottom: var(--margin-small);
             }
 
-            .independent-title{
+            .independent-title {
                 font-size: var(--font-size-medium);
                 color: var(--light-color);
                 padding: 2.5rem 0 1.25rem;
             }
 
-            .main-title{
+            .main-title {
                 font-size: var(--font-size-large);
             }
 
-            .card-header{
+            .card-header {
                 padding-block: 1rem;
                 margin-bottom: var(--margin-medium);
                 border-bottom: 1px solid var(--border-bottom-color);
             }
 
-            .card-header small{
+            .card-header small {
                 font-size: 1.2rem;
                 color: #350259;
             }
 
-            .card-header .title{
+            .card-header .title {
                 margin-bottom: 0;
             }
 
-            .card-image{
+            .card-image {
                 padding: 2.5rem;
             }
 
-            .card-description{
+            .card-description {
                 font-size: var(--font-size-small);
                 margin-bottom: var(--margin-small);
             }
+
             /**********************/
             /* Management area */
             /**********************/
-            .management-area{
+            .management-area {
                 padding-block: 2.5rem;
             }
 
-            .management-area-container, .card-group{
+            .management-area-container, .card-group {
                 gap: var(--gap-medium);
             }
 
-            .management-area .card-header{
+            .management-area .card-header {
                 border-bottom: none;
             }
 
-            .card-body-link{
+            .card-body-link {
                 font-size: var(--font-size-small);
                 background-color: var(--accent-color);
                 margin-bottom: var(--margin-medium);
@@ -313,7 +318,7 @@ export default function Dash(props) {
                 gap: var(--gap-small);
             }
 
-            .card-group .card{
+            .card-group .card {
                 position: relative;
                 display: flex;
                 flex-direction: column;
@@ -323,7 +328,7 @@ export default function Dash(props) {
                 border-radius: 0.4rem;
             }
 
-            .card-group .card::after{
+            .card-group .card::after {
                 content: '';
                 position: absolute;
                 width: 10rem;
@@ -334,24 +339,27 @@ export default function Dash(props) {
                 border-radius: inherit;
             }
 
-            .border-green::after{
+            .border-green::after {
                 background-image: linear-gradient(235deg, #D1BAFF, transparent, var(--dark-color));;
             }
-            .border-yellow::after{
+
+            .border-yellow::after {
                 background-image: linear-gradient(235deg, var(--accent-color), transparent, var(--dark-color));;
             }
-            .border-orange::after{
+
+            .border-orange::after {
                 background-image: linear-gradient(235deg, #5C5696, transparent, var(--dark-color));;
             }
-            .border-pink::after{
+
+            .border-pink::after {
                 background-image: linear-gradient(235deg, #4C489D, transparent, var(--dark-color));;
             }
 
-            .card-group .card-description{
+            .card-group .card-description {
                 margin-bottom: var(--margin-medium);
             }
 
-            .card-group .list-link{
+            .card-group .list-link {
                 background-color: var(--transparent-button-color);
                 color: var(--light-color);
             }
@@ -359,19 +367,19 @@ export default function Dash(props) {
             /**********************/
             /* Scrollbar */
             /**********************/
-            ::-webkit-scrollbar{
+            ::-webkit-scrollbar {
                 width: 1rem;
             }
 
-            ::-webkit-scrollbar-track{
+            ::-webkit-scrollbar-track {
                 background-color: #320259;
             }
 
-            ::-webkit-scrollbar-thumb{
+            ::-webkit-scrollbar-thumb {
                 background-color: #D1BAFF;
             }
 
-            ::-webkit-scrollbar-thumb:hover{
+            ::-webkit-scrollbar-thumb:hover {
                 background-color: #5C5696;
             }
 
@@ -380,38 +388,42 @@ export default function Dash(props) {
             /**********************/
 
             @media screen and (min-width: 768px) {
-                .nav{
+                .nav {
                     height: 7rem;
                 }
 
-                .independent-title{
+                .independent-title {
                     font-size: var(--font-size-large);
                     padding: 4rem 0 2rem;
                 }
 
-                .card-body{
-                    grid-template-columns: repeat(2,1fr);
+                .card-body {
+                    grid-template-columns: repeat(2, 1fr);
                     align-items: center;
                     gap: var(--gap-medium);
                     padding-block: 2.5rem;
                 }
-                .card-image{
+
+                .card-image {
                     padding: 0;
                 }
-                .card-image img{
+
+                .card-image img {
                     max-width: 80%;
                     margin: auto;
                 }
-                .management-area-container{
+
+                .management-area-container {
                     grid-template-columns: 35rem 1fr;
                 }
             }
 
             @media screen and (min-width: 1024px) {
-                .menu-toggle-btn{
+                .menu-toggle-btn {
                     display: none !important;
                 }
-                .nav-mobile{
+
+                .nav-mobile {
                     width: initial;
                     height: initial;
                     background-color: initial;
@@ -421,30 +433,30 @@ export default function Dash(props) {
                     transition: initial;
                 }
 
-                .nav-mobile > .list{
+                .nav-mobile > .list {
                     flex-direction: row;
                     margin-left: 4rem;
                 }
 
-                .list-link, .card-body-link{
+                .list-link, .card-body-link {
                     transition: color 0.25s, background-color 0.25s;
                 }
 
-                .nav-mobile .list-link{
+                .nav-mobile .list-link {
                     border-radius: 0.4rem;
                 }
 
                 .current .nav-mobile .list-link:hover,
-                .nav-mobile .list-link:focus{
+                .nav-mobile .list-link:focus {
                     background-color: var(--accent-color);
                     color: var(--light-color);
                 }
 
-                .dropdown{
+                .dropdown {
                     position: relative;
                 }
 
-                .dropdown-menu{
+                .dropdown-menu {
                     width: 25rem;
                     height: initial;
                     background-color: var(--light-color);
@@ -455,39 +467,40 @@ export default function Dash(props) {
                     top: 100%;
                     left: 0;
                     transform: translateY(0.8rem);
-                    box-shadow: 0 0 3rem rgba(23,23,23,0.2);
+                    box-shadow: 0 0 3rem rgba(23, 23, 23, 0.2);
                     transition: transform 0.25s, opacity 0.25s;
                 }
 
-                .dropdown.active .dropdown-menu{
+                .dropdown.active .dropdown-menu {
                     transform: translateY(1.5rem);
                 }
 
-                .dropdown-menu .list-link{
+                .dropdown-menu .list-link {
                     display: block;
                 }
 
-                .card-body-link:hover{
+                .card-body-link:hover {
                     background-color: #D1BAFF;
                 }
 
-                .card-group{
+                .card-group {
                     grid-template-columns: repeat(2, 1fr);
                 }
 
-                .border-green{
+                .border-green {
                     grid-column: 1/-1;
                 }
-                .border-yellow, .border-orange{
+
+                .border-yellow, .border-orange {
                     grid-column: 1/2;
                 }
 
-                .border-pink{
-                    grid-column:2/-1;
+                .border-pink {
+                    grid-column: 2/-1;
                     grid-row: 2/4;
                 }
 
-                .card-group .list-link:hover{
+                .card-group .list-link:hover {
                     background-color: var(--light-color);
                     color: var(--dark-color);
                 }
@@ -515,7 +528,8 @@ export default function Dash(props) {
                             <a href="#" class="list-link">Rating</a>
                         </li>
                         <li class="list-item dropdown">
-                            <button class="list-link dropdown-btn place-items-center">User Settings <i class="ri-arrow-drop-right-line"></i></button>
+                            <button class="list-link dropdown-btn place-items-center">User Settings <i
+                                    class="ri-arrow-drop-right-line"></i></button>
                             <ul class="list dropdown-menu">
                                 <li class="list-item">
                                     <a href="#" class="list-link">Profile Settings</a>
@@ -556,7 +570,7 @@ export default function Dash(props) {
                 <div class="card">
                     <header class="card-header">
                         <small>Getting started</small>
-                        <h2 class="title">Welcome Back, Vetted User</h2>
+                        <h2 class="title">Welcome Back, ${props.user.username}</h2>
                     </header>
                     <div class="card-body d-grid">
                         <div class="card-image">
@@ -564,16 +578,19 @@ export default function Dash(props) {
                         </div>
                         <div class="card-information">
                             <h1 class="title main-title">
-                                Accessible, Empathetic, and Vetted Community
+                                Post Traumatic Stress Disorder (PTSD)
                             </h1>
                             <p class="card-description">
-                                Vetted is an application for veterans who struggle with various mental health issues and are
-                                seeking connection, compassion, and relational consistency. Vetted is a secured platform that
-                                verifies veteran user credentials to allow for privacy and randomizes usernames to maintain privacy.
-                                Users are able to access mental health information, develop personal goals, and communicate with
-                                other veterans via chat or video. In a modern climate where veterans are seeking support and lack
-                                proper resources, Vetted is an application that empowers veterans to join arms with each other
-                                bridging the mental health gap.
+                                Post-traumatic stress disorder (PTSD) is a mental health condition that's triggered by a
+                                terrifying event — either experiencing it or witnessing it. Symptoms may include
+                                flashbacks, nightmares and severe anxiety, as well as uncontrollable thoughts about the
+                                event.
+                                Most people who go through traumatic events may have temporary difficulty adjusting and
+                                coping, but with time and good self-care, they usually get better. If the symptoms get
+                                worse, last for months or even years, and interfere with your day-to-day functioning,
+                                you may have PTSD.
+                                Getting effective treatment after PTSD symptoms develop can be critical to reduce
+                                symptoms and improve function.
                             </p>
                         </div>
                     </div>
@@ -608,15 +625,23 @@ export default function Dash(props) {
                         <div class="activity">
                             <h2 class="card-header">Category Selection</h2>
                             <div>
-                                <button type="button" class="card-body-link cat-btn" id="ptsd-btn" value="PTSD">PTSD</button>
-                                <button type="button" class="card-body-link cat-btn" id="depression-btn" value="Depression">Depression</button>
-                                <button type="button" class="card-body-link cat-btn" id="anxiety-btn" value="Anxiety">Anxiety</button>
-                                <button type="button" class="card-body-link cat-btn" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse
+                                <button type="button" class="card-body-link cat-btn" id="ptsd-btn" value="PTSD">PTSD
                                 </button>
-                                <button type="button" class="card-body-link cat-btn" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
+                                <button type="button" class="card-body-link cat-btn" id="depression-btn"
+                                        value="Depression">Depression
+                                </button>
+                                <button type="button" class="card-body-link cat-btn" id="anxiety-btn" value="Anxiety">
+                                    Anxiety
+                                </button>
+                                <button type="button" class="card-body-link cat-btn" id="alcohol-btn"
+                                        value="Alcohol Abuse">Alcohol Abuse
+                                </button>
+                                <button type="button" class="card-body-link cat-btn" id="sex-btn" value="Sex Addiction">
+                                    Sex Addiction
+                                </button>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="card-group d-grid">
@@ -624,7 +649,8 @@ export default function Dash(props) {
                         <div>
                             <h1 class="title">Own Your Mental Health</h1>
                             <p class="card-description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam rem?
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam
+                                rem?
                                 Ab amet dolore illum modi natus possimus rerum sunt tempore voluptatem!
                             </p>
                         </div>
@@ -634,7 +660,8 @@ export default function Dash(props) {
                         <div>
                             <h1 class="title">Leverage Community</h1>
                             <p class="card-description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam rem?
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam
+                                rem?
                                 Ab amet dolore illum modi natus possimus rerum sunt tempore voluptatem!
                             </p>
                         </div>
@@ -658,7 +685,7 @@ export default function Dash(props) {
 
         <!--program scripts-->
         <script src="../../js/dashboard.js"></script>
-       
+
     `
 }
 
@@ -708,15 +735,15 @@ function OtherDashEvent() {
     const currentTheme = localStorage.getItem('currentTheme');
 
 
-    if(currentTheme){
+    if (currentTheme) {
         bodyEl.classList.add('theme-light');
     }
 
     themeToggleBtn.addEventListener('click', () => {
         bodyEl.classList.toggle('theme-light');
-        if (bodyEl.classList.contains('theme-light')){
+        if (bodyEl.classList.contains('theme-light')) {
             localStorage.setItem('currentTheme', 'themeActive');
-        } else{
+        } else {
             localStorage.removeItem('currentTheme', 'themeActive');
         }
     });
@@ -725,9 +752,9 @@ function OtherDashEvent() {
     document.addEventListener('click', element => {
         const dropdown = document.querySelector('.dropdown');
 
-        if(element.target.classList.contains('dropdown-btn')){
+        if (element.target.classList.contains('dropdown-btn')) {
             dropdown.classList.add('active');
-        } else{
+        } else {
             dropdown.classList.remove('active');
         }
     });
