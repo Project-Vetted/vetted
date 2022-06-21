@@ -5,11 +5,19 @@ import Navbar from "./views/partials/Navbar.js";
  * @param props - the data required for view rendering
  * @param route - the object containing information for the given endpoint
  */
+
 export default function render(props, route) {
     const app = document.querySelector('#app');
-    const title = `Vetted - ${route.title}`;
+    const title = `VETTED - ${route.title}`;
     document.title = title;
-    app.innerHTML = `${Navbar(null)} ${route.returnView(props)}`;
+
+    if(route.noNav){
+        app.innerHTML = `${route.returnView(props)}`
+    }else{
+        app.innerHTML = `${Navbar(null)} ${route.returnView(props)}`
+    }
+
+
     if (route.viewEvent){
         route.viewEvent();
     }

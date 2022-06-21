@@ -9,14 +9,14 @@ export default function addLoginEvent() {
     console.log("entered addLoginEvent")
     document.querySelector("#login-btn").addEventListener("click", function () {
         let obj = {
-            username: document.querySelector("#username").value,
+            username: document.querySelector("#email").value,
             password: document.querySelector("#password").value,
             grant_type: 'password'
         }
         console.log("got to login event")
-        // TODO: these are the only request params /oauth/token accepts in Spring Security
-        // TODO: need to possibly implement a random bit handshake w/ SHA256 on the password before sending
-        //      -> Alternatively, encrypt the entire request body
+
+        //TODO: Should we refactor rest-blog-client to vetted-client on lines 24 & 26? Creates weird login event.
+
         let request = {
             method: "POST",
             headers: {

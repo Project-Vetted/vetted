@@ -1,0 +1,85 @@
+
+    /* Container for everything TalkJS*/
+.chatbox-container {
+    width: 420px;
+    max-width: 100%;
+    margin: auto;
+}
+
+/* Custom header for the chatbox*/
+#chatbox-header {
+    height: 110px;
+    position: relative;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* Slightly curve the top of the header */
+    border-radius: 10px 10px 0 0;
+    margin-bottom: -3px;
+    padding: 10px;
+    position: relative;
+}
+
+#header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: inherit;
+    opacity: 0.6;
+}
+
+#user-avatar {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid #eee;
+}
+
+#chatbox-header p {
+    font-family: "Helvetica", sans-serif;
+    color: #eee;
+    margin: 0;
+}
+
+#header-subject {
+    position: absolute;
+    font-size: 32px;
+    left: 70px;
+    top: 7px;
+}
+
+/* Notification toggle */
+.button-container {
+    text-align: right;
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+}
+
+.button-container p {
+    display: inline;
+    font-size: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+.call-button {
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    width: 51px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 18px;
+}
