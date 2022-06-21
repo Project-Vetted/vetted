@@ -2,41 +2,6 @@ export default function Register() {
 
     //language=HTML
     return `
-<!--        <!DOCTYPE html>-->
-<!--        <html lang="en">-->
-<!--        <head>-->
-<!--            <meta charset="UTF-8"/>-->
-<!--            <title>Register</title>-->
-<!--        </head>-->
-<!--        <body>-->
-
-<!--        <div style="margin-top: 80px">-->
-<!--            <h1>Register here!</h1>-->
-<!--        </div>-->
-
-<!--        <form id="register-form">-->
-<!--            <div style="margin-top: 80px">-->
-<!--                <label for="username">Username</label>-->
-<!--                <input id="username" name="username" type="text"/>-->
-<!--                <label for="email">Email</label>-->
-<!--                <input id="email" name="email" type="email">-->
-<!--                <label for="password">Password</label>-->
-<!--                <input id="password" name="password" type="password"/>-->
-<!--                <input id="register-btn" type="button" value="Register"/>-->
-<!--            </div>-->
-<!--        </form>-->
-<!--        </body>-->
-<!--        </html>-->
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Vetted - Register</title>-->
-<!--    <link rel="stylesheet" href="./assets/css/register.css">-->
-<!--</head>-->
-<!--<body>-->
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
@@ -122,8 +87,6 @@ export default function Register() {
         </div>
     </form>
 </div>
-<!--</body>-->
-<!--</html>-->
     `;
 }
 
