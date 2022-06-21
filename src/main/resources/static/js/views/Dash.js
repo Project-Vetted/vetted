@@ -600,19 +600,20 @@ export default function Dash(props) {
                             <i class="ri-user-star-fill">User Rating</i>
                         </a>
                         <a href="#" class="card-body-link">
-                            <i class="ri-user-voice-fill">Manage Chat</i>
+                            <i class="ri-user-voice-fill"></i>
+                            <span class="link-name" onclick="window.location.href='/chat';">Manage Chat</span>
                         </a>
 
                         <!--user activity options-->
                         <div class="activity">
                             <h2 class="card-header">Category Selection</h2>
                             <div>
-                                <button type="button" class="card-body-link" id="ptsd-btn" value="PTSD">PTSD</button>
-                                <button type="button" class="card-body-link" id="depression-btn" value="Depression">Depression</button>
-                                <button type="button" class="card-body-link" id="anxiety-btn" value="Anxiety">Anxiety</button>
-                                <button type="button" class="card-body-link" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse
+                                <button type="button" class="card-body-link cat-btn" id="ptsd-btn" value="PTSD">PTSD</button>
+                                <button type="button" class="card-body-link cat-btn" id="depression-btn" value="Depression">Depression</button>
+                                <button type="button" class="card-body-link cat-btn" id="anxiety-btn" value="Anxiety">Anxiety</button>
+                                <button type="button" class="card-body-link cat-btn" id="alcohol-btn" value="Alcohol Abuse">Alcohol Abuse
                                 </button>
-                                <button type="button" class="card-body-link" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
+                                <button type="button" class="card-body-link cat-btn" id="sex-btn" value="Sex Addiction">Sex Addiction</button>
                             </div>
                         </div>
                         
