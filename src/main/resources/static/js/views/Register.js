@@ -35,8 +35,8 @@ export default function Register() {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vetted - Registration</title>
-    <link rel="stylesheet" href="./assets/css/registration.css">
+    <title>Vetted - Register</title>
+    <link rel="stylesheet" href="./assets/css/register.css">
 </head>
 <body>
 <div class="container">
