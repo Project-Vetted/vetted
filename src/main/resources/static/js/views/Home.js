@@ -4,6 +4,7 @@ export default function Home(props) {
     return `
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
+
             * {
                 font-family: 'Poppins', sans-serif;
                 margin: 0;
@@ -40,6 +41,7 @@ export default function Home(props) {
             section {
                 padding: 5rem 9%;
             }
+
             /*******************
             buttons
             *******************/
@@ -68,6 +70,7 @@ export default function Home(props) {
                 font-size: 4rem;
                 color: #350259;
             }
+
             /*.social-header{*/
             /*    position: absolute;*/
             /*    left: 0;*/
@@ -98,9 +101,10 @@ export default function Home(props) {
             /*    color: #350259;*/
             /*}*/
 
-            #social-media{
+            #social-media {
                 justify-content: end;
             }
+
             .header {
                 position: fixed;
                 top: 0;
@@ -241,6 +245,7 @@ export default function Home(props) {
                 padding: 1rem 0;
                 line-height: 2;
             }
+
             /*******************
             about section
             *******************/
@@ -376,9 +381,11 @@ export default function Home(props) {
                 -webkit-transform: rotate(45deg);
                 transform: rotate(45deg);
             }
-            .blogs{
+
+            .blogs {
                 background: #eee;
             }
+
             .blogs .slide {
                 text-align: center;
                 padding: 2rem;
@@ -535,6 +542,7 @@ export default function Home(props) {
                 .header {
                     padding: 2rem;
                 }
+
                 section {
                     padding: 3rem 2rem;
                 }
@@ -545,6 +553,7 @@ export default function Home(props) {
                     font-size: 55%;
                     scroll-padding-top: 7rem;
                 }
+
                 .home .box {
                     padding: 2rem;
                     -webkit-box-pack: center;
@@ -552,18 +561,22 @@ export default function Home(props) {
                     justify-content: center;
                     background-position: right !important;
                 }
+
                 .home .box.second {
                     -webkit-box-pack: center;
                     -ms-flex-pack: center;
                     justify-content: center;
                     background-position: left !important;
                 }
+
                 .home .box .content {
                     text-align: center;
                 }
+
                 .home .box .content span {
                     font-size: 3rem;
                 }
+
                 .home .box .content h3 {
                     font-size: 4rem;
                 }
@@ -573,6 +586,7 @@ export default function Home(props) {
                 .header #menu-btn {
                     display: inline-block;
                 }
+
                 .header .navbar {
                     position: fixed;
                     top: 0;
@@ -601,16 +615,19 @@ export default function Home(props) {
                     -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
                     box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
                 }
+
                 .header .navbar a {
                     margin: 1rem 0;
                     font-size: 3rem;
                 }
+
                 .header .navbar #nav-close {
                     display: block;
                     position: absolute;
                     top: 1rem;
                     right: 2rem;
                 }
+
                 .swiper-button-next::after,
                 .swiper-button-prev::after {
                     display: none;
@@ -621,6 +638,7 @@ export default function Home(props) {
                 html {
                     font-size: 50%;
                 }
+
                 .heading {
                     font-size: 3rem;
                 }
@@ -661,8 +679,9 @@ export default function Home(props) {
                             <div class="content">
                                 <span>you are not</span>
                                 <h3>alone</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias
-                                    soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                                <p>All Veterans of Vetted are verified and have served in the military at some point. The
+                                    community may be filtered by the user for their specific mental health issue or
+                                    generalized.</p>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
@@ -672,8 +691,8 @@ export default function Home(props) {
                             <div class="content">
                                 <span>this is your</span>
                                 <h3>safe space</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias
-                                    soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                                <p>Vetted provides a veteran community of individuals who struggle with mental health
+                                    issues or would like to support other veterans.</p>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
@@ -683,8 +702,9 @@ export default function Home(props) {
                             <div class="content">
                                 <span>own your mental</span>
                                 <h3>health</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias
-                                    soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                                <p>Vetted has a video chat feature that is available 24/7 for veterans. Veterans have
+                                    access to their own personalized dashboard that provides updated information
+                                    pertinent to their selected communities.</p>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
@@ -706,11 +726,13 @@ export default function Home(props) {
 
             <div class="content">
                 <h3>vetted</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque voluptates corrupti natus
-                    necessitatibus beatae voluptatibus, deserunt quo soluta minima libero laborum, corporis error esse
-                    vitae placeat blanditiis reiciendis vel? Minima.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta doloremque placeat porro,
-                    ipsam quia at beatae atque odit iste?</p>
+                <p>Vetted is an application for veterans who struggle with various mental health issues and are seeking
+                    connection, compassion, and relational consistency. Vetted is a secured platform that verifies
+                    veteran user credentials to allow for privacy and randomizes usernames to maintain privacy. Users
+                    are able to access mental health information, develop personal goals, and communicate with other
+                    veterans via chat or video. In a modern climate where veterans are seeking support and lack proper
+                    resources, Vetted is an application that empowers veterans to join arms with each other bridging the
+                    mental health gap.</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
@@ -914,7 +936,7 @@ export default function Home(props) {
         <script src="src/main/resources/static/js/main.js"></script>
         <script src="src/main/resources/static/js/pre.js"></script>
 
-     
+
     `;
 }
 
@@ -943,7 +965,7 @@ function navCloseEvent() {
 function searchForm() {
     let searchForm = document.querySelector('.search-form');
 
-    $(document).on('click', '#search-btn', function (){
+    $(document).on('click', '#search-btn', function () {
         searchForm.classList.add('active');
     })
 }
