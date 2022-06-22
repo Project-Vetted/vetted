@@ -515,17 +515,17 @@ export default function Dash(props) {
         <!-- Header -->
         <header class="header">
             <nav class="nav container">
-                <a href="dashboard2.html" class="logo">Vetted</a>
+                <a href="dashboard2.html" onclick="window.location.href='/';" class="logo">Vetted</a>
                 <div class="nav-mobile">
                     <ul class="list">
                         <li class="list-item">
-                            <a href="#" class="list-link current">Home</a>
+                            <a href="#" onclick="window.location.href='/';" class="list-link current">Home</a>
                         </li>
                         <li class="list-item">
-                            <a href="#" class="list-link">Chat</a>
+                            <a href="#" onclick="window.location.href='/chat';" class="list-link">Chat</a>
                         </li>
                         <li class="list-item">
-                            <a href="#" class="list-link">Rating</a>
+                            <a href="#" onclick="window.location.href='/rating';" class="list-link">Rating</a>
                         </li>
                         <li class="list-item dropdown">
                             <button class="list-link dropdown-btn place-items-center">User Settings <i
@@ -570,7 +570,7 @@ export default function Dash(props) {
                 <div class="card">
                     <header class="card-header">
                         <small>Getting started</small>
-                        <h2 class="title">Welcome Back, ${props.user.username}</h2>
+                        <h2 class="title">Welcome Back, ${props.user.username} / ${props.user.points} points</h2>
                     </header>
                     <div class="card-body d-grid">
                         <div class="card-image">
