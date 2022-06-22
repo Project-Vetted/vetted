@@ -312,7 +312,7 @@ export default function Veteran() {
                 <input type="text" id="propL" placeholder="Last Name" required>
                 <input type="text" id="propB" placeholder="DOB (format YYYY-MM-DD)" required>
                 <input type="password" id="propS" placeholder="SSN (format ###-##-####)" required>
-                <input type="text" placeholder="Email" required>
+
 
                 <br>
                 <br>
@@ -328,9 +328,10 @@ export default function Veteran() {
                 <h3>Veteran Status - You are approved!</h3>
 
                 <br>
-                <input type="username" placeholder="Enter your desired username">
-                <input type="password" placeholder="Password">
-                <input type="password" placeholder="Confirm Password">
+                <input type="text" id="email" placeholder="Enter your email">
+                <input type="text" id="username" placeholder="Enter your desired username">
+                <input type="password" id="password-confirm" placeholder="Password">
+                
                 <br>
                 <br>
                 <br>
@@ -380,27 +381,30 @@ export function VeteranRegistrationEvent() {
 
     $(document).on('click', '#next1', function () {
         function VerifyEvent() {
-                const reqBody = {
-                    "ssn": $('#propS').val(),
-                    "first_name": $('#propF').val(),
-                    "last_name": $('#propL').val(),
-                    "birth_date": $('#propB').val()
-                }
 
-                const options = {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "apikey": `${VA_KEY}`
-                    },
-                    method: 'POST',
-                    body: JSON.stringify(reqBody)
-                }
 
-                fetch("https://sandbox-api.va.gov/services/veteran_confirmation/v0/status", options)
-                    .then(res => res.json())
-                    .then(data => console.log(data))
-                    .catch(err => console.log(err))
+            const reqBody = {
+                "ssn": $('#propS').val(),
+                "first_name": $('#propF').val(),
+                "last_name": $('#propL').val(),
+                "birth_date": $('#propB').val()
             }
+
+            const options = {
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": "loSmIP0auSDOdSacYs1UkNbZsiKSHp5i"
+                },
+                method: 'POST',
+                body: JSON.stringify(reqBody)
+            }
+
+            fetch("https://sandbox-api.va.gov/services/veteran_confirmation/v0/status", options)
+                .then(res => res.json())
+                .then(data => console.log(data))
+                .catch(err => console.log(err))
+
+        }
 
         VerifyEvent();
         form1.style.display = "none";
@@ -415,6 +419,27 @@ export function VeteranRegistrationEvent() {
     })
 
     $(document).on('click', '#next2', function () {
+
+        function RegisterEvent() {
+            const userBody = {
+                username: $('#username').val(),
+                email: $('#email').val(),
+                password: $('#password-confirm').val()
+            }
+
+            const options = {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                method: 'POST',
+                body: JSON.stringify(userBody)
+            }
+
+            fetch("http://localhost:8080/api/users/create", options)
+                .then(data => console.log(data))
+                .catch(err => console.log(err))
+        }
+        RegisterEvent();
         form2.style.display = "none";
         form3.style.display = "block";
         progress.style.width = "360px";
