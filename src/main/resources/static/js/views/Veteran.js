@@ -308,10 +308,10 @@ export default function Veteran() {
             
             <form id="form1">
                 <h3>Create Account</h3>
-                <input type="fname" placeholder="First Name" required>
-                <input type="lname" placeholder="Last Name" required>
-                <input type="DOB" placeholder="DOB (format YYYY-MM-DD)" required>
-                <input type="SSN" placeholder="SSN (format ###-##-####)" required>
+                <input type="text" id="propF" placeholder="First Name" required>
+                <input type="text" id="propL" placeholder="Last Name" required>
+                <input type="text" id="propB" placeholder="DOB (format YYYY-MM-DD)" required>
+                <input type="password" id="propS" placeholder="SSN (format ###-##-####)" required>
                 <input type="text" placeholder="Email" required>
 
                 <br>
@@ -377,7 +377,32 @@ export function VeteranRegistrationEvent() {
 
     let progress = document.getElementById("progress");
 
+
     $(document).on('click', '#next1', function () {
+        function VerifyEvent() {
+                const reqBody = {
+                    "ssn": $('#propS').val(),
+                    "first_name": $('#propF').val(),
+                    "last_name": $('#propL').val(),
+                    "birth_date": $('#propB').val()
+                }
+
+                const options = {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "apikey": `${VA_KEY}`
+                    },
+                    method: 'POST',
+                    body: JSON.stringify(reqBody)
+                }
+
+                fetch("https://sandbox-api.va.gov/services/veteran_confirmation/v0/status", options)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(err => console.log(err))
+            }
+
+        VerifyEvent();
         form1.style.display = "none";
         form2.style.display = "block";
         progress.style.width = "240px";
@@ -401,3 +426,4 @@ export function VeteranRegistrationEvent() {
         progress.style.width = "240px";
     })
 }
+
