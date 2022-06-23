@@ -184,7 +184,7 @@ export default function Chat(props) {
             if (!userId) {
                 return
             }
-            const newFriendsUsername = $(this).val();
+            const newFriendsUsername = $(this).val().toString();
 
             return fetch(`http://localhost:8080/api/users/${userId}/updateFriends?friend=${newFriendsUsername}`, {
                 method: 'PATCH',

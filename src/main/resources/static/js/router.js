@@ -103,7 +103,7 @@ export default function router(URI) {
             returnView: Chat,
             state: {user: "/api/users/me"},
             uri: '/chat',
-            title: 'Chat',
+            title: 'Chat'
         }
     };
 
