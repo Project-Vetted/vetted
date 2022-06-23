@@ -79,6 +79,16 @@ export default function Chat(props) {
                 bottom: 15px;
                 right: 10px;
             }
+            
+            .btn{
+                vertical-align: middle;
+                display: inline-block;
+                position: relative;
+                -webkit-user-select:none;
+                -moz-user-select:none;
+                -ms-user-select: none;
+                user-select: none;
+            }
 
             .button-container p {
                 display: inline;
@@ -125,9 +135,10 @@ export default function Chat(props) {
                     <div id="header-bg"></div>
                     <div id="user-avatar"></div>
                     <p id="header-subject"><span id="header-username"> Username</span></p>
-
-
                     <div class="button-container">
+                        <div>
+                            <button type="button" class="btn btn-primary btn-sm" id="6">Add Friend</button>
+                        </div>
                         <div class="call-button">
                             <!--input type="checkbox" name="notificationToggle" class="toggle-checkbox" id="toggle"-->
                             <input type="image" name="videoCallButton" id="videocall"
@@ -160,6 +171,12 @@ export default function Chat(props) {
         loadChat(userId, username, userEmail);
 
     })}
+
+
+    $(document).on('click', '#6', function (e) {
+        console.log("adding friend")
+    })
+
 }
 
 

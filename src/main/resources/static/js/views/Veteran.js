@@ -1,5 +1,4 @@
 export default function Veteran() {
-
     //language=HTML
     return `
         <style>
