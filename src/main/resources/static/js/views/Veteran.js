@@ -393,7 +393,7 @@ export function VeteranRegistrationEvent() {
             const options = {
                 headers: {
                     "Content-Type": "application/json",
-                    "apikey": "loSmIP0auSDOdSacYs1UkNbZsiKSHp5i"
+                    "apikey": `${VA_KEY}`
                 },
                 method: 'POST',
                 body: JSON.stringify(reqBody)
