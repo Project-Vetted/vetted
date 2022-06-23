@@ -46,9 +46,7 @@ public class UserService {
         usersRepository.save(user);
     }
 
-    public void updatePassword(Long id, String newPassword) {
-        User user = getUserById(id);
-        user.setPassword(newPassword);
+    public void updatePassword(User user) {
         usersRepository.save(user);
     }
 

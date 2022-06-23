@@ -64,9 +64,14 @@ public class UsersController {
     @PreAuthorize("permitAll()")
     @PutMapping("{id}/updatePassword")
     public void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
-        userService.updatePassword(id, newPassword);
+        User user = userService.getUserById(id);
+        user.setPassword(newPassword);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        userService.updatePassword(user);
     }
 
+    @PreAuthorize("permitAll()")
     @PutMapping("{userId}/updateEmail")
     public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail) {
         userService.updateEmail(userId, newEmail);

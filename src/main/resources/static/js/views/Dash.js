@@ -608,7 +608,7 @@ export default function Dash(props) {
                     <div class="card-body">
 
                         <a href="#" class="card-body-link">
-                            <i class="ri-shield-line">Account Settings</i>
+                            <i class="ri-shield-line" onclick="window.location.href='/user';">Account Settings</i>
                         </a>
                         <a href="#" class="card-body-link">
                             <i class="ri-team-line">Manage Friends List</i>
@@ -691,7 +691,7 @@ export default function Dash(props) {
 
 export function DashEvents() {
     CategoryButtonEvent();
-    OtherDashEvent();
+    InteractDashEvent();
 }
 
 function CategoryButtonEvent() {
@@ -718,7 +718,7 @@ function CategoryButtonEvent() {
     )
 }
 
-function OtherDashEvent() {
+function InteractDashEvent() {
 
 //Toggle mobile menu
     const menuToggleOpen = document.querySelector('.menu-toggle-open');
