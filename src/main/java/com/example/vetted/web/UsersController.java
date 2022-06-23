@@ -1,5 +1,6 @@
 package com.example.vetted.web;
 
+import com.example.vetted.data.Category;
 import com.example.vetted.data.User;
 import com.example.vetted.service.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -24,53 +26,58 @@ public class UsersController {
         this.passwordEncoder = passwordEncoder;
     }
 
-//    @GetMapping
-//    public List<User> getAll(){
-//        return userService.getUsersList();
-//    }
+    @PreAuthorize("permitAll()")
+    @GetMapping("all")
+    public List<User> getAll() {
+        return userService.getAllUsers();
+    }
 
     @GetMapping("{id}")
-    public User getById(@PathVariable long id){
+    public User getById(@PathVariable long id) {
         return userService.getUserById(id);
     }
 
     @GetMapping("me")
-    public User getCurrentUser(OAuth2Authentication auth){
+    public User getCurrentUser(OAuth2Authentication auth) {
         return userService.getByEmail(auth.getName());
     }
 
     @PostMapping("create")
-    public void create(@RequestBody User newUser){
+    public void create(@RequestBody User newUser) {
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         userService.createUser(newUser);
     }
 
-//    @GetMapping("username")
-//    public User getByUsername(@RequestParam String username) {
-//        System.out.println("Getting user with username: " + username);
-//        return userService.getUserByUsername(username);
-//    }
+    @GetMapping("username")
+    public User getByUsername(@RequestParam String username) {
+        System.out.println("Getting user with username: " + username);
+        return userService.getUserByUsername(username);
+    }
 
     @GetMapping("email")
     public User getByEmail(@RequestParam String email) {
         System.out.println("Getting user with email: " + email);
-        return null;
+        return userService.getByEmail(email);
     }
 
 
+    @PreAuthorize("permitAll()")
+    @PutMapping("{id}/updatePassword")
+    public void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
+        userService.updatePassword(id, newPassword);
+    }
 
-//    @PreAuthorize("hasAuthority('ADMIN') || @userService.getUserById(#id).email == authentication.name")
-//    @PutMapping("{id}/updatePassword")
-//    public void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
-//        userService.updatePassword(id, newPassword);
-//    }
+    @PutMapping("{userId}/updateEmail")
+    public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail) {
+        userService.updateEmail(userId, newEmail);
+    }
 
-//    @PatchMapping("{userId}")
-//    public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail){
-//        userService.updateEmail(userId, newEmail);
-//    }
+    @PutMapping("{userId}/updateUsername")
+    public void updateUsername(@PathVariable Long userId, @RequestParam String newUserName) {
+        userService.updateuserName(userId, newUserName);
+    }
 
-//TODO: Test and Implement User Role Methods Below
+//TODO: Refactor, Test and Implement User Role Methods Below
 
     //checking the role of a user
 //    @GetMapping("role-check")
@@ -83,5 +90,12 @@ public class UsersController {
 //    public void updateRole(Long id, User.Role updateRole){
 //        userService.updateRole(id, updateRole);
 //    }
+
+
+
+
+
+
+
 
 }
