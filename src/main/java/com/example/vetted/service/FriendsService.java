@@ -26,6 +26,7 @@ public class FriendsService {
         return user.getFriends();
     }
 
+
 //    public User updateUserFriends(long id, String newFriend) {
 //        User user = userService.getUserById(id);
 //        Collection<User> userFriendList = user.getFriends();
@@ -36,7 +37,7 @@ public class FriendsService {
 //    }
 public void updateUserFriends(long id, String newFriend) {
     User user = userService.getUserById(id);
-    User friend = usersRepository.findByUsername(newFriend).orElseThrow();
+    User friend = usersRepository.findByUsername(newFriend);
     System.out.println(friend);
     user.getFriends().add(friend);
     usersRepository.save(user);

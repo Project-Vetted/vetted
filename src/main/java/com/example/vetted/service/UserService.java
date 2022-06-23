@@ -32,8 +32,8 @@ public class UserService {
     }
 
     public User getByEmail(String email) {
-        User user = usersRepository.findByEmail(email).orElseThrow();
-        return user;
+//        User user = usersRepository.findByEmail(email).orElseThrow();
+        return usersRepository.findByEmail(email).orElseThrow();
     }
 
     public void updateEmail(Long userId, String newEmail) {

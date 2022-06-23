@@ -1,15 +1,21 @@
 
-export default function Rating(props) {
+
+export default function FriendsList(props) {
     //language=HTML
     return `
         <header>
             <div style="margin-top: 80px">
+                
+                
+                
                 <h1>Welcome, ${props.user.username}</h1>
             </div>
         </header>
         <main>
-            <h1>Your total score count is: ${props.user.points}</h1>
+            <h1>Your friends</h1>
+            <hr>
+            <div>${props.user.}</div> 
+            
         </main>
     `
 }
-

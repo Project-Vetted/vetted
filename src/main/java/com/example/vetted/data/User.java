@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -46,7 +47,7 @@ public class User {
     private Collection<User> friends;
 
     @Enumerated(EnumType.STRING)
-    private Role role = Role.USER;
+    private Role role = Role.VET;
 
 
     @ManyToMany(
@@ -85,6 +86,8 @@ public class User {
     public User(Collection<User> points) {
         this.points = points;
     }
+
+
 
     public User() {
     }
@@ -167,6 +170,7 @@ public class User {
                 ", points=" + points +
                 ", role=" + role +
                 ", categories=" + categories +
+                ", friends=" + friends +
                 '}';
     }
 }
