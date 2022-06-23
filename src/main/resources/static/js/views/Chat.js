@@ -79,13 +79,13 @@ export default function Chat(props) {
                 bottom: 15px;
                 right: 10px;
             }
-            
-            .btn{
+
+            .btn {
                 vertical-align: middle;
                 display: inline-block;
                 position: relative;
-                -webkit-user-select:none;
-                -moz-user-select:none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
             }
@@ -96,20 +96,21 @@ export default function Chat(props) {
                 padding-right: 10px;
                 vertical-align: middle;
             }
+
             .call-button {
                 vertical-align: middle;
                 display: inline-block;
                 position: relative;
                 width: 51px;
-                -webkit-user-select:none;
-                -moz-user-select:none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
                 height: 18px;
             }
 
         </style>
-        
+
         <header>
             <h1>Chat Page</h1>
         </header>
@@ -137,7 +138,9 @@ export default function Chat(props) {
                     <p id="header-subject"><span id="header-username"> Username</span></p>
                     <div class="button-container">
                         <div>
-                            <button type="button" class="btn btn-primary btn-sm" id="6">Add Friend</button>
+                            <button type="button" class="btn btn-primary btn-sm" id="add-friend" value="susie_the_vet">
+                                Add Friend
+                            </button>
                         </div>
                         <div class="call-button">
                             <!--input type="checkbox" name="notificationToggle" class="toggle-checkbox" id="toggle"-->
@@ -159,23 +162,37 @@ export default function Chat(props) {
 }
 
 {
-    {$(document).on('click', '#launch-chat-btn', function (e) {
-        e.preventDefault();
+    {
+        $(document).on('click', '#launch-chat-btn', function (e) {
+            e.preventDefault();
 
-        const chatBoxDiv = document.getElementById("chatbox");
-        chatBoxDiv.style.display = "revert";
+            const chatBoxDiv = document.getElementById("chatbox");
+            chatBoxDiv.style.display = "revert";
 
-        const userId = localStorage.getItem("user_id");
-        const username = localStorage.getItem("user_name");
-        const userEmail = localStorage.getItem("user_email");
-        loadChat(userId, username, userEmail);
+            const userId = localStorage.getItem("user_id");
+            const username = localStorage.getItem("user_name");
+            const userEmail = localStorage.getItem("user_email");
+            loadChat(userId, username, userEmail);
 
-    })}
+        })
+    }
 
 
-    $(document).on('click', '#6', function (e) {
-        console.log("adding friend")
-    })
+    $(document).on('click', '#add-friend', function (e) {
+            console.log($(this).val());
+            const userId = localStorage.getItem("user_id")
+            if (!userId) {
+                return
+            }
+            const newFriendsUsername = $(this).val();
+
+            return fetch(`http://localhost:8080/api/users/${userId}/updateFriends?friend=${newFriendsUsername}`, {
+                method: 'PATCH',
+                headers: getHeaders(),
+            })
+                .catch(err => console.log(err))
+        }
+    )
 
 }
 
