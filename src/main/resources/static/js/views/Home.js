@@ -35,7 +35,7 @@ export default function Home(props) {
             }
 
             html::-webkit-scrollbar-thumb {
-                background: #350259;
+                background: #291d3a;
             }
 
             section {
@@ -71,39 +71,9 @@ export default function Home(props) {
                 color: #350259;
             }
 
-            /*.social-header{*/
-            /*    position: absolute;*/
-            /*    left: 0;*/
-            /*    right: 0;*/
-            /*    padding: 2rem 9%;*/
-            /*    z-index: 1000;*/
-            /*    display: -webkit-box;*/
-            /*    display: -ms-flexbox;*/
-            /*    display: flex;*/
-            /*    -webkit-box-align: center;*/
-            /*    -ms-flex-align: center;*/
-            /*    align-items: center;*/
+            /*#social-media {*/
+            /*    justify-content: end;*/
             /*}*/
-
-            /*.social-header.active {*/
-            /*    background: #fff;*/
-            /*    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);*/
-            /*    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);*/
-            /*}*/
-
-            /*.social-header .social-media a {*/
-            /*    margin-left: 2rem;*/
-            /*    font-size: 1.7rem;*/
-            /*    color: #350259;*/
-            /*}*/
-
-            /*.social-header .social-media a:hover {*/
-            /*    color: #350259;*/
-            /*}*/
-
-            #social-media {
-                justify-content: end;
-            }
 
             .header {
                 position: fixed;
@@ -118,9 +88,11 @@ export default function Home(props) {
                 -webkit-box-align: center;
                 -ms-flex-align: center;
                 align-items: center;
-                background: rgba(41, 29, 58, 0.5);
+                /*background: #291d3a;*/
+                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 1)), to(rgba(41, 29, 58, 1)));
+                background: linear-gradient(rgba(41, 29, 58, 1), rgba(41, 29, 58, 1));
                 border-bottom: 2px solid rgba(41, 29, 58);
-                height: 8rem;
+                height: 10rem;
             }
 
             .header.active {
@@ -128,11 +100,12 @@ export default function Home(props) {
                 -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
                 box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
             }
-
+            
             .header .navbar a {
                 margin-left: 2rem;
                 font-size: 1.7rem;
-                color: #350259;
+                color: #6C63AC;
+                float: right;
             }
 
             .header .navbar a:hover {
@@ -191,12 +164,12 @@ export default function Home(props) {
 
             .home .box .content span {
                 font-size: 4rem;
-                color: #350259;
+                color: rgba(41, 29, 58, 1);
             }
 
             .home .box .content h3 {
                 font-size: 6rem;
-                color: #918DD2;
+                color: rgba(41, 29, 58, 1);
                 padding-top: .5rem;
                 text-transform: uppercase;
             }
@@ -274,6 +247,7 @@ export default function Home(props) {
                 width: 100%;
                 -webkit-box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
                 box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
+                /*background-size: cover;*/
             }
 
             .about .content {
@@ -284,7 +258,7 @@ export default function Home(props) {
 
             .about .content h3 {
                 font-size: 3rem;
-                color: #350259;
+                color: rgba(41, 29, 58, 1);
             }
 
             .about .content p {
@@ -435,10 +409,6 @@ export default function Home(props) {
                 color: #3C0265;
             }
 
-            /*.newsletter {*/
-            /*    background: #eee;*/
-            /*}*/
-
             .newsletter .content {
                 max-width: 70rem;
                 margin: 1rem auto;
@@ -484,8 +454,8 @@ export default function Home(props) {
             }
 
             .footer {
-                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.5)), to(rgba(41, 29, 58, 0.5))), url(../imgs/footer-bg.png) no-repeat;
-                background: linear-gradient(rgba(41, 29, 58, 0.5), rgba(41, 29, 58, 0.5)), url(../imgs/footer-bg.png) no-repeat;
+                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.5)), to(rgba(41, 29, 58, 1))), url('./static/assets/imgs/footer-bg.png') no-repeat;
+                background: linear-gradient(rgba(41, 29, 58, 0.5), rgba(41, 29, 58, 1)), url('./static/assets/imgs/footer-bg.png') no-repeat;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -643,32 +613,6 @@ export default function Home(props) {
                     font-size: 3rem;
                 }
             }
-
-
-            /*OLD CSS*/
-            /*body{*/
-            /*    width: 100%;*/
-            /*    height: 100vh;*/
-            /*    color: #fff;*/
-            /*    background: linear-gradient(-45deg, #350259, #3C0265, #42026F, #D1BAFF);*/
-            /*    background-size: 400% 440%;*/
-            /*    position: relative;*/
-            /*    animation: change 10s ease-in-out infinite;*/
-            /*}*/
-
-
-            /*@keyframes change{*/
-            /*    0%{*/
-            /*        background-position: 0 50%;*/
-            /*    }*/
-            /*    50%{*/
-            /*        background-position: 100% 50%;*/
-            /*    }*/
-            /*    100%{*/
-            /*        background-position: 0 50%;*/
-            /*    }*/
-            /*}*/
-
         </style>
 
         <section class="home" id="home">
@@ -677,11 +621,14 @@ export default function Home(props) {
                     <div class="swiper-slide">
                         <div class="box" style="background: url('../../assets/imgs/home-bg-1.png') no-repeat;">
                             <div class="content">
-                                <span>you are not</span>
-                                <h3>alone</h3>
-                                <p>All Veterans of Vetted are verified and have served in the military at some point. The
-                                    community may be filtered by the user for their specific mental health issue or
-                                    generalized.</p>
+                                <span>Welcome to</span>
+                                <h3>Vetted</h3>
+                                <em><p>a secure platform for veterans who struggle with various mental health issues 
+                                    and are seeking connection, compassion, and relational consistency. Users are able 
+                                    to access mental health information, develop personal goals, and communicate with other
+                                    veterans via chat or video. In a modern climate where veterans are seeking support 
+                                    and lack proper resources, Vetted is an app that empowers veterans to join arms with
+                                    each other bridging the mental health gap.</p></em>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
@@ -717,7 +664,7 @@ export default function Home(props) {
         <!-- home section ends -->
 
         <!-- about section starts  -->
-
+<!--will need to add new content here depending on what I do with the about page-->
         <section class="about" id="about">
 
             <div class="image">
@@ -772,14 +719,7 @@ export default function Home(props) {
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-2.jpeg" alt="">
-                    <h3>privacy</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-
-                <div class="box">
-                    <img src="../../assets/imgs/serv-3.jpeg" alt="">
-                    <h3>anonymity</h3>
+                    <h3>privacy & anonymity</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
                     <a href="#" class="btn">read more</a>
                 </div>
@@ -787,13 +727,6 @@ export default function Home(props) {
                 <div class="box">
                     <img src="../../assets/imgs/serv-4.jpeg" alt="">
                     <h3>build connections</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-
-                <div class="box">
-                    <img src="../../assets/imgs/serv-5.jpeg" alt="">
-                    <h3>mental health education</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
                     <a href="#" class="btn">read more</a>
                 </div>
@@ -807,32 +740,32 @@ export default function Home(props) {
             <h1 class="heading">Testimonials</h1>
             <div class="box-container">
                 <div class="box">
-                    <img src="../../assets/imgs/category-1.jpeg" alt="">
+                    <img src="../../assets/imgs/about_image_1.jpeg" alt="">
                     <h3>Lorem ipsum dolor sit amet.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
                     <a href="#" class="btn">read more</a>
                 </div>
 
                 <div class="box">
-                    <img src="../../assets/imgs/category-3.jpeg" alt="">
+                    <img src="../../assets/imgs/about_image_2.jpeg" alt="">
                     <h3>Lorem ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
                     <a href="#" class="btn">read more</a>
                 </div>
 
                 <div class="box">
-                    <img src="../../assets/imgs/category-2.jpeg" alt="">
+                    <img src="../../assets/imgs/about_image_3.jpeg" alt="">
                     <h3>Lorem ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
                     <a href="#" class="btn">read more</a>
                 </div>
 
-                <div class="box">
-                    <img src="../../assets/imgs/category-4.jpeg" alt="">
-                    <h3>Lorem ipsum dolor sit.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
+<!--                <div class="box">-->
+<!--                    <img src="../../assets/imgs/category-4.jpeg" alt="">-->
+<!--                    <h3>Lorem ipsum dolor sit.</h3>-->
+<!--                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>-->
+<!--                    <a href="#" class="btn">read more</a>-->
+<!--                </div>-->
             </div>
         </section>
         <!-- testimonials section ends -->
@@ -934,6 +867,8 @@ export default function Home(props) {
 
         <!-- custom js file link  -->
         <script src="src/main/resources/static/js/main.js"></script>
+<!--        <script src="../main.js"></script>-->
+
         <script src="src/main/resources/static/js/pre.js"></script>
 
 
@@ -944,7 +879,6 @@ export function HomeEvent() {
     homeBtnEvent();
     navCloseEvent();
     searchForm();
-
 }
 
 let navbar = document.querySelector('.header .navbar');
@@ -986,6 +920,5 @@ window.onload = () => {
     } else {
         document.querySelector('.header').classList.remove('active');
     }
-
 
 }
