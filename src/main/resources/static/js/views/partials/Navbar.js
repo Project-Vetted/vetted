@@ -5,7 +5,7 @@ export default function Navbar(props) {
             <header class="header">
 
                 <a href="#home" class="logo"> <img src="../../../assets/imgs/official_vetted_logo.png" width="200px"
-                                                   height="300px"></i></a>
+                                                   height="200px"></i></a>
 
                 <nav class="navbar navbar-scrolled">
                     <div id="nav-close" class="fas fa-times"></div>
