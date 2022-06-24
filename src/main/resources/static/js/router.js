@@ -10,7 +10,7 @@ import Dash, {DashEvents} from "./views/Dash.js";
 import Rating from "./views/Rating.js";
 import Chat from "./views/Chat.js";
 import Veteran, {VeteranRegistrationEvent} from "./views/Veteran.js"
-import FriendsList from "./views/FriendsList.js";
+import FriendsList, {FriendsEvent} from "./views/FriendsList.js";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -111,7 +111,8 @@ export default function router(URI) {
             returnView: FriendsList,
             state: {user: "/api/users/me"},
             uri: '/friends',
-            title: 'Friends List'
+            title: 'Friends List',
+            viewEvent: FriendsEvent
         }
     };
 

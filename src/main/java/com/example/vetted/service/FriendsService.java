@@ -6,14 +6,13 @@ import com.example.vetted.data.UsersRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class FriendsService {
 
     private final UsersRepository usersRepository;
     private final UserService userService;
-
-
 
 
     public FriendsService(UsersRepository usersRepository, UserService userService) {
@@ -26,8 +25,18 @@ public class FriendsService {
         return user.getFriends();
     }
 
+    public User getEachFriendFromUsersFriends(long id) {
+        User user = userService.getUserById(id);
+        List<User> friend = (List<User>) user.getFriends();
+        for (User friends : friend
+        ) {
+            System.out.println(friends.getUsername());
 
-//    public User updateUserFriends(long id, String newFriend) {
+        }
+return usersRepository.findByUsername(friend.toString());
+    }
+
+    //    public User updateUserFriends(long id, String newFriend) {
 //        User user = userService.getUserById(id);
 //        Collection<User> userFriendList = user.getFriends();
 //        userFriendList.add(usersRepository.findByUsername(newFriend));
@@ -35,13 +44,13 @@ public class FriendsService {
 //        usersRepository.save(user);
 //        return usersRepository.findById(id);
 //    }
-public void updateUserFriends(long id, String newFriend) {
-    User user = userService.getUserById(id);
-    User friend = usersRepository.findByUsername(newFriend);
-    System.out.println(friend);
-    user.getFriends().add(friend);
-    usersRepository.save(user);
-}
+    public void updateUserFriends(long id, String newFriend) {
+        User user = userService.getUserById(id);
+        User friend = usersRepository.findByUsername(newFriend);
+        System.out.println(friend);
+        user.getFriends().add(friend);
+        usersRepository.save(user);
+    }
 
     public User deleteUserFriend(long id, String friend_username) {
         User user = userService.getUserById(id);

@@ -3,8 +3,7 @@ package com.example.vetted.data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 
 @Entity
@@ -45,6 +44,7 @@ public class User {
     )
     @JsonIgnoreProperties({"friends", "categories", "points", "user"})
     private Collection<User> friends;
+    
 
     @Enumerated(EnumType.STRING)
     private Role role = Role.VET;
@@ -87,10 +87,14 @@ public class User {
         this.points = points;
     }
 
-
+    public User (String username){
+        this.username = username;
+    }
 
     public User() {
     }
+
+
 
     public Long getId() {
         return id;
