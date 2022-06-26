@@ -154,7 +154,7 @@ export default function UserIndex(props) {
 
         <header class="container">
             <div style="margin-top: 80px">
-                <h1>Welcome, ${props.user.username}</h1>
+                <h1>Account Information</h1>
             </div>
         </header>
         <main class="">
@@ -169,7 +169,11 @@ export default function UserIndex(props) {
 
                     <label for="new-password">New Password</label>
                     <input id="new-password" name="new-password" type="password"
-                           value="this is not your real password"/>
+                           value=""/>
+
+                    <label for="confirm-password">Confirm New Password</label>
+                    <input id="confirm-password" name="confirm-password" type="password"
+                           value=""/>
 
                     <button id="change-email-button" data-id="${props.user.id}" type="button" class="login-submit">
                         Change Email
@@ -197,18 +201,24 @@ function addUpdatePasswordListener() {
         const BASE_URL = "http://localhost:8080/api/users"
         const id = $(this).data("id");
         const newPassword = $("#new-password").val();
+        const confirmPassword = $("#confirm-password").val();
 
-        const request = {
-            method: "PUT",
-            headers: {
-                'Content-Type': 'application/json'
+        if (newPassword !== confirmPassword) {
+            alert("The entered passwords do not match!");
+
+        } else {
+            const request = {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }
-        }
 
-        fetch(`${BASE_URL}/${id}/updatePassword?newPassword=${newPassword}`, request)
-            .then(res => console.log(res.status))
-            .catch(error => console.log(error))
-            .finally(() => createView("/user"))
+            fetch(`${BASE_URL}/${id}/updatePassword?newPassword=${newPassword}`, request)
+                .then(res => console.log(res.status))
+                .catch(error => console.log(error))
+                .finally(() => createView("/user"))
+        }
     })
 }
 
@@ -231,6 +241,6 @@ function addUpdateEmailListener() {
         fetch(`${BASE_URL}/${id}/updateEmail?newEmail=${newEmail}`, request)
             .then(res => console.log(res.status))
             .catch(error => console.log(error))
-            .finally(() => createView("/user"))
+            .finally(() => createView("/login"))
     })
 }
