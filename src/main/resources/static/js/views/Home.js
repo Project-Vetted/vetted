@@ -740,21 +740,21 @@ export default function Home(props) {
             <h1 class="heading">Testimonials</h1>
             <div class="box-container">
                 <div class="box">
-                    <img src="../../assets/imgs/about_image_1.jpeg" alt="">
+                    <img src="../../assets/imgs/testimonials1.jpeg" alt="">
                     <h3>Lorem ipsum dolor sit amet.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
                     <a href="#" class="btn">read more</a>
                 </div>
 
                 <div class="box">
-                    <img src="../../assets/imgs/about_image_2.jpeg" alt="">
+                    <img src="../../assets/imgs/testimonials2.jpeg" alt="">
                     <h3>Lorem ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
                     <a href="#" class="btn">read more</a>
                 </div>
 
                 <div class="box">
-                    <img src="../../assets/imgs/about_image_3.jpeg" alt="">
+                    <img src="../../assets/imgs/testimonials3.jpeg" alt="">
                     <h3>Lorem ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
                     <a href="#" class="btn">read more</a>
