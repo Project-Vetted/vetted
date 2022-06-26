@@ -218,7 +218,19 @@ export default function Home(props) {
                 padding: 1rem 0;
                 line-height: 2;
             }
+            .content {
+                width: 100%;
+                -webkit-box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
+                box-shadow: 4rem 4rem 0 rgba(93, 53, 122, 0.3);
+                z-index: 1;
+            }
 
+
+            div .content {
+                width: 100%;
+                -webkit-box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
+                box-shadow: 4rem 4rem 0 rgba(93, 53, 122, 0.3);
+            }
             /*******************
             about section
             *******************/
@@ -246,7 +258,7 @@ export default function Home(props) {
             .about .image img {
                 width: 100%;
                 -webkit-box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
-                box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
+                box-shadow: 4rem 4rem 0 rgba(93, 53, 122, 0.3);
                 /*background-size: cover;*/
             }
 
@@ -603,7 +615,7 @@ export default function Home(props) {
                     display: none;
                 }
             }
-
+            
             @media (max-width: 450px) {
                 html {
                     font-size: 50%;
@@ -672,15 +684,15 @@ export default function Home(props) {
             </div>
 
             <div class="content">
-                <h3>vetted</h3>
+                <h3>About vetted</h3>
                 <p>Vetted is an application for veterans who struggle with various mental health issues and are seeking
                     connection, compassion, and relational consistency. Vetted is a secured platform that verifies
                     veteran user credentials to allow for privacy and randomizes usernames to maintain privacy. Users
                     are able to access mental health information, develop personal goals, and communicate with other
                     veterans via chat or video. In a modern climate where veterans are seeking support and lack proper
                     resources, Vetted is an application that empowers veterans to join arms with each other bridging the
-                    mental health gap.</p>
-                <a href="#" class="btn">read more</a>
+                    mental health gap. </p>
+               
             </div>
 
         </section>
