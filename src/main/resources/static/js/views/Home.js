@@ -224,6 +224,21 @@ export default function Home(props) {
                 line-height: 2;
             }
             
+            .modal{
+                padding: 1em;
+                max-width: 50ch;
+            border: 1px solid #350259;
+                
+                & > * {
+                margin: 0 0 0.5rem 0;
+                  }
+            }
+            
+            .modal::backdrop{
+                background: #350259;
+                opacity: 0.7;
+            }
+            
             /*******************
             about section
             *******************/
@@ -267,7 +282,7 @@ export default function Home(props) {
             }
 
             .about .content p {
-                font-size: 1.5rem;
+                font-size: 3rem;
                 color: #42026F;
                 padding: 1rem 0;
                 line-height: 2;
@@ -338,7 +353,7 @@ export default function Home(props) {
             *******************/
             .register .text {
                 padding: 2rem;
-                font-size: 1.5rem;
+                font-size: 4rem;
                 font-style: italic;
                 background: #eee;
                 border-radius: .5rem;
@@ -360,7 +375,7 @@ export default function Home(props) {
                 -webkit-transform: rotate(45deg);
                 transform: rotate(45deg);
             }
-
+            
             .blogs {
                 background: #eee;
             }
@@ -687,9 +702,7 @@ export default function Home(props) {
                                 <span>Welcome to</span>
                                 <h3>Vetted</h3>
                                 <em><p>a secure platform for veterans who struggle with various mental health issues 
-                                    and are seeking connection, compassion, and relational consistency. Users are able 
-                                    to access mental health information, develop personal goals, and communicate with other
-                                    veterans via chat or video. In a modern climate where veterans are seeking support 
+                                    and are seeking connection, compassion, and relational consistency. In a modern climate where veterans are seeking support 
                                     and lack proper resources, Vetted is an app that empowers veterans to join arms with
                                     each other bridging the mental health gap.</p></em>
                                 <a href="#visiter-user" class="btn">get started</a>
@@ -753,15 +766,13 @@ export default function Home(props) {
         <!-- sign-in/register section starts  -->
 
         <section class="register" id="register">
-            <h1 class="heading">sign-in/register</h1>
+            <h1 class="heading">Join The Vetted Community Now!!!</h1>
             <div class="swiper register">
                 <div class="register-action">
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum
-                        pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati,
-                        adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
-                    <a href="#" class="btn">Register</a>
+                    <p class="text">You have made it this far, so why stop? You are one click away from taking control of 
+                    your mental health. Join the Vetted community today!</p>
+                    <a href="#register" class="btn register-btn">Register</a>
                 </div>
-            </div>
             </div>
         </section>
 
@@ -776,59 +787,100 @@ export default function Home(props) {
                 <div class="box">
                     <img src="../../assets/imgs/serv-1.jpeg" alt="">
                     <h3>vetted members</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-                    <a href="#" class="btn">read more</a>
+                    <p>To protect the safety of the community, all members of Vetted must have their credentials 
+                        confirmed upon registration. This assures that all members are veterans with at least two years
+                        of service and safeguards the Vetted community from those who wish to inflict harm in any form.</p>
+<!--                    <a href="#" class="btn">read more</a>-->
                 </div>
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-2.jpeg" alt="">
                     <h3>privacy & anonymity</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-                    <a href="#" class="btn">read more</a>
+                    <p>To prevent revealing veterans who prefer to disguise their identity, a secure verification process,
+                        randomized usernames supplied upon registration, and password requirements are in place.</p>
+<!--                    <a href="#" class="btn">read more</a>-->
                 </div>
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-4.jpeg" alt="">
                     <h3>build connections</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-                    <a href="#" class="btn">read more</a>
+                    <p>The Vetted community allows you to connect with other veterans through our chat and friends list 
+                        tools. Combating mental health challenges is greatest accomplished with combat comrades who grasp 
+                        your difficulties and also how to support you.</p>
+<!--                    <a href="#" class="btn">read more</a>-->
                 </div>
             </div>
         </section>
-
+        
         <!-- services section ends -->
 
         <!-- testimonials section starts  -->
         <section class="category">
-            <h1 class="heading">Testimonials</h1>
+            <h1 class="heading">The Need for Vetted</h1>
             <div class="box-container">
                 <div class="box">
                     <img src="../../assets/imgs/testimonials1.jpeg" alt="">
-                    <h3>Lorem ipsum dolor sit amet.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-                    <a href="#" class="btn">read more</a>
+                    <h3>VA has $20 million</h3>
+                    <p> for new ideas but not to increase mental health support. I saw this, and it made me lost my mind.
+                    I've been going on nine months back-and-forth with the VA to get mental healthcare because my mental
+                    health is deteriorating. I keep getting told you don't look so bad, and you have great advocacy skills 
+                    so your mental health cannot be that bad.</p>
+                    <a href="#" class="btn open-btn">read more</a>
                 </div>
+                <dialog class="modal" id="modal">
+                    <h2>I almost lost my mind</h2>
+                    <p>Va has $20 million for new ideas but not to increase mental health support. I saw this, and it made me lost my mind.
+                        I've been going on nine months back-and-forth with the VA to get mental healthcare because my mental
+                        health is deteriorating. I keep getting told you don't look so bad, and you have great advocacy skills
+                        so your mental health cannot be that bad.</p><br>
+                    <p>It took me nine months, and I had a full on breakdown with a provider that I thought was going to be 
+                    my permanent therapist only to be told this is a short term program, and then they send me on my way to
+                    be referred out to the community to finally get long-term care.</p><br>
+                    <p>You want to lower suicide rates? Listen to us when we have problems and start finding ways to get us
+                    into the community if you're backlogged.</p>
+                    <button class="button close-button">Close Window</button>
+                </dialog>
 
                 <div class="box">
                     <img src="../../assets/imgs/testimonials2.jpeg" alt="">
-                    <h3>Lorem ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-                    <a href="#" class="btn">read more</a>
+                    <h3>VA Doc No-show</h3>
+                    <p>Had my first video appointment with a VA mental health provider this morning, despite scheduling
+                    back in March. Confirmed the appointment, went to log on ten minutes prior and waited until the 
+                    appointment time. Waited until thirty minutes until after the appointment was supposed to start, and 
+                    the provider still hadn't shown up.</p>
+                    <a href="#" class="btn open-btn">read more</a>
                 </div>
-
+                <dialog class="modal" id="modal">
+                    <h2>VA Doc No-show</h2>
+                    <p>Had my first video appointment with a VA mental health provider this morning, despite scheduling
+                        back in March. Confirmed the appointment, went to log on ten minutes prior and waited until the
+                        appointment time. Waited until thirty minutes until after the appointment was supposed to start, and
+                        the provider still hadn't shown up.</p><br>
+                    <p>Made sure to double-check that I had the correct information and everything. I guess my question is,
+                        what exactly do I do from here? Really don't want to wait several months again just to be seen.
+                        Any help is appreciated.</p>
+                    <p>You want to lower suicide rates? Listen to us when we have problems and start finding ways to get us
+                        into the community if you're backlogged.</p>
+                    <button class="button close-button">Close Window</button>
+                </dialog>
                 <div class="box">
                     <img src="../../assets/imgs/testimonials3.jpeg" alt="">
-                    <h3>Lorem ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-                    <a href="#" class="btn">read more</a>
+                    <h3>Who can I really talk to?</h3>
+                    <p>Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want to 
+                    talk things out and have a safe space to just cry. It's been a year since I got out of active duty and
+                    its been nothing less than miserable and depressing, and I just want to talk to someone.</p>
+                    <a href="#" class="btn open-btn">read more</a>
                 </div>
+                <dialog class="modal" id="modal">
+                    <h2>Who can I really talk to?</h2>
+                    <p>Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want to
+                        talk things out and have a safe space to just cry. It's been a year since I got out of active duty,
+                        and it's been nothing less than miserable and depressing, and I just want to talk to someone. I've 
+                        already tried on source, but they feel so artificial that I felt even worse talking to them. Am I able
+                    to use my health insurance to talk to a specialist, anybody really? Thanks for y'all's time.</p><br>
+                    <button class="button close-button">Close Window</button>
+                </dialog>
 
-<!--                <div class="box">-->
-<!--                    <img src="../../assets/imgs/category-4.jpeg" alt="">-->
-<!--                    <h3>Lorem ipsum dolor sit.</h3>-->
-<!--                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>-->
-<!--                    <a href="#" class="btn">read more</a>-->
-<!--                </div>-->
             </div>
         </section>
         <!-- testimonials section ends -->
@@ -986,3 +1038,14 @@ window.onload = () => {
 
 }
 
+// const modal = document.querySelector('.modal');
+// const openModal = document.querySelector('.open-btn');
+// const closeModal = document.querySelector('.close-button');
+//
+// openModal.addEventListener('click', () => {
+//     modal.showModal();
+// });
+//
+// closeModal.addEventListener('click', () => {
+//     modal.closeModal();
+// });
