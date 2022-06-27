@@ -1,5 +1,5 @@
 
-import setTokens from "../auth.js";
+import setTokens, {getHeaders} from "../auth.js";
 import fetchData from "../fetchData";
 
 
@@ -489,7 +489,7 @@ export function VeteranRegistrationEvent() {
         }
 
         VerifyEvent();
-        UpdateRoleEvent();
+        new UpdateRoleEvent();
         form2.style.display = "none";
         form3.style.display = "block";
         progress.style.width = "360px";
