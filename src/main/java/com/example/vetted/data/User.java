@@ -65,7 +65,7 @@ public class User {
 
 
 
-    public enum Role {VISITOR, USER, VET}
+    public enum Role {USER, VET}
 
     ;
 
