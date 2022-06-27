@@ -224,20 +224,20 @@ export default function Home(props) {
                 line-height: 2;
             }
             
-            .modal{
-                padding: 1em;
-                max-width: 50ch;
-            border: 1px solid #350259;
-                
-                & > * {
-                margin: 0 0 0.5rem 0;
-                  }
-            }
+            /*.modal{*/
+            /*    padding: 1em;*/
+            /*    max-width: 50ch;*/
+            /*border: 1px solid #350259;*/
+            /*    */
+            /*    & > * {*/
+            /*    margin: 0 0 0.5rem 0;*/
+            /*      }*/
+            /*}*/
             
-            .modal::backdrop{
-                background: #350259;
-                opacity: 0.7;
-            }
+            /*.modal::backdrop{*/
+            /*    background: #350259;*/
+            /*    opacity: 0.7;*/
+            /*}*/
             
             /*******************
             about section
@@ -896,7 +896,7 @@ export default function Home(props) {
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide slide">
-                        <img src="../../assets/imgs/img-1.jpg" alt="">
+                        <img src="../../assets/imgs/quarterly_post_pic.jpeg" alt="">
                         <div class="icons">
                             <a href="#"> <i class="fas fa-calendar"></i> June 2022 </a>
                             <a href="#"> <i class="fas fa-user"></i> by vetted </a>
@@ -912,9 +912,11 @@ export default function Home(props) {
                             <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                             <a href="#"> <i class="fas fa-user"></i> by admin </a>
                         </div>
-                        <h3>how does vetted benefit the vet community?</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
-                        <a href="#" class="btn">read more</a>
+                        <h3>Mental well-being: An important outcome for mental health services?</h3>
+                        <p>The World Health Organization defines mental well-being as an individual's ability to develop 
+                            their potential, work productively and creatively, build strong and positive relationships 
+                            with others and contribute to their community.</p>
+                        <a href="shorturl.at/clpvK" class="btn">read more</a>
                     </div>
                 </div>
             </div>
