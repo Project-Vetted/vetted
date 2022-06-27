@@ -1,9 +1,7 @@
 
-import setTokens, {getHeaders} from "../auth.js";
-import fetchData from "../fetchData";
 
-
-export default function Veteran() {
+export default function Veteran(props) {
+    localStorage.setItem("user_id", props.user.id.toString())
 
     //language=HTML
     return `
@@ -403,31 +401,8 @@ export function VeteranRegistrationEvent() {
                 .then(data => console.log(data))
                 .catch(err => console.log(err))
         }
-        function newUserLoginEvent() {
-            let obj = {
-                email: document.querySelector("#email").value,
-                password: document.querySelector("#password-confirm").value,
-                grant_type: 'password'
-            }
-            let request = {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': 'Basic ' + btoa('rest-blog-client:secret')
-                },
-                body: `grant_type=${obj.grant_type}&username=${obj.email}&password=${obj.password}&client_id=rest-blog-client`
-            };
 
-            fetchData(
-                {
-                    route: `/oauth/token`
-                },
-                request).then((data) => {
-                setTokens(data);
-            });
-        }
         RegisterEvent();
-        newUserLoginEvent();
         form1.style.display = "none";
         form2.style.display = "block";
         progress.style.width = "240px";
@@ -471,17 +446,16 @@ export function VeteranRegistrationEvent() {
             if (!userId) {
                 return
             }
-            const reqBody = [
-                $(this).val()
-            ]
+            const reqBody =
+                'VET';
 
 
-            return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
+
+            return fetch(`http://localhost:8080/api/users/${userId}/update-role`, {
                 method: 'PATCH',
                 body: JSON.stringify(
                     reqBody
                 ),
-                headers: getHeaders(),
             })
                 .catch(err => console.log(err))
 

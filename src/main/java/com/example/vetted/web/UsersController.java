@@ -91,8 +91,8 @@ public class UsersController {
 //    }
 
 //    update user role once verified
-    @PutMapping("update-role")
-    public void updateRole(Long id, User.Role updateRole){
+    @PutMapping("{id}/update-role")
+    public void updateRole(@PathVariable long id,@RequestParam User.Role updateRole){
         userService.updateRole(id, updateRole);
     }
 
