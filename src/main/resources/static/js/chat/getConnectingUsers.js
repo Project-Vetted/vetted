@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 
-export function getConnectingUsers(userId) {
+function getConnectingUsers(userId) {
 
     let userArray = [];
     let userCategoriesArray = [];
@@ -78,4 +78,4 @@ export function getConnectingUsers(userId) {
         });
 }
 
-// getConnectingUsers(2);
+getConnectingUsers(2);

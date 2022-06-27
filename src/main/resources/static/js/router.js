@@ -101,7 +101,7 @@ export default function router(URI) {
         '/chat': {
             noNav: true,
             returnView: Chat,
-            state: {user: "/api/users/me"},
+            state: {users: "/api/users/all", categories: "/api/users/allCategories", me: "/api/users/me"},
             uri: '/chat',
             title: 'Chat',
         }

@@ -19,7 +19,7 @@ public class UsersController {
 
     // Once the adding and getting of users is removed, we have to inject the UserService into the controller
     private final UserService userService;
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public UsersController(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService; // injection point of UserService

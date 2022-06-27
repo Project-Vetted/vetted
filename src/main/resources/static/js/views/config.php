@@ -1,9 +1,9 @@
 <?php
 
-$host = "localhost"; /* Host name */
-$user = "root"; /* User */
-$password = "codeup"; /* Password */
-$dbname = "vetted_db"; /* Database name */
+$host = "localhost";
+$user = "root";
+$password = "codeup";
+$dbname = "vetted_db";
 
 $con = mysqli_connect($host, $user, $password,$dbname);
 // Check connection

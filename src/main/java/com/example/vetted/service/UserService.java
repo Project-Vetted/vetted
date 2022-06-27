@@ -10,11 +10,9 @@ import java.util.List;
 public class UserService {
 
     private final UsersRepository usersRepository;
-    private final CategoriesRepository categoriesRepository;
 
     public UserService(UsersRepository usersRepository, CategoriesRepository categoriesRepository) {
         this.usersRepository = usersRepository;
-        this.categoriesRepository = categoriesRepository;
 
     }
 

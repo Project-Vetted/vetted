@@ -3,6 +3,7 @@ package com.example.vetted.web;
 import com.example.vetted.data.Category;
 import com.example.vetted.data.User;
 import com.example.vetted.service.CategoriesService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -41,4 +42,17 @@ public class CategoriesController {
     public User deleteCategory(@RequestParam long id, @RequestParam String category_name) {
         return categoriesService.deleteUserCategories(id, category_name);
     }
+
+    @PreAuthorize("permitAll()")
+    @GetMapping("allCategories")
+    public List<Category> getAll() {
+        return categoriesService.getAllCategories();
+    }
+
+//    @PreAuthorize("permitAll()")
+//    @GetMapping("all")
+//    public List<User> getAll() {
+//        return userService.getAllUsers();
+//    }
+
 }

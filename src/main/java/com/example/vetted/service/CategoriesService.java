@@ -49,4 +49,9 @@ public class CategoriesService {
         usersRepository.save(user);
         return usersRepository.findById(id);
     }
+
+    public List<Category> getAllCategories() {
+        return categoriesRepository.findAll();
+    }
+
 }
