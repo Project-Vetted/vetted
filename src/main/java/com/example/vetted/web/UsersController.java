@@ -90,11 +90,11 @@ public class UsersController {
 //        userService.checkRole(id);
 //    }
 
-    //update user role once verified
-//    @PutMapping("update-role")
-//    public void updateRole(Long id, User.Role updateRole){
-//        userService.updateRole(id, updateRole);
-//    }
+//    update user role once verified
+    @PutMapping("update-role")
+    public void updateRole(Long id, User.Role updateRole){
+        userService.updateRole(id, updateRole);
+    }
 
 
 

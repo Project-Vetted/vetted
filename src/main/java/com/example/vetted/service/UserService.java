@@ -74,10 +74,10 @@ public class UserService {
 //        userUpdateRole.setRole();
 //        }
 
-//    public void updateRole(Long id, User.Role newRole) {
-//        User user = getUserById(id);
-//        user.setRole(newRole);
-//        usersRepository.save(user);
-//    }
+    public void updateRole(Long id, User.Role newRole) {
+        User user = getUserById(id);
+        user.setRole(newRole);
+        usersRepository.save(user);
+    }
 
 }
