@@ -37,6 +37,11 @@ VALUES (1, 2),
        (2, 3);
 
 INSERT INTO user_friends (user_id, friend_id)
+VALUES (5, 6),
+       (5, 7),
+       (5, 8);
+
+INSERT INTO user_friends (user_id, friend_id)
 VALUES (7, 12),
        (7, 11);
 

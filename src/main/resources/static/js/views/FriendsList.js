@@ -16,30 +16,22 @@ export default function FriendsList(props) {
         <main>
             <h1>Your friends</h1>
             <hr>
-          <div>${$(window).on('load', function () {
-              const userId = localStorage.getItem("user_id")
-              return fetch(`http://localhost:8080/api/users/each-friend?id=${userId}`, {
-                  method: 'GET',
-                  headers: {"Content-Type": "application/json"}
-              })
-                      .then(data => console.log(data))
-                      .catch(err => console.log(err))
-          })}</div>
+          <div>${props.user.id}</div>
 
         </main>
     `
 }
 
 
-export function FriendsEvent() {
-    $(window).on('load', function () {
-        const userId = localStorage.getItem("user_id")
-        return fetch(`http://localhost:8080/api/users/each-friend?id=${userId}`, {
-            method: 'GET',
-            headers: {"Content-Type": "application/json"}
-        })
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
-    })
-
-}
+// export function FriendsEvent() {
+//     $(window).on('load', function () {
+//         const userId = localStorage.getItem("user_id")
+//         return fetch(`http://localhost:8080/api/users/each-friend?id=${userId}`, {
+//             method: 'GET',
+//             headers: {"Content-Type": "application/json"}
+//         })
+//             .then(data => console.log(data))
+//             .catch(err => console.log(err))
+//     })
+//
+// }

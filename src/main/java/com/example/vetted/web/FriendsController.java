@@ -24,7 +24,7 @@ public class FriendsController {
     }
 
     @GetMapping("each-friend")
-    public User eachFriendOnUsersList(@RequestParam long id) {
+    public String eachFriendOnUsersList(@RequestParam long id) {
       return friendsService.getEachFriendFromUsersFriends(id);
     }
 

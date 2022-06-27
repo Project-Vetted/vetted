@@ -109,7 +109,7 @@ export default function router(URI) {
         '/friends': {
             noNav: true,
             returnView: FriendsList,
-            state: {user: "/api/users/me"},
+            state: {user: "/api/users/me", friends: "/api/users/each-friend"},
             uri: '/friends',
             title: 'Friends List',
             viewEvent: FriendsEvent

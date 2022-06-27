@@ -5,7 +5,6 @@ import com.example.vetted.data.User;
 import com.example.vetted.data.UsersRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,15 +25,16 @@ public class FriendsService {
         return user.getFriends();
     }
 
-    public User getEachFriendFromUsersFriends(long id) {
+    public String getEachFriendFromUsersFriends(long id) {
         User user = userService.getUserById(id);
         List<User> friend = (List<User>) user.getFriends();
-        for (User friends : friend) {
-            System.out.println(friends.getUsername());
+//        for (User friends : friend) {
+//            System.out.println(friends.getUsername());
+//        }
+        return  friend.stream().filter(friends -> user.getUsername().contains(user.getUsername())).toString();
+//            return usersRepository.findByUsername(String.valueOf(friend)).getUsername();
         }
-        return usersRepository.findByUsername(friend.toString());
-    }
-    
+
     public void updateUserFriends(long id, String newFriend) {
         User user = userService.getUserById(id);
         User friend = usersRepository.findByUsername(newFriend);

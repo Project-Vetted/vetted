@@ -36,10 +36,10 @@ public class UserService {
         return usersRepository.findByEmail(email).orElseThrow();
     }
 
-    public String getFriendsByUserId(long id){
-        User user = getUserById(id);
-
-    }
+//    public String getFriendsByUserId(long id){
+//        User user = getUserById(id);
+//
+//    }
 
     public void updateEmail(Long userId, String newEmail) {
         User user = getUserById(userId);
