@@ -1,16 +1,16 @@
 
 export function loadChat (userId, username, userEmail) {
 
-    var userPhotoUrl = '';
+    let userPhotoUrl = '';
 
-    if (username != 'Alice') {
+    if (username !== 'Alice') {
         userPhotoUrl = 'https://svgsilh.com/svg/303792.svg';
     } else {
         userPhotoUrl = 'https://svgsilh.com/svg/295387.svg'
     }
 
     Talk.ready.then(function () {
-        var me = new Talk.User({
+        let me = new Talk.User({
             id: userId,
             name: username,
             email: userEmail,
@@ -22,7 +22,7 @@ export function loadChat (userId, username, userEmail) {
             appId: 'tZou7ipA',
             me: me,
         });
-        var other = new Talk.User({
+        let other = new Talk.User({
             id: '6',
             name: 'Alice',
             email: 'Alice@gmail.com',
@@ -33,7 +33,7 @@ export function loadChat (userId, username, userEmail) {
             other.name = 'Sebastian';
         }
 
-        var conversation = talkSession.getOrCreateConversation(
+        let conversation = talkSession.getOrCreateConversation(
             Talk.oneOnOneId(me, other)
         );
 
@@ -41,18 +41,18 @@ export function loadChat (userId, username, userEmail) {
         conversation.setParticipant(other);
 
 
-        var inbox = talkSession.createInbox({ selected: conversation }, { showChatHeader: false });
+        let inbox = talkSession.createInbox({ selected: conversation }, { showChatHeader: false });
         inbox.mount(document.getElementById('talkjs-container'));
 
         // Add the participant user's name and photo to the custom header
-        var headerUsername = document.getElementById('header-username');
+        let headerUsername = document.getElementById('header-username');
         headerUsername.textContent = other.name;
         document.getElementById('user-avatar').style.backgroundImage = me.photoUrl;
 
-        var callButton = document.getElementById('videocall');
+        let callButton = document.getElementById('videocall');
 
         callButton.addEventListener('click', function() {
-            var callFrame = window.DailyIframe.createFrame({
+            let callFrame = window.DailyIframe.createFrame({
                 showLeaveButton: true,
                 showFullscreenButton: true,
             });

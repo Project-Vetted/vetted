@@ -1,5 +1,6 @@
 import {loadChat} from "../chat/loadChat.js";
 import {getHeaders} from "../auth.js";
+// import {getConnectingUsers} from "../chat/getConnectingUsers.js";
 
 export default function Chat(props) {
     localStorage.setItem("user_id", props.user.id.toString());
@@ -9,7 +10,18 @@ export default function Chat(props) {
     //language=HTML
     return `
         <style>
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
 
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            body {
+                background: linear-gradient(90deg, #C7C5F4, #776BCC);
+            }
 
             /* Container for everything TalkJS*/
             .chatbox-container {
@@ -147,20 +159,52 @@ export default function Chat(props) {
     `;
 }
 
-{
-    {$(document).on('click', '#launch-chat-btn', function (e) {
+
+    $(document).on('click', '#launch-chat-btn', function (e) {
         e.preventDefault();
+    //
+    //     const chatBoxDiv = document.getElementById("chatbox");
+    //     chatBoxDiv.style.display = "revert";
+    //
+    //     const userId = localStorage.getItem("user_id");
+    //     const username = localStorage.getItem("user_name");
+    //     const userEmail = localStorage.getItem("user_email");
+    //
+    //     loadChat(userId, username, userEmail);
+    //
+    //     // getConnectingUsers(2);
+    // });
 
-        const chatBoxDiv = document.getElementById("chatbox");
-        chatBoxDiv.style.display = "revert";
 
-        const userId = localStorage.getItem("user_id");
-        const username = localStorage.getItem("user_name");
-        const userEmail = localStorage.getItem("user_email");
-        loadChat(userId, username, userEmail);
+        $(document).on('click', '#launch-chat-btn', function (e) {
+            e.preventDefault();
 
-    })}
-}
+            $.ajax({
+                url: 'fetchUsers.php',
+                type: 'get',
+                dataType: 'JSON',
+                success: function(response){
+                    let len = response.length;
+                    for(let x = 0; x < len; x++){
+                        let id = response[x].id;
+                        let username = response[x].username;
+                        let password = response[x].password;
+                        let email = response[x].email;
+                        let role = response[x].role;
+
+                    }
+                    console.log(response);
+                }
+            });
+
+    });
+});
+
+
+
+
+
+
 
 
 
