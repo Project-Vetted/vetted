@@ -161,9 +161,6 @@ export default function Home(props) {
             .home .box .content {
                 width: 150rem;
                 height: 100rem;
-                /*background-color: red;*/
-                /*background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.5)), to(rgba(41, 29, 58, 0.5)));*/
-                /*background: linear-gradient(rgba(41, 29, 58, 0.5), rgba(41, 29, 58, .5));*/
             }
 
             .home .box .content span {
@@ -282,7 +279,7 @@ export default function Home(props) {
             }
 
             .about .content p {
-                font-size: 3rem;
+                font-size: 1.5rem;
                 color: #42026F;
                 padding: 1rem 0;
                 line-height: 2;
@@ -328,7 +325,7 @@ export default function Home(props) {
 
             .services .box-container .box:hover .btn:hover {
                 background: #fff;
-                color: #10221b;
+                color: #350259;
             }
 
             .services .box-container .box img {
@@ -353,7 +350,7 @@ export default function Home(props) {
             *******************/
             .register .text {
                 padding: 2rem;
-                font-size: 4rem;
+                font-size: 2rem;
                 font-style: italic;
                 background: #eee;
                 border-radius: .5rem;
@@ -573,7 +570,7 @@ export default function Home(props) {
                 }
             }
             
-            @media (max-width: 1440px) {
+            @media (min-width: 1440px) {
                     html {
                         font-size: 55%;
                         scroll-padding-top: 7rem;
@@ -688,8 +685,6 @@ export default function Home(props) {
                     font-size: 3rem;
                 }
             }
-            
-        /*    updated carousel*/
             
         </style>
 
@@ -901,20 +896,9 @@ export default function Home(props) {
                             <a href="#"> <i class="fas fa-calendar"></i> June 2022 </a>
                             <a href="#"> <i class="fas fa-user"></i> by vetted </a>
                         </div>
-                        <h3>why is your mental health important?</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
-                        <a href="#" class="btn">read more</a>
-                    </div>
-
-                    <div class="swiper-slide slide">
-                        <img src="../../assets/imgs/img-2.jpg" alt="">
-                        <div class="icons">
-                            <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                            <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                        </div>
                         <h3>Mental well-being: An important outcome for mental health services?</h3>
-                        <p>The World Health Organization defines mental well-being as an individual's ability to develop 
-                            their potential, work productively and creatively, build strong and positive relationships 
+                        <p>The World Health Organization defines mental well-being as an individual's ability to develop
+                            their potential, work productively and creatively, build strong and positive relationships
                             with others and contribute to their community.</p>
                         <a href="shorturl.at/clpvK" class="btn">read more</a>
                     </div>
@@ -944,9 +928,8 @@ export default function Home(props) {
                     <h3>quick links</h3>
                     <<a href="#home">home</a>
                     <a href="#about">about</a>
-                    <a href="#contact">contact</a>
-                    <a href="#resource">resource blog</a>
-                    <a href="#visiter-user">Sign-in/Register</a>
+                    <a href="#contact">login</a>
+                    <a href="#visiter-user">register</a>
                 </div>
 
                 <div class="box">
@@ -959,7 +942,7 @@ export default function Home(props) {
                 <div class="box">
                     <h3>Social Media</h3>
                     <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
-                    <a href="#"> <i class="fab fa-github"></i> github </a>
+                    <a href="https://github.com/Project-Vetted/vetted"> <i class="fab fa-github"></i> github </a>
                 </div>
             </div>
 
