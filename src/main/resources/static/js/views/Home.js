@@ -71,10 +71,6 @@ export default function Home(props) {
                 color: #350259;
             }
 
-            /*#social-media {*/
-            /*    justify-content: end;*/
-            /*}*/
-
             .header {
                 position: fixed;
                 top: 0;
