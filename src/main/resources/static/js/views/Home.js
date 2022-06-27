@@ -51,7 +51,7 @@ export default function Home(props) {
                 border: 0.2rem solid #350259;
                 color: #350259;
                 cursor: pointer;
-                background: none;
+                background: rgba(175,170,254, 0.5);
                 font-size: 1.7rem;
                 padding: 1rem 3rem;
             }
@@ -89,8 +89,8 @@ export default function Home(props) {
                 -ms-flex-align: center;
                 align-items: center;
                 /*background: #291d3a;*/
-                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 1)), to(rgba(41, 29, 58, 1)));
-                background: linear-gradient(rgba(41, 29, 58, 1), rgba(41, 29, 58, 1));
+                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.9)), to(rgba(41, 29, 58, 0.9)));
+                background: linear-gradient(rgba(41, 29, 58, 0.9), rgba(41, 29, 58, .9));
                 border-bottom: 2px solid rgba(41, 29, 58);
                 height: 10rem;
             }
@@ -104,12 +104,12 @@ export default function Home(props) {
             .header .navbar a {
                 margin-left: 2rem;
                 font-size: 1.7rem;
-                color: #6C63AC;
+                color: #918DD2;
                 float: right;
             }
 
             .header .navbar a:hover {
-                color: #918DD2;
+                color: #6C63AC;
             }
 
             .header .navbar #nav-close {
@@ -159,17 +159,21 @@ export default function Home(props) {
             }
 
             .home .box .content {
-                width: 50rem;
+                width: 150rem;
+                height: 100rem;
+                /*background-color: red;*/
+                /*background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.5)), to(rgba(41, 29, 58, 0.5)));*/
+                /*background: linear-gradient(rgba(41, 29, 58, 0.5), rgba(41, 29, 58, .5));*/
             }
 
             .home .box .content span {
                 font-size: 4rem;
-                color: rgba(41, 29, 58, 1);
+                color: #350259;
             }
 
             .home .box .content h3 {
                 font-size: 6rem;
-                color: rgba(41, 29, 58, 1);
+                color: #350259;
                 padding-top: .5rem;
                 text-transform: uppercase;
             }
@@ -177,8 +181,9 @@ export default function Home(props) {
             .home .box .content p {
                 line-height: 2;
                 color: #350259;
-                font-size: 1.5rem;
-                padding: 1rem 0;
+                font-size: 2rem;
+                font-weight: bolder;
+                padding: 1rem 1rem;
             }
 
             .swiper-button-next::after,
@@ -218,19 +223,7 @@ export default function Home(props) {
                 padding: 1rem 0;
                 line-height: 2;
             }
-            .content {
-                width: 100%;
-                -webkit-box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
-                box-shadow: 4rem 4rem 0 rgba(93, 53, 122, 0.3);
-                z-index: 1;
-            }
-
-
-            div .content {
-                width: 100%;
-                -webkit-box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
-                box-shadow: 4rem 4rem 0 rgba(93, 53, 122, 0.3);
-            }
+            
             /*******************
             about section
             *******************/
@@ -530,7 +523,7 @@ export default function Home(props) {
                 }
             }
 
-            @media (max-width: 991px) {
+            @media (max-width: 1024px) {
                 html {
                     font-size: 55%;
                     scroll-padding-top: 7rem;
@@ -553,6 +546,7 @@ export default function Home(props) {
 
                 .home .box .content {
                     text-align: center;
+                    padding-top: 20rem;
                 }
 
                 .home .box .content span {
@@ -563,7 +557,49 @@ export default function Home(props) {
                     font-size: 4rem;
                 }
             }
+            
+            @media (max-width: 1440px) {
+                    html {
+                        font-size: 55%;
+                        scroll-padding-top: 7rem;
+                    }
 
+                    .home .box {
+                        padding: 2rem;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        background-position: right !important;
+                    }
+
+                    .home .box.second {
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        background-position: left !important;
+                    }
+
+                    .home .box .content {
+                        text-align: center;
+                        padding-top: 40rem;
+                    }
+
+                    .home .box .content span {
+                        font-size: 3rem;
+                        color: #fff;
+                    }
+
+                    .home .box .content h3 {
+                        font-size: 4rem;
+                        color: #fff;
+                    }
+                    
+                    .home .box .content p{
+                        font-size: 1.5rem;
+                        color: #fff;
+                        font-weight: bold;
+                    }
+                }
             @media (max-width: 768px) {
                 .header #menu-btn {
                     display: inline-block;
@@ -614,6 +650,18 @@ export default function Home(props) {
                 .swiper-button-prev::after {
                     display: none;
                 }
+                .home .box .content {
+                    text-align: center;
+                    padding-top: 20rem;
+                }
+
+                .home .box .content span {
+                    font-size: 3rem;
+                }
+
+                .home .box .content h3 {
+                    font-size: 4rem;
+                }
             }
             
             @media (max-width: 450px) {
@@ -625,6 +673,9 @@ export default function Home(props) {
                     font-size: 3rem;
                 }
             }
+            
+        /*    updated carousel*/
+            
         </style>
 
         <section class="home" id="home">
@@ -673,9 +724,9 @@ export default function Home(props) {
                 <div class="swiper-button-prev"></div>
             </div>
         </section>
-        <!-- home section ends -->
+<!--         home section ends -->
 
-        <!-- about section starts  -->
+<!--         about section starts  -->
 <!--will need to add new content here depending on what I do with the about page-->
         <section class="about" id="about">
 
@@ -934,3 +985,4 @@ window.onload = () => {
     }
 
 }
+
