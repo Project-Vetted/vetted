@@ -36,6 +36,11 @@ public class UserService {
         return user;
     }
 
+    public String getIdByUsername(String username) {
+        User user = getUserByUsername(username);
+        return user.getId().toString();
+    }
+
     public void updateEmail(Long userId, String newEmail) {
         User user = getUserById(userId);
         user.setEmail(newEmail);

@@ -13,6 +13,8 @@ import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.List;
 
+import static com.example.vetted.data.User.Role.VET;
+
 @RestController
 @RequestMapping(value = "/api/users", headers = "Accept=application/json")
 public class UsersController {
@@ -46,12 +48,18 @@ public class UsersController {
     public void create(@RequestBody User newUser) {
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         userService.createUser(newUser);
+        userService.updateRole(newUser.getId(), VET);
     }
 
     @GetMapping("username")
     public User getByUsername(@RequestParam String username) {
         System.out.println("Getting user with username: " + username);
         return userService.getUserByUsername(username);
+    }
+
+    @GetMapping("registered_user_id")
+    public String getUsersIdByUsername(@RequestParam String username) {
+        return userService.getIdByUsername(username);
     }
 
     @GetMapping("email")

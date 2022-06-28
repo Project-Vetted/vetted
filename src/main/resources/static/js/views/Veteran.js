@@ -1,7 +1,7 @@
 
 
 export default function Veteran(props) {
-    localStorage.setItem("user_id", props.user.id.toString())
+    localStorage.setItem("user_id", toString())
 
     //language=HTML
     return `
@@ -415,6 +415,22 @@ export function VeteranRegistrationEvent() {
     })
 
     $(document).on('click', '#next2', function () {
+        // function AccessUserId() {
+        //
+        //     console.log(userName);
+        //     const options = {
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         method: 'GET'
+        //     }
+        //
+        //     fetch(`http://localhost:8080/api/users/registered_user_id?username=${userName}`, options)
+        //         .then(data => console.log(data))
+        //         .catch(err => console.log(err))
+        // }
+        //
+        // AccessUserId();
 
         function VerifyEvent() {
 
@@ -441,29 +457,30 @@ export function VeteranRegistrationEvent() {
                 .catch(err => console.log(err))
         }
 
-        function UpdateRoleEvent() {
-            const userId = localStorage.getItem("user_id")
-            if (!userId) {
-                return
-            }
-            const reqBody =
-                'VET';
+        // function UpdateRoleEvent() {
+        //     const userId = AccessUserId();
+        //     if (!userId) {
+        //         return
+        //     }
+        //     const reqBody =
+        //         'VET';
+        //
+        //
+        //     return fetch(`http://localhost:8080/api/users/${userId}/update-role`, {
+        //         method: 'PATCH',
+        //         body: JSON.stringify(
+        //             reqBody
+        //         ),
+        //         headers: getHeaders(),
+        //     })
+        //         .catch(err => console.log(err))
+        //
+        //
+        // }
 
-
-
-            return fetch(`http://localhost:8080/api/users/${userId}/update-role`, {
-                method: 'PATCH',
-                body: JSON.stringify(
-                    reqBody
-                ),
-            })
-                .catch(err => console.log(err))
-
-
-        }
 
         VerifyEvent();
-        new UpdateRoleEvent();
+        // new UpdateRoleEvent();
         form2.style.display = "none";
         form3.style.display = "block";
         progress.style.width = "360px";
