@@ -3,8 +3,10 @@ package com.example.vetted.service;
 import com.example.vetted.data.*;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
+
+import static com.example.vetted.data.User.Role.USER;
+import static com.example.vetted.data.User.Role.VET;
 
 @Service
 public class UserService {
@@ -19,8 +21,8 @@ public class UserService {
     }
 
     //TODO: CREATE AND IMPLEMENT METHODS FOR THE USER
-    public List<User> getAllUsers() {
-        return usersRepository.findAll();
+    public long getAllUsers() {
+        return usersRepository.findAll().size();
     }
 
     public User getUserById(Long id) {
@@ -34,6 +36,11 @@ public class UserService {
     public User getByEmail(String email) {
         User user = usersRepository.findByEmail(email).orElseThrow();
         return user;
+    }
+
+    public String getIdByUsername(String username) {
+        User user = getUserByUsername(username);
+        return user.getId().toString();
     }
 
     public void updateEmail(Long userId, String newEmail) {
@@ -74,10 +81,27 @@ public class UserService {
 //        userUpdateRole.setRole();
 //        }
 
-//    public void updateRole(Long id, User.Role newRole) {
-//        User user = getUserById(id);
+//    public void updateRole(String userName, User.Role newRole) {
+//        User user = getUserByUsername(userName);
 //        user.setRole(newRole);
 //        usersRepository.save(user);
 //    }
+
+    public void veteranRoleUpdateOnVerification(String userName) {
+        User user = getUserByUsername(userName);
+        if (user.getRole() == USER) {
+            user.setRole(VET);
+        }
+        usersRepository.save(user);
+    }
+
+    public void checkUserRoleForFeatureAccess(long id){
+        User user = getUserById(id);
+        if (user.getRole() != VET){
+            System.out.println("NO WAY JOSE");
+        }else {
+            System.out.println("SI");
+        }
+    }
 
 }

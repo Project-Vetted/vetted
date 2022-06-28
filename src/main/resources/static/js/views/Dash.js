@@ -5,6 +5,7 @@ import {BASE_URL} from "../baseUrl.js";
 export default function Dash(props) {
 
     localStorage.setItem("user_id", props.user.id.toString())
+    localStorage.setItem("user_role", props.user.role.toString())
     //language=HTML
     return `
         <style>
@@ -275,11 +276,6 @@ export default function Dash(props) {
                 border-bottom: 1px solid var(--border-bottom-color);
             }
 
-            /*.card-header small {*/
-            /*    font-size: 1.5rem;*/
-            /*    color: #350259;*/
-            /*}*/
-
             .card-header .title {
                 margin-bottom: 0;
                 font-size: 20px;
@@ -318,10 +314,21 @@ export default function Dash(props) {
                 display: flex;
                 align-items: center;
                 gap: var(--gap-small);
+                text-decoration: none;
             }
             
             .card-body-link i {
                 font-size: 18px;
+                color: #350259;
+                text-decoration: none;
+            }
+
+            .card-body-link a::before {
+               text-decoration: none;
+            }
+            
+            .card-body-link span{
+                font-size: 16px;
                 color: #350259;
             }
             
@@ -522,14 +529,14 @@ export default function Dash(props) {
         <!-- Header -->
         <header class="header">
             <nav class="nav container">
-                <a href="dashboard2.html" class="logo">Vetted</a>
+                <a href="/" class="logo">Vetted</a>
                 <div class="nav-mobile">
                     <ul class="list">
                         <li class="list-item">
                             <a href="#" class="list-link" onclick="window.location.href='/';">Home</a>
                         </li>
                         <li class="list-item">
-                            <a href="#" class="list-link" onclick="window.location.href='/chat';">Chat</a>
+                            <a href="#" class="list-link" id="chat-feature-btn">Chat</a>
                         </li>
                         <li class="list-item">
                             <a href="#" class="list-link">Rating</a>
@@ -625,9 +632,9 @@ export default function Dash(props) {
                         </a>
                         <a href="#" class="card-body-link">
                             <i class="ri-user-voice-fill"></i>
-                            <span class="link-name" onclick="window.location.href='/chat';">Manage Chat</span>
+                            <span class="link-name" id="chat-feature-btn">Manage Chat</span>
                         </a>
-
+                        <!--                        onclick="window.location.href='/chat'-->
                         <!--user activity options-->
                         <div class="activity">
                             <h2 class="card-header">Category Selection</h2>
@@ -695,6 +702,20 @@ export default function Dash(props) {
 export function DashEvents() {
     CategoryButtonEvent();
     InteractDashEvent();
+    ChatButtonEventRoleChecker();
+}
+
+function ChatButtonEventRoleChecker() {
+    $(document).on('click', '#chat-feature-btn', function (e) {
+        const userRole = localStorage.getItem("user_role")
+        if (userRole === 'USER' || userRole === 'VISITOR') {
+            createView("/dashboard")
+            alert("You must be a verified veteran to use this feature. Please contact customer support for more information :)")
+        } else if (userRole === 'VET') {
+            createView("/chat");
+        }
+
+    })
 }
 
 function CategoryButtonEvent() {
