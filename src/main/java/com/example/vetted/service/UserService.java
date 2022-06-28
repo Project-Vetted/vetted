@@ -50,7 +50,7 @@ public class UserService {
         usersRepository.save(user);
     }
 
-    public void updateuserName(Long id, String newUserName) {
+    public void updateUsername(Long id, String newUserName) {
         User user = getUserById(id);
         user.setUsername(newUserName);
         usersRepository.save(user);
