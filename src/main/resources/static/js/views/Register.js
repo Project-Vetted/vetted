@@ -1,3 +1,5 @@
+import {BASE_URL} from "../baseUrl.js";
+
 export default function Register() {
 
     //language=HTML
@@ -308,7 +310,7 @@ export function RegisterEvent() {
             body: JSON.stringify(reqBody)
         }
 
-        fetch("http://localhost:8080/api/users/create", options)
+        fetch(`${BASE_URL}/create`, options)
             .then(data => console.log(data))
             .catch(err => console.log(err))
     })
