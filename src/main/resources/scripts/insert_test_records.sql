@@ -27,7 +27,7 @@ VALUES (3, 5);
 
 INSERT INTO user_point_interactions (user_that_upvoted, user_upvoted)
 VALUES
-       (3,7) ;
+       (3,2) ;
 
 INSERT INTO user_point_interactions (user_that_upvoted, user_upvoted)
 VALUES (3, 2);
