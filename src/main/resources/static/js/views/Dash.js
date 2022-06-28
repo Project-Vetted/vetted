@@ -275,11 +275,6 @@ export default function Dash(props) {
                 border-bottom: 1px solid var(--border-bottom-color);
             }
 
-            /*.card-header small {*/
-            /*    font-size: 1.5rem;*/
-            /*    color: #350259;*/
-            /*}*/
-
             .card-header .title {
                 margin-bottom: 0;
                 font-size: 20px;
@@ -318,10 +313,21 @@ export default function Dash(props) {
                 display: flex;
                 align-items: center;
                 gap: var(--gap-small);
+                text-decoration: none;
             }
             
             .card-body-link i {
                 font-size: 18px;
+                color: #350259;
+                text-decoration: none;
+            }
+
+            .card-body-link a::before {
+               text-decoration: none;
+            }
+            
+            .card-body-link span{
+                font-size: 16px;
                 color: #350259;
             }
             
