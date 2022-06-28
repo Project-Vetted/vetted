@@ -528,7 +528,7 @@ export default function Dash(props) {
         <!-- Header -->
         <header class="header">
             <nav class="nav container">
-                <a href="dashboard2.html" class="logo">Vetted</a>
+                <a href="/" class="logo">Vetted</a>
                 <div class="nav-mobile">
                     <ul class="list">
                         <li class="list-item">
