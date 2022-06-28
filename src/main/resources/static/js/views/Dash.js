@@ -265,7 +265,7 @@ export default function Dash(props) {
             }
 
             .main-title {
-                font-size: var(--font-size-large);
+                font-size: medium;
             }
 
             .card-header {
@@ -274,13 +274,14 @@ export default function Dash(props) {
                 border-bottom: 1px solid var(--border-bottom-color);
             }
 
-            .card-header small {
-                font-size: 1.2rem;
-                color: #350259;
-            }
+            /*.card-header small {*/
+            /*    font-size: 1.5rem;*/
+            /*    color: #350259;*/
+            /*}*/
 
             .card-header .title {
                 margin-bottom: 0;
+                font-size: 20px;
             }
 
             .card-image {
@@ -308,8 +309,8 @@ export default function Dash(props) {
             }
 
             .card-body-link {
-                font-size: var(--font-size-small);
-                background-color: var(--accent-color);
+                font-size: medium;
+                background-color: none;
                 margin-bottom: var(--margin-medium);
                 padding: 1.5rem;
                 border-radius: 0.4rem;
@@ -317,7 +318,12 @@ export default function Dash(props) {
                 align-items: center;
                 gap: var(--gap-small);
             }
-
+            
+            .card-body-link i {
+                font-size: 18px;
+                color: #350259;
+            }
+            
             .card-group .card {
                 position: relative;
                 display: flex;
@@ -340,19 +346,19 @@ export default function Dash(props) {
             }
 
             .border-green::after {
-                background-image: linear-gradient(235deg, #D1BAFF, transparent, var(--dark-color));;
+                background-image: linear-gradient(235deg, #D1BAFF, transparent, var(--dark-color));
             }
 
             .border-yellow::after {
-                background-image: linear-gradient(235deg, var(--accent-color), transparent, var(--dark-color));;
+                background-image: linear-gradient(235deg, var(--accent-color), transparent, var(--dark-color));
             }
 
             .border-orange::after {
-                background-image: linear-gradient(235deg, #5C5696, transparent, var(--dark-color));;
+                background-image: linear-gradient(235deg, #5C5696, transparent, var(--dark-color));
             }
 
             .border-pink::after {
-                background-image: linear-gradient(235deg, #4C489D, transparent, var(--dark-color));;
+                background-image: linear-gradient(235deg, #4C489D, transparent, var(--dark-color));
             }
 
             .card-group .card-description {
@@ -603,7 +609,7 @@ export default function Dash(props) {
                 <div class="card">
                     <header class="card-header">
                         <h2 class="title">Quick Actions</h2>
-                        <small>Access frequently visited places quicker</small>
+<!--                        <small>Access frequently visited places quicker</small>-->
                     </header>
                     <div class="card-body">
 
