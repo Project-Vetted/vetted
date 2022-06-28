@@ -128,6 +128,11 @@ export default function Chat(props) {
 
 
                     <div class="button-container">
+                        <div>
+                            <button type="button" class="btn btn-primary btn-sm" id="give-like-btn">
+                                Give Like
+                            </button>
+                        </div>
                         <div class="call-button">
                             <!--input type="checkbox" name="notificationToggle" class="toggle-checkbox" id="toggle"-->
                             <input type="image" name="videoCallButton" id="videocall"
@@ -162,18 +167,7 @@ export default function Chat(props) {
     })}
 
     $(document).on('click', '#give-like-btn', function (e) {
-            console.log($(this).val());
-            const userId = localStorage.getItem("user_id")
-            if (!userId) {
-                return
-            }
-            const newFriendsUsername = $(this).val().toString();
-
-            return fetch(`http://localhost:8080/api/users/${userId}/updateFriends?friend=${newFriendsUsername}`, {
-                method: 'PATCH',
-                headers: getHeaders(),
-            })
-                .catch(err => console.log(err))
+return fetch('')
         }
     )
 }
