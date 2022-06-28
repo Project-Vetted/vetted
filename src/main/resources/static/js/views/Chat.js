@@ -13,8 +13,6 @@ export default function Chat(props) {
     localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
     const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
 
-
-
     console.log(matchByCategory(props));
     console.log(unmatchedUsers(props, matchedUsers));
 

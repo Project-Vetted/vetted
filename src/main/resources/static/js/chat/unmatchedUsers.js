@@ -2,18 +2,22 @@
 
 export function unmatchedUsers(props, matchedUsers) {
 
-    // console.log(props);
+    let usersArray = props.users;
+    let unmatchedUsersArray = [];
+    let matchedUserIdsArray = []
 
-    let userId = props.me.id;
-    let unmatchedUsersArray = []
 
-    props.users.forEach(element => {
-        unmatchedUsersArray.push(element);
-    });
+    for (let i = 0; i < matchedUsers.length; i++) {
+        matchedUserIdsArray.push(matchedUsers[i]['id']);
+    }
 
-    console.log(unmatchedUsersArray);
-
-    for (let i = 0; i < unmatchedUsersArray; i++) {
+    for (let i = 0; i < usersArray.length; i++) {
+        if (matchedUserIdsArray.includes(usersArray[i]['id']) == false && usersArray[i]['username'] !== props.me.username) {
+            unmatchedUsersArray.push(usersArray[i]);
+        }
 
     }
+
+    return unmatchedUsersArray;
+
 }
