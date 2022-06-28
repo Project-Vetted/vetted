@@ -160,6 +160,22 @@ export default function Chat(props) {
         loadChat(userId, username, userEmail);
 
     })}
+
+    $(document).on('click', '#give-like-btn', function (e) {
+            console.log($(this).val());
+            const userId = localStorage.getItem("user_id")
+            if (!userId) {
+                return
+            }
+            const newFriendsUsername = $(this).val().toString();
+
+            return fetch(`http://localhost:8080/api/users/${userId}/updateFriends?friend=${newFriendsUsername}`, {
+                method: 'PATCH',
+                headers: getHeaders(),
+            })
+                .catch(err => console.log(err))
+        }
+    )
 }
 
 
