@@ -2,7 +2,7 @@
 
 export function matchByCategory(props) {
 
-    console.log(props);
+    // console.log(props);
 
     let userId = props.me.id;
     let usersArray = [];
@@ -33,6 +33,7 @@ export function matchByCategory(props) {
         }
     }
     matchedUsersArray = [...new Set(matchedUsersArray)];
-    console.log(matchedUsersArray);
+    // console.log(matchedUsersArray);
+    return matchedUsersArray;
 
 }

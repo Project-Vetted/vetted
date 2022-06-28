@@ -1,5 +1,5 @@
 
-export function loadChat (userId, username, userEmail) {
+export function loadChat (userId, username, userEmail, matchedUsers) {
 
     let userPhotoUrl = '';
 

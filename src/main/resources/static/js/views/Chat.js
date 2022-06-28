@@ -1,21 +1,22 @@
 import {loadChat} from "../chat/loadChat.js";
 import {getHeaders} from "../auth.js";
 import {matchByCategory} from "../chat/matchByCategory.js";
+import {unmatchedUsers} from "../chat/unmatchedUsers.js";
 
 export default function Chat(props) {
+
     localStorage.setItem("user_id", props.me.id.toString());
     localStorage.setItem("user_name", props.me.username.toString());
     localStorage.setItem("user_email", props.me.email.toString());
 
-    matchByCategory(props);
+    const getMatchedUsers = matchByCategory(props);
+    localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
+    const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
 
-    // let userArray = [];
-    //
-    // props.users.forEach(element => {
-    //     userArray.push(element);
-    //     // console.log(element);
-    // });
-    //     console.log(userArray)
+
+
+    console.log(matchByCategory(props));
+    console.log(unmatchedUsers(props, matchedUsers));
 
     //language=HTML
     return `
@@ -172,16 +173,17 @@ export default function Chat(props) {
 
     $(document).on('click', '#launch-chat-btn', function (e) {
         e.preventDefault();
-    //
-    //     const chatBoxDiv = document.getElementById("chatbox");
-    //     chatBoxDiv.style.display = "revert";
-    //
-    //     const userId = localStorage.getItem("user_id");
-    //     const username = localStorage.getItem("user_name");
-    //     const userEmail = localStorage.getItem("user_email");
-    //
-    //     loadChat(userId, username, userEmail);
-    //
+
+        const chatBoxDiv = document.getElementById("chatbox");
+        chatBoxDiv.style.display = "revert";
+
+        const userId = localStorage.getItem("user_id");
+        const username = localStorage.getItem("user_name");
+        const userEmail = localStorage.getItem("user_email");
+        const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
+
+        loadChat(userId, username, userEmail, matchedUsers);
+
 
 });
 
