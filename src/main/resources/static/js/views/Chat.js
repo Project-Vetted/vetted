@@ -86,20 +86,21 @@ export default function Chat(props) {
                 padding-right: 10px;
                 vertical-align: middle;
             }
+
             .call-button {
                 vertical-align: middle;
                 display: inline-block;
                 position: relative;
                 width: 51px;
-                -webkit-user-select:none;
-                -moz-user-select:none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
                 height: 18px;
             }
 
         </style>
-        
+
         <header>
             <h1>Chat Page</h1>
         </header>
@@ -129,6 +130,7 @@ export default function Chat(props) {
 
                     <div class="button-container">
                         <div>
+<!--                            TODO: ADD A VALUE TO THE LINE BELOW EQUAL TO THE USER ID OF THE UPVOTEE, ex - value="5"-->
                             <button type="button" class="btn btn-primary btn-sm" id="give-like-btn">
                                 Give Like
                             </button>
@@ -153,23 +155,39 @@ export default function Chat(props) {
 }
 
 {
-    {$(document).on('click', '#launch-chat-btn', function (e) {
-        e.preventDefault();
+    {
+        $(document).on('click', '#launch-chat-btn', function (e) {
+            e.preventDefault();
 
-        const chatBoxDiv = document.getElementById("chatbox");
-        chatBoxDiv.style.display = "revert";
+            const chatBoxDiv = document.getElementById("chatbox");
+            chatBoxDiv.style.display = "revert";
 
-        const userId = localStorage.getItem("user_id");
-        const username = localStorage.getItem("user_name");
-        const userEmail = localStorage.getItem("user_email");
-        loadChat(userId, username, userEmail);
+            const userId = localStorage.getItem("user_id");
+            const username = localStorage.getItem("user_name");
+            const userEmail = localStorage.getItem("user_email");
+            loadChat(userId, username, userEmail);
 
-    })}
+        })
+    }
+
 
     $(document).on('click', '#give-like-btn', function (e) {
-return fetch('')
+            console.log(e)
+        //TODO: ADD THE USER ID OF THE UPVOTEE TO THE LINE BELOW
+            // const upVotee =
+            const upVoter = localStorage.getItem("user_id")
+            if (!upVoter) {
+                return
+            }
+            return fetch(`http://localhost:8080/api/users/${upVotee}/${upVoter}/upvote`, {
+                method: 'GET',
+                headers: getHeaders(),
+            })
+                .catch(err => console.log(err))
         }
     )
+
+
 }
 
 
