@@ -36,14 +36,14 @@ export default function router(URI) {
             title: "Login",
             viewEvent: LoginEvent
         },
-        '/register': {
-            noNav: true,
-            returnView: Register,
-            state: {},
-            uri: '/register',
-            title: "Register",
-            viewEvent: RegisterEvent
-        },
+        // '/register': {
+        //     noNav: true,
+        //     returnView: Register,
+        //     state: {},
+        //     uri: '/register',
+        //     title: "Register",
+        //     viewEvent: RegisterEvent
+        // },
         '/veteran': {
             noNav: true,
             returnView: Veteran,
