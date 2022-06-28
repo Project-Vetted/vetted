@@ -9,13 +9,11 @@ export default function addLoginEvent() {
     console.log("entered addLoginEvent")
     document.querySelector("#login-btn").addEventListener("click", function () {
         let obj = {
-            username: document.querySelector("#email").value,
+            email: document.querySelector("#email").value,
             password: document.querySelector("#password").value,
             grant_type: 'password'
         }
         console.log("got to login event")
-
-        //TODO: Should we refactor rest-blog-client to vetted-client on lines 24 & 26? Creates weird login event.
 
         let request = {
             method: "POST",
@@ -23,7 +21,7 @@ export default function addLoginEvent() {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Authorization': 'Basic ' + btoa('rest-blog-client:secret')
             },
-            body: `grant_type=${obj.grant_type}&username=${obj.username}&password=${obj.password}&client_id=rest-blog-client`
+            body: `grant_type=${obj.grant_type}&username=${obj.email}&password=${obj.password}&client_id=rest-blog-client`
         };
 
         fetchData(
@@ -32,7 +30,7 @@ export default function addLoginEvent() {
             },
             request).then((data) => {
             setTokens(data);
-            createView("/");
+            createView("/dashboard");
         });
     });
 }
