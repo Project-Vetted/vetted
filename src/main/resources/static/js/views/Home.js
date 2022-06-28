@@ -84,7 +84,6 @@ export default function Home(props) {
                 -webkit-box-align: center;
                 -ms-flex-align: center;
                 align-items: center;
-                /*background: #291d3a;*/
                 background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.9)), to(rgba(41, 29, 58, 0.9)));
                 background: linear-gradient(rgba(41, 29, 58, 0.9), rgba(41, 29, 58, .9));
                 border-bottom: 2px solid rgba(41, 29, 58);
