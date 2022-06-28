@@ -1,4 +1,5 @@
 import {getHeaders} from "../auth.js";
+import {BASE_URL} from "../baseUrl.js";
 
 
 export default function Dash(props) {
@@ -570,7 +571,7 @@ export default function Dash(props) {
                 <div class="card">
                     <header class="card-header">
                         <small>Getting started</small>
-                        <h2 class="title">Welcome Back, ${props.user.username}</h2>
+                        <h2 class="title">Welcome Back, ${props.user.username} / ${props.user.points} points</h2>
                     </header>
                     <div class="card-body d-grid">
                         <div class="card-image">
@@ -682,10 +683,6 @@ export default function Dash(props) {
                 </div>
             </div>
         </section>
-
-        <!--program scripts-->
-        <script src="../../js/dashboard.js"></script>
-
     `
 }
 
@@ -706,7 +703,7 @@ function CategoryButtonEvent() {
             ]
 
 
-            return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
+            return fetch(`${BASE_URL}/${userId}/updateCategories`, {
                 method: 'PATCH',
                 body: JSON.stringify(
                     reqBody
