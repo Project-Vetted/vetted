@@ -4,36 +4,35 @@ export function matchByCategory(props) {
 
     console.log(props);
 
-    let me = {}
+    let userId = props.me.id;
     let usersArray = [];
-    let categoriesArray = [];
-    let userCategoriesArray = [];
-    let connUserArray = [];
-
-    let userId = 2;
+    let usersCategoriesArray = [];
+    let currentUserCategories = [];
+    let matchedUsersArray = [];
 
     props.users.forEach(element => {
         usersArray.push(element);
     });
-        console.log(usersArray);
-
-    props.categories.forEach(element => {
-        categoriesArray.push(element);
-    });
-        console.log(categoriesArray);
+        // console.log(usersArray);
 
     props.userCategories.forEach(element => {
-        userCategoriesArray.push(element);
+        usersCategoriesArray.push(element);
     });
-        console.log(userCategoriesArray);
+        // console.log(usersCategoriesArray);
 
+    for (let i = 0; i < usersCategoriesArray.length; i++) {
+        if (usersCategoriesArray[i]['user_id'] === userId) {
+            currentUserCategories.push(usersCategoriesArray[i]['category_id'])
+        }
+    }
+        // console.log(currentUserCategories);
 
-
-    // console.log(currentUserCategories);
-
-    // console.log(currentUserCategories);
-    // connUserArray = [...new Set(connUserArray)];
-    // console.log(connUserArray);
-
+    for (let x = 0; x < usersCategoriesArray.length; x++) {
+        if (usersCategoriesArray[x]['user_id'] !== userId && currentUserCategories.includes(usersCategoriesArray[x]['category_id'])) {
+            matchedUsersArray.push(usersArray[(usersCategoriesArray[x]['user_id']) - 1]);
+        }
+    }
+    matchedUsersArray = [...new Set(matchedUsersArray)];
+    console.log(matchedUsersArray);
 
 }
