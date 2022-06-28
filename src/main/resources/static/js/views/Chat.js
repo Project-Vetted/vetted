@@ -1,13 +1,21 @@
 import {loadChat} from "../chat/loadChat.js";
 import {getHeaders} from "../auth.js";
-// import {getConnectingUsers} from "../chat/getConnectingUsers.js";
+import {matchByCategory} from "../chat/matchByCategory.js";
 
 export default function Chat(props) {
-    // localStorage.setItem("user_id", props.user.id.toString());
-    // localStorage.setItem("user_name", props.user.username.toString());
-    // localStorage.setItem("user_email", props.user.email.toString());
+    localStorage.setItem("user_id", props.me.id.toString());
+    localStorage.setItem("user_name", props.me.username.toString());
+    localStorage.setItem("user_email", props.me.email.toString());
 
-    console.log(props);
+    matchByCategory(props);
+
+    // let userArray = [];
+    //
+    // props.users.forEach(element => {
+    //     userArray.push(element);
+    //     // console.log(element);
+    // });
+    //     console.log(userArray)
 
     //language=HTML
     return `
@@ -174,32 +182,7 @@ export default function Chat(props) {
     //
     //     loadChat(userId, username, userEmail);
     //
-    //     // getConnectingUsers(2);
-    // });
 
-
-    //     $(document).on('click', '#launch-chat-btn', function (e) {
-    //         e.preventDefault();
-    //
-    //         $.ajax({
-    //             url: 'fetchUsers.php',
-    //             type: 'get',
-    //             dataType: 'JSON',
-    //             success: function(response){
-    //                 let len = response.length;
-    //                 for(let x = 0; x < len; x++){
-    //                     let id = response[x].id;
-    //                     let username = response[x].username;
-    //                     let password = response[x].password;
-    //                     let email = response[x].email;
-    //                     let role = response[x].role;
-    //
-    //                 }
-    //                 console.log(response);
-    //             }
-    //         });
-    //
-    // });
 });
 
 
