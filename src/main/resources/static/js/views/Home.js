@@ -99,7 +99,7 @@ export default function Home(props) {
             
             .header .navbar a {
                 margin-left: 2rem;
-                font-size: 1.7rem;
+                font-size: 2.5rem;
                 color: #918DD2;
                 float: right;
             }
@@ -155,20 +155,20 @@ export default function Home(props) {
             }
 
             .home .box .content {
-                width: 150rem;
-                height: 100rem;
+                width: 100rem;
+                height: 80rem;
             }
 
-            .home .box .content span {
-                font-size: 4rem;
+            .home .box .content h1 {
+                font-size: 5rem;
                 color: #350259;
             }
 
             .home .box .content h3 {
-                font-size: 6rem;
+                font-size: 2rem;
                 color: #350259;
                 padding-top: .5rem;
-                text-transform: uppercase;
+                /*text-transform: uppercase;*/
             }
 
             .home .box .content p {
@@ -184,7 +184,11 @@ export default function Home(props) {
                 font-size: 3rem;
                 color: #350259;
             }
-
+            
+            .category{
+                padding: 3rem;
+            }
+            
             .category .box-container {
                 display: -ms-grid;
                 display: grid;
@@ -216,75 +220,12 @@ export default function Home(props) {
                 padding: 1rem 0;
                 line-height: 2;
             }
-            
-            /*.modal{*/
-            /*    padding: 1em;*/
-            /*    max-width: 50ch;*/
-            /*border: 1px solid #350259;*/
-            /*    */
-            /*    & > * {*/
-            /*    margin: 0 0 0.5rem 0;*/
-            /*      }*/
-            /*}*/
-            
-            /*.modal::backdrop{*/
-            /*    background: #350259;*/
-            /*    opacity: 0.7;*/
-            /*}*/
-            
-            /*******************
-            about section
-            *******************/
-            .about {
-                background: #eee;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                align-items: center;
-                -ms-flex-wrap: wrap;
-                flex-wrap: wrap;
-                gap: 2rem;
-            }
-
-            .about .image {
-                -webkit-box-flex: 1;
-                -ms-flex: 1 1 42rem;
-                flex: 1 1 42rem;
-                padding-right: 5rem;
-                padding-bottom: 5rem;
-            }
-
-            .about .image img {
-                width: 100%;
-                -webkit-box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
-                box-shadow: 4rem 4rem 0 rgba(93, 53, 122, 0.3);
-                /*background-size: cover;*/
-            }
-
-            .about .content {
-                -webkit-box-flex: 1;
-                -ms-flex: 1 1 42rem;
-                flex: 1 1 42rem;
-            }
-
-            .about .content h3 {
-                font-size: 3rem;
-                color: rgba(41, 29, 58, 1);
-            }
-
-            .about .content p {
-                font-size: 1.5rem;
-                color: #42026F;
-                padding: 1rem 0;
-                line-height: 2;
-            }
 
             .services {
                 background: #eee;
+                padding: 3rem;
             }
-
+            
             .services .box-container {
                 display: -ms-grid;
                 display: grid;
@@ -296,32 +237,18 @@ export default function Home(props) {
             .services .box-container .box {
                 text-align: center;
                 padding: 2rem;
-                border: 0.2rem solid #350259;
-                border-radius: .5rem;
+                border: 0.4rem solid #350259;
+                border-radius: 25px;
                 background: #fff;
             }
 
             .services .box-container .box:hover {
                 background: #350259;
+                color: #C7C5F4;
             }
 
-            .services .box-container .box:hover img {
-                -webkit-filter: invert(1);
-                filter: invert(1);
-            }
-
-            .services .box-container .box:hover p {
-                color: #fff;
-            }
-
-            .services .box-container .box:hover .btn {
-                border-color: #fff;
-                color: #fff;
-            }
-
-            .services .box-container .box:hover .btn:hover {
-                background: #fff;
-                color: #350259;
+            .services .box-container .box:hover h3 {
+                color: #C7C5F4;
             }
 
             .services .box-container .box img {
@@ -340,34 +267,6 @@ export default function Home(props) {
                 padding: 1rem 0;
                 line-height: 2;
             }
-
-            /*******************
-            sign-in/register
-            *******************/
-            .register .text {
-                padding: 2rem;
-                font-size: 2rem;
-                font-style: italic;
-                background: #eee;
-                border-radius: .5rem;
-                color: #350259;
-                line-height: 2;
-                position: relative;
-                z-index: 0;
-                margin-bottom: 3rem;
-            }
-
-            .register .text::before {
-                content: '';
-                position: absolute;
-                bottom: -1.5rem;
-                left: .7rem;
-                height: 3rem;
-                width: 3rem;
-                background: #eee;
-                -webkit-transform: rotate(45deg);
-                transform: rotate(45deg);
-            }
             
             .blogs {
                 background: #eee;
@@ -383,7 +282,8 @@ export default function Home(props) {
                 width: 100%;
                 -o-object-fit: cover;
                 object-fit: cover;
-                border-radius: .5rem;
+                border-radius: 25px;
+                border: 0.5rem solid #350259;
             }
 
             .blogs .slide .icons {
@@ -411,12 +311,12 @@ export default function Home(props) {
             }
 
             .blogs .slide h3 {
-                font-size: 2rem;
+                font-size: 3rem;
                 color: #350259;
             }
 
             .blogs .slide p {
-                font-size: 1.4rem;
+                font-size: 2rem;
                 padding: 1rem 0;
                 line-height: 2;
                 color: #3C0265;
@@ -429,7 +329,7 @@ export default function Home(props) {
             }
 
             .newsletter .content p {
-                font-size: 1.5rem;
+                font-size: 2rem;
                 line-height: 2;
                 color: #5D357A;
             }
@@ -520,16 +420,7 @@ export default function Home(props) {
             .footer .group-name span {
                 color: #918DD2;
             }
-
-            @media (max-width: 1200px) {
-                .header {
-                    padding: 2rem;
-                }
-
-                section {
-                    padding: 3rem 2rem;
-                }
-            }
+            
 
             @media (max-width: 1024px) {
                 html {
@@ -554,15 +445,17 @@ export default function Home(props) {
 
                 .home .box .content {
                     text-align: center;
-                    padding-top: 20rem;
+                    padding-top: 40rem;
                 }
 
-                .home .box .content span {
+                .home .box .content h1 {
                     font-size: 3rem;
+                    color: #fff;
                 }
 
                 .home .box .content h3 {
-                    font-size: 4rem;
+                    font-size: 2rem;
+                    color: #fff;
                 }
             }
             
@@ -589,24 +482,26 @@ export default function Home(props) {
 
                     .home .box .content {
                         text-align: center;
-                        padding-top: 40rem;
+                        padding-top: 30rem;
                     }
 
-                    .home .box .content span {
-                        font-size: 3rem;
+                    .home .box .content h1 {
+                        font-size: 5rem;
                         color: #fff;
+                        margin-bottom: 2rem;
                     }
 
                     .home .box .content h3 {
-                        font-size: 4rem;
+                        font-size: 2rem;
                         color: #fff;
+                        margin-bottom: 5rem;
                     }
                     
-                    .home .box .content p{
-                        font-size: 1.5rem;
-                        color: #fff;
-                        font-weight: bold;
-                    }
+                    /*.home .box .content p{*/
+                    /*    font-size: 1.5rem;*/
+                    /*    color: #fff;*/
+                    /*    font-weight: bold;*/
+                    /*}*/
                 }
             @media (max-width: 768px) {
                 .header #menu-btn {
@@ -660,15 +555,16 @@ export default function Home(props) {
                 }
                 .home .box .content {
                     text-align: center;
-                    padding-top: 20rem;
+                    padding-top: 30rem;
                 }
 
-                .home .box .content span {
+                .home .box .content h1 {
                     font-size: 3rem;
+                    color: #fff;
                 }
 
                 .home .box .content h3 {
-                    font-size: 4rem;
+                    font-size: 2rem;
                 }
             }
             
@@ -690,39 +586,43 @@ export default function Home(props) {
                     <div class="swiper-slide">
                         <div class="box" style="background: url('../../assets/imgs/home-bg-1.png') no-repeat;">
                             <div class="content">
-                                <span>Welcome to</span>
-                                <h3>Vetted</h3>
-                                <em><p>a secure platform for veterans who struggle with various mental health issues 
-                                    and are seeking connection, compassion, and relational consistency. In a modern climate where veterans are seeking support 
-                                    and lack proper resources, Vetted is an app that empowers veterans to join arms with
-                                    each other bridging the mental health gap.</p></em>
+                                <h1>Welcome to</h1>
+                                <h1>Vetted</h1>
+                                <h3>Vetted Is An Application For Veterans Who Struggle With Various Mental Health 
+                                    Issues And Are Seeking Connection, Compassion, And Relational Consistency. Vetted 
+                                    Is A Secured Platform That Verifies Veteran User Credentials To Allow For Privacy 
+                                    And Randomizes Usernames To Maintain Privacy. Users Are Able To Access Mental Health 
+                                    Information, Develop Personal Goals, And Communicate With Other Veterans Via Chat Or 
+                                    Video. In A Modern Climate Where Veterans Are Seeking Support And Lack Proper Resources, 
+                                    Vetted Is An Application That Empowers Veterans To Join Arms With Each Other Bridging 
+                                    The Mental Health Gap.</h3>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="box second" style="background: url('../../assets/imgs/home-bg-2.png') no-repeat;">
-                            <div class="content">
-                                <span>this is your</span>
-                                <h3>safe space</h3>
-                                <p>Vetted provides a veteran community of individuals who struggle with mental health
-                                    issues or would like to support other veterans.</p>
-                                <a href="#visiter-user" class="btn">get started</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="box" style="background: url('../../assets/imgs/home-bg-3.png') no-repeat;">
-                            <div class="content">
-                                <span>own your mental</span>
-                                <h3>health</h3>
-                                <p>Vetted has a video chat feature that is available 24/7 for veterans. Veterans have
-                                    access to their own personalized dashboard that provides updated information
-                                    pertinent to their selected communities.</p>
-                                <a href="#visiter-user" class="btn">get started</a>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="swiper-slide">-->
+<!--                        <div class="box second" style="background: url('../../assets/imgs/home-bg-2.png') no-repeat;">-->
+<!--                            <div class="content">-->
+<!--                                <span>this is your</span>-->
+<!--                                <h3>safe space</h3>-->
+<!--                                <p>Vetted provides a veteran community of individuals who struggle with mental health-->
+<!--                                    issues or would like to support other veterans.</p>-->
+<!--                                <a href="#visiter-user" class="btn">get started</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <div class="box" style="background: url('../../assets/imgs/home-bg-3.png') no-repeat;">-->
+<!--                            <div class="content">-->
+<!--                                <span>own your mental</span>-->
+<!--                                <h3>health</h3>-->
+<!--                                <p>Vetted has a video chat feature that is available 24/7 for veterans. Veterans have-->
+<!--                                    access to their own personalized dashboard that provides updated information-->
+<!--                                    pertinent to their selected communities.</p>-->
+<!--                                <a href="#visiter-user" class="btn">get started</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -732,40 +632,40 @@ export default function Home(props) {
 
 <!--         about section starts  -->
 <!--will need to add new content here depending on what I do with the about page-->
-        <section class="about" id="about">
+<!--        <section class="about" id="about">-->
 
-            <div class="image">
-                <img src="../../assets/imgs/about-img.png" alt="">
-            </div>
+<!--            <div class="image">-->
+<!--                <img src="../../assets/imgs/about-img.png" alt="">-->
+<!--            </div>-->
 
-            <div class="content">
-                <h3>About vetted</h3>
-                <p>Vetted is an application for veterans who struggle with various mental health issues and are seeking
-                    connection, compassion, and relational consistency. Vetted is a secured platform that verifies
-                    veteran user credentials to allow for privacy and randomizes usernames to maintain privacy. Users
-                    are able to access mental health information, develop personal goals, and communicate with other
-                    veterans via chat or video. In a modern climate where veterans are seeking support and lack proper
-                    resources, Vetted is an application that empowers veterans to join arms with each other bridging the
-                    mental health gap. </p>
-               
-            </div>
+<!--            <div class="content">-->
+<!--                <h3>About vetted</h3>-->
+<!--                <p>Vetted is an application for veterans who struggle with various mental health issues and are seeking-->
+<!--                    connection, compassion, and relational consistency. Vetted is a secured platform that verifies-->
+<!--                    veteran user credentials to allow for privacy and randomizes usernames to maintain privacy. Users-->
+<!--                    are able to access mental health information, develop personal goals, and communicate with other-->
+<!--                    veterans via chat or video. In a modern climate where veterans are seeking support and lack proper-->
+<!--                    resources, Vetted is an application that empowers veterans to join arms with each other bridging the-->
+<!--                    mental health gap. </p>-->
+<!--               -->
+<!--            </div>-->
 
-        </section>
+<!--        </section>-->
 
         <!-- about section ends -->
 
-        <!-- sign-in/register section starts  -->
+<!--        &lt;!&ndash; sign-in/register section starts  &ndash;&gt;-->
 
-        <section class="register" id="register">
-            <h1 class="heading">Join The Vetted Community Now!!!</h1>
-            <div class="swiper register">
-                <div class="register-action">
-                    <p class="text">You have made it this far, so why stop? You are one click away from taking control of 
-                    your mental health. Join the Vetted community today!</p>
-                    <a href="#register" class="btn register-btn">Register</a>
-                </div>
-            </div>
-        </section>
+<!--        <section class="register" id="register">-->
+<!--            <h1 class="heading">Join The Vetted Community Now!!!</h1>-->
+<!--            <div class="swiper register">-->
+<!--                <div class="register-action">-->
+<!--                    <p class="text">You have made it this far, so why stop? You are one click away from taking control of -->
+<!--                    your mental health. Join the Vetted community today!</p>-->
+<!--                    <a href="#register" class="btn register-btn">Register</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
 
         <!-- sign-in/register section ends -->
 
@@ -777,27 +677,33 @@ export default function Home(props) {
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-1.jpeg" alt="">
-                    <h3>vetted members</h3>
-                    <p>To protect the safety of the community, all members of Vetted must have their credentials 
+                    <br>
+                    <h2>vetted members</h2>
+                    <br>
+                    <h3>To protect the safety of the community, all members of Vetted must have their credentials 
                         confirmed upon registration. This assures that all members are veterans with at least two years
-                        of service and safeguards the Vetted community from those who wish to inflict harm in any form.</p>
+                        of service and safeguards the Vetted community from those who wish to inflict harm in any form.</h3>
 <!--                    <a href="#" class="btn">read more</a>-->
                 </div>
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-2.jpeg" alt="">
-                    <h3>privacy & anonymity</h3>
-                    <p>To prevent revealing veterans who prefer to disguise their identity, a secure verification process,
-                        randomized usernames supplied upon registration, and password requirements are in place.</p>
+                    <br>
+                    <h2>privacy & anonymity</h2>
+                    <br>
+                    <h3>To prevent revealing veterans who prefer to disguise their identity, a secure verification process,
+                        randomized usernames supplied upon registration, and password requirements are in place.</h3>
 <!--                    <a href="#" class="btn">read more</a>-->
                 </div>
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-4.jpeg" alt="">
-                    <h3>build connections</h3>
-                    <p>The Vetted community allows you to connect with other veterans through our chat and friends list 
+                    <br>
+                    <h2>build connections</h2>
+                    <br>
+                    <h3>The Vetted community allows you to connect with other veterans through our chat and friends list 
                         tools. Combating mental health challenges is greatest accomplished with combat comrades who grasp 
-                        your difficulties and also how to support you.</p>
+                        your difficulties and also how to support you.</3>
 <!--                    <a href="#" class="btn">read more</a>-->
                 </div>
             </div>
@@ -811,66 +717,72 @@ export default function Home(props) {
             <div class="box-container">
                 <div class="box">
                     <img src="../../assets/imgs/testimonials1.jpeg" alt="">
-                    <h3>VA has $20 million</h3>
-                    <p> for new ideas but not to increase mental health support. I saw this, and it made me lost my mind.
+                    <br>
+                    <h2>VA has $20 million</h2>
+                    <br>
+                    <h3> "for new ideas but not to increase mental health support. I saw this, and it made me lost my mind.
                     I've been going on nine months back-and-forth with the VA to get mental healthcare because my mental
                     health is deteriorating. I keep getting told you don't look so bad, and you have great advocacy skills 
-                    so your mental health cannot be that bad.</p>
-                    <a href="#" class="btn open-btn">read more</a>
+                    so your mental health cannot be that bad."</h3>
+<!--                    <a href="#" class="btn open-btn">read more</a>-->
                 </div>
-                <dialog class="modal" id="modal">
-                    <h2>I almost lost my mind</h2>
-                    <p>Va has $20 million for new ideas but not to increase mental health support. I saw this, and it made me lost my mind.
-                        I've been going on nine months back-and-forth with the VA to get mental healthcare because my mental
-                        health is deteriorating. I keep getting told you don't look so bad, and you have great advocacy skills
-                        so your mental health cannot be that bad.</p><br>
-                    <p>It took me nine months, and I had a full on breakdown with a provider that I thought was going to be 
-                    my permanent therapist only to be told this is a short term program, and then they send me on my way to
-                    be referred out to the community to finally get long-term care.</p><br>
-                    <p>You want to lower suicide rates? Listen to us when we have problems and start finding ways to get us
-                    into the community if you're backlogged.</p>
-                    <button class="button close-button">Close Window</button>
+<!--                <dialog class="modal" id="modal">-->
+<!--                    <h2>I almost lost my mind</h2>-->
+<!--                    <p>Va has $20 million for new ideas but not to increase mental health support. I saw this, and it made me lost my mind.-->
+<!--                        I've been going on nine months back-and-forth with the VA to get mental healthcare because my mental-->
+<!--                        health is deteriorating. I keep getting told you don't look so bad, and you have great advocacy skills-->
+<!--                        so your mental health cannot be that bad.</p><br>-->
+<!--                    <p>It took me nine months, and I had a full on breakdown with a provider that I thought was going to be -->
+<!--                    my permanent therapist only to be told this is a short term program, and then they send me on my way to-->
+<!--                    be referred out to the community to finally get long-term care.</p><br>-->
+<!--                    <p>You want to lower suicide rates? Listen to us when we have problems and start finding ways to get us-->
+<!--                    into the community if you're backlogged.</p>-->
+<!--                    <button class="button close-button">Close Window</button>-->
                 </dialog>
 
                 <div class="box">
                     <img src="../../assets/imgs/testimonials2.jpeg" alt="">
-                    <h3>VA Doc No-show</h3>
-                    <p>Had my first video appointment with a VA mental health provider this morning, despite scheduling
+                    <br>
+                    <h2>VA Doc No-show</h2>
+                    <br>
+                    <h3>"Had my first video appointment with a VA mental health provider this morning, despite scheduling
                     back in March. Confirmed the appointment, went to log on ten minutes prior and waited until the 
                     appointment time. Waited until thirty minutes until after the appointment was supposed to start, and 
-                    the provider still hadn't shown up.</p>
-                    <a href="#" class="btn open-btn">read more</a>
+                    the provider still hadn't shown up."</h3>
+<!--                    <a href="#" class="btn open-btn">read more</a>-->
                 </div>
-                <dialog class="modal" id="modal">
-                    <h2>VA Doc No-show</h2>
-                    <p>Had my first video appointment with a VA mental health provider this morning, despite scheduling
-                        back in March. Confirmed the appointment, went to log on ten minutes prior and waited until the
-                        appointment time. Waited until thirty minutes until after the appointment was supposed to start, and
-                        the provider still hadn't shown up.</p><br>
-                    <p>Made sure to double-check that I had the correct information and everything. I guess my question is,
-                        what exactly do I do from here? Really don't want to wait several months again just to be seen.
-                        Any help is appreciated.</p>
-                    <p>You want to lower suicide rates? Listen to us when we have problems and start finding ways to get us
-                        into the community if you're backlogged.</p>
-                    <button class="button close-button">Close Window</button>
-                </dialog>
+<!--                <dialog class="modal" id="modal">-->
+<!--                    <h2>VA Doc No-show</h2>-->
+<!--                    <p>Had my first video appointment with a VA mental health provider this morning, despite scheduling-->
+<!--                        back in March. Confirmed the appointment, went to log on ten minutes prior and waited until the-->
+<!--                        appointment time. Waited until thirty minutes until after the appointment was supposed to start, and-->
+<!--                        the provider still hadn't shown up.</p><br>-->
+<!--                    <p>Made sure to double-check that I had the correct information and everything. I guess my question is,-->
+<!--                        what exactly do I do from here? Really don't want to wait several months again just to be seen.-->
+<!--                        Any help is appreciated.</p>-->
+<!--                    <p>You want to lower suicide rates? Listen to us when we have problems and start finding ways to get us-->
+<!--                        into the community if you're backlogged.</p>-->
+<!--                    <button class="button close-button">Close Window</button>-->
+<!--                </dialog>-->
                 <div class="box">
                     <img src="../../assets/imgs/testimonials3.jpeg" alt="">
-                    <h3>Who can I really talk to?</h3>
-                    <p>Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want to 
-                    talk things out and have a safe space to just cry. It's been a year since I got out of active duty and
-                    its been nothing less than miserable and depressing, and I just want to talk to someone.</p>
-                    <a href="#" class="btn open-btn">read more</a>
-                </div>
-                <dialog class="modal" id="modal">
+                    <br>
                     <h2>Who can I really talk to?</h2>
-                    <p>Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want to
-                        talk things out and have a safe space to just cry. It's been a year since I got out of active duty,
-                        and it's been nothing less than miserable and depressing, and I just want to talk to someone. I've 
-                        already tried on source, but they feel so artificial that I felt even worse talking to them. Am I able
-                    to use my health insurance to talk to a specialist, anybody really? Thanks for y'all's time.</p><br>
-                    <button class="button close-button">Close Window</button>
-                </dialog>
+                    <br>
+                    <h3>"Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want to 
+                    talk things out and have a safe space to just cry. It's been a year since I got out of active duty and
+                    its been nothing less than miserable and depressing, and I just want to talk to someone."</h3>
+<!--                    <a href="#" class="btn open-btn">read more</a>-->
+                </div>
+<!--                <dialog class="modal" id="modal">-->
+<!--                    <h2>Who can I really talk to?</h2>-->
+<!--                    <p>Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want to-->
+<!--                        talk things out and have a safe space to just cry. It's been a year since I got out of active duty,-->
+<!--                        and it's been nothing less than miserable and depressing, and I just want to talk to someone. I've -->
+<!--                        already tried on source, but they feel so artificial that I felt even worse talking to them. Am I able-->
+<!--                    to use my health insurance to talk to a specialist, anybody really? Thanks for y'all's time.</p><br>-->
+<!--                    <button class="button close-button">Close Window</button>-->
+<!--                </dialog>-->
 
             </div>
         </section>
