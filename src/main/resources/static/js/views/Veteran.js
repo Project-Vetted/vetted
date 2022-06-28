@@ -1,8 +1,6 @@
+import {getHeaders} from "../auth.js";
 
-
-export default function Veteran(props) {
-    localStorage.setItem("user_id", toString())
-
+export default function Veteran() {
     //language=HTML
     return `
         <style>
@@ -388,6 +386,9 @@ export function VeteranRegistrationEvent() {
                 email: $('#email').val(),
                 password: $('#password-confirm').val()
             }
+            localStorage.setItem("user_name", userBody.username.toString());
+
+
 
             const options = {
                 headers: {
@@ -398,11 +399,14 @@ export function VeteranRegistrationEvent() {
             }
 
             fetch("http://localhost:8080/api/users/create", options)
-                .then(data => console.log(data))
+                .then(data => {
+                    console.log(data)
+                })
                 .catch(err => console.log(err))
         }
 
         RegisterEvent();
+
         form1.style.display = "none";
         form2.style.display = "block";
         progress.style.width = "240px";
@@ -433,8 +437,6 @@ export function VeteranRegistrationEvent() {
         // AccessUserId();
 
         function VerifyEvent() {
-
-
             const reqBody = {
                 "ssn": $('#propS').val(),
                 "first_name": $('#propF').val(),
@@ -451,45 +453,40 @@ export function VeteranRegistrationEvent() {
                 body: JSON.stringify(reqBody)
             }
 
+            const userName = localStorage.getItem('user_name');
+            console.log(userName)
+
             fetch("https://sandbox-api.va.gov/services/veteran_confirmation/v0/status", options)
                 .then(res => res.json())
-                .then(data => console.log(data))
-                .catch(err => console.log(err))
+                .then(data => {
+                    console.log(data)
+                    if (data === 'confirmed') {
+                        console.log('hello')
+
+                        return fetch(`http://localhost:8080/api/users/update-role?userName=${userName}`, {
+                            method: 'PATCH',
+                            headers: {
+                                "Content-Type": "application/json",
+                            }
+                        })
+
+                            .catch(err => console.log(err)
+                            )
+
+                    } })
+
         }
 
-        // function UpdateRoleEvent() {
-        //     const userId = AccessUserId();
-        //     if (!userId) {
-        //         return
-        //     }
-        //     const reqBody =
-        //         'VET';
-        //
-        //
-        //     return fetch(`http://localhost:8080/api/users/${userId}/update-role`, {
-        //         method: 'PATCH',
-        //         body: JSON.stringify(
-        //             reqBody
-        //         ),
-        //         headers: getHeaders(),
-        //     })
-        //         .catch(err => console.log(err))
-        //
-        //
-        // }
-
-
         VerifyEvent();
-        // new UpdateRoleEvent();
         form2.style.display = "none";
         form3.style.display = "block";
         progress.style.width = "360px";
-    })
 
+    })
     $(document).on('click', '#back2', function () {
         form1.style.display = "none";
         form2.style.display = "block";
         progress.style.width = "240px";
-    })
+    }
 
-}
+)}

@@ -570,7 +570,7 @@ export default function Dash(props) {
                 <div class="card">
                     <header class="card-header">
                         <small>Getting started</small>
-                        <h2 class="title">Welcome Back, ${props.user.username}</h2>
+                        <h2 class="title">Welcome Back, ${props.user.username} / ${props.user.points} points</h2>
                     </header>
                     <div class="card-body d-grid">
                         <div class="card-image">

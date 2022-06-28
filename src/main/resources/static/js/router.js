@@ -4,7 +4,6 @@ import Error404 from "./views/Error404.js";
 import Loading from "./views/Loading.js";
 import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
-import Register, {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvent} from "./views/User.js";
 import Dash, {DashEvents} from "./views/Dash.js";
 import Rating from "./views/Rating.js";
@@ -36,14 +35,14 @@ export default function router(URI) {
             title: "Login",
             viewEvent: LoginEvent
         },
-        '/register': {
-            noNav: true,
-            returnView: Register,
-            state: {},
-            uri: '/register',
-            title: "Register",
-            viewEvent: RegisterEvent
-        },
+        // '/register': {
+        //     noNav: true,
+        //     returnView: Register,
+        //     state: {},
+        //     uri: '/register',
+        //     title: "Register",
+        //     viewEvent: RegisterEvent
+        // },
         '/veteran': {
             noNav: true,
             returnView: Veteran,

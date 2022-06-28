@@ -2,6 +2,7 @@ package com.example.vetted.web;
 
 import com.example.vetted.data.Category;
 import com.example.vetted.data.User;
+import com.example.vetted.data.UsersRepository;
 import com.example.vetted.service.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,6 +13,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import static com.example.vetted.data.User.Role.VET;
 
@@ -21,16 +23,18 @@ public class UsersController {
 
     // Once the adding and getting of users is removed, we have to inject the UserService into the controller
     private final UserService userService;
+    private final UsersRepository usersRepository;
     private PasswordEncoder passwordEncoder;
 
-    public UsersController(UserService userService, PasswordEncoder passwordEncoder) {
+    public UsersController(UserService userService, PasswordEncoder passwordEncoder, UsersRepository usersRepository) {
         this.userService = userService; // injection point of UserService
         this.passwordEncoder = passwordEncoder;
+        this.usersRepository = usersRepository;
     }
 
     @PreAuthorize("permitAll()")
     @GetMapping("all")
-    public List<User> getAll() {
+    public long getAll() {
         return userService.getAllUsers();
     }
 
@@ -45,10 +49,11 @@ public class UsersController {
     }
 
     @PostMapping("create")
-    public void create(@RequestBody User newUser) {
+    public long create(@RequestBody User newUser) {
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         userService.createUser(newUser);
-        userService.updateRole(newUser.getId(), VET);
+        return newUser.getId();
+//        userService.updateRole(newUser.getId(), VET);
     }
 
     @GetMapping("username")
@@ -99,9 +104,14 @@ public class UsersController {
 //    }
 
 //    update user role once verified
-    @PutMapping("{id}/update-role")
-    public void updateRole(@PathVariable long id,@RequestParam User.Role updateRole){
-        userService.updateRole(id, updateRole);
+//    @PutMapping("{userName}/update-role")
+//    public void updateRole(@PathVariable String userName,@RequestParam User.Role updateRole){
+//        userService.updateRole(userName, updateRole);
+//    }
+
+    @PatchMapping("/update-role")
+    public void updateVeteransRole(@RequestParam String userName) {
+       userService.veteranRoleUpdateOnVerification(userName);
     }
 
 
