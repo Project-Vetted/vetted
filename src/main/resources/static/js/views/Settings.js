@@ -1,6 +1,7 @@
 import createView from "../createView.js";
+import {BASE_URL} from "../baseUrl.js";
 
-export default function UserIndex(props) {
+export default function Settings(props) {
     //language=HTML
     return `
         <style>
@@ -193,7 +194,7 @@ export default function UserIndex(props) {
     `
 }
 
-export function UserEvent() {
+export function UserSettingsEvent() {
     updateEmailListener();
     updatePasswordListener();
     updateUsernameListener();
@@ -204,7 +205,6 @@ function updatePasswordListener() {
 
         e.preventDefault();
 
-        const BASE_URL = "http://localhost:8080/api/users"
         const id = $(this).data("id");
         const newPassword = $("#new-password").val();
         const confirmPassword = $("#confirm-password").val();
@@ -223,7 +223,7 @@ function updatePasswordListener() {
             fetch(`${BASE_URL}/${id}/updatePassword?newPassword=${newPassword}`, request)
                 .then(res => console.log(res.status))
                 .catch(error => console.log(error))
-                .finally(() => createView("/user"))
+                .finally(() => createView("/settings"))
         }
     })
 }
@@ -233,7 +233,6 @@ function updateEmailListener() {
 
         e.preventDefault();
 
-        const BASE_URL = "http://localhost:8080/api/users"
         const id = $(this).data("id");
         const newEmail = $("#new-email").val();
 
@@ -257,7 +256,6 @@ function updateUsernameListener() {
 
         e.preventDefault();
 
-        const BASE_URL = "http://localhost:8080/api/users"
         const id = $(this).data("id");
         const newUsername = generateRandomName();
 
@@ -271,7 +269,7 @@ function updateUsernameListener() {
         fetch(`${BASE_URL}/${id}/updateUsername?newUsername=${newUsername}`, request)
             .then(res => console.log(res.status))
             .catch(error => console.log(error))
-            .finally(() => createView("/user"))
+            .finally(() => createView("/settings"))
     })
 }
 
