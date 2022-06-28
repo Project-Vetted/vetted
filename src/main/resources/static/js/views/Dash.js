@@ -33,7 +33,7 @@ export default function Dash(props) {
             }
 
             .theme-light {
-                --light-color: #171721;
+                --light-color: #350259;
                 --dark-color: #fff;
                 --dark-color-lighter: #7E8299;
                 --body-background-color: #eef0f8;
