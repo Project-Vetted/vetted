@@ -146,8 +146,14 @@ export default function Home(props) {
                 -ms-flex-pack: end;
                 justify-content: flex-end;
                 padding: 2rem 9%;
+                
             }
-
+            div .box{
+                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.3)), to(rgba(41, 29, 58, 0.3))), url('./static/assets/imgs/footer-bg.png') no-repeat;
+                background: linear-gradient(rgba(41, 29, 58, 0.3), rgba(41, 29, 58, 0.3)), url('./static/assets/imgs/footer-bg.png') no-repeat;
+                border-radius: 25px;
+            }
+            
             .home .box.second {
                 -webkit-box-pack: start;
                 -ms-flex-pack: start;
@@ -155,10 +161,9 @@ export default function Home(props) {
             }
            
             .home .box .content {
-                width: 200rem;
+                width: 150rem;
                 height: 50rem;
-                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.3)), to(rgba(41, 29, 58, 0.3))), url('./static/assets/imgs/footer-bg.png') no-repeat;
-                background: linear-gradient(rgba(41, 29, 58, 0.3), rgba(41, 29, 58, 0.3)), url('./static/assets/imgs/footer-bg.png') no-repeat;            }
+            }
 
             .home .box .content h1 {
                 font-size: 5rem;
@@ -177,7 +182,53 @@ export default function Home(props) {
                 font-size: 3rem;
                 color: #350259;
             }
-            
+            .scroll-down {
+                height: 50px;
+                width: 30px;
+                border: 2px solid white;
+                position: absolute;
+                left: 50%;
+                bottom: 20px;
+                border-radius: 50px;
+                cursor: pointer;
+            }
+            .scroll-down::before,
+            .scroll-down::after {
+                content: "";
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                height: 10px;
+                width: 10px;
+                transform: translate(-50%, -100%) rotate(45deg);
+                border: 2px solid white;
+                border-top: transparent;
+                border-left: transparent;
+                animation: scroll-down 1s ease-in-out infinite;
+            }
+            .scroll-down::before {
+                top: 30%;
+                animation-delay: 0.3s;
+                 animation: scroll-down 1s ease-in-out infinite; 
+            }
+
+            @keyframes scroll-down {
+                0% {
+                    /* top:20%; */
+                    opacity: 0;
+                }
+                30% {
+                    opacity: 1;
+                }
+                60% {
+                    opacity: 1;
+                }
+                100% {
+                    top: 90%;
+                    opacity: 0;
+                }
+            }
+
             .category{
                 padding: 3rem;
             }
@@ -566,13 +617,17 @@ export default function Home(props) {
                 }
             }
             
+            /*.home .home-slider .box{*/
+            /*    background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.3)), to(rgba(41, 29, 58, 0.3))), url('./static/assets/imgs/footer-bg.png') no-repeat;*/
+            /*    background: linear-gradient(rgba(41, 29, 58, 0.3), rgba(41, 29, 58, 0.3)), url('./static/assets/imgs/footer-bg.png') no-repeat;*/
+            /*}*/
         </style>
 
         <section class="home" id="home">
             <div class="swiper home-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="box" style="background: url('../../assets/imgs/home-bg-1.png') no-repeat;">
+                        <div class="box" style="background: url('../../assets/imgs/home-bg-2_redo.png') no-repeat;">
                             <div class="content">
                                 <h1>Welcome to</h1>
                                 <h1>Vetted</h1>
@@ -587,6 +642,7 @@ export default function Home(props) {
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
+                        <div class="scroll-down"></div>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
