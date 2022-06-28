@@ -1,5 +1,5 @@
 import createView from "../createView.js";
-import {BASE_URL} from "../keys.js";
+import {BASE_URL} from "../baseUrl.js";
 
 export default function Settings(props) {
     //language=HTML
