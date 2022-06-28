@@ -51,7 +51,7 @@ export default function Home(props) {
                 border: 0.2rem solid #350259;
                 color: #350259;
                 cursor: pointer;
-                background: none;
+                background: rgba(175,170,254, 0.5);
                 font-size: 1.7rem;
                 padding: 1rem 3rem;
             }
@@ -71,10 +71,6 @@ export default function Home(props) {
                 color: #350259;
             }
 
-            /*#social-media {*/
-            /*    justify-content: end;*/
-            /*}*/
-
             .header {
                 position: fixed;
                 top: 0;
@@ -88,9 +84,8 @@ export default function Home(props) {
                 -webkit-box-align: center;
                 -ms-flex-align: center;
                 align-items: center;
-                /*background: #291d3a;*/
-                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 1)), to(rgba(41, 29, 58, 1)));
-                background: linear-gradient(rgba(41, 29, 58, 1), rgba(41, 29, 58, 1));
+                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.9)), to(rgba(41, 29, 58, 0.9)));
+                background: linear-gradient(rgba(41, 29, 58, 0.9), rgba(41, 29, 58, .9));
                 border-bottom: 2px solid rgba(41, 29, 58);
                 height: 10rem;
             }
@@ -103,13 +98,13 @@ export default function Home(props) {
             
             .header .navbar a {
                 margin-left: 2rem;
-                font-size: 1.7rem;
-                color: #6C63AC;
+                font-size: 2.5rem;
+                color: #918DD2;
                 float: right;
             }
 
             .header .navbar a:hover {
-                color: #918DD2;
+                color: #6C63AC;
             }
 
             .header .navbar #nav-close {
@@ -150,35 +145,35 @@ export default function Home(props) {
                 -ms-flex-pack: end;
                 justify-content: flex-end;
                 padding: 2rem 9%;
+                
             }
-
+            div .box{
+                background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.3)), to(rgba(41, 29, 58, 0.3))), url('./static/assets/imgs/footer-bg.png') no-repeat;
+                background: linear-gradient(rgba(41, 29, 58, 0.3), rgba(41, 29, 58, 0.3)), url('./static/assets/imgs/footer-bg.png') no-repeat;
+                border-radius: 25px;
+            }
+            
             .home .box.second {
                 -webkit-box-pack: start;
                 -ms-flex-pack: start;
                 justify-content: flex-start;
             }
-
+           
             .home .box .content {
-                width: 50rem;
+                width: 150rem;
+                height: 50rem;
             }
 
-            .home .box .content span {
-                font-size: 4rem;
-                color: rgba(41, 29, 58, 1);
+            .home .box .content h1 {
+                font-size: 5rem;
+                color: #350259;
             }
 
             .home .box .content h3 {
-                font-size: 6rem;
-                color: rgba(41, 29, 58, 1);
-                padding-top: .5rem;
-                text-transform: uppercase;
-            }
-
-            .home .box .content p {
-                line-height: 2;
+                font-size: 2rem;
                 color: #350259;
-                font-size: 1.5rem;
-                padding: 1rem 0;
+                padding: 1rem;
+                /*text-transform: uppercase;*/
             }
 
             .swiper-button-next::after,
@@ -186,7 +181,57 @@ export default function Home(props) {
                 font-size: 3rem;
                 color: #350259;
             }
+            .scroll-down {
+                height: 50px;
+                width: 30px;
+                border: 2px solid white;
+                position: absolute;
+                left: 50%;
+                bottom: 20px;
+                border-radius: 50px;
+                cursor: pointer;
+            }
+            .scroll-down::before,
+            .scroll-down::after {
+                content: "";
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                height: 10px;
+                width: 10px;
+                transform: translate(-50%, -100%) rotate(45deg);
+                border: 2px solid white;
+                border-top: transparent;
+                border-left: transparent;
+                animation: scroll-down 1s ease-in-out infinite;
+            }
+            .scroll-down::before {
+                top: 30%;
+                animation-delay: 0.3s;
+                 animation: scroll-down 1s ease-in-out infinite; 
+            }
 
+            @keyframes scroll-down {
+                0% {
+                    /* top:20%; */
+                    opacity: 0;
+                }
+                30% {
+                    opacity: 1;
+                }
+                60% {
+                    opacity: 1;
+                }
+                100% {
+                    top: 90%;
+                    opacity: 0;
+                }
+            }
+
+            .category{
+                padding: 3rem;
+            }
+            
             .category .box-container {
                 display: -ms-grid;
                 display: grid;
@@ -219,59 +264,11 @@ export default function Home(props) {
                 line-height: 2;
             }
 
-            /*******************
-            about section
-            *******************/
-            .about {
-                background: #eee;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                align-items: center;
-                -ms-flex-wrap: wrap;
-                flex-wrap: wrap;
-                gap: 2rem;
-            }
-
-            .about .image {
-                -webkit-box-flex: 1;
-                -ms-flex: 1 1 42rem;
-                flex: 1 1 42rem;
-                padding-right: 5rem;
-                padding-bottom: 5rem;
-            }
-
-            .about .image img {
-                width: 100%;
-                -webkit-box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
-                box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
-                /*background-size: cover;*/
-            }
-
-            .about .content {
-                -webkit-box-flex: 1;
-                -ms-flex: 1 1 42rem;
-                flex: 1 1 42rem;
-            }
-
-            .about .content h3 {
-                font-size: 3rem;
-                color: rgba(41, 29, 58, 1);
-            }
-
-            .about .content p {
-                font-size: 1.5rem;
-                color: #42026F;
-                padding: 1rem 0;
-                line-height: 2;
-            }
-
             .services {
                 background: #eee;
+                padding: 3rem;
             }
-
+            
             .services .box-container {
                 display: -ms-grid;
                 display: grid;
@@ -283,32 +280,18 @@ export default function Home(props) {
             .services .box-container .box {
                 text-align: center;
                 padding: 2rem;
-                border: 0.2rem solid #350259;
-                border-radius: .5rem;
+                border: 0.4rem solid #350259;
+                border-radius: 25px;
                 background: #fff;
             }
 
             .services .box-container .box:hover {
                 background: #350259;
+                color: #C7C5F4;
             }
 
-            .services .box-container .box:hover img {
-                -webkit-filter: invert(1);
-                filter: invert(1);
-            }
-
-            .services .box-container .box:hover p {
-                color: #fff;
-            }
-
-            .services .box-container .box:hover .btn {
-                border-color: #fff;
-                color: #fff;
-            }
-
-            .services .box-container .box:hover .btn:hover {
-                background: #fff;
-                color: #10221b;
+            .services .box-container .box:hover h3 {
+                color: #C7C5F4;
             }
 
             .services .box-container .box img {
@@ -327,35 +310,7 @@ export default function Home(props) {
                 padding: 1rem 0;
                 line-height: 2;
             }
-
-            /*******************
-            sign-in/register
-            *******************/
-            .register .text {
-                padding: 2rem;
-                font-size: 1.5rem;
-                font-style: italic;
-                background: #eee;
-                border-radius: .5rem;
-                color: #350259;
-                line-height: 2;
-                position: relative;
-                z-index: 0;
-                margin-bottom: 3rem;
-            }
-
-            .register .text::before {
-                content: '';
-                position: absolute;
-                bottom: -1.5rem;
-                left: .7rem;
-                height: 3rem;
-                width: 3rem;
-                background: #eee;
-                -webkit-transform: rotate(45deg);
-                transform: rotate(45deg);
-            }
-
+            
             .blogs {
                 background: #eee;
             }
@@ -370,7 +325,8 @@ export default function Home(props) {
                 width: 100%;
                 -o-object-fit: cover;
                 object-fit: cover;
-                border-radius: .5rem;
+                border-radius: 25px;
+                border: 0.5rem solid #350259;
             }
 
             .blogs .slide .icons {
@@ -398,12 +354,12 @@ export default function Home(props) {
             }
 
             .blogs .slide h3 {
-                font-size: 2rem;
+                font-size: 3rem;
                 color: #350259;
             }
 
             .blogs .slide p {
-                font-size: 1.4rem;
+                font-size: 2rem;
                 padding: 1rem 0;
                 line-height: 2;
                 color: #3C0265;
@@ -416,7 +372,7 @@ export default function Home(props) {
             }
 
             .newsletter .content p {
-                font-size: 1.5rem;
+                font-size: 2rem;
                 line-height: 2;
                 color: #5D357A;
             }
@@ -507,18 +463,9 @@ export default function Home(props) {
             .footer .group-name span {
                 color: #918DD2;
             }
+            
 
-            @media (max-width: 1200px) {
-                .header {
-                    padding: 2rem;
-                }
-
-                section {
-                    padding: 3rem 2rem;
-                }
-            }
-
-            @media (max-width: 991px) {
+            @media (max-width: 1024px) {
                 html {
                     font-size: 55%;
                     scroll-padding-top: 7rem;
@@ -541,17 +488,59 @@ export default function Home(props) {
 
                 .home .box .content {
                     text-align: center;
+                    padding-top: 40rem;
                 }
 
-                .home .box .content span {
+                .home .box .content h1 {
                     font-size: 3rem;
+                    color: #fff;
                 }
 
                 .home .box .content h3 {
-                    font-size: 4rem;
+                    font-size: 2rem;
+                    color: #fff;
                 }
             }
+            
+            @media (min-width: 1440px) {
+                    html {
+                        font-size: 55%;
+                        scroll-padding-top: 7rem;
+                    }
 
+                    .home .box {
+                        padding: 2rem;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        background-position: right !important;
+                    }
+
+                    .home .box.second {
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        background-position: left !important;
+                    }
+
+                    .home .box .content {
+                        text-align: center;
+                        padding-top: 10rem;
+                        border-radius: 25px;
+                    }
+
+                    .home .box .content h1 {
+                        font-size: 5rem;
+                        color: #fff;
+                        margin-bottom: 2rem;
+                    }
+
+                    .home .box .content h3 {
+                        font-size: 2rem;
+                        color: #fff;
+                        margin-bottom: 5rem;
+                    }
+                }
             @media (max-width: 768px) {
                 .header #menu-btn {
                     display: inline-block;
@@ -602,8 +591,21 @@ export default function Home(props) {
                 .swiper-button-prev::after {
                     display: none;
                 }
-            }
+                .home .box .content {
+                    text-align: center;
+                    padding-top: 30rem;
+                }
 
+                .home .box .content h1 {
+                    font-size: 3rem;
+                    color: #fff;
+                }
+
+                .home .box .content h3 {
+                    font-size: 2rem;
+                }
+            }
+            
             @media (max-width: 450px) {
                 html {
                     font-size: 50%;
@@ -613,96 +615,40 @@ export default function Home(props) {
                     font-size: 3rem;
                 }
             }
+            
+            /*.home .home-slider .box{*/
+            /*    background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.3)), to(rgba(41, 29, 58, 0.3))), url('./static/assets/imgs/footer-bg.png') no-repeat;*/
+            /*    background: linear-gradient(rgba(41, 29, 58, 0.3), rgba(41, 29, 58, 0.3)), url('./static/assets/imgs/footer-bg.png') no-repeat;*/
+            /*}*/
         </style>
 
         <section class="home" id="home">
             <div class="swiper home-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="box" style="background: url('../../assets/imgs/home-bg-1.png') no-repeat;">
+                        <div class="box" style="background: url('../../assets/imgs/home-bg-2_redo.png') no-repeat;">
                             <div class="content">
-                                <span>Welcome to</span>
-                                <h3>Vetted</h3>
-                                <em><p>a secure platform for veterans who struggle with various mental health issues 
-                                    and are seeking connection, compassion, and relational consistency. Users are able 
-                                    to access mental health information, develop personal goals, and communicate with other
-                                    veterans via chat or video. In a modern climate where veterans are seeking support 
-                                    and lack proper resources, Vetted is an app that empowers veterans to join arms with
-                                    each other bridging the mental health gap.</p></em>
+                                <h1>Welcome to</h1>
+                                <h1>Vetted</h1>
+                                <h3>Vetted Is An Application For Veterans Who Struggle With Various Mental Health 
+                                    Issues And Are Seeking Connection, Compassion, And Relational Consistency. Vetted 
+                                    Is A Secured Platform That Verifies Veteran User Credentials To Allow For Privacy 
+                                    And Randomizes Usernames To Maintain Privacy. Users Are Able To Access Mental Health 
+                                    Information, Develop Personal Goals, And Communicate With Other Veterans Via Chat Or 
+                                    Video. In A Modern Climate Where Veterans Are Seeking Support And Lack Proper Resources, 
+                                    Vetted Is An Application That Empowers Veterans To Join Arms With Each Other Bridging 
+                                    The Mental Health Gap.</h3>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="box second" style="background: url('../../assets/imgs/home-bg-2.png') no-repeat;">
-                            <div class="content">
-                                <span>this is your</span>
-                                <h3>safe space</h3>
-                                <p>Vetted provides a veteran community of individuals who struggle with mental health
-                                    issues or would like to support other veterans.</p>
-                                <a href="#visiter-user" class="btn">get started</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="box" style="background: url('../../assets/imgs/home-bg-3.png') no-repeat;">
-                            <div class="content">
-                                <span>own your mental</span>
-                                <h3>health</h3>
-                                <p>Vetted has a video chat feature that is available 24/7 for veterans. Veterans have
-                                    access to their own personalized dashboard that provides updated information
-                                    pertinent to their selected communities.</p>
-                                <a href="#visiter-user" class="btn">get started</a>
-                            </div>
-                        </div>
+                        <div class="scroll-down"></div>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
         </section>
-        <!-- home section ends -->
-
-        <!-- about section starts  -->
-<!--will need to add new content here depending on what I do with the about page-->
-        <section class="about" id="about">
-
-            <div class="image">
-                <img src="../../assets/imgs/about-img.png" alt="">
-            </div>
-
-            <div class="content">
-                <h3>vetted</h3>
-                <p>Vetted is an application for veterans who struggle with various mental health issues and are seeking
-                    connection, compassion, and relational consistency. Vetted is a secured platform that verifies
-                    veteran user credentials to allow for privacy and randomizes usernames to maintain privacy. Users
-                    are able to access mental health information, develop personal goals, and communicate with other
-                    veterans via chat or video. In a modern climate where veterans are seeking support and lack proper
-                    resources, Vetted is an application that empowers veterans to join arms with each other bridging the
-                    mental health gap.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-        </section>
-
-        <!-- about section ends -->
-
-        <!-- sign-in/register section starts  -->
-
-        <section class="register" id="register">
-            <h1 class="heading">sign-in/register</h1>
-            <div class="swiper register">
-                <div class="register-action">
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum
-                        pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati,
-                        adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
-                    <a href="#" class="btn">Register</a>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <!-- sign-in/register section ends -->
+<!--         home section ends -->
 
         <!-- services section starts  -->
 
@@ -712,60 +658,73 @@ export default function Home(props) {
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-1.jpeg" alt="">
-                    <h3>vetted members</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-                    <a href="#" class="btn">read more</a>
+                    <br>
+                    <h2>vetted members</h2>
+                    <br>
+                    <h3>To protect the safety of the community, all members of Vetted must have their credentials 
+                        confirmed upon registration. This assures that all members are veterans with at least two years
+                        of service and safeguards the Vetted community from those who wish to inflict harm in any form.</h3>
                 </div>
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-2.jpeg" alt="">
-                    <h3>privacy & anonymity</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-                    <a href="#" class="btn">read more</a>
+                    <br>
+                    <h2>privacy & anonymity</h2>
+                    <br>
+                    <h3>To prevent revealing veterans who prefer to disguise their identity, a secure verification process,
+                        randomized usernames supplied upon registration, and password requirements are in place.</h3>
                 </div>
 
                 <div class="box">
                     <img src="../../assets/imgs/serv-4.jpeg" alt="">
-                    <h3>build connections</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-                    <a href="#" class="btn">read more</a>
+                    <br>
+                    <h2>build connections</h2>
+                    <br>
+                    <h3>The Vetted community allows you to connect with other veterans through our chat and friends list 
+                        tools. Combating mental health challenges is greatest accomplished with combat comrades who grasp 
+                        your difficulties and also how to support you.</3>
                 </div>
             </div>
         </section>
-
+        
         <!-- services section ends -->
 
         <!-- testimonials section starts  -->
         <section class="category">
-            <h1 class="heading">Testimonials</h1>
+            <h1 class="heading">The Need for Vetted</h1>
             <div class="box-container">
                 <div class="box">
-                    <img src="../../assets/imgs/about_image_1.jpeg" alt="">
-                    <h3>Lorem ipsum dolor sit amet.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-                    <a href="#" class="btn">read more</a>
+                    <img src="../../assets/imgs/testimonials1.jpeg" alt="">
+                    <br>
+                    <h2>VA has $20 million</h2>
+                    <br>
+                    <h3> "for new ideas but not to increase mental health support. I saw this, and it made me lost my mind.
+                    I've been going on nine months back-and-forth with the VA to get mental healthcare because my mental
+                    health is deteriorating. I keep getting told you don't look so bad, and you have great advocacy skills 
+                    so your mental health cannot be that bad."</h3>
+                </div>
+                </dialog>
+
+                <div class="box">
+                    <img src="../../assets/imgs/testimonials2.jpeg" alt="">
+                    <br>
+                    <h2>VA Doc No-show</h2>
+                    <br>
+                    <h3>"Had my first video appointment with a VA mental health provider this morning, despite scheduling
+                    back in March. Confirmed the appointment, went to log on ten minutes prior and waited until the 
+                    appointment time. Waited until thirty minutes until after the appointment was supposed to start, and 
+                    the provider still hadn't shown up."</h3>
                 </div>
 
                 <div class="box">
-                    <img src="../../assets/imgs/about_image_2.jpeg" alt="">
-                    <h3>Lorem ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-                    <a href="#" class="btn">read more</a>
+                    <img src="../../assets/imgs/testimonials3.jpeg" alt="">
+                    <br>
+                    <h2>Who can I really talk to?</h2>
+                    <br>
+                    <h3>"Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want to 
+                    talk things out and have a safe space to just cry. It's been a year since I got out of active duty and
+                    its been nothing less than miserable and depressing, and I just want to talk to someone."</h3>
                 </div>
-
-                <div class="box">
-                    <img src="../../assets/imgs/about_image_3.jpeg" alt="">
-                    <h3>Lorem ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-
-<!--                <div class="box">-->
-<!--                    <img src="../../assets/imgs/category-4.jpeg" alt="">-->
-<!--                    <h3>Lorem ipsum dolor sit.</h3>-->
-<!--                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>-->
-<!--                    <a href="#" class="btn">read more</a>-->
-<!--                </div>-->
             </div>
         </section>
         <!-- testimonials section ends -->
@@ -781,25 +740,16 @@ export default function Home(props) {
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide slide">
-                        <img src="../../assets/imgs/img-1.jpg" alt="">
+                        <img src="../../assets/imgs/quarterly_post_pic.jpeg" alt="">
                         <div class="icons">
                             <a href="#"> <i class="fas fa-calendar"></i> June 2022 </a>
                             <a href="#"> <i class="fas fa-user"></i> by vetted </a>
                         </div>
-                        <h3>why is your mental health important?</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
-                        <a href="#" class="btn">read more</a>
-                    </div>
-
-                    <div class="swiper-slide slide">
-                        <img src="../../assets/imgs/img-2.jpg" alt="">
-                        <div class="icons">
-                            <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                            <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                        </div>
-                        <h3>how does vetted benefit the vet community?</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
-                        <a href="#" class="btn">read more</a>
+                        <h3>Mental well-being: An important outcome for mental health services?</h3>
+                        <p>The World Health Organization defines mental well-being as an individual's ability to develop
+                            their potential, work productively and creatively, build strong and positive relationships
+                            with others and contribute to their community.</p>
+                        <a href="shorturl.at/clpvK" class="btn">read more</a>
                     </div>
                 </div>
             </div>
@@ -827,9 +777,8 @@ export default function Home(props) {
                     <h3>quick links</h3>
                     <<a href="#home">home</a>
                     <a href="#about">about</a>
-                    <a href="#contact">contact</a>
-                    <a href="#resource">resource blog</a>
-                    <a href="#visiter-user">Sign-in/Register</a>
+                    <a href="#contact">login</a>
+                    <a href="#visiter-user">register</a>
                 </div>
 
                 <div class="box">
@@ -842,7 +791,7 @@ export default function Home(props) {
                 <div class="box">
                     <h3>Social Media</h3>
                     <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
-                    <a href="#"> <i class="fab fa-github"></i> github </a>
+                    <a href="https://github.com/Project-Vetted/vetted"> <i class="fab fa-github"></i> github </a>
                 </div>
             </div>
 
@@ -922,3 +871,4 @@ window.onload = () => {
     }
 
 }
+

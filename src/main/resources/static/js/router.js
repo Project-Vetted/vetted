@@ -4,7 +4,8 @@ import Error404 from "./views/Error404.js";
 import Loading from "./views/Loading.js";
 import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
-import UserIndex, {UserEvent} from "./views/User.js";
+import Register, {RegisterEvent} from "./views/Register.js";
+import Settings, {UserSettingsEvent} from "./views/Settings.js";
 import Dash, {DashEvents} from "./views/Dash.js";
 import Rating from "./views/Rating.js";
 import Chat from "./views/Chat.js";
@@ -69,14 +70,14 @@ export default function router(URI) {
             title: "Dashboard",
             viewEvent: DashEvents
         },
-        '/user': {
-            returnView: UserIndex,
+        '/settings': {
+            returnView: Settings,
             state: {
                 user: '/api/users/me'
             },
-            uri: '/user',
-            title: 'User',
-            viewEvent: UserEvent
+            uri: '/settings',
+            title: 'Settings',
+            viewEvent: UserSettingsEvent
         },
         '/about': {
             returnView: About,

@@ -1,5 +1,5 @@
 import {getHeaders} from "../auth.js";
-import createView from "../createView.js";
+import {BASE_URL} from "../baseUrl.js";
 
 
 export default function Dash(props) {
@@ -35,7 +35,7 @@ export default function Dash(props) {
             }
 
             .theme-light {
-                --light-color: #171721;
+                --light-color: #350259;
                 --dark-color: #fff;
                 --dark-color-lighter: #7E8299;
                 --body-background-color: #eef0f8;
@@ -267,7 +267,7 @@ export default function Dash(props) {
             }
 
             .main-title {
-                font-size: var(--font-size-large);
+                font-size: medium;
             }
 
             .card-header {
@@ -276,13 +276,9 @@ export default function Dash(props) {
                 border-bottom: 1px solid var(--border-bottom-color);
             }
 
-            .card-header small {
-                font-size: 1.2rem;
-                color: #350259;
-            }
-
             .card-header .title {
                 margin-bottom: 0;
+                font-size: 20px;
             }
 
             .card-image {
@@ -310,16 +306,32 @@ export default function Dash(props) {
             }
 
             .card-body-link {
-                font-size: var(--font-size-small);
-                background-color: var(--accent-color);
+                font-size: medium;
+                background-color: none;
                 margin-bottom: var(--margin-medium);
                 padding: 1.5rem;
                 border-radius: 0.4rem;
                 display: flex;
                 align-items: center;
                 gap: var(--gap-small);
+                text-decoration: none;
+            }
+            
+            .card-body-link i {
+                font-size: 18px;
+                color: #350259;
+                text-decoration: none;
             }
 
+            .card-body-link a::before {
+               text-decoration: none;
+            }
+            
+            .card-body-link span{
+                font-size: 16px;
+                color: #350259;
+            }
+            
             .card-group .card {
                 position: relative;
                 display: flex;
@@ -342,19 +354,19 @@ export default function Dash(props) {
             }
 
             .border-green::after {
-                background-image: linear-gradient(235deg, #D1BAFF, transparent, var(--dark-color));;
+                background-image: linear-gradient(235deg, #D1BAFF, transparent, var(--dark-color));
             }
 
             .border-yellow::after {
-                background-image: linear-gradient(235deg, var(--accent-color), transparent, var(--dark-color));;
+                background-image: linear-gradient(235deg, var(--accent-color), transparent, var(--dark-color));
             }
 
             .border-orange::after {
-                background-image: linear-gradient(235deg, #5C5696, transparent, var(--dark-color));;
+                background-image: linear-gradient(235deg, #5C5696, transparent, var(--dark-color));
             }
 
             .border-pink::after {
-                background-image: linear-gradient(235deg, #4C489D, transparent, var(--dark-color));;
+                background-image: linear-gradient(235deg, #4C489D, transparent, var(--dark-color));
             }
 
             .card-group .card-description {
@@ -517,7 +529,7 @@ export default function Dash(props) {
         <!-- Header -->
         <header class="header">
             <nav class="nav container">
-                <a href="dashboard2.html" class="logo">Vetted</a>
+                <a href="/" class="logo">Vetted</a>
                 <div class="nav-mobile">
                     <ul class="list">
                         <li class="list-item">
@@ -534,8 +546,7 @@ export default function Dash(props) {
                                     class="ri-arrow-drop-right-line"></i></button>
                             <ul class="list dropdown-menu">
                                 <li class="list-item">
-                                    <a href="#" class="list-link" onclick="window.location.href='/user';">Profile
-                                        Settings</a>
+                                    <a href="#" class="list-link" onclick="window.location.href='/settings';">Profile Settings</a>
                                 </li>
                                 <li class="list-item">
                                     <a href="#" class="list-link">Friends List</a>
@@ -606,12 +617,12 @@ export default function Dash(props) {
                 <div class="card">
                     <header class="card-header">
                         <h2 class="title">Quick Actions</h2>
-                        <small>Access frequently visited places quicker</small>
+<!--                        <small>Access frequently visited places quicker</small>-->
                     </header>
                     <div class="card-body">
 
                         <a href="#" class="card-body-link">
-                            <i class="ri-shield-line" onclick="window.location.href='/user';">Account Settings</i>
+                            <i class="ri-shield-line" onclick="window.location.href='/settings';">Account Settings</i>
                         </a>
                         <a href="#" class="card-body-link">
                             <i class="ri-team-line">Manage Friends List</i>
@@ -685,10 +696,6 @@ export default function Dash(props) {
                 </div>
             </div>
         </section>
-
-        <!--program scripts-->
-        <script src="../../js/dashboard.js"></script>
-
     `
 }
 
@@ -723,7 +730,7 @@ function CategoryButtonEvent() {
             ]
 
 
-            return fetch(`http://localhost:8080/api/users/${userId}/updateCategories`, {
+            return fetch(`${BASE_URL}/${userId}/updateCategories`, {
                 method: 'PATCH',
                 body: JSON.stringify(
                     reqBody

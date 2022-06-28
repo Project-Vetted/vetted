@@ -1,3 +1,5 @@
+import {BASE_URL} from "../baseUrl.js";
+
 export default function Register() {
 
     //language=HTML

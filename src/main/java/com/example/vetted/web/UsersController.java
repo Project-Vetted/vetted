@@ -91,8 +91,8 @@ public class UsersController {
     }
 
     @PutMapping("{userId}/updateUsername")
-    public void updateUsername(@PathVariable Long userId, @RequestParam String newUserName) {
-        userService.updateuserName(userId, newUserName);
+    public void updateUsername(@PathVariable Long userId, @RequestParam String newUsername) {
+        userService.updateUsername(userId, newUsername);
     }
 
 //TODO: Refactor, Test and Implement User Role Methods Below
