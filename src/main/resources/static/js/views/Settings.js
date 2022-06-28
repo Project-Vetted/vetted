@@ -1,6 +1,6 @@
 import createView from "../createView.js";
 
-export default function UserIndex(props) {
+export default function Settings(props) {
     //language=HTML
     return `
         <style>
@@ -193,7 +193,7 @@ export default function UserIndex(props) {
     `
 }
 
-export function UserEvent() {
+export function UserSettingsEvent() {
     updateEmailListener();
     updatePasswordListener();
     updateUsernameListener();

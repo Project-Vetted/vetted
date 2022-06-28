@@ -532,7 +532,7 @@ export default function Dash(props) {
                                     class="ri-arrow-drop-right-line"></i></button>
                             <ul class="list dropdown-menu">
                                 <li class="list-item">
-                                    <a href="#" class="list-link" onclick="window.location.href='/user';">Profile Settings</a>
+                                    <a href="#" class="list-link" onclick="window.location.href='/settings';">Profile Settings</a>
                                 </li>
                                 <li class="list-item">
                                     <a href="#" class="list-link">Friends List</a>
@@ -608,7 +608,7 @@ export default function Dash(props) {
                     <div class="card-body">
 
                         <a href="#" class="card-body-link">
-                            <i class="ri-shield-line" onclick="window.location.href='/user';">Account Settings</i>
+                            <i class="ri-shield-line" onclick="window.location.href='/settings';">Account Settings</i>
                         </a>
                         <a href="#" class="card-body-link">
                             <i class="ri-team-line">Manage Friends List</i>
