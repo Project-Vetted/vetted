@@ -2,10 +2,10 @@ export default function About(props) {
     //language=HTML
     return `
         <style>
-            @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
+            <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Montserrat|Quicksand&display=swap" rel="stylesheet">
 
             * {
-                font-family: 'Poppins', sans-serif;
+                font-family: 'Montserrat', sans-serif;
                 margin: 0;
                 padding: 0;
                 -webkit-box-sizing: border-box;
@@ -126,16 +126,198 @@ export default function About(props) {
             .header .icons div:hover {
                 color: #350259;
             }
+            /*About page content*/
+            .container {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-image: url(./static/assets/imgs/about_us_bg.jpeg);
+                background-size: cover;
+                background-position: center center;
+                color: #fff;
+                padding: 0
+            }
+
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                width: 90%;
+                margin: 10px;
+            }
+
+            .nav span {
+                margin-left: 20px;
+            }
+
+            .about-us {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .who-we-are {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .who-we-are span {
+                width: 60%;
+                align-items: center;
+                text-align: center;
+            }
+
+            .cards {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px;
+                flex-wrap: wrap;
+            }
+
+            .card-img {
+                border-radius: 5px;
+            }
+
+            .cards .card {
+                width: 16rem;
+                margin: 20px;
+            }
+
+            .card p {
+                font-size: 14px;
+            }
+
+            .social-media {
+                width: 90%;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .social-media i {
+                margin: 10px;
+            }
+
+            .active {
+                border-bottom: 1px solid #fff;
+            }
+
+            .card-img1 {
+                width: 100%;
+                height: 12rem;
+                background-image: url('01.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+
+            .card-img2 {
+                width: 100%;
+                height: 12rem;
+                background-image: url('02.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+
+            .card-img3 {
+                width: 100%;
+                height: 12rem;
+                background-image: url('03.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+
+            .card-img4 {
+                width: 100%;
+                height: 12rem;
+                background-image: url('04.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+            
+            /*MEDIA*/
+            @media (max-width: 1200px) {
+                .header {
+                    padding: 2rem;
+                }
+            }
+
+            @media (max-width: 1024px) {
+                html {
+                    font-size: 55%;
+                    scroll-padding-top: 7rem;
+                }
+            }
+
+            @media (min-width: 1440px) {
+                html {
+                    font-size: 55%;
+                    scroll-padding-top: 7rem;
+                }
+            }
+            @media (max-width: 768px) {
+                .header #menu-btn {
+                    display: inline-block;
+                }
+
+                .header .navbar {
+                    position: fixed;
+                    top: 0;
+                    left: -110%;
+                    background: #fff;
+                    z-index: 10000;
+                    width: 35rem;
+                    height: 100%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-flow: column;
+                    flex-flow: column;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                }
+
+                .header .navbar.active {
+                    left: 0;
+                    -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+                    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+                }
+
+                .header .navbar a {
+                    margin: 1rem 0;
+                    font-size: 3rem;
+                }
+
+                .header .navbar #nav-close {
+                    display: block;
+                    position: absolute;
+                    top: 1rem;
+                    right: 2rem;
+                }
+            }
+
+            @media (max-width: 450px) {
+                html {
+                    font-size: 50%;
+                }
+
+                .heading {
+                    font-size: 3rem;
+                }
+            }
        </style>
         
-        <header>
-            <h1>About Page</h1>
-        </header>
-        <main>
-            <div>
-                <p>About page is here.</p>
-            </div>
-        </main>
-       
+        
     `;
 }
