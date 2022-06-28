@@ -1,6 +1,8 @@
 import {getHeaders} from "../auth.js";
 
 export default function Veteran() {
+
+
     //language=HTML
     return `
         <style>
@@ -437,6 +439,7 @@ export function VeteranRegistrationEvent() {
         // AccessUserId();
 
         function VerifyEvent() {
+            const VetStatus = {};
             const reqBody = {
                 "ssn": $('#propS').val(),
                 "first_name": $('#propF').val(),
@@ -459,10 +462,8 @@ export function VeteranRegistrationEvent() {
             fetch("https://sandbox-api.va.gov/services/veteran_confirmation/v0/status", options)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
-                    if (data === 'confirmed') {
-                        console.log('hello')
-
+                    console.log(data.veteran_status)
+                    if (data.veteran_status === 'confirmed') {
                         return fetch(`http://localhost:8080/api/users/update-role?userName=${userName}`, {
                             method: 'PATCH',
                             headers: {

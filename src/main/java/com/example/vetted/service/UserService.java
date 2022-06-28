@@ -95,4 +95,13 @@ public class UserService {
         usersRepository.save(user);
     }
 
+    public void checkUserRoleForFeatureAccess(long id){
+        User user = getUserById(id);
+        if (user.getRole() != VET){
+            System.out.println("NO WAY JOSE");
+        }else {
+            System.out.println("SI");
+        }
+    }
+
 }

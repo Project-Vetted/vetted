@@ -114,6 +114,11 @@ public class UsersController {
        userService.veteranRoleUpdateOnVerification(userName);
     }
 
+    @GetMapping("/check-user-role")
+    public void checkUserRoleForChatAccess(@RequestParam long id){
+        userService.checkUserRoleForFeatureAccess(id);
+    }
+
 
 
 
