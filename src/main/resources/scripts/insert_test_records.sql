@@ -25,9 +25,6 @@ VALUES (1, 1),
 INSERT INTO user_category (user_id, category_id)
 VALUES (3, 5);
 
-INSERT INTO user_point_interactions (user_that_upvoted, user_upvoted)
-VALUES
-       (3,7) ;
 
 INSERT INTO user_point_interactions (user_that_upvoted, user_upvoted)
 VALUES (3, 2);

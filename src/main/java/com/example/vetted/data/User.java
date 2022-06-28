@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -65,7 +66,7 @@ public class User {
 
 
 
-    public enum Role {VISITOR, USER, VET}
+    public enum Role {VISITOR ,USER, VET}
 
     ;
 
@@ -85,6 +86,7 @@ public class User {
     public User(Collection<User> points) {
         this.points = points;
     }
+
 
     public User() {
     }
