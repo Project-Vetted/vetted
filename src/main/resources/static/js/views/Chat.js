@@ -19,6 +19,8 @@ export default function Chat(props) {
 
     initiateChatPresence(userId, username, userEmail);
 
+    console.log("i can see props")
+
     //language=HTML
     return `
         <style>
@@ -123,7 +125,7 @@ export default function Chat(props) {
             }
 
         </style>
-        
+
         <header>
             <h1>Chat Page</h1>
         </header>
@@ -171,6 +173,7 @@ export default function Chat(props) {
     `;
 }
 
+
     const userId = localStorage.getItem("user_id");
     const username = localStorage.getItem("user_name");
     const userEmail = localStorage.getItem("user_email");
@@ -179,17 +182,24 @@ export default function Chat(props) {
     const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
     const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
 
+    console.log(userId);
+    console.log(username);
+    console.log(userEmail);
     console.log(matchedUsers);
     console.log(unmatchedUsers);
+    console.log(onlineUsers);
+    console.log("props has to be passed to me by local storage")
 
-    $(document).on('click', '#launch-chat-btn', function (e) {
-        e.preventDefault();
 
-        const chatBoxDiv = document.getElementById("chatbox");
-        chatBoxDiv.style.display = "revert";
 
-        initiateChatPresence(userId, username, userEmail);
-        loadChat(userId, username, userEmail, matchedUsers, unmatchedUsers, onlineUsers);
+$(document).on('click', '#launch-chat-btn', function (e) {
+    e.preventDefault();
+
+    const chatBoxDiv = document.getElementById("chatbox");
+    chatBoxDiv.style.display = "revert";
+
+    initiateChatPresence(userId, username, userEmail);
+    loadChat(userId, username, userEmail, matchedUsers, unmatchedUsers, onlineUsers);
 
 
 });
