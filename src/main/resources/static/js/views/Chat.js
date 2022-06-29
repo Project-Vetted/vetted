@@ -8,17 +8,17 @@ import {getHeaders} from "../auth.js";
 
 export default function Chat(props) {
 
-    console.log("props:     " + props);
+    // console.log("I'm inside the chat function being passed props:     " + props);
 
     localStorage.setItem("user_id", props.me.id.toString());
     localStorage.setItem("user_name", props.me.username.toString());
     localStorage.setItem("user_email", props.me.email.toString());
 
-    const getMatchedUsers = matchByCategory(props);
-    localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
-
-    const getUnmatchedUsers = matchByNoCategory(props, matchedUsers);
-    localStorage.setItem('unmatched_users', JSON.stringify(getUnmatchedUsers));
+    // const getMatchedUsers = matchByCategory(props);
+    // localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
+    //
+    // const getUnmatchedUsers = matchByNoCategory(props, matchedUsers);
+    // localStorage.setItem('unmatched_users', JSON.stringify(getUnmatchedUsers));
 
     initiateChatPresence(userId, username, userEmail);
 
@@ -190,16 +190,19 @@ const userId = localStorage.getItem("user_id");
 const username = localStorage.getItem("user_name");
 const userEmail = localStorage.getItem("user_email");
 
-const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
-const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
-const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
+// const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
+// const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
+// const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
 
 // console.log("userId:    " + userId);
 // console.log("userId:    " + username);
 // console.log("userId:    " + userEmail);
-console.log("matched users array:   " + matchedUsers);
-console.log("unmatched users array:" + unmatchedUsers);
-console.log("online users array:" + onlineUsers);
+
+// console.log("I'm outside the chat function and need local storage for props stuff:     ");
+
+// console.log("matched users array:   " + matchedUsers);
+// console.log("unmatched users array:" + unmatchedUsers);
+// console.log("online users array:" + onlineUsers);
 
 
 $(document).on('click', '#launch-chat-btn', function (e) {
