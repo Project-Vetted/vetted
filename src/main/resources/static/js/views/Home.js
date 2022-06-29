@@ -799,22 +799,22 @@ export default function Home(props) {
         <!-- footer section starts  -->
         <section class="footer">
             <div class="box-container">
-                <div class="box">
+                <div class="box" style="background:none; text-align:center;">
                     <h3>quick links</h3>
-                    <<a href="#home">home</a>
+                    <a href="#home">home</a>
                     <a href="#about">about</a>
                     <a href="#contact">login</a>
                     <a href="#visiter-user">register</a>
                 </div>
 
-                <div class="box">
+                <div class="box" style="background:none; text-align:center;">
                     <h3>contact us</h3>
                     <a href="#"> <i class="fas fa-phone"></i> +123-345-5678 </a>
                     <a href="#"> <i class="fas fa-envelope"></i> info@codeup.com </a>
                     <a href="#"> <i class="fas fa-map"></i> Dallas, Texas </a>
                 </div>
 
-                <div class="box">
+                <div class="box" style="background:none; text-align:center;">
                     <h3>Social Media</h3>
                     <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
                     <a href="https://github.com/Project-Vetted/vetted"> <i class="fab fa-github"></i> github </a>
