@@ -145,15 +145,15 @@ export default function Settings(props) {
                     </div>
                     <div class="input-box">
                         <span class="details">Updated Email</span>
-                        <input type="text" id="change-email-button" placeholder="Enter updated email">
+                        <input type="text" id="new-email" placeholder="Enter updated email">
                     </div>
                     <div class="input-box">
                         <span class="details">New Password</span>
-                        <input type="text" placeholder="Enter new password">
+                        <input id="new-password" type="password" placeholder="Enter new password">
                     </div>
                     <div class="input-box">
                         <span class="details">Confirm Password</span>
-                        <input id="change-password-button" type="text" placeholder="Confirm password">
+                        <input id="confirm-password" type="password" placeholder="Confirm password">
                     </div>
                     <div class="categories-checkbox"> Change Category:
                         <label class="check-categories">PTSD
@@ -176,16 +176,16 @@ export default function Settings(props) {
                         </label>
                     </div>
                     <div class="button">
-                        <input type="button" value="Update Username">
+                        <input id="update-email-button" data-id="${props.user.id}" type="button" value="Update Email">
                     </div>
                     <div class="button">
-                        <input type="button" value="Update Password">
+                        <input id="update-password-button" data-id="${props.user.id}" type="button" value="Update Password">
                     </div>
                     <div class="button">
-                        <input type="button" value="Randomize Username">
+                        <input id="update-username-button" data-id="${props.user.id}" type="button" value="Randomize Username">
                     </div>
                     <div class="button">
-                        <input type="button" value="Cancel">
+                        <input type="button" onclick="window.location.href='/dashboard';" value="Cancel">
                     </div>
 
                 </div>
@@ -201,7 +201,7 @@ export function UserSettingsEvent() {
 }
 
 function updatePasswordListener() {
-    $(document).on('click', '#change-password-button', function (e) {
+    $(document).on('click', '#update-password-button', function (e) {
 
         e.preventDefault();
 
@@ -229,7 +229,7 @@ function updatePasswordListener() {
 }
 
 function updateEmailListener() {
-    $(document).on('click', '#change-email-button', function (e) {
+    $(document).on('click', '#update-email-button', function (e) {
 
         e.preventDefault();
 
@@ -252,7 +252,7 @@ function updateEmailListener() {
 
 function updateUsernameListener() {
 
-    $(document).on('click', '#change-username-button', function (e) {
+    $(document).on('click', '#update-username-button', function (e) {
 
         e.preventDefault();
 
