@@ -71,6 +71,7 @@ export default function Settings(props) {
                 font-size: 12px;
                 border-bottom-width: 2px;
                 transition: all 0.3s ease;
+                border-color: #776BCC;
             }
 
             .user-details .input-box details{
@@ -175,7 +176,13 @@ export default function Settings(props) {
                         </label>
                     </div>
                     <div class="button">
-                        <input type="button" value="Update">
+                        <input type="button" value="Update Username">
+                    </div>
+                    <div class="button">
+                        <input type="button" value="Update Password">
+                    </div>
+                    <div class="button">
+                        <input type="button" value="Randomize Username">
                     </div>
                     <div class="button">
                         <input type="button" value="Cancel">
