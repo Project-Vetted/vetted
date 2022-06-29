@@ -1,6 +1,6 @@
 import {getHeaders} from "../auth.js";
 import {BASE_URL} from "../baseUrl.js";
-
+import createView from "../createView.js";
 
 export default function Dash(props) {
 
