@@ -26,6 +26,20 @@ export default function Chat(props) {
     return `
         <style>
 
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            body {
+                background: linear-gradient(90deg, #C7C5F4, #776BCC);
+            }
+            
+            
 
             /* Container for everything TalkJS*/
             .chatbox-container {
@@ -167,6 +181,9 @@ export default function Chat(props) {
 
         </main>
     `;
+
+
+
 }
 
 const userId = localStorage.getItem("user_id");
@@ -180,8 +197,10 @@ const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
 // console.log("userId:    " + userId);
 // console.log("userId:    " + username);
 // console.log("userId:    " + userEmail);
-console.log(matchedUsers);
-console.log(unmatchedUsers);
+console.log("matched users array:   " + matchedUsers);
+console.log("unmatched users array:" + unmatchedUsers);
+console.log("online users array:" + onlineUsers);
+
 
 $(document).on('click', '#launch-chat-btn', function (e) {
     e.preventDefault();
