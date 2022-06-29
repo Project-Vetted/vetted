@@ -36,14 +36,14 @@ export default function router(URI) {
             title: "Login",
             viewEvent: LoginEvent
         },
-        '/register': {
-            noNav: true,
-            returnView: Register,
-            state: {},
-            uri: '/register',
-            title: "Register",
-            viewEvent: RegisterEvent
-        },
+        // '/register': {
+        //     noNav: true,
+        //     returnView: Register,
+        //     state: {},
+        //     uri: '/register',
+        //     title: "Register",
+        //     viewEvent: RegisterEvent
+        // },
         '/veteran': {
             noNav: true,
             returnView: Veteran,
@@ -100,7 +100,7 @@ export default function router(URI) {
         '/chat': {
             noNav: true,
             returnView: Chat,
-            state: {user: "/api/users/me"},
+            state: {users: "/api/users/all", categories: "/api/users/allCategories", me: "/api/users/me", userCategories: "/api/users/allUserCategories"},
             uri: '/chat',
             title: 'Chat',
         }
