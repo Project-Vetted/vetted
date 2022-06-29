@@ -1,19 +1,34 @@
 
-function getOnlineUsers (){
-    let userId = 6;
-    let appId = 'tZou7ipA';
+export function getOnlineUsers (){
 
-    $.ajax({
-        url: `"https://api.talkjs.comv1/${appId}/users/${userId}"`,
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer 6QXNMEMFHNY4FJ5ELNFMP5KRW52WFXN5")
-        }, success: function(data){
-            alert(data);
-            console.log(data);
-            //process the JSON data etc
-        }
+    // let appIdString = "tYHo9w1I";
+    // let skString = "sk_test_D94IOA990ljdPAfNwSn7zXohikqwy1b7";
+    // let talkJsUrl = `"https://api.talkjs.com/v1/${appIdString}/presences"`
+
+    const data = {
+        includeBackgroundSessions?: boolean,
+        selectedConversationId?: string | null,
+        hasFocus?: boolean,
+        isTyping?: boolean,
+        userIds?: string[],
+        expandUser?: boolean
+    };
+
+    fetch('https://api.talkjs.com/v1/tYHo9w1I/presences', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + 'sk_test_D94IOA990ljdPAfNwSn7zXohikqwy1b7',
+        },
+        body: JSON.stringify(data),
     })
-
-
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            return data;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 
 }

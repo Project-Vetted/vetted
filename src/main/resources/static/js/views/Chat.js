@@ -2,6 +2,7 @@ import {loadChat} from "../chat/loadChat.js";
 import {matchByCategory} from "../chat/matchByCategory.js";
 import {matchByNoCategory} from "../chat/matchByNoCategory.js";
 import {initiateChatPresence} from "../chat/initiateChatPresence.js";
+import {getOnlineUsers} from "../chat/getOnlineUsers.js";
 
 
 export default function Chat(props) {
@@ -181,9 +182,10 @@ export default function Chat(props) {
 
     initiateChatPresence(userId, username, userEmail);
     console.log("I initiated Chat Presence");
-    console.log(userId);
-    console.log(username);
-    console.log(userEmail);
+
+    getOnlineUsers();
+    console.log("I got online users");
+
 
     $(document).on('click', '#launch-chat-btn', function (e) {
         e.preventDefault();
@@ -191,7 +193,7 @@ export default function Chat(props) {
         const chatBoxDiv = document.getElementById("chatbox");
         chatBoxDiv.style.display = "revert";
 
-        // loadChat(userId, username, userEmail, matchedUsers);
+        loadChat(userId, username, userEmail, matchedUsers);
 
 
 });
