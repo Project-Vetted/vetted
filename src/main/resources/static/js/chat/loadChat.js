@@ -29,35 +29,35 @@ export function loadChat (userId, username, userEmail, matchedUsers) {
             photoUrl: 'https://svgsilh.com/svg/295387.svg',
         });
 
-        if (me.name == 'Alice') {
-            other.name = 'Sebastian';
-        }
-
-        let conversation = talkSession.getOrCreateConversation(
-            Talk.oneOnOneId(me, other)
-        );
-
-        conversation.setParticipant(me);
-        conversation.setParticipant(other);
-
-
-        let inbox = talkSession.createInbox({ selected: conversation }, { showChatHeader: false });
-        inbox.mount(document.getElementById('talkjs-container'));
-
-        // Add the participant user's name and photo to the custom header
-        let headerUsername = document.getElementById('header-username');
-        headerUsername.textContent = other.name;
-        document.getElementById('user-avatar').style.backgroundImage = me.photoUrl;
-
-        let callButton = document.getElementById('videocall');
-
-        callButton.addEventListener('click', function() {
-            let callFrame = window.DailyIframe.createFrame({
-                showLeaveButton: true,
-                showFullscreenButton: true,
-            });
-            callFrame.join({ url: 'https://vetted.daily.co/tPZkcdIH0sHOgKa2ye84' })
-        });
+        // if (me.name == 'Alice') {
+        //     other.name = 'Sebastian';
+        // }
+        //
+        // let conversation = talkSession.getOrCreateConversation(
+        //     Talk.oneOnOneId(me, other)
+        // );
+        //
+        // conversation.setParticipant(me);
+        // conversation.setParticipant(other);
+        //
+        //
+        // let inbox = talkSession.createInbox({ selected: conversation }, { showChatHeader: false });
+        // inbox.mount(document.getElementById('talkjs-container'));
+        //
+        // // Add the participant user's name and photo to the custom header
+        // let headerUsername = document.getElementById('header-username');
+        // headerUsername.textContent = other.name;
+        // document.getElementById('user-avatar').style.backgroundImage = me.photoUrl;
+        //
+        // let callButton = document.getElementById('videocall');
+        //
+        // callButton.addEventListener('click', function() {
+        //     let callFrame = window.DailyIframe.createFrame({
+        //         showLeaveButton: true,
+        //         showFullscreenButton: true,
+        //     });
+        //     callFrame.join({ url: 'https://vetted.daily.co/tPZkcdIH0sHOgKa2ye84' })
+        // });
 
     });
 

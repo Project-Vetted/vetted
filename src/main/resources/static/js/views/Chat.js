@@ -1,7 +1,8 @@
 import {loadChat} from "../chat/loadChat.js";
-import {getHeaders} from "../auth.js";
 import {matchByCategory} from "../chat/matchByCategory.js";
-import {unmatchedUsers} from "../chat/unmatchedUsers.js";
+import {matchByNoCategory} from "../chat/matchByNoCategory.js";
+import {initiateChatPresence} from "../chat/initiateChatPresence.js";
+
 
 export default function Chat(props) {
 
@@ -13,8 +14,13 @@ export default function Chat(props) {
     localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
     const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
 
-    console.log(matchByCategory(props));
-    console.log(unmatchedUsers(props, matchedUsers));
+    const getUnmatchedUsers = matchByNoCategory(props, matchedUsers);
+    localStorage.setItem('unmatched_users', JSON.stringify(getUnmatchedUsers));
+    const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
+
+    console.log(matchedUsers);
+    console.log(unmatchedUsers);
+
 
     //language=HTML
     return `
@@ -168,6 +174,16 @@ export default function Chat(props) {
     `;
 }
 
+    const userId = localStorage.getItem("user_id");
+    const username = localStorage.getItem("user_name");
+    const userEmail = localStorage.getItem("user_email");
+    const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
+
+    initiateChatPresence(userId, username, userEmail);
+    console.log("I initiated Chat Presence");
+    console.log(userId);
+    console.log(username);
+    console.log(userEmail);
 
     $(document).on('click', '#launch-chat-btn', function (e) {
         e.preventDefault();
@@ -175,15 +191,13 @@ export default function Chat(props) {
         const chatBoxDiv = document.getElementById("chatbox");
         chatBoxDiv.style.display = "revert";
 
-        const userId = localStorage.getItem("user_id");
-        const username = localStorage.getItem("user_name");
-        const userEmail = localStorage.getItem("user_email");
-        const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
-
-        loadChat(userId, username, userEmail, matchedUsers);
+        // loadChat(userId, username, userEmail, matchedUsers);
 
 
 });
+
+
+
 
 
 

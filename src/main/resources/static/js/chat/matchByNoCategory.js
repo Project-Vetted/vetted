@@ -1,6 +1,6 @@
 
 
-export function unmatchedUsers(props, matchedUsers) {
+export function matchByNoCategory(props, matchedUsers) {
 
     let usersArray = props.users;
     let unmatchedUsersArray = [];
@@ -12,7 +12,7 @@ export function unmatchedUsers(props, matchedUsers) {
     }
 
     for (let i = 0; i < usersArray.length; i++) {
-        if (matchedUserIdsArray.includes(usersArray[i]['id']) == false && usersArray[i]['username'] !== props.me.username) {
+        if (matchedUserIdsArray.includes(usersArray[i]['id']) === false && usersArray[i]['username'] !== props.me.username) {
             unmatchedUsersArray.push(usersArray[i]);
         }
 
