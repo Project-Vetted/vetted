@@ -1,6 +1,6 @@
 import {getHeaders} from "../auth.js";
 import {BASE_URL} from "../baseUrl.js";
-
+import createView from "../createView.js";
 
 export default function Dash(props) {
 
@@ -79,7 +79,7 @@ export default function Dash(props) {
 
             button {
                 font: inherit;
-                color: inherit;
+                color: #9F9BE7;
                 background: transparent;
                 border: none;
                 border-radius: 0.4rem;
@@ -316,22 +316,22 @@ export default function Dash(props) {
                 gap: var(--gap-small);
                 text-decoration: none;
             }
-            
+
             .card-body-link i {
                 font-size: 18px;
-                color: #350259;
+                color: #9F9BE7;
                 text-decoration: none;
             }
 
             .card-body-link a::before {
-               text-decoration: none;
+                text-decoration: none;
             }
-            
-            .card-body-link span{
+
+            .card-body-link span {
                 font-size: 16px;
-                color: #350259;
+                color: var(--accent-color);
             }
-            
+
             .card-group .card {
                 position: relative;
                 display: flex;
@@ -538,19 +538,20 @@ export default function Dash(props) {
                         <li class="list-item">
                             <a href="#" class="list-link" id="chat-feature-btn">Chat</a>
                         </li>
-                        <li class="list-item">
-                            <a href="#" class="list-link">Rating</a>
-                        </li>
+<!--                        <li class="list-item">-->
+<!--                            <a href="#" class="list-link">Rating</a>-->
+<!--                        </li>-->
                         <li class="list-item dropdown">
                             <button class="list-link dropdown-btn place-items-center">User Settings <i
                                     class="ri-arrow-drop-right-line"></i></button>
                             <ul class="list dropdown-menu">
                                 <li class="list-item">
-                                    <a href="#" class="list-link" onclick="window.location.href='/settings';">Profile Settings</a>
+                                    <a href="#" class="list-link" onclick="window.location.href='/settings';">Profile
+                                        Settings</a>
                                 </li>
-                                <li class="list-item">
-                                    <a href="#" class="list-link">Friends List</a>
-                                </li>
+<!--                                <li class="list-item">-->
+<!--                                    <a href="#" class="list-link">Friends List</a>-->
+<!--                                </li>-->
                                 <li class="list-item">
                                     <a href="https://benice.com/" class="list-link">Community Guidelines</a>
                                 </li>
@@ -617,19 +618,19 @@ export default function Dash(props) {
                 <div class="card">
                     <header class="card-header">
                         <h2 class="title">Quick Actions</h2>
-<!--                        <small>Access frequently visited places quicker</small>-->
+                        <!--                        <small>Access frequently visited places quicker</small>-->
                     </header>
                     <div class="card-body">
 
                         <a href="#" class="card-body-link">
                             <i class="ri-shield-line" onclick="window.location.href='/settings';">Account Settings</i>
                         </a>
-                        <a href="#" class="card-body-link">
-                            <i class="ri-team-line">Manage Friends List</i>
-                        </a>
-                        <a href="#" class="card-body-link">
-                            <i class="ri-user-star-fill">User Rating</i>
-                        </a>
+<!--                        <a href="#" class="card-body-link">-->
+<!--                            <i class="ri-team-line">Manage Friends List</i>-->
+<!--                        </a>-->
+<!--                        <a href="#" class="card-body-link">-->
+<!--                            <i class="ri-user-star-fill">User Rating</i>-->
+<!--                        </a>-->
                         <a href="#" class="card-body-link">
                             <i class="ri-user-voice-fill"></i>
                             <span class="link-name" id="chat-feature-btn">Manage Chat</span>
@@ -661,37 +662,70 @@ export default function Dash(props) {
                 <div class="card-group d-grid">
                     <div class="card border-green">
                         <div>
-                            <h1 class="title">Own Your Mental Health</h1>
-                            <p class="card-description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam
-                                rem?
-                                Ab amet dolore illum modi natus possimus rerum sunt tempore voluptatem!
-                            </p>
+                            <h1 class="title">Protecting Veterans' Access to Mental Health Care</h1>
+                            <h5 class="card-description">
+                                By: National Alliance on Mental Illness (NAMI) <br>
+
+                                "Veterans health care is a public trust and a national responsibility. Ensuring
+                                America’s veterans have timely access to high-quality mental health care is imperative
+                                to reduce the high rate of suicide among veterans and to provide quality of life after
+                                service. Congress should keep what works and make it better by acting to preserve and
+                                improve the VA health care system and the Veterans Choice Program."
+                            </h5>
                         </div>
+                        <a href="https://www.nami.org/Advocacy/Policy-Priorities/Improving-Health/Protecting-Veterans-Access-to-Mental-Health-Care>"
                         <button class="list-link">Learn More</button>
+                        </a>
                     </div>
                     <div class="card border-yellow">
                         <div>
-                            <h1 class="title">Leverage Community</h1>
-                            <p class="card-description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam
-                                rem?
-                                Ab amet dolore illum modi natus possimus rerum sunt tempore voluptatem!
-                            </p>
+                            <h1 class="title">Leverage Your Community</h1>
+                            <img src="../../assets/imgs/community_dash_pic.jpeg" height="150px" width="100px"
+                                 align="left"/>
+                            <br>
+                            <h4 class="card-description">
+                                "Leverage is a particular type of treatment pressure that is used within community
+                                mental health services to increase patients' adherence to treatment. Because leverage
+                                involves practitioners making proposals that attempt to influence patients' behaviours
+                                and choices, the use of leverage raises ethical issues. Particular attention must be
+                                paid to determine how the requirements of the four duties should be applied in each
+                                specific treatment scenario, and in making careful judgements when these duties pull in
+                                opposing directions."
+                            </h4>
                         </div>
+                        <br>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/24496210/">
                         <button class="list-link">Learn More</button>
+                        </a>
                     </div>
                     <div class="card border-orange">
                         <div>
-                            <h1 class="title">Mental Health & Covid-19</h1>
+                            <h1 class="title">Understanding the General Rating Formula for Mental Health Conditions</h1>
                         </div>
+                        <a href="https://www.hillandponton.com/part4-rating-ptsd/"
                         <button class="list-link">Learn More</button>
+                        </a>
                     </div>
                     <div class="card border-pink">
                         <div>
                             <h1 class="title">State of Mental Health</h1>
+                            <img src="../../assets/imgs/protecting_vet_pic.jpeg" height="150px" width="150px"
+                                 align="right"/>
+                            <h4>"For the 8th year in a row, Mental Health America (MHA) released its annual State of
+                                Mental Health in America Report, which ranks all 50 states and the District of Columbia
+                                based on fifteen mental health prevalence and access measures for youth and adults. This
+                                year, Massachusetts moved to the No. 1 spot, from No. 3 in last year’s report, and
+                                Nevada remained last at No. 51 for the sixth year in a row.
+
+                                The 2022 State of Mental Health in America report confirms the trend that mental health
+                                in the U.S. continued to get worse leading into the COVID-19 pandemic. This report also
+                                contains two spotlights on policies that can improve access to mental health resources
+                                in the U.S. – 988 implementation and increasing mental health education and supports in
+                                schools."</h4>
                         </div>
-                        <button class="list-link">Learn More</button>
+                        <a href="https://mhanational.org/research-reports/2022-state-mental-health-america-report">
+                            <button class="list-link">Learn More</button>
+                        </a>
                     </div>
                 </div>
             </div>

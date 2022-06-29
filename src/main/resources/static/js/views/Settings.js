@@ -12,185 +12,185 @@ export default function Settings(props) {
                 padding: 0;
                 box-sizing: border-box;
                 font-family: 'Poppins', sans-serif;
+                cursor: default;
             }
 
-            body {
+            body{
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
                 background: linear-gradient(90deg, #C7C5F4, #776BCC);
             }
 
-            .container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 20vh;
-            }
-
-            .login-screen {
-                height: 600px;
-                width: 360px;
-                position: relative;
-                background: linear-gradient(90deg, #5D54A4, #7C78B8);
-                box-shadow: 0px 0px 24px #5C5696;
-                cursor: crosshair;
-            }
-
-            .screen-content {
-                position: relative;
-                height: 100%;
-                z-index: 1;
-            }
-
-            .login-background {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                z-index: 0;
-                -webkit-clip-path: inset(0 0 0 0);
-                clip-path: inset(0 0 0 0);
-            }
-
-            .screen-background-shapes {
-                position: absolute;
-                transform: rotate(45deg);
-            }
-
-            .background-shape1 {
-                height: 520px;
-                width: 520px;
-                background: #FFF;
-                top: -50px;
-                right: 120px;
-                border-radius: 0 72px 0 0;
-            }
-
-            .background-shape2 {
-                height: 220px;
-                width: 220px;
-                background: #6C63AC;
-                top: -172px;
-                right: 0;
-                border-radius: 32px;
-            }
-
-            .background-shape3 {
-                height: 540px;
-                width: 190px;
-                background: linear-gradient(270deg, #5D54A4, #6A679E);
-                top: -24px;
-                right: 0;
-                border-radius: 32px;
-            }
-
-            .background-shape4 {
-                height: 400px;
-                width: 200px;
-                background: #7E7BB9;
-                top: 420px;
-                right: 50px;
-                border-radius: 60px;
-            }
-
-            .login {
-                width: 340px;
-                padding: 30px;
-                padding-top: 156px;
-            }
-
-            .login-field {
-                position: relative;
-                padding: 20px 0px;
-            }
-
-            .login-icon {
-                position: absolute;
-                top: 30px;
-                color: #7875B5;
-            }
-
-            .login-input {
-                width: 75%;
-                border: none;
-                border-bottom: 3px solid #350259;
-                background: none;
-                padding: 10px;
-                padding-left: 24px;
-                font-weight: 700;
-                transition: .2s;
-            }
-
-            .login-input:active,
-            .login-input:focus,
-            .login-input:hover {
-                outline: none;
-                border-bottom-color: #6A679E;
-            }
-
-            .login-submit {
+            .container{
+                max-width: 700px;
+                width: 100%;
                 background: #fff;
-                font-size: 14px;
-                margin-top: 30px;
-                padding: 16px 20px;
-                border-radius: 26px;
-                border: 1px solid #D4D3E8;
-                text-transform: uppercase;
-                font-weight: 700;
-                display: flex;
-                align-items: center;
-                width: 20%;
-                color: #4C489D;
-                box-shadow: 0px 2px 2px #5C5696;
-                cursor: pointer;
-                transition: .2s;
+                padding: 25px 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px #D1BAFF;
             }
 
-            .login-submit:active,
-            .login-submit:focus,
-            .login-submit:hover {
-                border-color: #6A679E;
+            .container .title{
+                font-weight: 500;
+                font-size: 25px;
+                position: relative;
+            }
+
+            .container .title::before{
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: 0;
+                height: 3px;
+                width: 30px;
+                background: linear-gradient(90deg, #C7C5F4, #776BCC);
+            }
+
+            .container form .user-details{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin: 20px 0 12px 0;
+            }
+
+            form .user-details .input-box{
+                width: calc(100% / 2 - 20px);
+                margin-bottom: 15px;
+            }
+
+            .user-details .input-box input{
+                height: 45px;
+                width: 100%;
                 outline: none;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                padding-left: 15px;
+                font-size: 12px;
+                border-bottom-width: 2px;
+                transition: all 0.3s ease;
+                border-color: #776BCC;
+            }
+
+            .user-details .input-box details{
+                font-weight: 500;
+                margin-bottom: 5px;
+                display: block;
+            }
+
+            .user-details .input-box input:focus,
+            .user-details .input-box input:valid{
+                border-color: #776BCC;
+
+            }
+
+            form .check-categories{
+                font-size: 16px;
+                font-weight: 500;
+                width: 80%;
+                justify-content: space-between;
+                margin: 16px;
+            }
+
+            form .button{
+                height: 30px;
+                margin: 45px 0;
+            }
+
+            form .button input{
+                height: 80%;
+                width: 100%;
+                outline: none;
+                color: #fff;
+                border: none;
+                background: linear-gradient(135deg, #C7C5F4, #776BCC);
+                font-size:16px;
+                font-weight: 300;
+                border-radius: 5px;
+                letter-spacing: 1px;
+            }
+
+            form . button input:hover{
+                background: linear-gradient(-135deg, #C7C5F4, #776BCC);
+            }
+
+            @media (max-width: 584px){
+                .container{
+                    max-width: 100%;
+                }
+                form .user-details .input-box{
+                    width: 100%;
+                    margin-bottom: 15px;
+                }
+                form .check-categories{
+                    width: 100%;
+                }
+                .container form .user-details{
+                    max-height: 300px;
+                    overflow-y: scroll;
+                }
             }
         </style>
 
-        <header class="container">
-            <div style="margin-top: 80px">
-                <h1>Account Information</h1>
-                <h3>${props.user.username}</h3>
-            </div>
-        </header>
-        <main class="">
-            <form id="user-info-form" class="container">
-                <div style="margin-top: 80px">
-                    <label for="email">Current Email</label>
-                    <input disabled id="email" name="email" type="email" value="${props.user.email}">
+       
+        <div class="container">
+            <h2 class="title">${props.user.username}'s Settings</h2>
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Current Email</span>
+                        <input disabled type="text" placeholder="${props.user.email}">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Updated Email</span>
+                        <input type="text" id="new-email" placeholder="Enter updated email">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">New Password</span>
+                        <input id="new-password" type="password" placeholder="Enter new password">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input id="confirm-password" type="password" placeholder="Confirm password">
+                    </div>
+                    <div class="categories-checkbox"> Change Category:
+                        <label class="check-categories">PTSD
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
 
-                    <label for="old-password">New Email</label>
-                    <input id="new-email" name="old-email" type="email"
-                           value="${props.user.email}"/>
+                        <label class="check-categories">Addictions
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="check-categories">Depression
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
 
-                    <label for="new-password">New Password</label>
-                    <input id="new-password" name="new-password" type="password"
-                           value=""/>
+                        <label class="check-categories">Anxiety
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="button">
+                        <input id="update-email-button" data-id="${props.user.id}" type="button" value="Update Email">
+                    </div>
+                    <div class="button">
+                        <input id="update-password-button" data-id="${props.user.id}" type="button" value="Update Password">
+                    </div>
+                    <div class="button">
+                        <input id="update-username-button" data-id="${props.user.id}" type="button" value="Randomize Username">
+                    </div>
+                    <div class="button">
+                        <input type="button" onclick="window.location.href='/dashboard';" value="Cancel">
+                    </div>
 
-                    <label for="confirm-password">Confirm New Password</label>
-                    <input id="confirm-password" name="confirm-password" type="password"
-                           value=""/>
-
-                    <button id="change-email-button" data-id="${props.user.id}" type="button" class="login-submit">
-                        Change Email
-                    </button>
-
-                    <button id="change-password-button" data-id="${props.user.id}" type="button" class="login-submit">
-                        Change Password
-                    </button>
-
-                    <button id="change-username-button" data-id="${props.user.id}" type="button" class="login-submit">
-                        Randomize Username
-                    </button>
                 </div>
             </form>
-        </main>
+        </div>
     `
 }
 
@@ -201,7 +201,7 @@ export function UserSettingsEvent() {
 }
 
 function updatePasswordListener() {
-    $(document).on('click', '#change-password-button', function (e) {
+    $(document).on('click', '#update-password-button', function (e) {
 
         e.preventDefault();
 
@@ -229,7 +229,7 @@ function updatePasswordListener() {
 }
 
 function updateEmailListener() {
-    $(document).on('click', '#change-email-button', function (e) {
+    $(document).on('click', '#update-email-button', function (e) {
 
         e.preventDefault();
 
@@ -252,7 +252,7 @@ function updateEmailListener() {
 
 function updateUsernameListener() {
 
-    $(document).on('click', '#change-username-button', function (e) {
+    $(document).on('click', '#update-username-button', function (e) {
 
         e.preventDefault();
 

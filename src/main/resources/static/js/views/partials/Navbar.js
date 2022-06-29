@@ -81,15 +81,15 @@ export default function Navbar(props) {
         </style>
 
         <header class="header">
-
+            <div id="logo-nav">
             <a href="#home" class="logo"> <img src="../../../assets/imgs/official_vetted_logo.png" width="100px"
                                                height="100px"></i></a>
-
+            </div>
             <nav class="navbar navbar-scrolled">
                 <div id="nav-close" class="fas fa-times"></div>
                 <a href="/" data-link>Home</a>
                 <a href="/login" data-link>Login</a>
-                <a href="/register" data-link>Register</a>
+                <a href="/veteran" data-link>Register</a>
                 <a href="/dashboard" data-link>Dashboard</a>
             </nav>
         </header>

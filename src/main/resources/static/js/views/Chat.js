@@ -1,15 +1,45 @@
 import {loadChat} from "../chat/loadChat.js";
+import {matchByCategory} from "../chat/matchByCategory.js";
+import {matchByNoCategory} from "../chat/matchByNoCategory.js";
+import {initiateChatPresence} from "../chat/initiateChatPresence.js";
+import {getOnlineUsers} from "../chat/getOnlineUsers.js";
+import {loadChatFake} from "../chat/loadchatFake.js";
 import {getHeaders} from "../auth.js";
 
 export default function Chat(props) {
-    localStorage.setItem("user_id", props.user.id.toString());
-    localStorage.setItem("user_name", props.user.username.toString());
-    localStorage.setItem("user_email", props.user.email.toString());
+
+    // console.log("I'm inside the chat function being passed props:     " + props);
+
+    localStorage.setItem("user_id", props.me.id.toString());
+    localStorage.setItem("user_name", props.me.username.toString());
+    localStorage.setItem("user_email", props.me.email.toString());
+
+    // const getMatchedUsers = matchByCategory(props);
+    // localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
+    //
+    // const getUnmatchedUsers = matchByNoCategory(props, matchedUsers);
+    // localStorage.setItem('unmatched_users', JSON.stringify(getUnmatchedUsers));
+
+    initiateChatPresence(userId, username, userEmail);
 
     //language=HTML
     return `
         <style>
 
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            body {
+                background: linear-gradient(90deg, #C7C5F4, #776BCC);
+            }
+            
+            
 
             /* Container for everything TalkJS*/
             .chatbox-container {
@@ -99,7 +129,7 @@ export default function Chat(props) {
             }
 
         </style>
-        
+
         <header>
             <h1>Chat Page</h1>
         </header>
@@ -128,6 +158,12 @@ export default function Chat(props) {
 
 
                     <div class="button-container">
+                        <div>
+                            <!--                            TODO: ADD A VALUE TO THE LINE BELOW EQUAL TO THE USER ID OF THE UPVOTEE-->
+                            <button type="button" class="btn btn-primary btn-sm" id="give-like-btn">
+                                Give Like
+                            </button>
+                        </div>
                         <div class="call-button">
                             <!--input type="checkbox" name="notificationToggle" class="toggle-checkbox" id="toggle"-->
                             <input type="image" name="videoCallButton" id="videocall"
@@ -145,22 +181,67 @@ export default function Chat(props) {
 
         </main>
     `;
+
+
+
 }
 
-{
-    {$(document).on('click', '#launch-chat-btn', function (e) {
-        e.preventDefault();
+const userId = localStorage.getItem("user_id");
+const username = localStorage.getItem("user_name");
+const userEmail = localStorage.getItem("user_email");
 
-        const chatBoxDiv = document.getElementById("chatbox");
-        chatBoxDiv.style.display = "revert";
+// const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
+// const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
+// const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
 
-        const userId = localStorage.getItem("user_id");
-        const username = localStorage.getItem("user_name");
-        const userEmail = localStorage.getItem("user_email");
-        loadChat(userId, username, userEmail);
+// console.log("userId:    " + userId);
+// console.log("userId:    " + username);
+// console.log("userId:    " + userEmail);
 
-    })}
-}
+// console.log("I'm outside the chat function and need local storage for props stuff:     ");
+
+// console.log("matched users array:   " + matchedUsers);
+// console.log("unmatched users array:" + unmatchedUsers);
+// console.log("online users array:" + onlineUsers);
+
+
+$(document).on('click', '#launch-chat-btn', function (e) {
+    e.preventDefault();
+
+    const chatBoxDiv = document.getElementById("chatbox");
+    chatBoxDiv.style.display = "revert";
+
+    initiateChatPresence(userId, username, userEmail);
+    // loadChat(userId, username, userEmail, matchedUsers, unmatchedUsers, onlineUsers);
+    loadChatFake(userId, username, userEmail);
+
+
+
+});
+
+$(document).on('click', '#give-like-btn', function (e) {
+        console.log(e)
+        //TODO: ADD THE USER ID OF THE UPVOTEE TO THE LINE BELOW
+        // const upVotee =
+        const voteGiver = userId.toString();
+        let voteReceiver = ''
+        if (voteGiver === '2') {
+            voteReceiver = '3'
+            $("#give-like-btn").val = voteReceiver;
+            return
+        } else if (voteGiver === '3') {
+            voteReceiver = '2'
+            $("#give-like-btn").val = voteReceiver;
+        }
+        return fetch(`http://localhost:8080/api/users/${voteReceiver}/${voteGiver}/upvote`, {
+            method: 'GET',
+            headers: getHeaders(),
+        })
+            .catch(err => console.log(err))
+    }
+)
+
+
 
 
 

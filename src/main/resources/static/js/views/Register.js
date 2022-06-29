@@ -18,7 +18,7 @@ export default function Register() {
     }
 
     body {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../imgs/registration_background.png");
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../assets/imgs/registration_background.png");
         background-position: center;
         background-size: cover;
     }
@@ -293,25 +293,25 @@ export default function Register() {
     `;
 }
 
-// export function RegisterEvent() {
-//
-//     $(document).on('click', '#register-btn', function (e) {
-//         const reqBody = {
-//             username: $('#username').val(),
-//             email: $('#email').val(),
-//             password: $('#password-confirm').val()
-//         }
-//
-//         const options = {
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             method: 'POST',
-//             body: JSON.stringify(reqBody)
-//         }
-//
-//         fetch("http://localhost:8080/api/users/create", options)
-//             .then(data => console.log(data))
-//             .catch(err => console.log(err))
-//     })
-// }
+export function RegisterEvent() {
+
+    $(document).on('click', '#register-btn', function (e) {
+        const reqBody = {
+            username: $('#username').val(),
+            email: $('#email').val(),
+            password: $('#password-confirm').val()
+        }
+
+        const options = {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: 'POST',
+            body: JSON.stringify(reqBody)
+        }
+
+        fetch("http://localhost:8080/api/users/create", options)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+    })
+}
