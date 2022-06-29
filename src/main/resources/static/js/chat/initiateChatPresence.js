@@ -1,7 +1,7 @@
 
 export function initiateChatPresence (userId, username, userEmail) {
 
-    let appIdString = "tYHo9w1I";
+    let appIdString = "t2b5YrOq";
 
     Talk.ready.then(function () {
         let me = new Talk.User({

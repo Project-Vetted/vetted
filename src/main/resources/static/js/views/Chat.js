@@ -3,8 +3,13 @@ import {matchByCategory} from "../chat/matchByCategory.js";
 import {matchByNoCategory} from "../chat/matchByNoCategory.js";
 import {initiateChatPresence} from "../chat/initiateChatPresence.js";
 import {getOnlineUsers} from "../chat/getOnlineUsers.js";
+import {loadChatFake} from "../chat/loadchatFake.js";
+import {getHeaders} from "../auth.js";
 
 export default function Chat(props) {
+
+    console.log("props:     " + props);
+
     localStorage.setItem("user_id", props.me.id.toString());
     localStorage.setItem("user_name", props.me.username.toString());
     localStorage.setItem("user_email", props.me.email.toString());
@@ -110,7 +115,7 @@ export default function Chat(props) {
             }
 
         </style>
-        
+
         <header>
             <h1>Chat Page</h1>
         </header>
@@ -139,6 +144,12 @@ export default function Chat(props) {
 
 
                     <div class="button-container">
+                        <div>
+                            <!--                            TODO: ADD A VALUE TO THE LINE BELOW EQUAL TO THE USER ID OF THE UPVOTEE-->
+                            <button type="button" class="btn btn-primary btn-sm" id="give-like-btn">
+                                Give Like
+                            </button>
+                        </div>
                         <div class="call-button">
                             <!--input type="checkbox" name="notificationToggle" class="toggle-checkbox" id="toggle"-->
                             <input type="image" name="videoCallButton" id="videocall"
@@ -166,6 +177,9 @@ const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
 const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
 const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
 
+// console.log("userId:    " + userId);
+// console.log("userId:    " + username);
+// console.log("userId:    " + userEmail);
 console.log(matchedUsers);
 console.log(unmatchedUsers);
 
@@ -176,10 +190,36 @@ $(document).on('click', '#launch-chat-btn', function (e) {
     chatBoxDiv.style.display = "revert";
 
     initiateChatPresence(userId, username, userEmail);
-    loadChat(userId, username, userEmail, matchedUsers, unmatchedUsers, onlineUsers);
+    // loadChat(userId, username, userEmail, matchedUsers, unmatchedUsers, onlineUsers);
+    loadChatFake(userId, username, userEmail);
+
 
 
 });
+
+$(document).on('click', '#give-like-btn', function (e) {
+        console.log(e)
+        //TODO: ADD THE USER ID OF THE UPVOTEE TO THE LINE BELOW
+        // const upVotee =
+        const voteGiver = userId.toString();
+        let voteReceiver = ''
+        if (voteGiver === '2') {
+            voteReceiver = '3'
+            $("#give-like-btn").val = voteReceiver;
+            return
+        } else if (voteGiver === '3') {
+            voteReceiver = '2'
+            $("#give-like-btn").val = voteReceiver;
+        }
+        return fetch(`http://localhost:8080/api/users/${voteReceiver}/${voteGiver}/upvote`, {
+            method: 'GET',
+            headers: getHeaders(),
+        })
+            .catch(err => console.log(err))
+    }
+)
+
+
 
 
 

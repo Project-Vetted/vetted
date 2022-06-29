@@ -11,7 +11,7 @@ export function loadChat (userId, username, userEmail, matchedUsers, unmatchedUs
             photoUrl: userPhotoUrl,
         });
         window.talkSession = new Talk.Session({
-            appId: 'tYHo9w1I',
+            appId: 't2b5YrOq',
             me: me,
         });
 
