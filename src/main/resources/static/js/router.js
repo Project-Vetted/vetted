@@ -71,6 +71,7 @@ export default function router(URI) {
             viewEvent: DashEvents
         },
         '/settings': {
+            noNav: true,
             returnView: Settings,
             state: {
                 user: '/api/users/me'
