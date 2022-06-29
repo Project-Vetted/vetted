@@ -6,11 +6,11 @@ export function getOnlineUsers (matchedUsers, unmatchedUsers){
     //     expandUser: true
     // };
     //
-    // fetch('https://api.talkjs.com/v1/tYHo9w1I/presences', {
+    // fetch('https://api.talkjs.com/v1/t2b5YrOq/presences', {
     //     method: 'POST', // or 'PUT'
     //     headers: {
     //         'Content-Type': 'application/json',
-    //         'Authorization': 'Bearer ' + 'sk_test_D94IOA990ljdPAfNwSn7zXohikqwy1b7',
+    //         'Authorization': 'Bearer ' + 'sk_test_SYsVaymbxP2lBbrv6vX7RoFNdqjeRzO3',
     //     },
     //     body: JSON.stringify(data),
     // })
