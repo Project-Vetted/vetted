@@ -8,17 +8,25 @@ import {getHeaders} from "../auth.js";
 
 export default function Chat(props) {
 
-    // console.log("I'm inside the chat function being passed props:     " + props);
+    console.log("I'm inside the chat function being passed props:     " + props);
+
 
     localStorage.setItem("user_id", props.me.id.toString());
     localStorage.setItem("user_name", props.me.username.toString());
     localStorage.setItem("user_email", props.me.email.toString());
 
-    // const getMatchedUsers = matchByCategory(props);
+    const getMatchedUsers = matchByCategory(props);
+    console.log(getMatchedUsers);
     // localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
     //
     // const getUnmatchedUsers = matchByNoCategory(props, matchedUsers);
     // localStorage.setItem('unmatched_users', JSON.stringify(getUnmatchedUsers));
+
+    const userId = localStorage.getItem("user_id");
+    const username = localStorage.getItem("user_name");
+    const userEmail = localStorage.getItem("user_email");
+
+
 
     initiateChatPresence(userId, username, userEmail);
 
@@ -183,7 +191,6 @@ export default function Chat(props) {
     `;
 
 
-
 }
 
 const userId = localStorage.getItem("user_id");
@@ -194,11 +201,7 @@ const userEmail = localStorage.getItem("user_email");
 // const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
 // const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
 
-// console.log("userId:    " + userId);
-// console.log("userId:    " + username);
-// console.log("userId:    " + userEmail);
-
-// console.log("I'm outside the chat function and need local storage for props stuff:     ");
+console.log("I'm outside the chat function and need local storage for props stuff:     ");
 
 // console.log("matched users array:   " + matchedUsers);
 // console.log("unmatched users array:" + unmatchedUsers);

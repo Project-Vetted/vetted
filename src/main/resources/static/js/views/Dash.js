@@ -4,6 +4,8 @@ import createView from "../createView.js";
 
 export default function Dash(props) {
 
+    console.log("props should be here:  " + props);
+
     localStorage.setItem("user_id", props.user.id.toString())
     localStorage.setItem("user_role", props.user.role.toString())
     //language=HTML
