@@ -654,7 +654,7 @@ export default function Home(props) {
                                     Vetted Is An Application That Empowers Veterans To Join Arms With Each Other
                                     Bridging
                                     The Mental Health Gap.</h3>
-                                <a href="#visiter-user" class="btn">get started</a>
+                                <a onclick="window.location.href='/veteran';" href="#visiter-user" class="btn">get started</a>
                             </div>
                         </div>
                         <div class="scroll-down"></div>
@@ -801,10 +801,10 @@ export default function Home(props) {
             <div class="box-container">
                 <div class="box" style="background:none; text-align:center;">
                     <h3>quick links</h3>
-                    <a href="#home">home</a>
+                    <a onclick="window.location.href='/';" href="#home">home</a>
                     <a href="#about">about</a>
-                    <a href="#contact">login</a>
-                    <a href="#visiter-user">register</a>
+                    <a onclick="window.location.href='/login';" href="#login">login</a>
+                    <a onclick="window.location.href='/veteran';" href="#veteran">register</a>
                 </div>
 
                 <div class="box" style="background:none; text-align:center;">
