@@ -89,7 +89,7 @@ export default function Navbar(props) {
                 <div id="nav-close" class="fas fa-times"></div>
                 <a href="/" data-link>Home</a>
                 <a href="/login" data-link>Login</a>
-                <a href="/register" data-link>Register</a>
+                <a href="/veteran" data-link>Register</a>
                 <a href="/dashboard" data-link>Dashboard</a>
             </nav>
         </header>

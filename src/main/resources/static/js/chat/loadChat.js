@@ -16,9 +16,9 @@ export function loadChat (userId, username, userEmail, matchedUsers, unmatchedUs
         });
 
         let other = new Talk.User({
-            id: userId,
-            name: username,
-            email: userEmail,
+            id: "7",
+            name: "seaman",
+            email: "navy@navy",
             photoUrl: userPhotoUrl,
         });
 

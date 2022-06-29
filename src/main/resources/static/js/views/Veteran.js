@@ -1,4 +1,5 @@
 import {getHeaders} from "../auth.js";
+import {BASE_URL} from "../baseUrl.js";
 
 export default function Veteran() {
 
@@ -362,7 +363,7 @@ export default function Veteran() {
                 <br>
                 <div class="btn-box">
                     <button type="button" id="back2" class="submit btn-primary"><<< Back</button>
-                    <button type="button" id="final-submit" onclick=window.location.href='/dashboard'
+                    <button type="button" id="final-submit" onclick=window.location.href='/login'
                             class="submit btn-primary">Submit>>>
                     </button>
                 </div>
@@ -400,7 +401,7 @@ export function VeteranRegistrationEvent() {
                 body: JSON.stringify(userBody)
             }
 
-            fetch("http://localhost:8080/api/users/create", options)
+            fetch(`${BASE_URL}/create`, options)
                 .then(data => {
                     console.log(data)
                 })
