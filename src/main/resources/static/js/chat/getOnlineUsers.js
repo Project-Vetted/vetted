@@ -22,5 +22,6 @@ export function getOnlineUsers (matchedUsers, unmatchedUsers){
     //         console.error('Error:', error);
     //     });
 
-    return matchedUsers.concat(unmatchedUsers);
+    // return matchedUsers.concat(unmatchedUsers);
+    return matchedUsers && unmatchedUsers;
 }
