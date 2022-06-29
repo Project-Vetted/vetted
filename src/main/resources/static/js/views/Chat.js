@@ -13,11 +13,11 @@ export default function Chat(props) {
 
     const getMatchedUsers = matchByCategory(props);
     localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
-    const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
 
     const getUnmatchedUsers = matchByNoCategory(props, matchedUsers);
     localStorage.setItem('unmatched_users', JSON.stringify(getUnmatchedUsers));
-    const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
+
+    initiateChatPresence(userId, username, userEmail);
 
     //language=HTML
     return `
@@ -177,15 +177,10 @@ export default function Chat(props) {
 
     const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
     const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
+    const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
 
     console.log(matchedUsers);
     console.log(unmatchedUsers);
-
-    initiateChatPresence(userId, username, userEmail);
-
-    console.log(getOnlineUsers(matchedUsers, unmatchedUsers));
-
-
 
     $(document).on('click', '#launch-chat-btn', function (e) {
         e.preventDefault();
@@ -193,7 +188,8 @@ export default function Chat(props) {
         const chatBoxDiv = document.getElementById("chatbox");
         chatBoxDiv.style.display = "revert";
 
-        loadChat(userId, username, userEmail, matchedUsers);
+        initiateChatPresence(userId, username, userEmail);
+        loadChat(userId, username, userEmail, matchedUsers, unmatchedUsers, onlineUsers);
 
 
 });

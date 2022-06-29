@@ -9,7 +9,6 @@ export function initiateChatPresence (userId, username, userEmail) {
             id: userId,
             name: username,
             email: userEmail,
-            // photoUrl: userPhotoUrl,
         });
         window.talkSession = new Talk.Session({
             appId: appIdString,
