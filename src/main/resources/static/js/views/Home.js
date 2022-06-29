@@ -26,6 +26,14 @@ export default function Home(props) {
                 scroll-padding-top: 5rem;
             }
 
+            .show {
+                display: block;
+            }
+
+            .no-show {
+                display: none;
+            }
+
             html::-webkit-scrollbar {
                 width: 1rem;
             }
@@ -51,7 +59,7 @@ export default function Home(props) {
                 border: 0.2rem solid #350259;
                 color: #350259;
                 cursor: pointer;
-                background: rgba(175,170,254, 0.5);
+                background: rgba(175, 170, 254, 0.5);
                 font-size: 1.7rem;
                 padding: 1rem 3rem;
             }
@@ -95,7 +103,7 @@ export default function Home(props) {
                 -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
                 box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
             }
-            
+
             .header .navbar a {
                 margin-left: 2rem;
                 font-size: 2.5rem;
@@ -145,20 +153,21 @@ export default function Home(props) {
                 -ms-flex-pack: end;
                 justify-content: flex-end;
                 padding: 2rem 9%;
-                
+
             }
-            div .box{
+
+            div .box {
                 background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.3)), to(rgba(41, 29, 58, 0.3))), url('./static/assets/imgs/footer-bg.png') no-repeat;
                 background: linear-gradient(rgba(41, 29, 58, 0.3), rgba(41, 29, 58, 0.3)), url('./static/assets/imgs/footer-bg.png') no-repeat;
                 border-radius: 25px;
             }
-            
+
             .home .box.second {
                 -webkit-box-pack: start;
                 -ms-flex-pack: start;
                 justify-content: flex-start;
             }
-           
+
             .home .box .content {
                 width: 150rem;
                 height: 50rem;
@@ -181,6 +190,7 @@ export default function Home(props) {
                 font-size: 3rem;
                 color: #350259;
             }
+
             .scroll-down {
                 height: 50px;
                 width: 30px;
@@ -191,6 +201,7 @@ export default function Home(props) {
                 border-radius: 50px;
                 cursor: pointer;
             }
+
             .scroll-down::before,
             .scroll-down::after {
                 content: "";
@@ -205,10 +216,11 @@ export default function Home(props) {
                 border-left: transparent;
                 animation: scroll-down 1s ease-in-out infinite;
             }
+
             .scroll-down::before {
                 top: 30%;
                 animation-delay: 0.3s;
-                 animation: scroll-down 1s ease-in-out infinite; 
+                animation: scroll-down 1s ease-in-out infinite;
             }
 
             @keyframes scroll-down {
@@ -228,10 +240,10 @@ export default function Home(props) {
                 }
             }
 
-            .category{
+            .category {
                 padding: 3rem;
             }
-            
+
             .category .box-container {
                 display: -ms-grid;
                 display: grid;
@@ -268,7 +280,7 @@ export default function Home(props) {
                 background: #eee;
                 padding: 3rem;
             }
-            
+
             .services .box-container {
                 display: -ms-grid;
                 display: grid;
@@ -310,7 +322,7 @@ export default function Home(props) {
                 padding: 1rem 0;
                 line-height: 2;
             }
-            
+
             .blogs {
                 background: #eee;
             }
@@ -463,7 +475,7 @@ export default function Home(props) {
             .footer .group-name span {
                 color: #918DD2;
             }
-            
+
 
             @media (max-width: 1024px) {
                 html {
@@ -501,46 +513,47 @@ export default function Home(props) {
                     color: #fff;
                 }
             }
-            
+
             @media (min-width: 1440px) {
-                    html {
-                        font-size: 55%;
-                        scroll-padding-top: 7rem;
-                    }
-
-                    .home .box {
-                        padding: 2rem;
-                        -webkit-box-pack: center;
-                        -ms-flex-pack: center;
-                        justify-content: center;
-                        background-position: right !important;
-                    }
-
-                    .home .box.second {
-                        -webkit-box-pack: center;
-                        -ms-flex-pack: center;
-                        justify-content: center;
-                        background-position: left !important;
-                    }
-
-                    .home .box .content {
-                        text-align: center;
-                        padding-top: 10rem;
-                        border-radius: 25px;
-                    }
-
-                    .home .box .content h1 {
-                        font-size: 5rem;
-                        color: #fff;
-                        margin-bottom: 2rem;
-                    }
-
-                    .home .box .content h3 {
-                        font-size: 2rem;
-                        color: #fff;
-                        margin-bottom: 5rem;
-                    }
+                html {
+                    font-size: 55%;
+                    scroll-padding-top: 7rem;
                 }
+
+                .home .box {
+                    padding: 2rem;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    background-position: right !important;
+                }
+
+                .home .box.second {
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    background-position: left !important;
+                }
+
+                .home .box .content {
+                    text-align: center;
+                    padding-top: 10rem;
+                    border-radius: 25px;
+                }
+
+                .home .box .content h1 {
+                    font-size: 5rem;
+                    color: #fff;
+                    margin-bottom: 2rem;
+                }
+
+                .home .box .content h3 {
+                    font-size: 2rem;
+                    color: #fff;
+                    margin-bottom: 5rem;
+                }
+            }
+
             @media (max-width: 768px) {
                 .header #menu-btn {
                     display: inline-block;
@@ -549,7 +562,7 @@ export default function Home(props) {
                 .header .navbar {
                     position: fixed;
                     top: 0;
-                    left: -110%;
+                    left: auto;
                     background: #fff;
                     z-index: 10000;
                     width: 35rem;
@@ -591,6 +604,7 @@ export default function Home(props) {
                 .swiper-button-prev::after {
                     display: none;
                 }
+
                 .home .box .content {
                     text-align: center;
                     padding-top: 30rem;
@@ -605,7 +619,7 @@ export default function Home(props) {
                     font-size: 2rem;
                 }
             }
-            
+
             @media (max-width: 450px) {
                 html {
                     font-size: 50%;
@@ -615,7 +629,7 @@ export default function Home(props) {
                     font-size: 3rem;
                 }
             }
-            
+
             /*.home .home-slider .box{*/
             /*    background: -webkit-gradient(linear, left top, left bottom, from(rgba(41, 29, 58, 0.3)), to(rgba(41, 29, 58, 0.3))), url('./static/assets/imgs/footer-bg.png') no-repeat;*/
             /*    background: linear-gradient(rgba(41, 29, 58, 0.3), rgba(41, 29, 58, 0.3)), url('./static/assets/imgs/footer-bg.png') no-repeat;*/
@@ -630,13 +644,15 @@ export default function Home(props) {
                             <div class="content">
                                 <h1>Welcome to</h1>
                                 <h1>Vetted</h1>
-                                <h3>Vetted Is An Application For Veterans Who Struggle With Various Mental Health 
-                                    Issues And Are Seeking Connection, Compassion, And Relational Consistency. Vetted 
-                                    Is A Secured Platform That Verifies Veteran User Credentials To Allow For Privacy 
-                                    And Randomizes Usernames To Maintain Privacy. Users Are Able To Access Mental Health 
-                                    Information, Develop Personal Goals, And Communicate With Other Veterans Via Chat Or 
-                                    Video. In A Modern Climate Where Veterans Are Seeking Support And Lack Proper Resources, 
-                                    Vetted Is An Application That Empowers Veterans To Join Arms With Each Other Bridging 
+                                <h3>Vetted Is An Application For Veterans Who Struggle With Various Mental Health
+                                    Issues And Are Seeking Connection, Compassion, And Relational Consistency. Vetted
+                                    Is A Secured Platform That Verifies Veteran User Credentials To Allow For Privacy
+                                    And Randomizes Usernames To Maintain Privacy. Users Are Able To Access Mental Health
+                                    Information, Develop Personal Goals, And Communicate With Other Veterans Via Chat Or
+                                    Video. In A Modern Climate Where Veterans Are Seeking Support And Lack Proper
+                                    Resources,
+                                    Vetted Is An Application That Empowers Veterans To Join Arms With Each Other
+                                    Bridging
                                     The Mental Health Gap.</h3>
                                 <a href="#visiter-user" class="btn">get started</a>
                             </div>
@@ -648,7 +664,7 @@ export default function Home(props) {
                 <div class="swiper-button-prev"></div>
             </div>
         </section>
-<!--         home section ends -->
+        <!--         home section ends -->
 
         <!-- services section starts  -->
 
@@ -661,9 +677,10 @@ export default function Home(props) {
                     <br>
                     <h2>vetted members</h2>
                     <br>
-                    <h3>To protect the safety of the community, all members of Vetted must have their credentials 
+                    <h3>To protect the safety of the community, all members of Vetted must have their credentials
                         confirmed upon registration. This assures that all members are veterans with at least two years
-                        of service and safeguards the Vetted community from those who wish to inflict harm in any form.</h3>
+                        of service and safeguards the Vetted community from those who wish to inflict harm in any
+                        form.</h3>
                 </div>
 
                 <div class="box">
@@ -671,7 +688,8 @@ export default function Home(props) {
                     <br>
                     <h2>privacy & anonymity</h2>
                     <br>
-                    <h3>To prevent revealing veterans who prefer to disguise their identity, a secure verification process,
+                    <h3>To prevent revealing veterans who prefer to disguise their identity, a secure verification
+                        process,
                         randomized usernames supplied upon registration, and password requirements are in place.</h3>
                 </div>
 
@@ -680,13 +698,14 @@ export default function Home(props) {
                     <br>
                     <h2>build connections</h2>
                     <br>
-                    <h3>The Vetted community allows you to connect with other veterans through our chat and friends list 
-                        tools. Combating mental health challenges is greatest accomplished with combat comrades who grasp 
+                    <h3>The Vetted community allows you to connect with other veterans through our chat and friends list
+                        tools. Combating mental health challenges is greatest accomplished with combat comrades who
+                        grasp
                         your difficulties and also how to support you.</3>
                 </div>
             </div>
         </section>
-        
+
         <!-- services section ends -->
 
         <!-- testimonials section starts  -->
@@ -698,10 +717,13 @@ export default function Home(props) {
                     <br>
                     <h2>VA has $20 million</h2>
                     <br>
-                    <h3> "for new ideas but not to increase mental health support. I saw this, and it made me lost my mind.
-                    I've been going on nine months back-and-forth with the VA to get mental healthcare because my mental
-                    health is deteriorating. I keep getting told you don't look so bad, and you have great advocacy skills 
-                    so your mental health cannot be that bad."</h3>
+                    <h3> "for new ideas but not to increase mental health support. I saw this, and it made me lost my
+                        mind.
+                        I've been going on nine months back-and-forth with the VA to get mental healthcare because my
+                        mental
+                        health is deteriorating. I keep getting told you don't look so bad, and you have great advocacy
+                        skills
+                        so your mental health cannot be that bad."</h3>
                 </div>
                 </dialog>
 
@@ -710,10 +732,12 @@ export default function Home(props) {
                     <br>
                     <h2>VA Doc No-show</h2>
                     <br>
-                    <h3>"Had my first video appointment with a VA mental health provider this morning, despite scheduling
-                    back in March. Confirmed the appointment, went to log on ten minutes prior and waited until the 
-                    appointment time. Waited until thirty minutes until after the appointment was supposed to start, and 
-                    the provider still hadn't shown up."</h3>
+                    <h3>"Had my first video appointment with a VA mental health provider this morning, despite
+                        scheduling
+                        back in March. Confirmed the appointment, went to log on ten minutes prior and waited until the
+                        appointment time. Waited until thirty minutes until after the appointment was supposed to start,
+                        and
+                        the provider still hadn't shown up."</h3>
                 </div>
 
                 <div class="box">
@@ -721,9 +745,11 @@ export default function Home(props) {
                     <br>
                     <h2>Who can I really talk to?</h2>
                     <br>
-                    <h3>"Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want to 
-                    talk things out and have a safe space to just cry. It's been a year since I got out of active duty and
-                    its been nothing less than miserable and depressing, and I just want to talk to someone."</h3>
+                    <h3>"Long story short I'm feeling hopeless and lost my feeling of any self-worth I had. I just want
+                        to
+                        talk things out and have a safe space to just cry. It's been a year since I got out of active
+                        duty and
+                        its been nothing less than miserable and depressing, and I just want to talk to someone."</h3>
                 </div>
             </div>
         </section>
@@ -816,7 +842,7 @@ export default function Home(props) {
 
         <!-- custom js file link  -->
         <script src="src/main/resources/static/js/main.js"></script>
-<!--        <script src="../main.js"></script>-->
+        <!--        <script src="../main.js"></script>-->
 
         <script src="src/main/resources/static/js/pre.js"></script>
 
@@ -828,6 +854,7 @@ export function HomeEvent() {
     homeBtnEvent();
     navCloseEvent();
     searchForm();
+    navOpenEvent();
 }
 
 let navbar = document.querySelector('.header .navbar');
@@ -835,14 +862,23 @@ let navbar = document.querySelector('.header .navbar');
 
 function homeBtnEvent() {
     $(document).on('click', '#menu-btn', function () {
-        navbar.classList.add('active');
+        $('.navbar').display;
     })
 }
 
 function navCloseEvent() {
+
     $(document).on('click', '#nav-close', function () {
-        navbar.classList.remove('active');
+        $('.header .navbar-scrolled').hide()
     })
+}
+
+function navOpenEvent() {
+
+    $(document).on('click', '#logo-nav', function () {
+        $('.header .navbar-scrolled').show()
+    })
+
 }
 
 function searchForm() {
