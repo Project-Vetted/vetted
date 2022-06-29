@@ -135,7 +135,7 @@ export default function Settings(props) {
 
        
         <div class="container">
-            <div class="title">User Settings</div>
+            <h2 class="title">${props.user.username}'s Settings</h2>
             <form action="#">
                 <div class="user-details">
                     <div class="input-box">

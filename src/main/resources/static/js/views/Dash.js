@@ -538,9 +538,9 @@ export default function Dash(props) {
                         <li class="list-item">
                             <a href="#" class="list-link" id="chat-feature-btn">Chat</a>
                         </li>
-                        <li class="list-item">
-                            <a href="#" class="list-link">Rating</a>
-                        </li>
+<!--                        <li class="list-item">-->
+<!--                            <a href="#" class="list-link">Rating</a>-->
+<!--                        </li>-->
                         <li class="list-item dropdown">
                             <button class="list-link dropdown-btn place-items-center">User Settings <i
                                     class="ri-arrow-drop-right-line"></i></button>
@@ -628,9 +628,9 @@ export default function Dash(props) {
 <!--                        <a href="#" class="card-body-link">-->
 <!--                            <i class="ri-team-line">Manage Friends List</i>-->
 <!--                        </a>-->
-                        <a href="#" class="card-body-link">
-                            <i class="ri-user-star-fill">User Rating</i>
-                        </a>
+<!--                        <a href="#" class="card-body-link">-->
+<!--                            <i class="ri-user-star-fill">User Rating</i>-->
+<!--                        </a>-->
                         <a href="#" class="card-body-link">
                             <i class="ri-user-voice-fill"></i>
                             <span class="link-name" id="chat-feature-btn">Manage Chat</span>
