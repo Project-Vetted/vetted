@@ -1,17 +1,9 @@
 
-export function getOnlineUsers (){
-
-    // let appIdString = "tYHo9w1I";
-    // let skString = "sk_test_D94IOA990ljdPAfNwSn7zXohikqwy1b7";
-    // let talkJsUrl = `"https://api.talkjs.com/v1/${appIdString}/presences"`
+export function getOnlineUsers (matchedUsers, unmatchedUsers){
 
     const data = {
-        includeBackgroundSessions?: boolean,
-        selectedConversationId?: string | null,
-        hasFocus?: boolean,
-        isTyping?: boolean,
-        userIds?: string[],
-        expandUser?: boolean
+        selectedConversationId: null,
+        expandUser: true
     };
 
     fetch('https://api.talkjs.com/v1/tYHo9w1I/presences', {
@@ -24,11 +16,12 @@ export function getOnlineUsers (){
     })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
-            return data;
+            console.log('Matched Users: ', data);
         })
         .catch((error) => {
             console.error('Error:', error);
         });
 
+    const onlineUsersArray = matchedUsers.concat(unmatchedUsers);
+    return onlineUsersArray;
 }

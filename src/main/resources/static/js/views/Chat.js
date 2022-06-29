@@ -19,10 +19,6 @@ export default function Chat(props) {
     localStorage.setItem('unmatched_users', JSON.stringify(getUnmatchedUsers));
     const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
 
-    console.log(matchedUsers);
-    console.log(unmatchedUsers);
-
-
     //language=HTML
     return `
         <style>
@@ -178,13 +174,17 @@ export default function Chat(props) {
     const userId = localStorage.getItem("user_id");
     const username = localStorage.getItem("user_name");
     const userEmail = localStorage.getItem("user_email");
+
     const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
+    const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
+
+    console.log(matchedUsers);
+    console.log(unmatchedUsers);
 
     initiateChatPresence(userId, username, userEmail);
-    console.log("I initiated Chat Presence");
 
-    getOnlineUsers();
-    console.log("I got online users");
+    console.log(getOnlineUsers(matchedUsers, unmatchedUsers));
+
 
 
     $(document).on('click', '#launch-chat-btn', function (e) {
