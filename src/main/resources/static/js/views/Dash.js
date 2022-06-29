@@ -661,14 +661,20 @@ export default function Dash(props) {
                 <div class="card-group d-grid">
                     <div class="card border-green">
                         <div>
-                            <h1 class="title">Own Your Mental Health</h1>
+                            <h1 class="title">Protecting Veterans' Access to Mental Health Care</h1>
                             <p class="card-description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iure magni mollitia quam
-                                rem?
-                                Ab amet dolore illum modi natus possimus rerum sunt tempore voluptatem!
+                                By: National Alliance on Mental Illness (NAMI) <br>
+
+                                "Veterans health care is a public trust and a national responsibility. Ensuring
+                                America’s veterans have timely access to high-quality mental health care is imperative
+                                to reduce the high rate of suicide among veterans and to provide quality of life after
+                                service. Congress should keep what works and make it better by acting to preserve and
+                                improve the VA health care system and the Veterans Choice Program."
                             </p>
                         </div>
+                        <a href="https://www.nami.org/Advocacy/Policy-Priorities/Improving-Health/Protecting-Veterans-Access-to-Mental-Health-Care>"
                         <button class="list-link">Learn More</button>
+                        </a>
                     </div>
                     <div class="card border-yellow">
                         <div>
