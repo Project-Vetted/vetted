@@ -1,4 +1,3 @@
-import addLoginEvent from "../auth.js";
 
 export function initiateChatPresence (userId, username, userEmail) {
 
