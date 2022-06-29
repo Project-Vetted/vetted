@@ -549,9 +549,9 @@ export default function Dash(props) {
                                     <a href="#" class="list-link" onclick="window.location.href='/settings';">Profile
                                         Settings</a>
                                 </li>
-                                <li class="list-item">
-                                    <a href="#" class="list-link">Friends List</a>
-                                </li>
+<!--                                <li class="list-item">-->
+<!--                                    <a href="#" class="list-link">Friends List</a>-->
+<!--                                </li>-->
                                 <li class="list-item">
                                     <a href="https://benice.com/" class="list-link">Community Guidelines</a>
                                 </li>
@@ -625,9 +625,9 @@ export default function Dash(props) {
                         <a href="#" class="card-body-link">
                             <i class="ri-shield-line" onclick="window.location.href='/settings';">Account Settings</i>
                         </a>
-                        <a href="#" class="card-body-link">
-                            <i class="ri-team-line">Manage Friends List</i>
-                        </a>
+<!--                        <a href="#" class="card-body-link">-->
+<!--                            <i class="ri-team-line">Manage Friends List</i>-->
+<!--                        </a>-->
                         <a href="#" class="card-body-link">
                             <i class="ri-user-star-fill">User Rating</i>
                         </a>
