@@ -78,7 +78,7 @@ export default function Dash(props) {
 
             button {
                 font: inherit;
-                color: inherit;
+                color: #9F9BE7;
                 background: transparent;
                 border: none;
                 border-radius: 0.4rem;
@@ -318,7 +318,7 @@ export default function Dash(props) {
             
             .card-body-link i {
                 font-size: 18px;
-                color: #350259;
+                color: #9F9BE7;
                 text-decoration: none;
             }
 
@@ -328,7 +328,7 @@ export default function Dash(props) {
             
             .card-body-link span{
                 font-size: 16px;
-                color: #350259;
+                color: var(--accent-color);
             }
             
             .card-group .card {
