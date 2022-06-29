@@ -1,10 +1,21 @@
 import {loadChat} from "../chat/loadChat.js";
-import {getHeaders} from "../auth.js";
+import {matchByCategory} from "../chat/matchByCategory.js";
+import {matchByNoCategory} from "../chat/matchByNoCategory.js";
+import {initiateChatPresence} from "../chat/initiateChatPresence.js";
+import {getOnlineUsers} from "../chat/getOnlineUsers.js";
 
 export default function Chat(props) {
-    localStorage.setItem("user_id", props.user.id.toString());
-    localStorage.setItem("user_name", props.user.username.toString());
-    localStorage.setItem("user_email", props.user.email.toString());
+    localStorage.setItem("user_id", props.me.id.toString());
+    localStorage.setItem("user_name", props.me.username.toString());
+    localStorage.setItem("user_email", props.me.email.toString());
+
+    const getMatchedUsers = matchByCategory(props);
+    localStorage.setItem('matched_users', JSON.stringify(getMatchedUsers));
+
+    const getUnmatchedUsers = matchByNoCategory(props, matchedUsers);
+    localStorage.setItem('unmatched_users', JSON.stringify(getUnmatchedUsers));
+
+    initiateChatPresence(userId, username, userEmail);
 
     //language=HTML
     return `
@@ -147,20 +158,28 @@ export default function Chat(props) {
     `;
 }
 
-{
-    {$(document).on('click', '#launch-chat-btn', function (e) {
-        e.preventDefault();
+const userId = localStorage.getItem("user_id");
+const username = localStorage.getItem("user_name");
+const userEmail = localStorage.getItem("user_email");
 
-        const chatBoxDiv = document.getElementById("chatbox");
-        chatBoxDiv.style.display = "revert";
+const matchedUsers = JSON.parse(localStorage.getItem('matched_users'));
+const unmatchedUsers = JSON.parse(localStorage.getItem('unmatched_users'));
+const onlineUsers = getOnlineUsers(matchedUsers, unmatchedUsers);
 
-        const userId = localStorage.getItem("user_id");
-        const username = localStorage.getItem("user_name");
-        const userEmail = localStorage.getItem("user_email");
-        loadChat(userId, username, userEmail);
+console.log(matchedUsers);
+console.log(unmatchedUsers);
 
-    })}
-}
+$(document).on('click', '#launch-chat-btn', function (e) {
+    e.preventDefault();
+
+    const chatBoxDiv = document.getElementById("chatbox");
+    chatBoxDiv.style.display = "revert";
+
+    initiateChatPresence(userId, username, userEmail);
+    loadChat(userId, username, userEmail, matchedUsers, unmatchedUsers, onlineUsers);
+
+
+});
 
 
 
