@@ -61,6 +61,18 @@ export default function Settings(props) {
                 margin-bottom: 15px;
             }
 
+            .btn-bottom {
+                width: 110px;
+                height: 35px;
+                margin: 0 10px;
+                background: linear-gradient(to right, #C0B2FF, #350259);
+                border-radius: 30px;
+                border: 0;
+                outline: none;
+                color: #fff;
+                cursor: pointer;
+            }
+
             .user-details .input-box input{
                 height: 45px;
                 width: 100%;
@@ -176,16 +188,16 @@ export default function Settings(props) {
                         </label>
                     </div>
                     <div class="button">
-                        <input id="update-email-button" data-id="${props.user.id}" type="button" value="Update Email">
+                        <input id="update-email-button" data-id="${props.user.id}" type="button" class="btn-bottom" value="Update Email">
                     </div>
                     <div class="button">
-                        <input id="update-password-button" data-id="${props.user.id}" type="button" value="Update Password">
+                        <input id="update-password-button" data-id="${props.user.id}" type="button" class="btn-bottom" value="Update Password">
                     </div>
                     <div class="button">
-                        <input id="update-username-button" data-id="${props.user.id}" type="button" value="Randomize Username">
+                        <input id="update-username-button" data-id="${props.user.id}" type="button" class="btn-bottom" value="Randomize Username">
                     </div>
                     <div class="button">
-                        <input type="button" onclick="window.location.href='/dashboard';" value="Cancel">
+                        <input type="button" onclick="window.location.href='/dashboard';" class="btn-bottom" value="Cancel">
                     </div>
 
                 </div>
