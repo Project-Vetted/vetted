@@ -1,14 +1,15 @@
-
 /**
  * Given an object containing all the required data for a given page, fetch all the needed data and return it as properties to pass to a view.
  * @param state
  * @param request
  * @returns {Promise<{}>}
  */
+import {BASE_URL} from "./baseUrl.js";
+
 export default function fetchData(state, request) {
     const promises = [];
     //TODO: this needs to be moved to a prop file or env variable
-    const baseUri = "http://localhost:8080";
+    const baseUri = BASE_URL;
 
     console.log("got to fetch data");
     console.log(request);

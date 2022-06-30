@@ -6,6 +6,7 @@ target/
 .gitignore
 application.properties
 keys.js
+baseUrl.js
 
 ### STS ###
 .apt_generated
