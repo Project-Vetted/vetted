@@ -15,7 +15,7 @@ export default function Settings(props) {
                 cursor: default;
             }
 
-            body{
+            body {
                 display: flex;
                 height: 100vh;
                 justify-content: center;
@@ -24,7 +24,7 @@ export default function Settings(props) {
                 background: linear-gradient(90deg, #C7C5F4, #776BCC);
             }
 
-            .container{
+            .container {
                 max-width: 700px;
                 width: 100%;
                 background: #fff;
@@ -33,13 +33,13 @@ export default function Settings(props) {
                 box-shadow: 0 0 10px #D1BAFF;
             }
 
-            .container .title{
+            .container .title {
                 font-weight: 500;
                 font-size: 25px;
                 position: relative;
             }
 
-            .container .title::before{
+            .container .title::before {
                 position: absolute;
                 content: '';
                 left: 0;
@@ -49,14 +49,14 @@ export default function Settings(props) {
                 background: linear-gradient(90deg, #C7C5F4, #776BCC);
             }
 
-            .container form .user-details{
+            .container form .user-details {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 margin: 20px 0 12px 0;
             }
 
-            form .user-details .input-box{
+            form .user-details .input-box {
                 width: calc(100% / 2 - 20px);
                 margin-bottom: 15px;
             }
@@ -73,7 +73,7 @@ export default function Settings(props) {
                 cursor: pointer;
             }
 
-            .user-details .input-box input{
+            .user-details .input-box input {
                 height: 45px;
                 width: 100%;
                 outline: none;
@@ -86,19 +86,19 @@ export default function Settings(props) {
                 border-color: #776BCC;
             }
 
-            .user-details .input-box details{
+            .user-details .input-box details {
                 font-weight: 500;
                 margin-bottom: 5px;
                 display: block;
             }
 
             .user-details .input-box input:focus,
-            .user-details .input-box input:valid{
+            .user-details .input-box input:valid {
                 border-color: #776BCC;
 
             }
 
-            form .check-categories{
+            form .check-categories {
                 font-size: 16px;
                 font-weight: 500;
                 width: 80%;
@@ -106,47 +106,62 @@ export default function Settings(props) {
                 margin: 16px;
             }
 
-            form .button{
+            form .button {
                 height: 30px;
                 margin: 45px 0;
             }
 
-            form .button input{
+            form .button input {
                 height: 80%;
                 width: 100%;
                 outline: none;
                 color: #fff;
                 border: none;
                 background: linear-gradient(135deg, #C7C5F4, #776BCC);
-                font-size:16px;
+                font-size: 16px;
                 font-weight: 300;
                 border-radius: 5px;
                 letter-spacing: 1px;
             }
 
-            form . button input:hover{
+            form . button input:hover {
                 background: linear-gradient(-135deg, #C7C5F4, #776BCC);
             }
+            
+            /*TODO: TESTING PASSWORD STRENGTH JS*/
+            .passwordInput {
+                margin-top: 5%;
+                text-align: center;
+            }
 
-            @media (max-width: 584px){
-                .container{
+            .displayBadge {
+                /*margin-top: 5%;*/
+                display: none;
+                text-align: center;
+            }
+
+            @media (max-width: 584px) {
+                .container {
                     max-width: 100%;
                 }
-                form .user-details .input-box{
+
+                form .user-details .input-box {
                     width: 100%;
                     margin-bottom: 15px;
                 }
-                form .check-categories{
+
+                form .check-categories {
                     width: 100%;
                 }
-                .container form .user-details{
+
+                .container form .user-details {
                     max-height: 300px;
                     overflow-y: scroll;
                 }
             }
         </style>
 
-       
+
         <div class="container">
             <h2 class="title">${props.user.username}'s Settings</h2>
             <form action="#">
@@ -167,41 +182,52 @@ export default function Settings(props) {
                         <span class="details">Confirm Password</span>
                         <input id="confirm-password" type="password" placeholder="Confirm password">
                     </div>
-                    <div class="categories-checkbox"> Change Category:
-                        <label class="check-categories">PTSD
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
 
-                        <label class="check-categories">Addictions
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="check-categories">Depression
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
+                    <!--TODO: TESTING PASSWORD STRENGTH HTML-->
 
-                        <label class="check-categories">Anxiety
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
+                        <span id="StrengthDisp" class="badge displayBadge form-control">Weak</span>
+                
+<!--                    <div class="categories-checkbox"> Change Category:-->
+<!--                        <label class="check-categories">PTSD-->
+<!--                            <input type="checkbox" checked="checked">-->
+<!--                            <span class="checkmark"></span>-->
+<!--                        </label>-->
+
+<!--                        <label class="check-categories">Addictions-->
+<!--                            <input type="checkbox">-->
+<!--                            <span class="checkmark"></span>-->
+<!--                        </label>-->
+<!--                        <label class="check-categories">Depression-->
+<!--                            <input type="checkbox" checked="checked">-->
+<!--                            <span class="checkmark"></span>-->
+<!--                        </label>-->
+
+<!--                        <label class="check-categories">Anxiety-->
+<!--                            <input type="checkbox">-->
+<!--                            <span class="checkmark"></span>-->
+<!--                        </label>-->
+<!--                    </div>-->
+                    <div class="button">
+                        <input id="update-email-button" data-id="${props.user.id}" type="button" class="btn-bottom"
+                               value="Update Email">
                     </div>
                     <div class="button">
-                        <input id="update-email-button" data-id="${props.user.id}" type="button" class="btn-bottom" value="Update Email">
+                        <input id="update-password-button" data-id="${props.user.id}" type="button" class="btn-bottom"
+                               value="Update Password">
                     </div>
                     <div class="button">
-                        <input id="update-password-button" data-id="${props.user.id}" type="button" class="btn-bottom" value="Update Password">
+                        <input id="update-username-button" data-id="${props.user.id}" type="button" class="btn-bottom"
+                               value="Randomize Username">
                     </div>
                     <div class="button">
-                        <input id="update-username-button" data-id="${props.user.id}" type="button" class="btn-bottom" value="Randomize Username">
-                    </div>
-                    <div class="button">
-                        <input type="button" onclick="window.location.href='/dashboard';" class="btn-bottom" value="Cancel">
+                        <input type="button" onclick="window.location.href='/dashboard';" class="btn-bottom"
+                               value="Cancel">
                     </div>
 
                 </div>
             </form>
+
+
         </div>
     `
 }
@@ -210,6 +236,62 @@ export function UserSettingsEvent() {
     updateEmailListener();
     updatePasswordListener();
     updateUsernameListener();
+    passwordStrengthChecker()
+}
+
+//TODO: TESTING PASSWORD STRENGTH JS
+function passwordStrengthChecker() {
+
+    // timeout before a callback is called
+
+    let timeout;
+
+    // traversing the DOM and getting the input and span using their IDs
+
+    let password = document.getElementById('new-password')
+    let strengthBadge = document.getElementById('StrengthDisp')
+
+    // The strong and weak password Regex pattern checker
+
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+    let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+
+    function StrengthChecker(PasswordParameter) {
+        // We then change the badge's color and text based on the password strength
+
+        if (strongPassword.test(PasswordParameter)) {
+            strengthBadge.style.backgroundColor = "green"
+            strengthBadge.textContent = 'Strong'
+        } else if (mediumPassword.test(PasswordParameter)) {
+            strengthBadge.style.backgroundColor = 'blue'
+            strengthBadge.textContent = 'Medium'
+        } else {
+            strengthBadge.style.backgroundColor = 'red'
+            strengthBadge.textContent = 'Weak'
+        }
+    }
+
+    // Adding an input event listener when a user types to the  password input
+
+    password.addEventListener("input", () => {
+
+        //The badge is hidden by default, so we show it
+
+        strengthBadge.style.display = 'block'
+        clearTimeout(timeout);
+
+        //We then call the StrengChecker function as a callback then pass the typed password to it
+
+        timeout = setTimeout(() => StrengthChecker(password.value), 500);
+
+        //Incase a user clears the text, the badge is hidden again
+
+        if (password.value.length !== 0) {
+            strengthBadge.style.display != 'block'
+        } else {
+            strengthBadge.style.display = 'none'
+        }
+    });
 }
 
 function updatePasswordListener() {
