@@ -135,7 +135,7 @@ export default function Settings(props) {
             }
 
             .displayBadge {
-                margin-top: 5%;
+                /*margin-top: 5%;*/
                 display: none;
                 text-align: center;
             }
@@ -184,17 +184,9 @@ export default function Settings(props) {
                     </div>
 
                     <!--TODO: TESTING PASSWORD STRENGTH HTML-->
-                    <div class="d-flex text-danger justify-content-center">
-                        <h4 style="margin-top: 10%; text-align :center">
-                            Password Strength Checker
-                        </h4>
-                        <br>
-                        <input type="password" placeholder="Type your password" id="PassEntry"
-                               class="form-control passwordInput">
-                        <br>
-                        <span id="StrengthDisp" class="badge displayBadge">Weak</span>
-                        <br>
-                    </div>
+
+                        <span id="StrengthDisp" class="badge displayBadge form-control">Weak</span>
+                
 <!--                    <div class="categories-checkbox"> Change Category:-->
 <!--                        <label class="check-categories">PTSD-->
 <!--                            <input type="checkbox" checked="checked">-->
@@ -256,7 +248,7 @@ function passwordStrengthChecker() {
 
     // traversing the DOM and getting the input and span using their IDs
 
-    let password = document.getElementById('PassEntry')
+    let password = document.getElementById('new-password')
     let strengthBadge = document.getElementById('StrengthDisp')
 
     // The strong and weak password Regex pattern checker
