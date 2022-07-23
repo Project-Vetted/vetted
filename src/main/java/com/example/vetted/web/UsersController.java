@@ -1,6 +1,5 @@
 package com.example.vetted.web;
 
-import com.example.vetted.data.Category;
 import com.example.vetted.data.User;
 import com.example.vetted.data.UsersRepository;
 import com.example.vetted.service.UserService;
@@ -11,11 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-
-import static com.example.vetted.data.User.Role.VET;
 
 @RestController
 @RequestMapping(value = "/api/users", headers = "Accept=application/json")
@@ -45,7 +39,7 @@ public class UsersController {
 
     @GetMapping("me")
     public User getCurrentUser(OAuth2Authentication auth) {
-        return userService.getByEmail(auth.getName());
+        return userService.getUserByEmail(auth.getName());
     }
 
     @PostMapping("create")
@@ -54,10 +48,13 @@ public class UsersController {
         userService.createUser(newUser);
         return newUser.getId();
 //        userService.updateRole(newUser.getId(), VET);
+
+        //TODO: check DB for duplicate email create
+
     }
 
     @GetMapping("username")
-    public User getByUsername(@RequestParam String username) {
+    public User getUserByUsername(@RequestParam String username) {
         System.out.println("Getting user with username: " + username);
         return userService.getUserByUsername(username);
     }
@@ -68,9 +65,9 @@ public class UsersController {
     }
 
     @GetMapping("email")
-    public User getByEmail(@RequestParam String email) {
+    public User getUserByEmail(@RequestParam String email) {
         System.out.println("Getting user with email: " + email);
-        return userService.getByEmail(email);
+        return userService.getUserByEmail(email);
     }
 
 
@@ -88,6 +85,9 @@ public class UsersController {
     @PutMapping("{userId}/updateEmail")
     public void updateEmail(@PathVariable Long userId, @RequestParam String newEmail) {
         userService.updateEmail(userId, newEmail);
+
+        //TODO: check DB for duplicate email updateEmail UsersController
+
     }
 
     @PutMapping("{userId}/updateUsername")
