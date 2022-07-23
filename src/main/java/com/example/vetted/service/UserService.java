@@ -3,7 +3,7 @@ package com.example.vetted.service;
 import com.example.vetted.data.*;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Objects;
 
 import static com.example.vetted.data.User.Role.USER;
 import static com.example.vetted.data.User.Role.VET;
@@ -33,8 +33,11 @@ public class UserService {
         return usersRepository.findByUsername(username);
     }
 
-    public User getByEmail(String email) {
+    public User getUserByEmail(String email) {
         User user = usersRepository.findByEmail(email).orElseThrow();
+
+        //TODO: check DB for duplicate email getByEmail UserService
+
         return user;
     }
 
@@ -43,10 +46,26 @@ public class UserService {
         return user.getId().toString();
     }
 
+    /* ========== ORIGINAL updateEmail Method ========== */
+
+//    public void updateEmail(Long userId, String newEmail) {
+//        User user = getUserById(userId);
+//        user.setEmail(newEmail);
+//        usersRepository.save(user);
+//    }
+
+    //TODO: WORKING - check DB for duplicate email updateEmail UserService
+
     public void updateEmail(Long userId, String newEmail) {
-        User user = getUserById(userId);
-        user.setEmail(newEmail);
-        usersRepository.save(user);
+        User user = getUserByEmail(newEmail);
+
+        if (Objects.isNull(user)) {
+            System.out.println("This email exists in the DB");
+        } else {
+            user = getUserById(userId);
+            user.setEmail(newEmail);
+            usersRepository.save(user);
+        }
     }
 
     public void createUser(User user) {
@@ -95,11 +114,11 @@ public class UserService {
         usersRepository.save(user);
     }
 
-    public void checkUserRoleForFeatureAccess(long id){
+    public void checkUserRoleForFeatureAccess(long id) {
         User user = getUserById(id);
-        if (user.getRole() != VET){
+        if (user.getRole() != VET) {
             System.out.println("NO WAY JOSE");
-        }else {
+        } else {
             System.out.println("SI");
         }
     }
