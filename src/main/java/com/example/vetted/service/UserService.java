@@ -3,6 +3,8 @@ package com.example.vetted.service;
 import com.example.vetted.data.*;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 import static com.example.vetted.data.User.Role.USER;
 import static com.example.vetted.data.User.Role.VET;
 
@@ -44,19 +46,23 @@ public class UserService {
         return user.getId().toString();
     }
 
-    public void updateEmail(Long userId, String newEmail) {
-        //TODO: check DB for duplicate email updateEmail UserService
+    /* ========== ORIGINAL updateEmail Method ========== */
 
+//    public void updateEmail(Long userId, String newEmail) {
+//        User user = getUserById(userId);
+//        user.setEmail(newEmail);
+//        usersRepository.save(user);
+//    }
+
+    //TODO: WORKING - check DB for duplicate email updateEmail UserService
+
+    public void updateEmail(Long userId, String newEmail) {
         User user = getUserByEmail(newEmail);
 
-
-        if (user == ) {
-
+        if (Objects.isNull(user)) {
+            System.out.println("This email exists in the DB");
         } else {
-
             user = getUserById(userId);
-
-
             user.setEmail(newEmail);
             usersRepository.save(user);
         }
